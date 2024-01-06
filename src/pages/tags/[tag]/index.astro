@@ -1,31 +1,29 @@
 ---
+import { changeLanguage } from "i18next";
 import { getCollection } from "astro:content";
 import TagPosts from "@layouts/TagPosts.astro";
 import getPostsByTag from "@utils/getPostsByTag";
 import getPagination from "@utils/getPagination";
 import getUniqueTags from "@utils/getUniqueTags";
 
+changeLanguage("en");
+
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-
-  const tags = getUniqueTags(posts);
-
-  return tags.map(({ tag, tagName }) => {
-    return {
-      params: { tag },
-      props: { tag, tagName, posts },
-    };
-  });
+    const posts = await getCollection("blog");
+    const tags = getUniqueTags(posts);
+    return tags.map(({ tag, tagName }) => {
+        return {
+            params: { tag },
+            props: { tag, tagName, posts },
+        };
+    });
 }
-
 const { tag, tagName, posts } = Astro.props;
-
 const postsByTag = getPostsByTag(posts, tag);
-
 const pagination = getPagination({
-  posts: postsByTag,
-  page: 1,
-  isIndex: true,
+    posts: postsByTag,
+    page: 1,
+    isIndex: true,
 });
 ---
 

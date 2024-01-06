@@ -2,7 +2,11 @@ import Fuse from "fuse.js";
 import { useEffect, useRef, useState, useMemo } from "react";
 import Card from "@components/Card";
 import type { CollectionEntry } from "astro:content";
+// import { localizeUrl, localizePath } from "astro-i18next";
 
+// TODO
+const t = (str: string) => str;
+const localizePath = (str: string) => str;
 export type SearchItem = {
   title: string;
   description: string;
@@ -27,6 +31,7 @@ export default function SearchBar({ searchList }: Props) {
   );
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    console.log(e.currentTarget.value);
     setInputVal(e.currentTarget.value);
   };
 
@@ -82,11 +87,11 @@ export default function SearchBar({ searchList }: Props) {
           </svg>
         </span>
         <input
-          className="block w-full rounded border border-skin-fill 
+          className="block w-full rounded border border-skin-fill
         border-opacity-40 bg-skin-fill py-3 pl-10
-        pr-3 placeholder:italic placeholder:text-opacity-75 
+        pr-3 placeholder:italic placeholder:text-opacity-75
         focus:border-skin-accent focus:outline-none"
-          placeholder="Search for anything..."
+          placeholder={t("searchDesc") as string}
           type="text"
           name="search"
           value={inputVal}
@@ -99,7 +104,7 @@ export default function SearchBar({ searchList }: Props) {
 
       {inputVal.length > 1 && (
         <div className="mt-8">
-          Found {searchResults?.length}
+          TODO: Found {searchResults?.length}
           {searchResults?.length && searchResults?.length === 1
             ? " result"
             : " results"}{" "}
@@ -111,7 +116,7 @@ export default function SearchBar({ searchList }: Props) {
         {searchResults &&
           searchResults.map(({ item, refIndex }) => (
             <Card
-              href={`/posts/${item.slug}`}
+              href={localizePath(`/posts/${item.slug}`)}
               frontmatter={item.data}
               key={`${refIndex}-${item.slug}`}
             />

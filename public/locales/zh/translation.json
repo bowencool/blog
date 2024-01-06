@@ -1,0 +1,20 @@
+{
+  "websiteTitle": "Bowen的博客",
+  "websiteDescription": "Bowen的博客",
+  "websiteAuthor": "Bowen",
+  "home": "主页",
+  "posts": "文章",
+  "postsDesc": "我发布的所有文章。",
+  "about": "关于",
+  "tags": "标签",
+  "tagsDesc": "帖子中使用的所有标签。",
+  "tagsDesc{{tag}}": "所有带有标签 {{tag}} 的文章。",
+  "page{{n}}": "第{{n}}页",
+  "prev": "上一页",
+  "next": "下一页",
+  "goBack": "返回",
+  "backToTop": "返回顶部",
+  "search": "搜索",
+  "searchDesc": "搜索任何内容...",
+  "updatedAt": "更新于"
+}

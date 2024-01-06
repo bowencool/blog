@@ -1,4 +1,5 @@
 ---
+import { changeLanguage } from "i18next";
 import { type CollectionEntry, getCollection } from "astro:content";
 import TagPosts from "@layouts/TagPosts.astro";
 import getUniqueTags from "@utils/getUniqueTags";
@@ -6,38 +7,32 @@ import getPostsByTag from "@utils/getPostsByTag";
 import getPageNumbers from "@utils/getPageNumbers";
 import getPagination from "@utils/getPagination";
 
+changeLanguage("en");
+
 export interface Props {
-  post: CollectionEntry<"blog">;
-  tag: string;
-  tagName: string;
+    post: CollectionEntry<"blog">;
+    tag: string;
+    tagName: string;
 }
-
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-
-  const tags = getUniqueTags(posts);
-
-  return tags.flatMap(({ tag, tagName }) => {
-    const tagPosts = getPostsByTag(posts, tag);
-    const totalPages = getPageNumbers(tagPosts.length);
-
-    return totalPages.map(page => ({
-      params: { tag, page },
-      props: { tag, tagName },
-    }));
-  });
+    const posts = await getCollection("blog");
+    const tags = getUniqueTags(posts);
+    return tags.flatMap(({ tag, tagName }) => {
+        const tagPosts = getPostsByTag(posts, tag);
+        const totalPages = getPageNumbers(tagPosts.length);
+        return totalPages.map(page => ({
+            params: { tag, page },
+            props: { tag, tagName },
+        }));
+    });
 }
-
 const { page } = Astro.params;
 const { tag, tagName } = Astro.props;
-
 const posts = await getCollection("blog", ({ data }) => !data.draft);
-
 const postsByTag = getPostsByTag(posts, tag);
-
 const pagination = getPagination({
-  posts: postsByTag,
-  page,
+    posts: postsByTag,
+    page,
 });
 ---
 

@@ -1,4 +1,5 @@
 ---
+import { changeLanguage } from "i18next";
 import { getCollection } from "astro:content";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
@@ -6,16 +7,17 @@ import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Tag from "@components/Tag.astro";
 import getUniqueTags from "@utils/getUniqueTags";
-import { SITE } from "@config";
+import { t, changeLanguage } from "i18next";
+
+changeLanguage("en");
 
 const posts = await getCollection("blog");
-
 let tags = getUniqueTags(posts);
 ---
 
-<Layout title={`Tags | ${SITE.title}`}>
+<Layout title={`${t("tags")} | ${t("websiteTitle")}`}>
   <Header activeNav="tags" />
-  <Main pageTitle="Tags" pageDesc="All the tags used in posts.">
+  <Main pageTitle={t("tags") as string} pageDesc={t("tagsDesc") as string}>
     <ul>
       {tags.map(({ tag }) => <Tag {tag} size="lg" />)}
     </ul>

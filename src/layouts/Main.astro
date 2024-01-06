@@ -7,8 +7,8 @@ interface StringTitleProp {
 }
 
 interface ArrayTitleProp {
-  pageTitle: [string, string];
-  titleTransition: string;
+  pageTitle: string | [string, string];
+  titleTransition?: string;
   pageDesc?: string;
 }
 
@@ -20,7 +20,7 @@ const { props } = Astro;
 <Breadcrumbs />
 <main id="main-content">
   {
-    "titleTransition" in props ? (
+    "titleTransition" in props && Array.isArray(props.pageTitle) ? (
       <h1>
         {props.pageTitle[0]}
         <span transition:name={props.titleTransition}>

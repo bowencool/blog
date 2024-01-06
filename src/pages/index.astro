@@ -1,4 +1,5 @@
 ---
+import { changeLanguage } from "i18next";
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
@@ -9,12 +10,13 @@ import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
+import { localizePath } from "astro-i18next";
+
+changeLanguage("en");
 
 const posts = await getCollection("blog");
-
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
 
@@ -25,7 +27,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       <h1>Mingalaba</h1>
       <a
         target="_blank"
-        href="/rss.xml"
+        href={localizePath("/rss.xml")}
         class="rss-link"
         aria-label="rss feed"
         title="RSS Feed"
@@ -75,7 +77,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
             <ul>
               {featuredPosts.map(({ data, slug }) => (
                 <Card
-                  href={`/posts/${slug}`}
+                  href={localizePath(`/posts/${slug}`)}
                   frontmatter={data}
                   secHeading={false}
                 />
@@ -97,7 +99,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
               ({ data, slug }, index) =>
                 index < 4 && (
                   <Card
-                    href={`/posts/${slug}`}
+                    href={localizePath(`/posts/${slug}`)}
                     frontmatter={data}
                     secHeading={false}
                   />

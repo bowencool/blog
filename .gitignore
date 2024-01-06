@@ -1,6 +1,7 @@
 # build output
 dist/
 .output/
+src/pages/zh/**/*.astro
 
 # dependencies
 node_modules/

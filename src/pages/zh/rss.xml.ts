@@ -3,9 +3,9 @@ import { getCollection } from "astro:content";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SITE } from "@config";
 import { t } from "i18next";
-import { localizeUrl } from "astro-i18next";
+import { localizeUrl, localizePath } from "astro-i18next";
 import { changeLanguage } from "i18next";
-changeLanguage("en");
+changeLanguage("zh");
 
 export async function GET() {
   const posts = await getCollection("blog");
@@ -15,7 +15,7 @@ export async function GET() {
     description: t("websiteDescription"),
     site: localizeUrl(SITE.website),
     items: sortedPosts.map(({ data, slug }) => ({
-      link: `posts/${slug}`,
+      link: localizePath(`/posts/${slug}`),
       title: data.title,
       description: data.description,
       pubDate: new Date(data.modDatetime ?? data.pubDatetime),

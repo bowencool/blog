@@ -3,6 +3,12 @@ import { LOGO_IMAGE, SITE } from "@config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
+import { LanguageSelector } from "astro-i18next/components";
+import { t } from "i18next";
+import { localizePath } from "astro-i18next";
+
+const title = t("websiteTitle");
+
 export interface Props {
   activeNav?: "posts" | "tags" | "about" | "search";
 }
@@ -14,17 +20,17 @@ const { activeNav } = Astro.props;
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="nav-container">
     <div class="top-nav-wrap">
-      <a href="/" class="logo whitespace-nowrap">
+      <a href={localizePath("/")} class="logo whitespace-nowrap">
         {
           LOGO_IMAGE.enable ? (
             <img
               src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
-              alt={SITE.title}
+              alt={title}
               width={LOGO_IMAGE.width}
               height={LOGO_IMAGE.height}
             />
           ) : (
-            SITE.title
+            title
           )
         }
       </a>
@@ -56,23 +62,32 @@ const { activeNav } = Astro.props;
         </button>
         <ul id="menu-items" class="display-none sm:flex">
           <li>
-            <a href="/posts" class={activeNav === "posts" ? "active" : ""}>
-              Posts
+            <a
+              href={localizePath("/posts")}
+              class={activeNav === "posts" ? "active" : ""}
+            >
+              {t("posts")}
             </a>
           </li>
           <li>
-            <a href="/tags" class={activeNav === "tags" ? "active" : ""}>
-              Tags
+            <a
+              href={localizePath("/tags")}
+              class={activeNav === "tags" ? "active" : ""}
+            >
+              {t("tags")}
             </a>
           </li>
           <li>
-            <a href="/about" class={activeNav === "about" ? "active" : ""}>
-              About
+            <a
+              href={localizePath("/about")}
+              class={activeNav === "about" ? "active" : ""}
+            >
+              {t("about")}
             </a>
           </li>
           <li>
             <LinkButton
-              href="/search"
+              href={localizePath("/search")}
               className={`focus-outline p-3 sm:p-1 ${
                 activeNav === "search" ? "active" : ""
               } flex`}
@@ -107,6 +122,9 @@ const { activeNav } = Astro.props;
                 </button>
               )
             }
+          </li>
+          <li>
+            <LanguageSelector showFlag={true} class="language-selector" />
           </li>
         </ul>
       </nav>
@@ -185,6 +203,9 @@ const { activeNav } = Astro.props;
   }
   .menu-icon.is-active .close {
     @apply opacity-100;
+  }
+  .language-selector {
+    @apply bg-transparent;
   }
 </style>
 

@@ -1,0 +1,20 @@
+{
+  "websiteTitle": "Bowen's Blog",
+  "websiteDescription": "Bowen's Blog",
+  "websiteAuthor": "Bowen",
+  "home": "Home",
+  "posts": "Posts",
+  "postsDesc": "All the articles I've posted.",
+  "about": "About",
+  "tags": "Tags",
+  "tagsDesc": "All the tags used in posts.",
+  "tagsDesc{{tag}}": "All the articles with the tag {{tag}}.",
+  "page{{n}}": "Page {{n}}",
+  "prev": "Prev",
+  "next": "Next",
+  "goBack": "Go Back",
+  "backToTop": "Back to Top",
+  "search": "Search",
+  "searchDesc": "Search for anything...",
+  "updatedAt": "Updated At"
+}

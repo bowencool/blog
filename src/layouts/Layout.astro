@@ -1,7 +1,9 @@
 ---
-import { LOCALE, SITE } from "@config";
+import { SITE } from "@config";
 import "@styles/base.css";
 import { ViewTransitions } from "astro:transitions";
+import i18next, { t } from "i18next";
+import { HeadHrefLangs } from "astro-i18next/components";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -17,8 +19,8 @@ export interface Props {
 }
 
 const {
-  title = SITE.title,
-  author = SITE.author,
+  author = t("websiteAuthor"),
+  title = t("websiteTitle"),
   description = SITE.desc,
   ogImage = SITE.ogImage,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
@@ -34,10 +36,7 @@ const socialImageURL = new URL(
 ---
 
 <!doctype html>
-<html
-  lang=`${LOCALE.lang ?? "en"}`
-  class={`${scrollSmooth && "scroll-smooth"}`}
->
+<html lang={i18next.language} class={`${scrollSmooth && "scroll-smooth"}`}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -51,6 +50,7 @@ const socialImageURL = new URL(
     <meta name="description" content={description} />
     <meta name="author" content={author} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <HeadHrefLangs />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content={title} />

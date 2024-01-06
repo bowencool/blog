@@ -1,4 +1,4 @@
-import { LOCALE } from "@config";
+import i18next, { t } from "i18next";
 
 interface DatetimesProps {
   pubDatetime: string | Date;
@@ -48,13 +48,13 @@ export default function Datetime({
 const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
   const myDatetime = new Date(modDatetime ? modDatetime : pubDatetime);
 
-  const date = myDatetime.toLocaleDateString(LOCALE.langTag, {
+  const date = myDatetime.toLocaleDateString(i18next.language, {
     year: "numeric",
     month: "short",
     day: "numeric",
   });
 
-  const time = myDatetime.toLocaleTimeString(LOCALE.langTag, {
+  const time = myDatetime.toLocaleTimeString(i18next.language, {
     hour: "2-digit",
     minute: "2-digit",
   });
@@ -65,6 +65,20 @@ const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
       <span aria-hidden="true"> | </span>
       <span className="sr-only">&nbsp;at&nbsp;</span>
       <span className="text-nowrap">{time}</span>
+      {/* <div>
+        <time dateTime={myDatetime.toISOString()}>
+          {t("datetimeFormat", {
+            value: myDatetime,
+            formatParams: {
+              val: {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              },
+            },
+          })}
+        </time>
+      </div> */}
     </>
   );
 };
