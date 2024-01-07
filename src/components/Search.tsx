@@ -2,11 +2,9 @@ import Fuse from "fuse.js";
 import { useEffect, useRef, useState, useMemo } from "react";
 import Card from "@components/Card";
 import type { CollectionEntry } from "astro:content";
-// import { localizeUrl, localizePath } from "astro-i18next";
+import { useTranslation } from "react-i18next";
+import { useLocalization } from "hooks/useLocalization";
 
-// TODO
-const t = (str: string) => str;
-const localizePath = (str: string) => str;
 export type SearchItem = {
   title: string;
   description: string;
@@ -24,6 +22,8 @@ interface SearchResult {
 }
 
 export default function SearchBar({ searchList }: Props) {
+  const { t } = useTranslation();
+  const { localizePath } = useLocalization();
   const inputRef = useRef<HTMLInputElement>(null);
   const [inputVal, setInputVal] = useState("");
   const [searchResults, setSearchResults] = useState<SearchResult[] | null>(

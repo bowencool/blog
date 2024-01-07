@@ -14,8 +14,8 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
-    astroI18next(),
     react(),
+    astroI18next(),
     sitemap(),
   ],
   markdown: {
