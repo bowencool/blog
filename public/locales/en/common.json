@@ -16,5 +16,6 @@
   "backToTop": "Back to Top",
   "search": "Search",
   "searchDesc": "Search for anything...",
-  "updatedAt": "Updated At"
+  "updatedAt": "Updated at",
+  "publishedAt": "Published at"
 }

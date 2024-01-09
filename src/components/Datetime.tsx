@@ -1,4 +1,5 @@
-import i18next, { t } from "i18next";
+import i18next from "i18next";
+import { useTranslation } from "react-i18next";
 
 interface DatetimesProps {
   date: string | Date;
@@ -17,6 +18,7 @@ export default function Datetime({
   size = "sm",
   className,
 }: Props) {
+  const { t } = useTranslation();
   return (
     <div className={`flex items-center space-x-2 opacity-80 ${className}`}>
       <svg
@@ -31,18 +33,17 @@ export default function Datetime({
       </svg>
 
       <div
-        className={`flex w-full justify-between ${
+        className={`flex w-full justify-between italic ${
           size === "sm" ? "text-sm" : "text-base"
         }`}
       >
-        <span className={`italic`}>
-          <span className="sr-only">Published:</span>
+        <span>
+          <span className="sr-only">{t("updatedAt")} </span>
           <FormattedDatetime date={pubDatetime} />
         </span>
         {modDatetime && (
-          <span className={`italic`}>
-            <span aria-hidden="true">Updated:</span>
-            <span className="sr-only">&nbsp;at</span>
+          <span>
+            <span aria-hidden="true">{t("updatedAt")} </span>
             <FormattedDatetime date={modDatetime} />
           </span>
         )}
