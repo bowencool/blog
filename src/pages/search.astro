@@ -5,12 +5,13 @@ import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import SearchBar from "@components/Search";
-import { t, changeLanguage } from "i18next";
+import i18next, { t, changeLanguage } from "i18next";
+import { getPostsByLang } from "@utils/getPosts";
 
 changeLanguage("en");
 
 // Retrieve all articles
-const posts = await getCollection("blog", ({ data }) => !data.draft);
+const posts = await getPostsByLang(i18next.language);
 // List of items to search in
 const searchList = posts.map(({ data, slug }) => ({
     title: data.title,

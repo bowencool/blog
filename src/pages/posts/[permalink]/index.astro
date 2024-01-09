@@ -1,11 +1,12 @@
 ---
-import i18next, { changeLanguage } from "i18next";
 import { type CollectionEntry, getCollection } from "astro:content";
 import Posts from "@layouts/Posts.astro";
 import PostDetails from "@layouts/PostDetails.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import getPageNumbers from "@utils/getPageNumbers";
 import getPagination from "@utils/getPagination";
+import i18next, { t, changeLanguage } from "i18next";
+import { getPostsByLang } from "@utils/getPosts";
 
 changeLanguage("en");
 
@@ -19,7 +20,7 @@ export async function getStaticPaths() {
             post: any;
         };
     }[] = [];
-    const posts = await getCollection("blog", ({ data }) => !data.draft);
+    const posts = await getPostsByLang(i18next.language);
     //   console.log(posts);
     posts.forEach(post => {
         // const { body, ...rest } = post;

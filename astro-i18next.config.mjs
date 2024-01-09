@@ -3,6 +3,8 @@ export default {
   defaultLocale: "en",
   // showDefaultLocale: true,
   locales: ["en", "zh"],
+  namespaces: ["common", "tags"],
+  defaultNamespace: "common",
   i18next: {
     debug: true, // convenient during development to check for missing keys
   },

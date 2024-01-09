@@ -11,10 +11,11 @@ import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
 import { localizePath } from "astro-i18next";
 import i18next, { t, changeLanguage } from "i18next";
+import { getPostsByLang } from "@utils/getPosts";
 
 changeLanguage("en");
 
-const posts = await getCollection("blog");
+const posts = await getPostsByLang(i18next.language);
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const socialCount = SOCIALS.filter(social => social.active).length;
@@ -108,7 +109,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         }
       </ul>
       <div class="all-posts-btn-wrapper">
-        <LinkButton href="/posts">
+        <LinkButton href={localizePath("/posts")}>
           All Posts
           <svg xmlns="http://www.w3.org/2000/svg"
             ><path

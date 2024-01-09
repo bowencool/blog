@@ -1,14 +1,14 @@
 import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SITE } from "@config";
-import { t } from "i18next";
+import i18next, { t } from "i18next";
 import { localizeUrl, localizePath } from "astro-i18next";
 import { changeLanguage } from "i18next";
+import { getPostsByLang } from "@utils/getPosts";
 changeLanguage("zh");
 
 export async function GET() {
-  const posts = await getCollection("blog");
+  const posts = await getPostsByLang(i18next.language);
   const sortedPosts = getSortedPosts(posts);
   return rss({
     title: t("websiteTitle"),
