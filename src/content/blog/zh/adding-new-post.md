@@ -2,18 +2,16 @@
 author: Sat Naing
 pubDatetime: 2022-09-23T15:22:00Z
 modDatetime: 2023-12-21T09:12:47.400Z
-title: Adding new posts in AstroPaper theme
+title: 添加文章
 permalink: adding-new-posts-in-astropaper-theme
 featured: true
 draft: false
 tags:
   - docs
-description:
-  Some rules & recommendations for creating or adding new posts using AstroPaper
-  theme.
+description: 使用 AstroPaper 主题创建或添加新文章的一些规则和建议。
 ---
 
-Here are some rules/recommendations, tips & ticks for creating new posts in AstroPaper blog theme.
+以下是在 Astro Paper 博客主题中创建新帖子的一些规则/建议、提示和标记。
 
 ## Table of contents
 

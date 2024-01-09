@@ -116,9 +116,9 @@ export default function SearchBar({ searchList }: Props) {
         {searchResults &&
           searchResults.map(({ item, refIndex }) => (
             <Card
-              href={localizePath(`/posts/${item.slug}`)}
+              href={localizePath(`/posts/${item.data.permalink || item.slug}`)}
               frontmatter={item.data}
-              key={`${refIndex}-${item.slug}`}
+              key={`${refIndex}-${item.data.permalink || item.slug}`}
             />
           ))}
       </ul>

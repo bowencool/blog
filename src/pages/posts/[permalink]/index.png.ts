@@ -9,7 +9,7 @@ export async function getStaticPaths() {
   );
 
   return posts.map(post => ({
-    params: { slug: slugifyStr(post.data.title) },
+    params: { permalink: slugifyStr(post.data.title) },
     props: post,
   }));
 }

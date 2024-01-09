@@ -1,6 +1,7 @@
 /** @type {import('astro-i18next').AstroI18nextConfig} */
 export default {
   defaultLocale: "en",
+  // showDefaultLocale: true,
   locales: ["en", "zh"],
   i18next: {
     debug: true, // convenient during development to check for missing keys

@@ -18,7 +18,7 @@ export interface Props {
 const { currentPage, totalPages, paginatedPosts } = Astro.props;
 ---
 
-<Layout title={`${t("posts")} | ${t("websiteTitle")}`}>
+<Layout title={t("posts") as string}>
   <Header activeNav="posts" />
   <Main
     pageTitle={t("posts") as string}
@@ -27,7 +27,7 @@ const { currentPage, totalPages, paginatedPosts } = Astro.props;
     <ul>
       {
         paginatedPosts.map(({ data, slug }) => (
-          <Card href={localizePath(`/posts/${slug}`)} frontmatter={data} />
+          <Card href={localizePath(`/posts/${data.permalink || slug}`)} frontmatter={data} />
         ))
       }
     </ul>

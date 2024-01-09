@@ -3,7 +3,7 @@ title: How to add an estimated reading time in AstroPaper
 author: Sat Naing
 pubDatetime: 2023-07-21T10:11:06.130Z
 modDatetime: 2024-01-03T14:53:25Z
-slug: how-to-add-estimated-reading-time
+permalink: how-to-add-estimated-reading-time
 featured: false
 draft: false
 tags:
@@ -90,7 +90,7 @@ Step (5) Create a new file called `getPostsWithRT.ts` under `src/utils` director
 ```ts
 import type { MarkdownInstance } from "astro";
 import type { CollectionEntry } from "astro:content";
-import { slugifyStr } from "./slugify";
+import { slugifyStr } from "./permalinkify";
 
 export const getReadingTime = async () => {
   // Get all posts using glob. This is to get the updated frontmatter
@@ -125,7 +125,7 @@ const getPostsWithRT = async (posts: CollectionEntry<"blog">[]) => {
 export default getPostsWithRT;
 ```
 
-Step (6) Refactor `getStaticPaths` of `/src/pages/posts/[slug].astro` as the following
+Step (6) Refactor `getStaticPaths` of `/src/pages/posts/[permalink].astro` as the following
 
 ```ts
 ---
@@ -142,7 +142,7 @@ export async function getStaticPaths() {
   const postsWithRT = await getPostsWithRT(posts); // replace reading time logic with this func
 
    const postResult = postsWithRT.map(post => ({ // make sure to replace posts with postsWithRT
-    params: { slug: post.slug },
+    params: { permalink: post.permalink },
     props: { post },
   }));
 
@@ -212,7 +212,7 @@ Files that use `getSortedPosts` function are as follow
 - src/pages/posts/index.astro
 - src/pages/rss.xml.ts
 - src/pages/posts/index.astro
-- src/pages/posts/[slug].astro
+- src/pages/posts/[permalink].astro
 - src/utils/getPostsByTag.ts
 
 All you have to do is like this

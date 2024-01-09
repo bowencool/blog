@@ -1,5 +1,4 @@
 ---
-import { changeLanguage } from "i18next";
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
@@ -11,6 +10,7 @@ import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
 import { localizePath } from "astro-i18next";
+import i18next, { t, changeLanguage } from "i18next";
 
 changeLanguage("en");
 
@@ -77,7 +77,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
             <ul>
               {featuredPosts.map(({ data, slug }) => (
                 <Card
-                  href={localizePath(`/posts/${slug}`)}
+                  href={localizePath(`/posts/${data.permalink || slug}`)}
                   frontmatter={data}
                   secHeading={false}
                 />
@@ -99,7 +99,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
               ({ data, slug }, index) =>
                 index < 4 && (
                   <Card
-                    href={localizePath(`/posts/${slug}`)}
+                    href={localizePath(`/posts/${data.permalink || slug}`)}
                     frontmatter={data}
                     secHeading={false}
                   />

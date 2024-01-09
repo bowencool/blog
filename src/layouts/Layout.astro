@@ -2,7 +2,7 @@
 import { SITE } from "@config";
 import "@styles/base.css";
 import { ViewTransitions } from "astro:transitions";
-import i18next, { t } from "i18next";
+import i18next, { t, changeLanguage } from "i18next";
 import { HeadHrefLangs } from "astro-i18next/components";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -18,16 +18,20 @@ export interface Props {
   scrollSmooth?: boolean;
 }
 
-const {
+let {
   author = t("websiteAuthor"),
   title = t("websiteTitle"),
-  description = SITE.desc,
+  description = t("websiteDescription"),
   ogImage = SITE.ogImage,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
   pubDatetime,
   modDatetime,
   scrollSmooth = true,
 } = Astro.props;
+
+if (!title?.endsWith(t("websiteTitle"))) {
+  title = `${title} | ${t("websiteTitle")}`;
+}
 
 const socialImageURL = new URL(
   ogImage ?? SITE.ogImage ?? "og.png",
@@ -49,6 +53,7 @@ const socialImageURL = new URL(
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
+    <!-- TODO -->
     <link rel="sitemap" href="/sitemap-index.xml" />
     <HeadHrefLangs />
 

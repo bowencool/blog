@@ -2,7 +2,7 @@
 author: Sat Naing
 pubDatetime: 2022-12-28T04:59:04.866Z
 title: Dynamic OG image generation in AstroPaper blog posts
-slug: dynamic-og-image-generation-in-astropaper-blog-posts
+permalink: dynamic-og-image-generation-in-astropaper-blog-posts
 featured: false
 draft: false
 tags:
@@ -38,7 +38,7 @@ Dynamic OG images will be generated at build time for blog posts that
 
 ## Anatomy of AstroPaper dynamic OG image
 
-Dynamic OG image of AstroPaper includes _the blog post title_, _author name_ and _site title_. Author name and site title will be retrieved via `SITE.author` and `SITE.title` of **"src/config.ts"** file. The title is generated from the blog post frontmatter `title`.  
+Dynamic OG image of AstroPaper includes _the blog post title_, _author name_ and _site title_. Author name and site title will be retrieved via `SITE.author` and `SITE.title` of **"src/config.ts"** file. The title is generated from the blog post frontmatter `title`.
 ![Example Dynamic OG Image link](https://user-images.githubusercontent.com/53733092/209704501-e9c2236a-3f4d-4c67-bab3-025aebd63382.png)
 
 ## Limitations

@@ -15,7 +15,7 @@ export async function GET() {
     description: t("websiteDescription"),
     site: localizeUrl(SITE.website),
     items: sortedPosts.map(({ data, slug }) => ({
-      link: `posts/${slug}`,
+      link: `posts/${data.permalink || slug}`,
       title: data.title,
       description: data.description,
       pubDate: new Date(data.modDatetime ?? data.pubDatetime),

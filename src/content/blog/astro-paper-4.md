@@ -2,7 +2,7 @@
 author: Sat Naing
 pubDatetime: 2024-01-04T09:30:41.816Z
 title: AstroPaper 4.0
-slug: "astro-paper-v4"
+permalink: "astro-paper-v4"
 featured: true
 ogImage: ../../assets/images/AstroPaper-v4.png
 tags:
@@ -24,9 +24,9 @@ AstroPaper now leverages the power and capabilities of Astro v4. However, it’s
 
 ![Astro v4](https://astro.build/_astro/header-astro-4.GLp8HjfV.webp)
 
-### Replace `postSlug` with Astro Content `slug` [#197](https://github.com/satnaing/astro-paper/pull/197)
+### Replace `postpermalink` with Astro Content `permalink` [#197](https://github.com/satnaing/astro-paper/pull/197)
 
-The `postSlug` in the blog content schema is no longer available in AstroPaper v4. Initially Astro doesn't have a `slug` mechanism and thus we have to figure it out on our own. Since Astro v3, it supports content collection and slug features. Now, we believe it's time to adopt Astro's out-of-the-box `slug` feature.
+The `postpermalink` in the blog content schema is no longer available in AstroPaper v4. Initially Astro doesn't have a `permalink` mechanism and thus we have to figure it out on our own. Since Astro v3, it supports content collection and permalink features. Now, we believe it's time to adopt Astro's out-of-the-box `permalink` feature.
 
 **_file: src/content/blog/astro-paper-4.md_**
 
@@ -35,14 +35,14 @@ The `postSlug` in the blog content schema is no longer available in AstroPaper v
 author: Sat Naing
 pubDatetime: 2024-01-01T04:35:33.428Z
 title: AstroPaper 4.0
-slug: "astro-paper-v4" # if slug is not specified, it will be 'astro-paper-4' (file name).
-# slug: "" ❌ cannot be an empty string
+permalink: "astro-paper-v4" # if permalink is not specified, it will be 'astro-paper-4' (file name).
+# permalink: "" ❌ cannot be an empty string
 ---
 ```
 
-The behavior of the `slug` is slightly different now. In the previous versions of AstroPaper, if the `postSlug` is not specified in a blog post (markdown file), the title of that blog post would be slugified and used as the `slug`. However, in AstroPaper v4, if the `slug` field is not specified, the markdown file name will be used as the `slug`. One thing to keep in mind is that the `slug` field can be omitted, but it cannot be an empty string (slug: "" ❌).
+The behavior of the `permalink` is slightly different now. In the previous versions of AstroPaper, if the `postpermalink` is not specified in a blog post (markdown file), the title of that blog post would be permalinkified and used as the `permalink`. However, in AstroPaper v4, if the `permalink` field is not specified, the markdown file name will be used as the `permalink`. One thing to keep in mind is that the `permalink` field can be omitted, but it cannot be an empty string (permalink: "" ❌).
 
-If you're upgrading AstroPaper from v3 to v4, make sure to replace `postSlug` in your `src/content/blog/*.md` files with `slug`.
+If you're upgrading AstroPaper from v3 to v4, make sure to replace `postpermalink` in your `src/content/blog/*.md` files with `permalink`.
 
 ## New Features
 
@@ -88,11 +88,11 @@ Managing your AstroPaper environment is now easier than ever with the addition o
 
 ## Refactoring & Bug Fixes
 
-### Replace Slugified Title with Unslugified Tag Name [#198](https://github.com/satnaing/astro-paper/pull/198)
+### Replace permalinkified Title with Unpermalinkified Tag Name [#198](https://github.com/satnaing/astro-paper/pull/198)
 
-To improve clarity, user experience and SEO, titles (`Tag: some-tag`) in tag page are no longer slugified (`Tag: Some Tag`).
+To improve clarity, user experience and SEO, titles (`Tag: some-tag`) in tag page are no longer permalinkified (`Tag: Some Tag`).
 
-![Unslugified Tag Names](https://github.com/satnaing/astro-paper/assets/53733092/2fe90d6e-ec52-467b-9c44-95009b3ae0b7)
+![Unpermalinkified Tag Names](https://github.com/satnaing/astro-paper/assets/53733092/2fe90d6e-ec52-467b-9c44-95009b3ae0b7)
 
 ### Implement 100svh for Min-Height ([79d569d](https://github.com/satnaing/astro-paper/commit/79d569d053036f2113519f41b0d257523d035b76))
 

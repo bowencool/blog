@@ -1,6 +1,5 @@
 ---
-import { changeLanguage } from "i18next";
-import { SITE } from "@config";
+import { t, changeLanguage } from "i18next";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
@@ -9,9 +8,9 @@ import LinkButton from "@components/LinkButton.astro";
 changeLanguage("en");
 ---
 
-<Layout title={`404 Not Found | ${SITE.title}`}>
+<Layout title={`404 Not Found`}>
   <Header />
-
+  <!-- TODO -->
   <main id="main-content">
     <div class="not-found-wrapper">
       <h1 aria-label="404 Not Found">404</h1>

@@ -4,6 +4,7 @@
     "baseUrl": "src",
     "jsx": "react-jsx",
     "paths": {
+      // "@/*": ["./*"],
       "@assets/*": ["assets/*"],
       "@config": ["config.ts"],
       "@components/*": ["components/*"],
@@ -14,4 +15,5 @@
       "@utils/*": ["utils/*"]
     }
   }
+  // "include": ["src", "node_modules/astro-i18next/dist/types/types.d.ts"]
 }
