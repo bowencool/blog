@@ -7,8 +7,7 @@ import LinkButton from "@components/LinkButton.astro";
 import { localizePath } from "astro-i18next";
 
 const pathname = Astro.url.pathname;
-const firstPath = pathname.split("/")[1];
-if (firstPath === "zh") {
+if (pathname.startsWith("/zh/")) {
   changeLanguage("zh");
 } else {
   changeLanguage("en");
