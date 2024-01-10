@@ -16,6 +16,11 @@
   "backToTop": "Back to Top",
   "search": "Search",
   "searchDesc": "Search for anything...",
+  "pageNotFound": "Page Not Found",
+  "goBackHome": "Go Back Home",
   "updatedAt": "Updated at",
-  "publishedAt": "Published at"
+  "publishedAt": "Published at",
+  "found{{count}}ResultsFor{{query}}": "Found {{count}} result(s) for \"{{query}}\"",
+  "found{{count}}ResultsFor{{query}}__one": "Found {{count}} result for \"{{query}}\"",
+  "found{{count}}ResultsFor{{query}}__other": "Found {{count}} results for \"{{query}}\""
 }

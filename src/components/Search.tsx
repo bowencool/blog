@@ -22,16 +22,14 @@ interface SearchResult {
 }
 
 export default function SearchBar({ searchList }: Props) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { localizePath } = useLocalization();
   const inputRef = useRef<HTMLInputElement>(null);
   const [inputVal, setInputVal] = useState("");
-  const [searchResults, setSearchResults] = useState<SearchResult[] | null>(
-    null
-  );
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-    console.log(e.currentTarget.value);
+    console.log(i18n.language, e.currentTarget.value);
     setInputVal(e.currentTarget.value);
   };
 
@@ -104,23 +102,22 @@ export default function SearchBar({ searchList }: Props) {
 
       {inputVal.length > 1 && (
         <div className="mt-8">
-          TODO: Found {searchResults?.length}
-          {searchResults?.length && searchResults?.length === 1
-            ? " result"
-            : " results"}{" "}
-          for '{inputVal}'
+          {/* TODO */}
+          {t("found{{count}}ResultsFor{{query}}", {
+            count: searchResults.length,
+            query: inputVal,
+          })}
         </div>
       )}
 
       <ul>
-        {searchResults &&
-          searchResults.map(({ item, refIndex }) => (
-            <Card
-              href={localizePath(`/posts/${item.data.permalink || item.slug}`)}
-              frontmatter={item.data}
-              key={`${refIndex}-${item.data.permalink || item.slug}`}
-            />
-          ))}
+        {searchResults.map(({ item, refIndex }) => (
+          <Card
+            href={localizePath(`/posts/${item.data.permalink || item.slug}`)}
+            frontmatter={item.data}
+            key={`${refIndex}-${item.data.permalink || item.slug}`}
+          />
+        ))}
       </ul>
     </>
   );

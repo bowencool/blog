@@ -16,6 +16,9 @@
   "backToTop": "返回顶部",
   "search": "搜索",
   "searchDesc": "搜索任何内容...",
+  "pageNotFound": "页面未找到",
+  "goBackHome": "返回主页",
   "updatedAt": "更新于",
-  "publishedAt": "发布于"
+  "publishedAt": "发布于",
+  "found{{count}}ResultsFor{{query}}": "找到 {{count}} 个结果"
 }
