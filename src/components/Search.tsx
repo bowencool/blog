@@ -102,7 +102,6 @@ export default function SearchBar({ searchList }: Props) {
 
       {inputVal.length > 1 && (
         <div className="mt-8">
-          {/* TODO */}
           {t("found{{count}}ResultsFor{{query}}", {
             count: searchResults.length,
             query: inputVal,
