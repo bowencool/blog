@@ -23,6 +23,7 @@ const {
   canonicalURL,
   pubDatetime,
   modDatetime,
+  permalink,
   tags,
 } = post.data;
 
@@ -82,9 +83,9 @@ const layoutProps = {
       repoId="MDEwOlJlcG9zaXRvcnkxMjgzNTcxMjE="
       category="Announcements"
       categoryId="DIC_kwDOB6aTAc4CchIn"
-      mapping="pathname"
+      mapping="specific"
       strict="1"
-      term="Welcome to @giscus/react component!"
+      term={permalink}
       reactionsEnabled="1"
       emitMetadata="0"
       theme="preferred_color_scheme"
