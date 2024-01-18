@@ -7,6 +7,8 @@ import getPagination from "@utils/getPagination";
 
 changeLanguage("en");
 
+// TODO：TOC 放到右侧
+// TODO: 如果有另一个语言的版本，要给出提示 https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28
 const posts = await getPostsByLang(i18next.language);
 const sortedPosts = getSortedPosts(posts);
 const pagination = getPagination({
