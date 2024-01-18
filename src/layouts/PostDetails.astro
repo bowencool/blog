@@ -6,8 +6,10 @@ import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
-import { t } from "i18next";
+import i18next, { t } from "i18next";
 import Giscus from '@giscus/react';
+
+const giscusLang = i18next.language.startsWith("zh") ? "zh-CN" : "en";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -89,7 +91,7 @@ const layoutProps = {
       reactionsEnabled="1"
       emitMetadata="0"
       theme="preferred_color_scheme"
-      lang="en"
+      lang={giscusLang}
       loading="lazy"
     />
     <div class="flex justify-end">
