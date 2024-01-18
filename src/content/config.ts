@@ -11,7 +11,7 @@ const blog = defineCollection({
       // todo: show this link on the page
       originalUrl: z.string().optional(),
       title: z.string(),
-      permalink: z.string().optional(),
+      permalink: z.string(),
       featured: z.boolean().optional(),
       draft: z.boolean().optional(),
       tags: z.array(z.string()).default(["others"]),

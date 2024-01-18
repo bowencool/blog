@@ -7,7 +7,7 @@ interface DatetimesProps {
 
 interface Props {
   pubDatetime: string | Date;
-  modDatetime?: string | Date;
+  modDatetime?: string | Date | null;
   size?: "sm" | "lg";
   className?: string;
 }

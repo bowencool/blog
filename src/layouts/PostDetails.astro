@@ -7,6 +7,7 @@ import Datetime from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import { t } from "i18next";
+import Giscus from '@giscus/react';
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -74,6 +75,22 @@ const layoutProps = {
     <ul class="my-8">
       {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
     </ul>
+    <Giscus
+      client:load
+      id="comments"
+      repo="bowencool/blog"
+      repoId="MDEwOlJlcG9zaXRvcnkxMjgzNTcxMjE="
+      category="Announcements"
+      categoryId="DIC_kwDOB6aTAc4CchIn"
+      mapping="pathname"
+      strict="1"
+      term="Welcome to @giscus/react component!"
+      reactionsEnabled="1"
+      emitMetadata="0"
+      theme="preferred_color_scheme"
+      lang="en"
+      loading="lazy"
+    />
     <div class="flex justify-end">
       <button
         id="back-to-top"
