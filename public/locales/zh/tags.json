@@ -17,7 +17,7 @@
   "nas": "NAS",
   "unraid": "unRAID",
   "docker": "Docker",
-  "selfhost": "自托管",
+  "self-host": "自托管",
   "backup": "备份",
   "data-security": "数据安全",
   "experience": "经验",
