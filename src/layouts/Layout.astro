@@ -122,5 +122,9 @@ const socialImageURL = new URL(ogImage || "og.png"/* auto generated */, Astro.ur
   </head>
   <body>
     <slot />
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </body>
 </html>
