@@ -1,0 +1,8 @@
+{
+  "origins": [
+    "https://blog.bowen.cool",
+    "https://TODO.checkme.bowen.cool",
+    "https://blog.bowencool.vercel.app",
+    "https://blog.local.bowen.cool:10443"
+  ]
+}
