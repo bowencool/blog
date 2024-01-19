@@ -7,6 +7,7 @@ originalUrl: https://api.github.com/repos/bowencool/blog/issues/11
 tags:
   - frontend
   - compiling
+  - coding
   - ast
 description: 如何用 AST 对代码进行修改（含vue）
 ---
