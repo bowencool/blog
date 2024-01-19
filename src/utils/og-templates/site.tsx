@@ -1,4 +1,6 @@
 import { SITE } from "@config";
+import i18next, { t, changeLanguage } from "i18next";
+changeLanguage("en");
 
 export default () => {
   return (
@@ -63,8 +65,10 @@ export default () => {
               textAlign: "center",
             }}
           >
-            <p style={{ fontSize: 72, fontWeight: "bold" }}>{SITE.title}</p>
-            <p style={{ fontSize: 28 }}>{SITE.desc}</p>
+            <p style={{ fontSize: 72, fontWeight: "bold" }}>
+              {t("websiteTitle")}
+            </p>
+            <p style={{ fontSize: 28 }}>{t("websiteDescription")}</p>
           </div>
 
           <div
@@ -77,7 +81,7 @@ export default () => {
             }}
           >
             <span style={{ overflow: "hidden", fontWeight: "bold" }}>
-              {new URL(SITE.website).hostname}
+              {new URL(SITE.website).origin}
             </span>
           </div>
         </div>

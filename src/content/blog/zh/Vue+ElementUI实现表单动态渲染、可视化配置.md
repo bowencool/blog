@@ -6,7 +6,6 @@ permalink: dynamically-render-vue-form
 originalUrl: https://juejin.cn/post/6844903569896767495
 tags:
   - vue
-  - element-ui
 description: 前些日子碰到了动态渲染表单的需求，在这里记录一下，也许能帮到大家。
 ---
 

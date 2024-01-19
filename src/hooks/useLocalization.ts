@@ -13,7 +13,6 @@ export const useLocalization = () => {
     },
     [i18n.language]
   );
-  // todo: localize url
   // const localizeUrl = useCallback(
   //   (url: string) => {
   //     const currentLanguage = i18n.language;

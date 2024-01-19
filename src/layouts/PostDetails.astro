@@ -21,7 +21,6 @@ const {
   author,
   description,
   ogImage,
-  // TODO: Where is canonicalURL from?
   canonicalURL,
   pubDatetime,
   modDatetime,
@@ -31,7 +30,7 @@ const {
 
 const { Content } = await post.render();
 
-// TODO ogImage 支持多语言
+// todo ogImage 支持多语言
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
 const ogUrl = new URL(
   ogImageUrl ?? `/posts/${permalink}.png`,
@@ -74,7 +73,7 @@ const layoutProps = {
     </button>
   </div>
   <main id="main-content">
-    <!-- TODO -->
+    <!-- todo -->
     <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
     <Datetime
       pubDatetime={pubDatetime}
@@ -87,7 +86,6 @@ const layoutProps = {
     </article>
 
     <ul class="my-8">
-    <!-- TODO -->
       {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
     </ul>
     <Giscus

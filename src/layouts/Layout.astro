@@ -34,7 +34,7 @@ if (!title?.endsWith(t("websiteTitle"))) {
   title = `${title} | ${t("websiteTitle")}`;
 }
 
-const socialImageURL = new URL(ogImage || "og.jpg", Astro.url.origin).href;
+const socialImageURL = new URL(ogImage || "og.png"/* auto generated */, Astro.url.origin).href;
 ---
 
 <!doctype html>
