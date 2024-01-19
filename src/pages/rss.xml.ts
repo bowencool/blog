@@ -4,9 +4,9 @@ import { SITE } from "@config";
 import { localizeUrl, localizePath } from "astro-i18next";
 import { getPostsByLang } from "@utils/getPosts";
 import i18next, { t, changeLanguage } from "i18next";
-changeLanguage("en");
 
 export async function GET() {
+  changeLanguage("en");
   const posts = await getPostsByLang(i18next.language);
   const sortedPosts = getSortedPosts(posts);
   return rss({
