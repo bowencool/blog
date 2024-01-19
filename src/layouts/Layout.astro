@@ -56,7 +56,7 @@ const socialImageURL = new URL(
     <!-- TODO -->
     <link rel="sitemap" href="/sitemap-index.xml" />
     <HeadHrefLangs />
-
+    <slot name="meta" />
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -86,6 +86,7 @@ const socialImageURL = new URL(
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
+    <!-- TODO -->
     <meta property="twitter:image" content={socialImageURL} />
 
     <!-- Google Font -->
@@ -96,6 +97,7 @@ const socialImageURL = new URL(
       rel="stylesheet"
     />
 
+    <!-- TODO -->
     <meta name="theme-color" content="" />
 
     {

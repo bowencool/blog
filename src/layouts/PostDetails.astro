@@ -7,7 +7,7 @@ import Datetime from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import i18next, { t } from "i18next";
-import Giscus from '@giscus/react';
+import Giscus from "@giscus/react";
 
 const giscusLang = i18next.language.startsWith("zh") ? "zh-CN" : "en";
 
@@ -37,6 +37,8 @@ const ogUrl = new URL(
   Astro.url.origin
 ).href;
 
+const giscusBacklink = Astro.url.origin + Astro.url.pathname.replace(/^\/zh/, "");
+
 const layoutProps = {
   title,
   author,
@@ -50,6 +52,12 @@ const layoutProps = {
 ---
 
 <Layout {...layoutProps}>
+  <!-- TODO -->
+  <meta
+    slot="meta"
+    name="giscus:backlink"
+    content={giscusBacklink}
+  />
   <Header />
   <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
     <button
