@@ -1,4 +1,7 @@
 {
-  "others": "Others",
-  "faq": "FAQ"
+  "css": "CSS",
+  "html": "HTML",
+  "nodejs": "Node.js",
+  "nas": "NAS",
+  "unraid": "unRAID"
 }
