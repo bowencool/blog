@@ -6,7 +6,7 @@ import Layout from "./Layout.astro";
 import i18next, { t, changeLanguage } from "i18next";
 
 const pathname = Astro.url.pathname;
-if (pathname.startsWith("/zh/")) {
+if (pathname.startsWith("/zh")) {
   changeLanguage("zh");
 } else {
   changeLanguage("en");

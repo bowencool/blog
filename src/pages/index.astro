@@ -12,6 +12,8 @@ import { SOCIALS } from "@config";
 import { localizePath } from "astro-i18next";
 import i18next, { t, changeLanguage } from "i18next";
 import { getPostsByLang } from "@utils/getPosts";
+import About from "@components/About.md";
+import AboutZH from "@components/About.zh.md";
 
 changeLanguage("en");
 
@@ -25,40 +27,10 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1>Mingalaba</h1>
-      <a
-        target="_blank"
-        href={localizePath("/rss.xml")}
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-          ><path
-            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-          ></path><path
-            d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-          ></path><circle cx="6" cy="18" r="2"></circle>
-        </svg>
-      </a>
-
-      <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
-      </p>
-      <p>
-        Read the blog posts or check
-        <LinkButton
-          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton> for more info.
-      </p>
+      <article role="article" class="prose">
+        {i18next.language === "zh" ? <AboutZH key="zh" /> : <About key="en" />}
+      </article>
       {
-        // only display if at least one social link is enabled
         socialCount > 0 && (
           <div class="social-wrapper">
             <div class="social-links">Social Links:</div>
@@ -74,7 +46,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       featuredPosts.length > 0 && (
         <>
           <section id="featured">
-            <h2>Featured</h2>
+            <h2>{t("featured")}</h2>
             <ul>
               {featuredPosts.map(({ data, slug }) => (
                 <Card
@@ -91,7 +63,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     }
 
     <section id="recent-posts">
-      <h2>Recent Posts</h2>
+      <h2>{t("recentPosts")}</h2>
       <ul>
         {
           sortedPosts
@@ -110,7 +82,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </ul>
       <div class="all-posts-btn-wrapper">
         <LinkButton href={localizePath("/posts")}>
-          All Posts
+          {t("allPosts")}
           <svg xmlns="http://www.w3.org/2000/svg"
             ><path
               d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
