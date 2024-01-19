@@ -22,6 +22,7 @@ const {
   description,
   ogImage,
   canonicalURL,
+  originalUrl,
   pubDatetime,
   modDatetime,
   permalink,
@@ -32,11 +33,12 @@ const { Content } = await post.render();
 
 // todo ogImage 支持多语言
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
-const ogUrl = new URL(
-  ogImageUrl ?? `/posts/${permalink}.png`,
-  Astro.url.origin
-).href;
+const ogUrl = new URL(ogImageUrl ?? `/posts/${permalink}.png`, Astro.url.origin)
+  .href;
 
+const isFromGitHubIssue =
+  originalUrl &&
+  originalUrl.startsWith("https://github.com/bowencool/blog/issues");
 const giscusLang = i18next.language.startsWith("zh") ? "zh-CN" : "en";
 // const giscusBacklink = Astro.url.origin + Astro.url.pathname.replace(/^\/zh/, "");
 
@@ -96,7 +98,7 @@ const layoutProps = {
       category="Announcements"
       categoryId="DIC_kwDOB6aTAc4CchIn"
       mapping="specific"
-      strict="1"
+      strict={isFromGitHubIssue ? "0" : "1"}
       term={permalink}
       reactionsEnabled="1"
       emitMetadata="0"
