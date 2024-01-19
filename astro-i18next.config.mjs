@@ -1,5 +1,14 @@
+import vercel from '@astrojs/vercel/serverless';
+// import vercel from '@astrojs/vercel/static';
+
 /** @type {import('astro-i18next').AstroI18nextConfig} */
 export default {
+  output: 'server',
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
   defaultLocale: "en",
   // showDefaultLocale: true,
   locales: ["en", "zh"],
