@@ -48,7 +48,7 @@ breadcrumbList[0] === "tags" &&
               aria-current="page"
             >
               {/* make the last part lowercase in Home > Tags > some-tag */}
-              {t(`tags:${breadcrumb}`)}
+              {breadcrumbList[0] === "tags" ? t(`tags:${breadcrumb}`) : t(breadcrumb)}
             </span>
           </li>
         ) : (

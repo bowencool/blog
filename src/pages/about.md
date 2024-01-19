@@ -3,36 +3,18 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-TODO
+## Hi there 👋, I'm Bowen
 
-AstroPaper is a minimal, responsive and SEO-friendly Astro blog theme. I designed and crafted this based on [my personal blog](https://satnaing.dev/blog).
-
-This theme is aimed to be accessible out of the box. Light and dark mode are supported by
-default and additional color schemes can also be configured.
-
-This theme is self-documented \_ which means articles/posts in this theme can also be considered as documentations. So, see the documentation for more info.
+- 🦄 I am a Full-Stack Engineer with a strong focus on Front-End development.
+- 💻 My programing language: JavaScript/TypeScript, Go, and Dart
+- 🔭 I am currently searching for job opportunities, with a preference for remote work.
+- 🙅‍♂️ I will not consider any jobs that require the "996" work schedule.
+- 📫 You can contact me through the following email addresses:
+  - <root@bowen.cool> for technical communications.
+  - <biz@bowen.cool> for business or job-related matters.
+  <!-- todo import from config -->
+- 🔗 You can also follow me at [GitHub](https://github.com/bowencool)
 
 <div>
   <img src="/assets/dev.svg" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
 </div>
-
-## Tech Stack
-
-This theme is written in vanilla JavaScript (+ TypeScript for type checking) and a little bit of ReactJS for some interactions. TailwindCSS is used for styling; and Markdown is used for blog contents.
-
-## Features
-
-Here are certain features of this site.
-
-- fully responsive and accessible
-- SEO-friendly
-- light & dark mode
-- fuzzy search
-- super fast performance
-- draft posts
-- pagination
-- sitemap & rss feed
-- highly customizable
-
-If you like this theme, you can star/contribute to the [repo](https://github.com/satnaing/astro-paper).
-Or you can even give any feedback via my [email](mailto:contact@satnaing.dev).

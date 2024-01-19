@@ -1,36 +1,20 @@
 ---
 layout: ../../layouts/AboutLayout.astro
-title: "哈喽"
+title: "关于"
 ---
 
-AstroPaper is a minimal, responsive and SEO-friendly Astro blog theme. I designed and crafted this based on [my personal blog](https://satnaing.dev/blog).
+## 你好 👋 ，我是 Bowen
 
-This theme is aimed to be accessible out of the box. Light and dark mode are supported by
-default and additional color schemes can also be configured.
-
-This theme is self-documented \_ which means articles/posts in this theme can also be considered as documentations. So, see the documentation for more info.
+- 🦄 我是一名全栈工程师，主要负责前端开发。
+- 💻 我的编程语言：JavaScript/TypeScript、Go 和 Dart
+- 🔭 我目前正在寻找工作机会，偏好远程工作。
+- 🙅‍♂️ 我不会考虑任何需要 "996" 的工作。
+- 📫 您可以通过以下电子邮件地址与我联系：
+  - <root@bowen.cool> 用于技术交流。
+  - <biz@bowen.cool> 用于业务或工作相关事宜。
+  <!-- 从 config 中导入 todo -->
+- 🔗 您也可以在 [GitHub](https://github.com/bowencool) 上关注我。
 
 <div>
   <img src="/assets/dev.svg" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
 </div>
-
-## Tech Stack
-
-This theme is written in vanilla JavaScript (+ TypeScript for type checking) and a little bit of ReactJS for some interactions. TailwindCSS is used for styling; and Markdown is used for blog contents.
-
-## Features
-
-Here are certain features of this site.
-
-- fully responsive and accessible
-- SEO-friendly
-- light & dark mode
-- fuzzy search
-- super fast performance
-- draft posts
-- pagination
-- sitemap & rss feed
-- highly customizable
-
-If you like this theme, you can star/contribute to the [repo](https://github.com/satnaing/astro-paper).
-Or you can even give any feedback via my [email](mailto:contact@satnaing.dev).
