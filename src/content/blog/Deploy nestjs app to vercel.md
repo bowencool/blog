@@ -7,6 +7,7 @@ originalUrl: https://api.github.com/repos/bowencool/blog/issues/23
 tags:
   - tricks
   - frontend
+  - fullstack
 description: Steps to deploy nestjs app to vercel
 ---
 

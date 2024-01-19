@@ -7,6 +7,7 @@ originalUrl: https://api.github.com/repos/bowencool/blog/issues/23
 tags:
   - tricks
   - frontend
+  - fullstack
 description: 将 nestjs 应用部署到 vercel 的步骤
 ---
 
@@ -53,7 +54,7 @@ description: 将 nestjs 应用部署到 vercel 的步骤
 4. 本地开发：
 
    1. 您可以直接执行 `vercel dev -l 3100`，它会自动加载 `.env` 文件。您可能还需要同时运行 `npx nest build --watch`。
-   2. ~~执行 `dotenv npx nest start --watch`，手动加载`.env`文件。~~我发现 `--watch` 这种方式没有用。
+   2. ~~执行 `dotenv npx nest start --watch`，手动加载`.env`文件。~~ 我发现 `--watch` 这种方式没有用。
    3. 执行 `npx nest start --watch`之前，需要在代码中添加以下内容以加载 `.env` 文件：
       ```ts
       export const isNestDev = !process.env.JWT_SECRET;
