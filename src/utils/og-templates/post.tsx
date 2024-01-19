@@ -1,5 +1,6 @@
-import { SITE } from "@config";
 import type { CollectionEntry } from "astro:content";
+import i18next, { t, changeLanguage } from "i18next";
+changeLanguage("en");
 
 export default (post: CollectionEntry<"blog">) => {
   return (
@@ -86,7 +87,7 @@ export default (post: CollectionEntry<"blog">) => {
             </span>
 
             <span style={{ overflow: "hidden", fontWeight: "bold" }}>
-              {SITE.title}
+              {t("websiteTitle")}
             </span>
           </div>
         </div>

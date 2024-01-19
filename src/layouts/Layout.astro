@@ -2,9 +2,10 @@
 import { SITE } from "@config";
 import "@styles/base.css";
 import { ViewTransitions } from "astro:transitions";
-import i18next, { t, changeLanguage } from "i18next";
+import i18next, { t } from "i18next";
 import { HeadHrefLangs } from "astro-i18next/components";
 
+// TODO
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export interface Props {
@@ -33,10 +34,7 @@ if (!title?.endsWith(t("websiteTitle"))) {
   title = `${title} | ${t("websiteTitle")}`;
 }
 
-const socialImageURL = new URL(
-  ogImage ?? SITE.ogImage ?? "og.png",
-  Astro.url.origin
-).href;
+const socialImageURL = new URL(ogImage || "og.jpg", Astro.url.origin).href;
 ---
 
 <!doctype html>
@@ -53,15 +51,8 @@ const socialImageURL = new URL(
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
-    <!-- TODO -->
     <link rel="sitemap" href="/sitemap-index.xml" />
     <HeadHrefLangs />
-    <slot name="meta" />
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={socialImageURL} />
 
     <!-- Article Published/Modified time -->
     {
@@ -81,14 +72,22 @@ const socialImageURL = new URL(
       )
     }
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={socialImageURL} />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <!-- TODO -->
     <meta property="twitter:image" content={socialImageURL} />
 
+    <!-- Page-specific Meta Tags -->
+    <slot name="meta" />
+
+    <!-- TODO -->
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -97,7 +96,7 @@ const socialImageURL = new URL(
       rel="stylesheet"
     />
 
-    <!-- TODO -->
+    <!-- This is set in toggle-theme.js -->
     <meta name="theme-color" content="" />
 
     {

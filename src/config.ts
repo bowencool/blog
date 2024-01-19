@@ -3,7 +3,7 @@ import { t } from "i18next";
 
 export const SITE: Site = {
   website: "https://blog.bowen.cool", // replace this with your deployed domain
-  ogImage: "astropaper-og.jpg",
+  ogImage: "og.jpg",
   lightAndDarkMode: true,
   postPerPage: 10,
 };

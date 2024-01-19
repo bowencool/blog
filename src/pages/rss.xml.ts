@@ -1,10 +1,9 @@
 import rss from "@astrojs/rss";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SITE } from "@config";
-import i18next, { t } from "i18next";
 import { localizeUrl, localizePath } from "astro-i18next";
-import { changeLanguage } from "i18next";
 import { getPostsByLang } from "@utils/getPosts";
+import i18next, { t, changeLanguage } from "i18next";
 changeLanguage("en");
 
 export async function GET() {

@@ -7,9 +7,8 @@ import Datetime from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import i18next, { t } from "i18next";
+import { localizePath } from "astro-i18next";
 import Giscus from "@giscus/react";
-
-const giscusLang = i18next.language.startsWith("zh") ? "zh-CN" : "en";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -22,6 +21,7 @@ const {
   author,
   description,
   ogImage,
+  // TODO: Where is canonicalURL from?
   canonicalURL,
   pubDatetime,
   modDatetime,
@@ -31,13 +31,15 @@ const {
 
 const { Content } = await post.render();
 
+// TODO ogImage 支持多语言
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
 const ogUrl = new URL(
-  ogImageUrl ?? `/posts/${slugifyStr(title)}.png`,
+  ogImageUrl ?? `/posts/${permalink}.png`,
   Astro.url.origin
 ).href;
 
-const giscusBacklink = Astro.url.origin + Astro.url.pathname.replace(/^\/zh/, "");
+const giscusLang = i18next.language.startsWith("zh") ? "zh-CN" : "en";
+// const giscusBacklink = Astro.url.origin + Astro.url.pathname.replace(/^\/zh/, "");
 
 const layoutProps = {
   title,
@@ -52,12 +54,12 @@ const layoutProps = {
 ---
 
 <Layout {...layoutProps}>
-  <!-- TODO -->
-  <meta
+  <!-- TODO: set title and description to en -->
+  <!-- <meta
     slot="meta"
     name="giscus:backlink"
     content={giscusBacklink}
-  />
+  /> -->
   <Header />
   <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
     <button
@@ -72,6 +74,7 @@ const layoutProps = {
     </button>
   </div>
   <main id="main-content">
+    <!-- TODO -->
     <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
     <Datetime
       pubDatetime={pubDatetime}
@@ -84,10 +87,11 @@ const layoutProps = {
     </article>
 
     <ul class="my-8">
+    <!-- TODO -->
       {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
     </ul>
     <Giscus
-      client:load
+      client:idle
       id="comments"
       repo="bowencool/blog"
       repoId="MDEwOlJlcG9zaXRvcnkxMjgzNTcxMjE="

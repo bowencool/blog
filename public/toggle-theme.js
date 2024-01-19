@@ -1,14 +1,10 @@
-const primaryColorScheme = ""; // "light" | "dark"
-
+// Giscus can't follow the localStorage theme
 // Get theme data from local storage
-const currentTheme = localStorage.getItem("theme");
+// const storedTheme = localStorage.getItem("theme");
 
 function getPreferTheme() {
   // return theme value in local storage if it is set
-  if (currentTheme) return currentTheme;
-
-  // return primary color scheme if it is set
-  if (primaryColorScheme) return primaryColorScheme;
+  // if (storedTheme) return storedTheme;
 
   // return user device's prefer color scheme
   return window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -16,10 +12,11 @@ function getPreferTheme() {
     : "light";
 }
 
+// this varible can be changed
 let themeValue = getPreferTheme();
 
 function setPreference() {
-  localStorage.setItem("theme", themeValue);
+  // localStorage.setItem("theme", themeValue);
   reflectPreference();
 }
 
@@ -55,10 +52,10 @@ window.onload = () => {
     reflectPreference();
 
     // now this script can find and listen for clicks on the control
-    document.querySelector("#theme-btn")?.addEventListener("click", () => {
-      themeValue = themeValue === "light" ? "dark" : "light";
-      setPreference();
-    });
+    // document.querySelector("#theme-btn")?.addEventListener("click", () => {
+    //   themeValue = themeValue === "light" ? "dark" : "light";
+    //   setPreference();
+    // });
   }
 
   setThemeFeature();
