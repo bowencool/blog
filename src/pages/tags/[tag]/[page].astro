@@ -31,6 +31,7 @@ const { page } = Astro.params;
 const { tag } = Astro.props;
 const posts = await getPostsByLang(i18next.language);
 const postsByTag = getPostsByTag(posts, tag);
+console.log("tags [tag] [page]", posts.length);
 const pagination = getPagination({
     posts: postsByTag,
     page,
