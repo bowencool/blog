@@ -3,7 +3,7 @@ pubDatetime: 2020-07-31T08:27:32Z
 modDatetime: 2020-07-31T08:39:59Z
 title: 【补发】Vue SSR 基本原理和流程
 permalink: vue-ssr-fundamentals-and-processes
-originalUrl: https://api.github.com/repos/bowencool/blog/issues/12
+originalUrl: https://github.com/bowencool/blog/issues/12
 tags:
   - frontend
   - ssr

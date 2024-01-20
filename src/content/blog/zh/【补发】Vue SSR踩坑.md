@@ -3,7 +3,7 @@ pubDatetime: 2020-07-16T14:42:47Z
 modDatetime: 2020-07-16T14:51:40Z
 title: 【补发】Vue SSR 踩坑
 permalink: ssr-experience
-originalUrl: https://api.github.com/repos/bowencool/blog/issues/10
+originalUrl: https://github.com/bowencool/blog/issues/10
 tags:
   - frontend
   - ssr

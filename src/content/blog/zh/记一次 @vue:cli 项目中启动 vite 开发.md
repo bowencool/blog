@@ -3,7 +3,7 @@ pubDatetime: 2021-11-27T09:12:27Z
 modDatetime: 2022-04-07T07:33:23Z
 title: 记一次 @vue/cli 项目中启动 vite 开发
 permalink: start-vite-development-in-vue-cli-project
-originalUrl: https://api.github.com/repos/bowencool/blog/issues/14
+originalUrl: https://github.com/bowencool/blog/issues/14
 tags:
   - frontend
   - vite

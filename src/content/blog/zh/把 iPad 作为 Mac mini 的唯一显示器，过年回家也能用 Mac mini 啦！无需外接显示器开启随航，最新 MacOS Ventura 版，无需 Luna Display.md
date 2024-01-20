@@ -3,7 +3,7 @@ pubDatetime: 2023-02-21T10:31:56Z
 modDatetime: 2023-06-30T08:51:08Z
 title: 把 iPad 作为 Mac mini 的唯一显示器，过年回家也能用 Mac mini 啦！
 permalink: use-ipad-as-the-sole-display-for-mac-mini
-originalUrl: https://api.github.com/repos/bowencool/blog/issues/21
+originalUrl: https://github.com/bowencool/blog/issues/21
 tags:
   - MacOS
   - tricks

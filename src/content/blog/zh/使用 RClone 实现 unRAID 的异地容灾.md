@@ -3,7 +3,7 @@ pubDatetime: 2022-08-14T07:55:35Z
 modDatetime: 2024-01-17T17:01:50Z
 title: 使用 RClone 实现 unRAID 的异地容灾
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
-originalUrl: https://api.github.com/repos/bowencool/blog/issues/18
+originalUrl: https://github.com/bowencool/blog/issues/18
 tags:
   - nas
   - unRAID

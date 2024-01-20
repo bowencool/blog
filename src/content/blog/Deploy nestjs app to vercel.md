@@ -3,7 +3,7 @@ pubDatetime: 2023-04-14T11:04:13Z
 modDatetime: 2023-06-24T11:27:26Z
 title: How to deploy nestjs app to vercel
 permalink: how-to-deploy-nestjs-app-to-vercel
-originalUrl: https://api.github.com/repos/bowencool/blog/issues/23
+originalUrl: https://github.com/bowencool/blog/issues/23
 tags:
   - tricks
   - fullstack

@@ -3,7 +3,7 @@ pubDatetime: 2022-08-14T09:00:07Z
 modDatetime: 2022-08-14T09:00:42Z
 title: 【补发】OpenVPN 小记
 permalink: openvpn-experience
-originalUrl: https://api.github.com/repos/bowencool/blog/issues/20
+originalUrl: https://github.com/bowencool/blog/issues/20
 tags:
   - nas
   - network

@@ -3,7 +3,7 @@ pubDatetime: 2022-03-18T13:04:58Z
 modDatetime: 2023-12-10T03:16:24Z
 title: 玩转 Mac 之通用快捷键（一）
 permalink: common-shortcuts-for-macos
-originalUrl: https://api.github.com/repos/bowencool/blog/issues/16
+originalUrl: https://github.com/bowencool/blog/issues/16
 tags:
   - MacOS
   - tricks

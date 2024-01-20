@@ -3,7 +3,7 @@ pubDatetime: 2023-04-11T04:59:17Z
 modDatetime: 2023-06-30T08:46:47Z
 title: unRAID 安装 oh-my-zsh
 permalink: how-to-install-oh-my-zsh-on-unRAID
-originalUrl: https://api.github.com/repos/bowencool/blog/issues/22
+originalUrl: https://github.com/bowencool/blog/issues/22
 tags:
   - nas
   - unRAID

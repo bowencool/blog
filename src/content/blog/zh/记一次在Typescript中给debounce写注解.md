@@ -3,7 +3,7 @@ pubDatetime: 2020-08-12T15:40:53Z
 modDatetime: 2021-09-22T03:09:38Z
 title: 记一次在 Typescript 中给 debounce 写注解
 permalink: annotate_debounce_in_typescript
-originalUrl: https://api.github.com/repos/bowencool/blog/issues/13
+originalUrl: https://github.com/bowencool/blog/issues/13
 tags:
   - frontend
   - typescript
