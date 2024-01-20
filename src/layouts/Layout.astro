@@ -7,6 +7,7 @@ import { HeadHrefLangs } from "astro-i18next/components";
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 
 const pathname = Astro.url.pathname;
+// make this works with md file routes
 if (pathname.startsWith("/zh")) {
   changeLanguage("zh");
 } else {
