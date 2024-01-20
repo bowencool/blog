@@ -7,6 +7,8 @@ import astroI18next from "astro-i18next";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 
+import mdx from "@astrojs/mdx";
+
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
@@ -21,10 +23,16 @@ export default defineConfig({
     react(),
     astroI18next(),
     sitemap(),
+    mdx(),
   ],
   markdown: {
     remarkPlugins: [
-      [remarkToc, { heading: "(Table of contents)|toc|目录" }],
+      [
+        remarkToc,
+        {
+          heading: "(Table of contents)|toc|目录",
+        },
+      ],
       [
         remarkCollapse,
         {

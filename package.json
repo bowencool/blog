@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.3.4",
+    "@astrojs/mdx": "^2.0.5",
     "@astrojs/rss": "^4.0.1",
     "@giscus/react": "^2.4.0",
     "@resvg/resvg-js": "^2.6.0",
