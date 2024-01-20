@@ -48,17 +48,13 @@ breadcrumbList[0] === "tags" &&
           ) {
             return (
               <li>
-                <span aria-current="page">
-                  {t(`tags:${breadcrumb}`)}
-                </span>
+                <span aria-current="page">{t(`tags:${breadcrumb}`)}</span>
               </li>
             );
           }
           return (
             <li>
-              <span aria-current="page">
-                {t(breadcrumb)}
-              </span>
+              <span aria-current="page">{t(breadcrumb)}</span>
             </li>
           );
         }
@@ -76,17 +72,21 @@ breadcrumbList[0] === "tags" &&
 <style>
   .breadcrumb {
     @apply mx-auto mb-1 mt-8 w-full max-w-3xl px-4;
-  }
-  .breadcrumb ul li {
-    @apply inline;
-  }
-  .breadcrumb ul li a {
-    @apply capitalize opacity-70;
-  }
-  .breadcrumb ul li span {
-    @apply opacity-70;
-  }
-  .breadcrumb ul li:not(:last-child) a {
-    @apply hover:opacity-100;
+    a {
+      @apply capitalize opacity-70;
+    }
+    span {
+      @apply opacity-70;
+    }
+    li {
+      @apply inline;
+      &:not(:last-child) a {
+        @apply hover:opacity-100;
+        /* &::after {
+          content: ">";
+          @apply ml-2;
+        } */
+      }
+    }
   }
 </style>
