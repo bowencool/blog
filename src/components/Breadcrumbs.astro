@@ -40,24 +40,35 @@ breadcrumbList[0] === "tags" &&
       <span aria-hidden="true">&gt;</span>
     </li>
     {
-      breadcrumbList.map((breadcrumb, index) =>
-        index + 1 === breadcrumbList.length ? (
-          <li>
-            <span
-              class={index > 0 ? "lowercase" : "capitalize"}
-              aria-current="page"
-            >
-              {/* make the last part lowercase in Home > Tags > some-tag */}
-              {breadcrumbList[0] === "tags" ? t(`tags:${breadcrumb}`) : t(breadcrumb)}
-            </span>
-          </li>
-        ) : (
+      breadcrumbList.map((breadcrumb, index) => {
+        if (index + 1 === breadcrumbList.length /* the last one */) {
+          if (
+            breadcrumbList[0] === "tags" &&
+            breadcrumbList.length === 2 /* is a tag */
+          ) {
+            return (
+              <li>
+                <span aria-current="page">
+                  {t(`tags:${breadcrumb}`)}
+                </span>
+              </li>
+            );
+          }
+          return (
+            <li>
+              <span aria-current="page">
+                {t(breadcrumb)}
+              </span>
+            </li>
+          );
+        }
+        return (
           <li>
             <a href={localizePath(`/${breadcrumb}`)}>{t(breadcrumb)}</a>
             <span aria-hidden="true">&gt;</span>
           </li>
-        )
-      )
+        );
+      })
     }
   </ul>
 </nav>
