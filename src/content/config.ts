@@ -7,7 +7,6 @@ const blog = defineCollection({
       author: z.string().default("Bowen"),
       pubDatetime: z.date(),
       modDatetime: z.date().optional().nullable(),
-      // todo: add a validator for url
       // todo: show this link on the page
       originalUrl: z.string().optional(),
       title: z.string(),
