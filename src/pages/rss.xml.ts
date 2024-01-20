@@ -15,12 +15,16 @@ export async function GET(ctx: APIContext) {
     description: t("websiteDescription"),
     site: localizeUrl(SITE.website),
     // customData: "<image></image>",
-    items: sortedPosts.map(({ data, slug }) => ({
-      link: localizePath(`/posts/${data.permalink || slug}`),
-      title: data.title,
-      description: data.description,
-      pubDate: new Date(data.modDatetime ?? data.pubDatetime),
-    })),
+    items: sortedPosts.map(({ data, slug }) => {
+      const permalink = data.permalink ?? slug;
+      const ogImage = data.ogImage ?? `${SITE.website}/posts/${permalink}.png`;
+      return {
+        link: localizePath(`/posts/${permalink}`),
+        title: data.title,
+        description: `${data.description}<img src="${ogImage}" />`,
+        pubDate: new Date(data.modDatetime ?? data.pubDatetime),
+      };
+    }),
     trailingSlash: true,
   });
 }
