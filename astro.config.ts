@@ -24,11 +24,17 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: [
-      remarkToc,
+      [remarkToc, { heading: "(Table of contents)|toc|目录" }],
       [
         remarkCollapse,
         {
-          test: "Table of contents",
+          test: "(Table of contents)|toc|目录",
+          summary(title: string) {
+            // const isEnglish = title.match(/^[a-z\s]+$/i);
+            const isChinese = title.match(/[\u4e00-\u9fa5]/);
+            const prefix = isChinese ? "打开" : "Open ";
+            return prefix + title;
+          },
         },
       ],
     ],
