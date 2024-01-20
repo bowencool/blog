@@ -1,6 +1,5 @@
 import { SITE } from "@config";
-import i18next, { t, changeLanguage } from "i18next";
-changeLanguage("en");
+import { t } from "i18next";
 
 export default () => {
   return (
