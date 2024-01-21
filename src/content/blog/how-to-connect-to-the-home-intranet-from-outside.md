@@ -64,7 +64,7 @@ I initially used OpenConnect, which by default would mess up the local routing t
         <td>High</td>
         <td>Low</td>
         <td>★★☆☆☆</td>
-        <td>-</td>
+        <td>Segment conflicts may occur: for example, if your home network segment is 192.168.1/24 (the most common), and it is added to the static route of tailscale, and the external WiFi segment happens to also be 192.168.1/24 (it’s really common), then you won’t be able to access this network segment at home, which is exactly the opposite of OpenVPN. You can manually change your home network segment to a less commonly used one, such as 10.x.x/20.</td>
       </tr>
       <tr>
         <td>Tailscale + Self-built Relay</td>
@@ -94,15 +94,7 @@ I initially used OpenConnect, which by default would mess up the local routing t
         <td>Very low</td>
         <td>Low</td>
         <td>★★★★★</td>
-        <td>
-          Segment conflicts may occur: for example, if your home network segment
-          is 192.168.1/24 (the most common), and it is added to the static route
-          of tailscale, and the external WiFi segment happens to also be
-          192.168.1/24 (it’s really common), then you won’t be able to access
-          this network segment at home, which is exactly the opposite of
-          OpenVPN. You can manually change your home network segment to a less
-          commonly used one, such as 10.x.x/20.
-        </td>
+        <td>-</td>
       </tr>
       <tr>
         <td>OpenVPN + IPv6</td>
