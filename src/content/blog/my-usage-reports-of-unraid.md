@@ -2,7 +2,7 @@
 pubDatetime: 2022-08-13T07:16:50Z
 modDatetime: 2023-12-08T07:20:10Z
 featured: true
-title: My unRAID Usage Report (2022 to 2023)
+title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
 tags:

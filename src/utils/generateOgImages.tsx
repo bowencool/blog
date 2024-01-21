@@ -18,7 +18,7 @@ const fontBold: ArrayBuffer = await fetch(
 const options: SatoriOptions = {
   width: 1200,
   height: 630,
-  embedFont: false,
+  embedFont: true,
   fonts: [
     {
       name: "IBM Plex Mono",

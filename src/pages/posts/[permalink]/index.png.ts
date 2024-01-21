@@ -17,6 +17,13 @@ export async function getStaticPaths() {
 
 export const GET: APIRoute = async ({ props }) => {
   changeLanguage("en");
+  const isChineseTitle = props.data.title.match(/[\u4e00-\u9fa5]/);
+  if (isChineseTitle) {
+    return new Response(null, {
+      status: 302,
+      headers: { Location: "/og.jpg" },
+    });
+  }
   return new Response(
     await generateOgImageForPost(props as CollectionEntry<"blog">),
     {
