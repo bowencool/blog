@@ -2,6 +2,13 @@ import type { CollectionEntry } from "astro:content";
 import { t } from "i18next";
 
 export default (post: CollectionEntry<"blog">) => {
+  let title = post.data.title;
+  const isChineseTitle = title.match(/[\u4e00-\u9fa5]/);
+  if (isChineseTitle) {
+    // todo chinese image don't work well
+    title = post.data.permalink.replaceAll("-", " ");
+    title = title.charAt(0).toUpperCase() + title.slice(1);
+  }
   return (
     <div
       style={{
@@ -60,7 +67,7 @@ export default (post: CollectionEntry<"blog">) => {
               overflow: "hidden",
             }}
           >
-            {post.data.title}
+            {title}
           </p>
           <div
             style={{
