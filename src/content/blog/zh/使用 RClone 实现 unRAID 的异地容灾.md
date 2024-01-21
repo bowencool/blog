@@ -10,7 +10,7 @@ tags:
   - tricks
   - backup
   - data-security
-description: 使用 RClone 实现 unRAID 的异地容灾
+description: 众所周知，unRAID 作为最流行的家用 Nas 系统之一，没有提供异地容灾的功能（3-2-1 备份原则中最后一条）。随着 Nas 里的数据越来越多，应用越来越复杂，我越来越担心 NAS 硬件由于不可抗力（地震、水灾、火灾、盗窃等）全挂了的时候该如何恢复的问题。为了确保数据万无一失，今天来说说异地容灾。
 ---
 
 众所周知，unRAID 作为最流行的家用 Nas 系统之一，没有提供异地容灾的功能（3-2-1 备份原则中最后一条）。随着 Nas 里的数据越来越多，应用越来越复杂，我越来越担心 NAS 硬件由于不可抗力（地震、水灾、火灾、盗窃等）全挂了的时候该如何恢复的问题。为了确保数据万无一失，今天来说说异地容灾。
@@ -99,8 +99,8 @@ oss                  s3
 # 复制本地 /mnt/user/Public 到远程 /unraid/Public 下，已经存在的文件会被跳过
 rclone copy /mnt/user/Public remote:/unraid/Public
 
-# 复制完成后删除
-rclone move /mnt/user/Public remote:/unraid/Public
+# 移动本地 /mnt/user/file 到远程 /unraid/ 目录下
+rclone move /mnt/user/file remote:/unraid/file
 
 # 使远程 /unraid/Public 和本地 /mnt/user/Public 保持一致，不会修改本地文件
 rclone sync /mnt/user/Public remote:/unraid/Public
@@ -140,6 +140,8 @@ pass = xxx
 
 # 自动同步
 
+## 安装 User Scripts
+
 我是通过 User Scripts 这个插件实现的定时任务，通过 APPS 面板搜索即可。
 
 我没用 crontab 的原因有两个：
@@ -147,7 +149,7 @@ pass = xxx
 1. 尽可能与 unRAID 解耦，所有数据都是插件级的，卸载即清空。之前因为连续升级 beta 系统而回滚过。
 2. 可视化管理。
 
-添加定时任务：
+## 添加任务
 
 ```bash
 cd /boot/config/plugins/user.scripts/scripts
@@ -183,6 +185,12 @@ caches/**
 .pnpm-store/**
 ```
 
+## 设置任务调度
+
+然后去 `Settings > User Utilities > User Scripts` 设置任务调度即可。
+
+<img width="2092" alt="image" src="https://user-images.githubusercontent.com/20217146/184527717-8caae3dd-e47b-4fd2-91b7-86dd081eac3a.png">
+
 顺便分享一个带压缩和日期版本的 script:
 
 ```bash
@@ -200,5 +208,10 @@ echo "moving $LOCAL_PATH to $REMOTE_PATH"
 rclone copy $LOCAL_PATH oss:$REMOTE_PATH --progress
 ```
 
-然后去 Settings > User Utilities > User Scripts 设置任务调度即可。
-<img width="2092" alt="image" src="https://user-images.githubusercontent.com/20217146/184527717-8caae3dd-e47b-4fd2-91b7-86dd081eac3a.png">
+# 备份 Flash
+
+flash backup 也很简单，就是把 `/boot` 目录压缩就行了：
+
+```bash
+tar -czvf /tmp/`hostname`_flash.tgz --exclude 'previous*' --exclude "System Volume Information" --exclude 'logs*' /boot
+```

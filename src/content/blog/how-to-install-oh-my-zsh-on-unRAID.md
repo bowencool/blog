@@ -11,7 +11,9 @@ tags:
 description: Every time unRAID is booted, the Home directory is reset, resulting in the installation of oh-my-zsh being wiped out. Here's how to do it, Automatically install it every time you boot up, and restore the configuration.
 ---
 
-Using the User Scripts plugin, create a new script and set the execution timing to "At Startup of Array", the following is the content of the script:
+Every time unRAID is booted, the Home directory is reset, resulting in the installation of oh-my-zsh being wiped out. Here's how to do it, Automatically install it every time you boot up, and restore the configuration.
+
+Intall the User Scripts plugin, and create a new script and set the execution timing to "At Startup of Array", the following is the content of the script:
 
 ```bash
 #!/bin/bash

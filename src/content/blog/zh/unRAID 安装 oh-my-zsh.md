@@ -11,7 +11,9 @@ tags:
 description: unRAID 每次开机，Home 目录都会重置一下，导致安装的 oh-my-zsh 荡然无存。这里提供一个办法：每次开机自动安装，并且恢复配置。
 ---
 
-使用 User Scripts 这个插件，新建一个脚本，设置执行时机为“At Startup of Array”，以下是脚本内容：
+unRAID 每次开机，Home 目录都会重置一下，导致安装的 oh-my-zsh 荡然无存。这里提供一个办法：每次开机自动安装，并且恢复配置。
+
+安装 User Scripts 这个插件，新建一个脚本，设置执行时机为“At Startup of Array”，以下是脚本内容：
 
 ```bash
 #!/bin/bash
