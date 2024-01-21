@@ -2,17 +2,15 @@
 pubDatetime: 2022-08-13T07:16:50Z
 modDatetime: 2023-12-08T07:20:10Z
 featured: true
-title: 我的 unRAID 使用报告（2022 至 2023 ）
+title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
 tags:
   - unRAID
   - nas
   - self-host
-description: 我的 unRAID 使用报告（2022 至 2023 ）
+description: unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋友在用，所以也没考虑其他 NAS 系统。稳定运行好多年了，体验极好，特此记录，以便分享。
 ---
-
-unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋友在用，所以也没考虑其他 NAS 系统。使用三年多了，体验极好，特此记录，以便分享。
 
 # 目录
 
@@ -29,8 +27,6 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 - 自带权限管理。
 - 可以给 Mac 当 Time Machine 备份盘，全程无线备份，开启自动备份实现无感。
 - 摄像头监控视频储存。
-
----
 
 # 插件
 
@@ -73,13 +69,11 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 ## RClone
 
-网盘同步工具，主要用来弥补缺失的异地容灾功能，参考另一篇文章：https://github.com/bowencool/blog/issues/18
+网盘同步工具，主要用来弥补缺失的异地容灾功能，参考[另一篇文章](./offsite-disaster-recovery-for-unraid-with-rclone)
 
 ## [WireGuard](https://unraid.net/blog/wireguard-on-unraid)（unRAID内置）
 
-详情查看：[【方案对比】如何在外面连接到家里的内网？](https://github.com/bowencool/blog/issues/26)
-
----
+详情查看[这篇文章](./how-to-connect-to-the-home-intranet-from-outside)
 
 # 虚拟机
 
@@ -88,22 +82,22 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 这个步骤需要买网卡硬件，然后直通给虚拟机，参考 B 站司波图的教程。
 
 1. DDNS：用于将域名自动解析到正确的公网 IP，因为电信宽带的公网 IP 隔三差五就会变化，而且固定公网 IP 太贵了。
-2. OpenClash：科学上网。
-3. 其他插件还没有精力、或者暂时没需求研究，比如广告屏蔽、流量管控等。
+2. OpenClash + MosDNS：科学上网。
+3. 其他插件我还没有精力、或者暂时没需求研究，比如广告屏蔽、流量管控等。
 
 ## OpenVPN
 
-详情查看：[【方案对比】如何在外面连接到家里的内网？](https://github.com/bowencool/blog/issues/26)
+详情查看[这篇文章](./how-to-connect-to-the-home-intranet-from-outside)
 
 因为 docker 版本已经不再维护，所以装到虚拟机了。
 
 ## ~~Windows 10~~
 
-> ~~我已经转为使用 Parallels Desktop 模拟 Window 环境了。~~我又组了一台 PC 用来打游戏，哈哈哈。
+我已经是苹果全家桶用户了，~~所以需要虚拟机来运行一些 Windows 平台独占的软件。~~
 
-我已经是苹果全家桶用户了，没有 Windows 电脑，所以需要虚拟机来运行一些 Windows 平台独占的软件。
+~~我已经转为使用 Parallels Desktop 模拟 Window 环境了。~~
 
----
+我又组了一台 PC 用来打游戏，哈哈哈。
 
 # Docker
 
@@ -117,14 +111,14 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 用来
 
-1. 分配域名代替 [IP:Port]
+1. 分配域名代替 [IP]:[Port]
 2. 统一处理 https
-   1. 证书用 Certbot 申请的，官网上写需要 80 端口开放，被误导了很久，用了好久的自签证书。[不需要 80、443 端口，用 DNS 申请即可](https://www.cnblogs.com/ellisonzhang/p/14298492.html)。
+   1. 证书用 Certbot 申请的，官网上写需要 80 端口开放，我被误导了很久，用了好久的自签证书。[不需要 80、443 端口，用 DNS 申请即可](https://www.cnblogs.com/ellisonzhang/p/14298492.html)。
    2. 自动续期：主要是用 [SDK](https://next.api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09) 往 DNS 解析里添加/修改一条 TXT 记录。阿里云的 API 文档在[这里](https://help.aliyun.com/document_detail/29745.html) ，大概两三个小时开发完成，[代码在此](https://gist.github.com/bowencool/d0bce4bfb853c7ec1b1a4964e9371381)。
 
 ## Tailscale
 
-详情查看：[【方案对比】如何在外面连接到家里的内网？](https://github.com/bowencool/blog/issues/26)
+详情查看[这篇文章](./how-to-connect-to-the-home-intranet-from-outside)
 
 ## ~~NextCloud~~
 
@@ -136,7 +130,7 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 ## MtPhotos
 
-照片管理服务，吹爆，功能接近苹果相册，
+照片管理服务，吹爆，功能接近苹果相册，你也可以尝试 [Immich](https://github.com/immich-app/immich)
 
 - 地图相册、场景识别、人脸识别、文本识别...
   - **在本地识别，支持使用 PC 硬件加速识别**
@@ -167,8 +161,7 @@ EnPass 也能私有部署但功能太简陋了。
 
 1. 能开二次验证的平台全部开启，二次验证比密码安全多了。
 2. **不要把二次验证和密码放一起**，不要把鸡蛋放到同一个篮子里。
-3. 二次验证的二维码（key）、恢复代码非常重要，要自己保留一份或多份到最安全的地方。
-   1. 之前丢过一个阿里云的 key，到现在账号也找不回来，申诉也没用，只能新注册一个。
+3. 二次验证的二维码（key）、恢复代码非常重要，要自己保留一份或多份到最安全的地方。（我之前丢过一个阿里云的 key，到现在账号也找不回来，申诉也没用，只能新注册一个。）
 
 tips: Authenticator 放在手表上非常合适，不用找手机，~~微软家的 Authenticator 支持 iCloud 同步~~，salesforce 家的 Authenticator 支持 Apple Watch 上查看。用了一圈，强烈推荐 2FAS Auth，近期已经开源，就差 Apple Watch 功能发布了
 
@@ -180,9 +173,9 @@ tips: Authenticator 放在手表上非常合适，不用找手机，~~微软家�
 
 用来同步一些软件配置的，重点就是 Alfred 和 iTerm2 配置。之前用 NextCloud 同步，但 NextCloud 经常出问题所以换了。
 
-同步跟分享的区别是：分享是远程的文件，断开连接就没了。同步就是把你本地跟远程保持一致，断开也没啥影响。
+同步和挂载的区别是：挂载是远程的文件，断开连接就没了。同步就是把你本地跟远程保持一致，断开也没啥影响。
 
-跟 rclone 的区别是：syncthing 是后台实时的、分布式的。rclone 是命令式的，单向的（双向同步还处于 BETA 阶段），类似 rsync，主要做网盘同步。
+Syncthing 和 rclone 的区别是：syncthing 是后台实时的、分布式的。rclone 是命令式的，单向的（双向同步还处于 BETA 阶段），类似 rsync，主要做网盘同步。
 
 已经使用 rclone(crontab) + webdav 代替 Syncthing，原因如下：
 
@@ -191,13 +184,13 @@ tips: Authenticator 放在手表上非常合适，不用找手机，~~微软家�
 
 ## [WebDAV](https://hub.docker.com/r/bytemark/webdav)
 
-> 如果你装了 Nextcloud 或 Alist，那就不需要装这个了。
+如果你装了 Nextcloud 或 Alist，那就不需要装这个了。
 
 和 SMB 差不多，WebDAV 是 HTTP 协议。有些第三方客户端支持 WebDAV 同步（Chrome 扩展程序居多），所以就装了一个。
 
 ## [aliyundrive-webdav](https://hub.docker.com/r/messense/aliyundrive-webdav)
 
-> 如果你装了 Alist，那就不需要装这个了。
+如果你装了 Alist，那就不需要装这个了。
 
 阿里云盘的 webDAV 实现，主要做备份用的。有缓存问题，问题不大。
 
@@ -209,7 +202,7 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 可以代替 Nginx(autoindex) 托管 Public 文件夹，以便分享给朋友。
 
-> 我试了一下，权限这块我不太信任它。
+我试了一下，权限这块我不太信任它。
 
 ## [OpenLDAP](https://hub.docker.com/r/osixia/openldap/) + [phpldapadmin](https://hub.docker.com/r/osixia/phpldapadmin/)
 
@@ -239,25 +232,23 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 也是定时任务，主要用来自动做京东的任务。
 
-用过一段时间，每天大几百京豆入账，还是很香的。（2023.04: 已经薅不到多少羊毛了)
+用过一段时间，每天大几百京豆入账，还是很香的。（2023.04: 已经薅不到多少羊毛了）
 
 虽说不至于判个破坏计算机系统罪，但封号还是很有可能的，不用了。
 
-## ~~Wiznote~~
+## ~~Wiznot(为知笔记)e~~ / ~~Joplin~~
 
-为知笔记。后来我也用过 Joplin，但我最后还是决定用 IDE + Git 的方式代替这些笔记软件。我认为笔记软件做的再好，跟 IDE 比永远是小儿科。IDE 可以借助插件拥有无限可能。
+我最后还是决定用 IDE + Git 的方式代替这些笔记软件。我认为笔记软件做的再好，跟 IDE 比永远是小儿科。IDE 可以借助插件拥有无限可能，而且符合你的书写习惯。
 
 ## RSSHub + FreshRSS
 
-越来越依赖，很高效。
+我越来越依赖 RSS，很高效。
 
 客户端的话 Mac / iOS 用 Reeder(付费) 或 NetNewsWire(开源免费)，安卓用 Feedme，全平台同步就很爽。
 
 ## ~~[DeepL Free API](https://hub.docker.com/r/zu1k/deepl)~~ [DeepLX](https://github.com/OwO-Network/DeepLX)
 
 给 [Bob](https://bobtranslate.com/) 和[沉浸式翻译](https://immersivetranslate.com/)用的
-
----
 
 # 下一步折腾计划
 
@@ -277,7 +268,9 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 Unraid 6.12 已经支持。
 
----
+## 加密备份
+
+Duplicacy / Duplicati
 
 # 2022年12月更新
 
@@ -293,11 +286,11 @@ Unraid 6.12 已经支持。
 缺点是：
 
 1. IPv6 不够普及，要是公司的网络没有开启 IPv6 就没辙了。
-2. 默认全部设备都会暴露到外网。
+2. 默认全部设备都会暴露到外网，这无疑增加了安全风险。
 3. 少数运营商（比如安徽移动）对 IPv6 的解析不够稳定。
 4. 调试复杂且坑多，我经历过两个不那么明显的坑：
-   a. OpenWrt 记得去防火墙开启 MSS 钳制
-   b. 光猫老旧也会引起卡顿，可以直接让运营商上门换新的
+   1. OpenWrt 记得去防火墙开启 MSS 钳制
+   2. 光猫老旧也会引起卡顿，可以直接让运营商上门换新的
 
 ## 通过 IPv6 访问内网服务
 
