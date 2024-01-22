@@ -3,6 +3,7 @@ pubDatetime: 2022-08-14T07:55:35Z
 modDatetime: 2024-01-17T17:01:50Z
 title: Offsite Disaster Recovery for unRAID with RClone
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
+featured: true
 originalUrl: https://github.com/bowencool/blog/issues/18
 tags:
   - nas
@@ -31,7 +32,7 @@ In the unRAID backend's APPS tab, search for rclone and then click on Plugins on
 
 After installation is completed, run the command `rclone version` to confirm whether it has been successfully installed or go to Settings > User Utilities > rclone panel and check:
 
-![image](https://user-images.githubusercontent.com/20217146/184527686-cbfd9008-a5b4-416c-a6d4-61b0754ee7d67.png)
+![image](https://user-images.githubusercontent.com/20217146/184527686-cbfd9008-a5b4-416c-a6d4-61b0754e7d67.png)
 
 # Configuration
 
