@@ -12,6 +12,9 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
+  server: {
+    host: "0.0.0.0",
+  },
   // i18n: {
   //   defaultLocale: "en",
   //   locales: ["en", "zh"],
