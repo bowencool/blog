@@ -39,6 +39,10 @@ module.exports = {
           fill: withOpacity("--color-accent"),
         },
       },
+      textUnderlineOffset: {
+        5: '5px',
+        6: '6px',
+      },
       borderColor: {
         skin: {
           line: withOpacity("--color-border"),
