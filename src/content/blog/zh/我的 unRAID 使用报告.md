@@ -115,7 +115,7 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 1. 分配域名代替 [IP]:[Port]
 2. 统一处理 https
-   1. 证书用 Certbot 申请的，官网上写需要 80 端口开放，我被误导了很久，用了好久的自签证书。[不需要 80、443 端口，用 DNS 申请即可](https://www.cnblogs.com/ellisonzhang/p/14298492.html)。
+   1. 证书用 Certbot 申请的，官网上写需要 80 端口开放，我被误导了很久，用了好久的自签证书。详情请查看[无 80 端口情况下使用 CertBot 申请SSL证书](https://www.cnblogs.com/ellisonzhang/p/14298492.html)。
    2. 自动续期：主要是用 [SDK](https://next.api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09) 往 DNS 解析里添加/修改一条 TXT 记录。阿里云的 API 文档在[这里](https://help.aliyun.com/document_detail/29745.html) ，大概两三个小时开发完成，[代码在此](https://gist.github.com/bowencool/d0bce4bfb853c7ec1b1a4964e9371381)。
 
 ## Tailscale

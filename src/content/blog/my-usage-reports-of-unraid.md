@@ -76,7 +76,7 @@ Web disk synchronization tool, mainly used to compensate for the missing offsite
 
 ## [WireGuard](https://unraid.net/blog/wireguard-on-unraid) (unRAID built-in)
 
-For details, check out: [[Program Comparison] How to connect to home intranet from outside?] (https://github.com/bowencool/blog/issues/26)
+For details, check out: [How to connect to home intranet from outside?](./how-to-connect-to-the-home-intranet-from-outside)
 
 # Virtual Machines
 
@@ -112,12 +112,12 @@ Infrastructure.
 
 > has been moved to a virtual machine to facilitate automatic certificate renewal.
 
-It is used to
+Used for
 
-1. Assign the domain name instead of [IP:Port]
-2. Unify the handling of https
-   1. certificate applied with Certbot, official website wrote need 80 port open, I was misled for a long time, used self-signed certificate for a long time. [do not need 80, 443 port, with DNS application can be](https://www.cnblogs.com/ellisonzhang/p/14298492.html).
-   2. auto-renewal: mainly use [SDK](https://next.api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09) to add/modify a TXT record to the DNS resolution. AliCloud's API documentation is [here](https://help.aliyun.com/document_detail/29745.html) , about two or three hours development is completed, [code here](https://gist.github.com/bowencool/ d0bce4bfb853c7ec1b1a4964e9371381).
+1. Allocate domain names instead of [IP]:[Port]
+2. Unified handling of https
+   1. The certificate is applied for using Certbot, and the official website states that port 80 needs to be open. I was misled for a long time and used self-signed certificates for a long time. For details, please refer to [Applying SSL Certificate with CertBot without Port 80](https://www.cnblogs.com/ellisonzhang/p/14298492.html).
+   2. Automatic renewal: mainly use the [SDK](https://next.api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09) to add/modify a TXT record in DNS resolution. Aliyun's API documentation is available [here](https://help.aliyun.com/document_detail/29745.html). It took about two or three hours to develop, and the code is available [here](https://gist.github.com/bowencool/d0bce4bfb853c7ec1b1a4964e9371381)."
 
 ## Tailscale
 
