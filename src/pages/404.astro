@@ -6,12 +6,7 @@ import Footer from "@components/Footer.astro";
 import LinkButton from "@components/LinkButton.astro";
 import { localizePath } from "astro-i18next";
 
-const pathname = Astro.url.pathname;
-if (pathname.startsWith("/zh/")) {
-  changeLanguage("zh");
-} else {
-  changeLanguage("en");
-}
+changeLanguage("en");
 ---
 
 <Layout title={`404 Not Found`}>
