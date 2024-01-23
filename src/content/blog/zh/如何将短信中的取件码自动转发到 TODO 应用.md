@@ -22,7 +22,7 @@ description: 本文介绍了安卓和iOS设备如何将短信中的取件码自�
 
 你可在[我分享的快捷指令](https://www.icloud.com/shortcuts/bfadc821175a4a93b3b9dddd836ea30b)基础上修改：
 
-![shortcuts-overview](../../../assets/images/forward-sms/shortcuts-overview-zh.jpeg)
+![shortcuts-overview](../../../assets/images/forward-sms/shortcut-zh.jpeg)
 
 也可以按照下面的步骤手动添加：
 

@@ -22,7 +22,7 @@ The steps are as follows:
 
 You can modify it based on [the shortcut command I shared](https://www.icloud.com/shortcuts/bfadc821175a4a93b3b9dddd836ea30b):
 
-![shortcuts-overview](../../assets/images/forward-sms/shortcuts-overview-zh.jpeg)
+![shortcuts-overview](../../assets/images/forward-sms/shortcut.jpeg)
 
 You can also add it manually by following the steps below:
 
@@ -70,7 +70,7 @@ When `I get a message containing "【"`
 
 Do `Add task to xxx List`(the shortcut you just created)
 
-![automation](../../assets/images/forward-sms/automation-zh.jpeg)
+![automation](../../assets/images/forward-sms/automation.jpeg)
 
 # Andriod
 
@@ -159,4 +159,4 @@ console.log(`listened http://localhost:${PORT}`);
 
 Please check the official documentation for other configuration items.
 
-If you find this article helpful, please give it a like or support it with a [Star](https://github.com/bowencool/blog) below.
+If you find this article helpful, please give it a like below or support it with a [Star](https://github.com/bowencool/blog).
