@@ -86,23 +86,21 @@ description: 前些日子碰到了动态渲染表单的需求，在这里记录�
 
 开始之前，你需要知道[`v-model`的工作原理](https://cn.vuejs.org/v2/guide/components.html#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6%E7%9A%84%E8%A1%A8%E5%8D%95%E8%BE%93%E5%85%A5%E7%BB%84%E4%BB%B6)：
 
-```
-<input v-model="something">
+```vue
+<input v-model="something" />
 ```
 
 这不过是以下示例的语法糖：
 
-```
-<input
-  :value="something"
-  @input="something = $event.target.value">
+```vue
+<input :value="something" @input="something = $event.target.value" />
 ```
 
 了解这些后，我们再来一步一步实现这个组件。
 
 ### 首先，把配置转发到`el-form`：
 
-```
+```vue
 <template>
   <el-form
     class="dynamic-form"
@@ -110,11 +108,10 @@ description: 前些日子碰到了动态渲染表单的需求，在这里记录�
     :model="value"
     :label-position="formConfig.labelPosition"
     :label-width="formConfig.labelWidth"
-    :size='formConfig.size'
-    :status-icon="formConfig.statusIcon">
-
-    <slot/>
-
+    :size="formConfig.size"
+    :status-icon="formConfig.statusIcon"
+  >
+    <slot />
   </el-form>
 </template>
 
@@ -123,14 +120,14 @@ export default {
   props: {
     formConfig: {
       type: Object,
-      required: true
+      required: true,
     },
     value: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
-}
+};
 </script>
 ```
 
@@ -138,7 +135,7 @@ export default {
 
 因为在每个`form-item`都会需要一个`v-model`，所以在渲染之前，保证每个字段都有值。这里需要注意一点，组件内不要直接修改父组件传入的`prop`，所以我们在这里用`{...this.value}`快速拷贝一份，最后别忘了通知父组件。代码如下：
 
-```
+```js
 export default {
   props: {
     formConfig: {...},
@@ -166,23 +163,23 @@ export default {
 
 如何把下面的数据渲染为我们熟悉的`el-form-item`？
 
-```
+```json
 {
-    "type": "input",
-    "label": "姓名",
-    "disable": false,
-    "readonly": false,
-    "value": "",
-    "placeholder": "请输入姓名",
-    "rules": [],
-    "key": "name",
-    "subtype": "text"
+  "type": "input",
+  "label": "姓名",
+  "disable": false,
+  "readonly": false,
+  "value": "",
+  "placeholder": "请输入姓名",
+  "rules": [],
+  "key": "name",
+  "subtype": "text"
 }
 ```
 
 第一种，利用`vue`内置的`component`组件，写起来可能像这样：
 
-```
+```vue
 <el-form-item>
     <component :is="`el-${item.type}`" />
 </el-form-item>
@@ -190,7 +187,7 @@ export default {
 
 第二种，使用`v-if`逐个判断：
 
-```
+```vue
 <el-form-item>
     <el-input v-if="item.type === 'input'" />
     <span v-else>未知控件类型</span>
@@ -201,38 +198,41 @@ export default {
 
 根据这个思路，我们来封装一个`dynamic-form-item`，接收一个`item`，渲染一个`el-form-item`：
 
-```
+```vue
 <template>
   <el-form-item :rules="item.rules" :label="item.label" :prop="item.key">
-
     <el-input
-        v-if="item.type==='input'"
-        v-bind="$attrs" v-on="$listeners"
-        :type="item.subtype"
-        :placeholder="item.placeholder"
-        :disabled="item.disable"
-        :readonly="item.readonly"
-        :autosize="item.autosize"></el-input>
+      v-if="item.type === 'input'"
+      v-bind="$attrs"
+      v-on="$listeners"
+      :type="item.subtype"
+      :placeholder="item.placeholder"
+      :disabled="item.disable"
+      :readonly="item.readonly"
+      :autosize="item.autosize"
+    ></el-input>
 
     <el-select
-        v-else-if="item.type==='select'"
-        v-bind="$attrs" v-on="$listeners"
-        :multiple="item.multiple"
-        :disabled="item.disabled"
-        :multiple-limit="item.multipleLimit">
-            <el-option
-                v-for="o in item.options"
-                :key="o.value"
-                :label="o.label"
-                :value="o.value"
-                :disabled="o.disabled">
-            </el-option>
+      v-else-if="item.type === 'select'"
+      v-bind="$attrs"
+      v-on="$listeners"
+      :multiple="item.multiple"
+      :disabled="item.disabled"
+      :multiple-limit="item.multipleLimit"
+    >
+      <el-option
+        v-for="o in item.options"
+        :key="o.value"
+        :label="o.label"
+        :value="o.value"
+        :disabled="o.disabled"
+      >
+      </el-option>
     </el-select>
 
     ...
 
     <span v-else>未知控件类型</span>
-
   </el-form-item>
 </template>
 
@@ -241,10 +241,10 @@ export default {
   props: {
     item: {
       type: Object,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
 ```
 
@@ -252,19 +252,20 @@ export default {
 
 ### 最后，我们就可以循环输出一个完整的表单了：
 
-```
+```vue
 <dynamic-form-item
-    v-for="item in formConfig.formItemList"
-    :key="item.key"
-    v-if="value[item.key]!==undefined"
-    :item="item"
-    :value="value[item.key]"
-    @input="handleInput($event, item.key)" />
+  v-for="item in formConfig.formItemList"
+  :key="item.key"
+  v-if="value[item.key] !== undefined"
+  :item="item"
+  :value="value[item.key]"
+  @input="handleInput($event, item.key)"
+/>
 ```
 
 这里不能用`v-model="value[item.key]"`，上文说了，组件内不能直接修改props，所以这里我们还是转发一下`input事件`。
 
-```
+```js
 methods: {
     handleInput(val, key) {
       // 这里element-ui没有上报event，直接就是value了
@@ -284,25 +285,28 @@ methods: {
 
 ![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/3/5/161f5444c113df0d~tplv-t2oaga2asx-image.image)
 
-```
+```vue
 <!--普通使用-->
 <input-number
-    v-model="someNumber"
-    :min="1"
-    :max="99"
-    :decimal1="2"
-    append="元"></input-number>
+  v-model="someNumber"
+  :min="1"
+  :max="99"
+  :decimal1="2"
+  append="元"
+></input-number>
 
 <!--在dynamic-form-item中的应用-->
 <input-number
-    v-else-if="item.type==='number'"
-    v-bind="$attrs" v-on="$listeners"
-    :min="item.min"
-    :max="item.max"
-    :decimal1="item.decimal1"
-    :append="item.append"
-    :prepend="item.prepend"
-    :disabled="item.disabled"></input-number>
+  v-else-if="item.type === 'number'"
+  v-bind="$attrs"
+  v-on="$listeners"
+  :min="item.min"
+  :max="item.max"
+  :decimal1="item.decimal1"
+  :append="item.append"
+  :prepend="item.prepend"
+  :disabled="item.disabled"
+></input-number>
 ```
 
 > 完整代码：[`src/components/dynamic-form/input-number.vue`](https://github.com/bowencool/super-form/blob/master/src/components/dynamic-form/input-number.vue)
@@ -313,7 +317,7 @@ methods: {
 ![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/3/5/161f5642a8ab5d97~tplv-t2oaga2asx-image.image)
 在配置中
 
-```
+```json
 {
     "type": "input",
     ...
@@ -329,11 +333,9 @@ methods: {
 
 在`dynamic-form-item`组件中, 遍历`item.rules`, 将sql验证转化为自定义`validator`函数:
 
-```
+```vue
 <template>
-    <el-form-item :rules="Rules" >
-        ...
-    </el-form-item>
+  <el-form-item :rules="Rules"> ... </el-form-item>
 </template>
 
 <script>
@@ -382,7 +384,7 @@ export default {
 
 在配置中:
 
-```
+```json
 {
     "type": "cascader",
     ...
@@ -392,16 +394,17 @@ export default {
 
 在`dynamic-form-item`组件中:
 
-```
+```vue
 <template>
-    <el-form-item>
+  <el-form-item>
+    ...
 
-        ...
-
-        <el-cascader
-            :options="item.options || require('element-china-area-data')[item.areaShortcut]"
-            ></el-cascader>
-    </el-form-item>
+    <el-cascader
+      :options="
+        item.options || require('element-china-area-data')[item.areaShortcut]
+      "
+    ></el-cascader>
+  </el-form-item>
 </template>
 ```
 
@@ -411,7 +414,7 @@ export default {
 
 在配置中:
 
-```
+```json
 {
     "type": "checkbox",
     ...
@@ -421,19 +424,15 @@ export default {
 
 在`dynamic-form-item`组件中:
 
-```
+```vue
 <template>
-    <el-form-item>
+  <el-form-item>
+    ...
 
-        ...
-
-        <el-select>
-            <el-option
-                v-for="o in item.options || ajaxOptions"
-                ></el-option>
-        </el-select>
-
-    </el-form-item>
+    <el-select>
+      <el-option v-for="o in item.options || ajaxOptions"></el-option>
+    </el-select>
+  </el-form-item>
 </template>
 
 <script>
@@ -465,5 +464,6 @@ export default {
 
 # 完
 
-第一次写文章，希望能帮到大家，也欢迎提出建议。
-文末再贴个[GitHub地址](https://github.com/bowencool/super-form/tree/master/src/components/dynamic-form)，如果能给个Star，那可真真是极好的 =)
+第一次写文章，希望能帮到大家，也欢迎提出建议。文末再贴个[GitHub地址](https://github.com/bowencool/super-form/tree/master/src/components/dynamic-form)，如果能给个Star，那可真真是极好的 =)
+
+本文从 https://juejin.cn/post/6844903569896767495 迁移过来，你也可以去原链接查看评论。
