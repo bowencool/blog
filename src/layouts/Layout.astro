@@ -123,13 +123,16 @@ const socialImageURL = new URL(
 
     <ViewTransitions />
 
+    <!-- todo remove this -->
     <script is:inline src="/toggle-theme.js"></script>
   </head>
   <body>
     <slot />
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
+    {import.meta.env.PROD && <>
+      <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      </script>
+      <script defer src="/_vercel/insights/script.js"></script>
+    </>}
   </body>
 </html>
