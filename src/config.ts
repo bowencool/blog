@@ -2,7 +2,6 @@ import type { Site, SocialObjects } from "./types";
 import { t } from "i18next";
 
 export const SITE: Site = {
-  website: "https://blog.bowen.cool", // replace this with your deployed domain
   ogImage: "og.jpg",
   lightAndDarkMode: true,
   postPerPage: 10,

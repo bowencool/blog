@@ -1,4 +1,3 @@
-import { SITE } from "@config";
 import { t } from "i18next";
 
 export default () => {
@@ -80,7 +79,7 @@ export default () => {
             }}
           >
             <span style={{ overflow: "hidden", fontWeight: "bold" }}>
-              {new URL(SITE.website).origin}
+              {new URL(import.meta.env.SITE).origin}
             </span>
           </div>
         </div>

@@ -1,5 +1,4 @@
 import type { APIRoute } from "astro";
-import { SITE } from "@config";
 
 const robots = `
 User-agent: Googlebot
@@ -8,7 +7,7 @@ Disallow: /nogooglebot/
 User-agent: *
 Allow: /
 
-Sitemap: ${new URL("sitemap-index.xml", SITE.website).href}
+Sitemap: ${import.meta.env.SITE}/sitemap-index.xml
 `.trim();
 
 export const GET: APIRoute = () =>

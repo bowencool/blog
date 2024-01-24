@@ -1,6 +1,5 @@
 import rss from "@astrojs/rss";
 import getSortedPosts from "@utils/getSortedPosts";
-import { SITE } from "@config";
 import { localizeUrl, localizePath } from "astro-i18next";
 import { getPostsByLang } from "@utils/getPosts";
 import i18next, { t, changeLanguage } from "i18next";
@@ -13,11 +12,12 @@ export async function GET(ctx: APIContext) {
   return rss({
     title: t("websiteTitle"),
     description: t("websiteDescription"),
-    site: localizeUrl(SITE.website),
+    site: localizeUrl(import.meta.env.SITE),
     // customData: "<image></image>",
     items: sortedPosts.map(({ data, slug }) => {
       const permalink = data.permalink ?? slug;
-      const ogImage = data.ogImage ?? `${SITE.website}/posts/${permalink}.png`;
+      const ogImage =
+        data.ogImage ?? `${import.meta.env.SITE}/posts/${permalink}.png`;
       return {
         link: localizePath(`/posts/${permalink}`),
         title: data.title,
