@@ -5,6 +5,7 @@ featured: true
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
+collapseDepth: 1
 tags:
   - unRAID
   - nas
@@ -13,8 +14,6 @@ description: unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，
 ---
 
 unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋友在用，所以也没考虑其他 NAS 系统。稳定运行好多年了，体验极好，特此记录，以便分享。
-
-# 目录
 
 # 文件共享功能的使用
 

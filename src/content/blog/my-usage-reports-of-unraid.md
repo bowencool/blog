@@ -5,6 +5,7 @@ featured: true
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
+collapseDepth: 1
 tags:
   - unRAID
   - nas
@@ -12,11 +13,9 @@ tags:
 description: unRAID is a home NAS system, and it's also my first time using a NAS. Because some friends are using it, I didn't consider other NAS systems. It has been running stably for many years with an excellent user experience, so I'm recording this to share with others.
 ---
 
-<!-- todo auto insert toc / image/ description here -->
+<!-- todo auto insert image/description here -->
 
 unRAID is a home NAS system, and it's also my first time using a NAS. Because some friends are using it, I didn't consider other NAS systems. It has been running stably for many years with an excellent user experience, so I'm recording this to share with others.
-
-# Table of Contents
 
 # Usage of File Sharing Function
 

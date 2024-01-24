@@ -13,8 +13,6 @@ tags:
 description: 本文介绍了安卓和iOS设备如何将短信中的取件码自动转发到 TODO 应用中，本文以滴答清单为例。
 ---
 
-# 目录
-
 # iOS(iPhone/iPad)
 
 步骤如下：

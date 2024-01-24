@@ -4,6 +4,7 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
+import FloatingTOC from "@components/FloatingTOC";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import i18next, { t } from "i18next";
@@ -25,6 +26,7 @@ const {
   pubDatetime,
   modDatetime,
   permalink,
+  collapseDepth,
   tags,
 } = post.data;
 
@@ -85,12 +87,14 @@ const layoutProps = {
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />
     </article>
+    <nav id="floating-toc"></nav>
+    <FloatingTOC client:only collapseDepth={collapseDepth} />
 
     <ul class="my-8">
       {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
     </ul>
     <Giscus
-      client:idle
+      client:only
       id="comments"
       repo="bowencool/blog"
       repoId="MDEwOlJlcG9zaXRvcnkxMjgzNTcxMjE="
@@ -130,6 +134,20 @@ const layoutProps = {
     @apply text-2xl font-semibold text-skin-accent;
   }
 </style>
+<style is:global>
+  #floating-toc {
+    @apply fixed top-28;
+    transform: translateX(0);
+    right: calc((100% - 84rem) / 2);
+    .toc-list {
+      position: relative;
+      overflow: hidden;
+    }
+  }
+  .is-active-link::before {
+    @apply !bg-skin-accent;
+  }
+</style>
 
 <script is:inline>
   /* When the user clicks on the "Back to Top" button,
@@ -139,3 +157,7 @@ const layoutProps = {
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   });
 </script>
+
+<style>
+  @import "tocbot/dist/tocbot.css";
+</style>

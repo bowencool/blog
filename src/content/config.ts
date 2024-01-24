@@ -9,6 +9,7 @@ const blog = defineCollection({
       modDatetime: z.date().optional().nullable(),
       // todo: show this link on the page
       originalUrl: z.string().optional(),
+      collapseDepth: z.number().default(2),
       title: z.string(),
       permalink: z.string(),
       featured: z.boolean().optional(),
