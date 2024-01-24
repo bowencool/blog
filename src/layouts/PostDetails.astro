@@ -138,7 +138,8 @@ const layoutProps = {
   #floating-toc {
     @apply fixed top-28;
     transform: translateX(0);
-    right: calc((100% - 84rem) / 2);
+    right: calc(((100% - 48rem) / 2));
+    transform: translateX(100%);
     .toc-list {
       position: relative;
       overflow: hidden;
@@ -147,6 +148,9 @@ const layoutProps = {
   .is-active-link::before {
     @apply !bg-skin-accent;
   }
+</style>
+<style is:global>
+  @import "tocbot/dist/tocbot.css";
 </style>
 
 <script is:inline>
@@ -157,7 +161,3 @@ const layoutProps = {
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   });
 </script>
-
-<style>
-  @import "tocbot/dist/tocbot.css";
-</style>
