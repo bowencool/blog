@@ -86,11 +86,19 @@ description: 本文介绍了安卓和iOS设备如何将短信中的取件码自�
 4. 选择你想要转发的类型，以滴答清单为例，选择 Webhook（URL Scheme 应该也可以，我没在安卓机上安装滴答清单，所以没尝试）
 5. 填入信息如下：
 
-![channel](../../../assets/images/forward-sms/channel.jpg)
+![sender](../../../assets/images/forward-sms/sender-zh.jpg)
 
 图中涉及到的资源：
 
-1. [滴答清单 创建任务 API](https://developer.dida365.com/api#/openapi?id=create-task)
+1. [滴答清单 创建任务 API](https://developer.dida365.com/api#/openapi?id=create-task)及参数模板：
+   ```json
+   {
+     "title": "[org_content]",
+     "content": "[content]",
+     "projectId": "xxx",
+     "startDate": "[receive_time:yyyy-MM-dd'T'HH:mm:ssZ]"
+   }
+   ```
 2. [滴答清单 获取 Access Token 步骤](https://developer.dida365.com/api#/openapi?id=get-access-token) 及 [简易代码](https://gist.github.com/bowencool/7da8630dafe9d07e7e004def2dcb851b)：
 
 ```js
@@ -155,7 +163,7 @@ console.log(`listened http://localhost:${PORT}`);
 4. 点击右上角“+”
 5. 填入信息如下：
 
-![rule](../../../assets/images/forward-sms/rule.jpg)
+![rule](../../../assets/images/forward-sms/rule-zh.jpg)
 
 其他配置项请查看官方文档。
 

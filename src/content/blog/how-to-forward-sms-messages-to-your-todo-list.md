@@ -78,19 +78,27 @@ Do `Add task to xxx List`(the shortcut you just created)
 
 The installation process will not be repeated.
 
-## Add a sending channel
+## Add a "Sender"
 
 1. Open the SmsForwarder App.
-2. Switch to "Sending Channel" in the bottom navigation bar.
+2. Switch to "Sender" in the bottom navigation bar.
 3. Click on the "+" in the upper right corner.
-4. Choose the type of the sending channel you want. Taking TickTick as an example, select Webhook (URL Scheme should also work, but I haven't tried it on an Android device because I don't have TickTick installed).
+4. Choose the type of the "Sender" you want. Taking TickTick as an example, select Webhook (URL Scheme should also work, but I haven't tried it on an Android device because I don't have TickTick installed).
 5. Fill in the information as below:
 
-![channel](../../assets/images/forward-sms/channel.jpg)
+![sender](../../assets/images/forward-sms/sender.jpg)
 
 The resources involved in Fig:
 
-1. [TickTick create-task API](https://developer.dida365.com/api#/openapi?id=create-task)
+1. [TickTick create-task API](https://developer.dida365.com/api#/openapi?id=create-task) and the Parameter Templates:
+   ```json
+   {
+     "title": "[org_content]",
+     "content": "[content]",
+     "projectId": "xxx",
+     "startDate": "[receive_time:yyyy-MM-dd'T'HH:mm:ssZ]"
+   }
+   ```
 2. [Steps to get a TickTick Access Token](https://developer.dida365.com/api#/openapi?id=get-access-token) and [Simple codes](https://gist.github.com/bowencool/7da8630dafe9d07e7e004def2dcb851b)：
 
 ```js
@@ -147,11 +155,11 @@ app.use(router.routes()).use(router.allowedMethods()).listen(PORT);
 console.log(`listened http://localhost:${PORT}`);
 ```
 
-## Add a forwarding rules
+## Add a forwarding rule
 
 1. Open the App
-2. Switch to "forwarding rules" in the bottom navigation bar.
-3. Switch to "sms messages" in the top navigation bar.
+2. Switch to "Rules" in the bottom navigation bar.
+3. Switch to "Sms" in the top navigation bar.
 4. Click on the "+" in the upper right corner.
 5. Fill in the information as below:
 
