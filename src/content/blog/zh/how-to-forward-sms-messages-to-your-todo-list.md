@@ -1,7 +1,7 @@
 ---
 pubDatetime: 2024-01-23T18:35:07.000Z
 modDatetime: 2024-01-24T11:06:07.000Z
-title: 如何将短信中的取件码自动转发到滴答清单/待办事项等 TODO 应用
+title: 如何将短信中的快递取件码自动转发到滴答清单/待办事项等 TODO 应用
 permalink: how-to-forward-sms-messages-to-your-todo-list
 featured: true
 tags:
@@ -10,7 +10,7 @@ tags:
   - iPhone
   - tricks
   - automation
-description: 本文介绍了安卓和iOS设备如何将短信中的取件码自动转发到 TODO 应用中，本文以滴答清单为例。
+description: 本文介绍了安卓和iOS设备如何将短信中的快递取件码自动转发到 TODO 应用中，本文以滴答清单为例。
 ---
 
 # iOS(iPhone/iPad)
