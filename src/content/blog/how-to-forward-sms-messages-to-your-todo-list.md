@@ -1,5 +1,6 @@
 ---
 pubDatetime: 2024-01-23T18:35:07.000Z
+modDatetime: 2024-01-24T11:06:07.000Z
 title: How to forward sms messages to your todo list
 permalink: how-to-forward-sms-messages-to-your-todo-list
 featured: true
