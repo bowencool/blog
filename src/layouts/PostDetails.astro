@@ -94,7 +94,7 @@ const layoutProps = {
       {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
     </ul>
     <Giscus
-      client:only
+      client:idle
       id="comments"
       repo="bowencool/blog"
       repoId="MDEwOlJlcG9zaXRvcnkxMjgzNTcxMjE="
@@ -107,7 +107,6 @@ const layoutProps = {
       emitMetadata="0"
       theme="preferred_color_scheme"
       lang={giscusLang}
-      loading="lazy"
     />
     <div class="flex justify-end">
       <button
