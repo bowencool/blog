@@ -3,37 +3,25 @@
 @tailwind utilities;
 
 @layer base {
-  :root,
-  html[data-theme="light"] {
+  :root {
     --color-fill: 251, 254, 251;
     --color-text-base: 40, 39, 40;
     --color-accent: 0, 108, 172;
     --color-card: 230, 230, 230;
     --color-card-muted: 205, 205, 205;
     --color-border: 236, 233, 233;
-
-    /* --astro-code-color-text: azure;
-    --astro-code-color-background: black;
-    --astro-code-token-constant: plum;
-    --astro-code-token-string: orchid;
-    --astro-code-token-comment: salmon;
-    --astro-code-token-keyword: powderblue;
-    --astro-code-token-parameter: seashell;
-    --astro-code-token-function: dodgerblue;
-    --astro-code-token-string-expression: burlywood;
-    --astro-code-token-punctuation: linen;
-    --astro-code-token-link: honeydew; */
-
   }
-  html[data-theme="dark"] {
-    --color-fill: 33, 39, 55;
-    --color-text-base: 234, 237, 243;
-    --color-accent: 235, 63, 211;
-    --color-card: 52, 63, 96;
-    --color-card-muted: 125, 79, 124;
-    --color-border: 100, 36, 81;
 
-    /* --astro-code-color-background: #24292e;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-fill: 33, 39, 55;
+      --color-text-base: 234, 237, 243;
+      --color-accent: 235, 63, 211;
+      --color-card: 52, 63, 96;
+      --color-card-muted: 125, 79, 124;
+      --color-border: 100, 36, 81;
+
+      /* --astro-code-color-background: #24292e;
     --astro-code-token-comment: #6a737d;
     --astro-code-token-keyword: #f97583;
     --astro-code-token-string: #9ecbff;
@@ -44,16 +32,9 @@
     --astro-code-color-text: #e1e4e8;
     --astro-code-token-string-expression: #116329;
     --astro-code-token-link: white; */
+    }
   }
 
-  #sun-svg,
-  html[data-theme="dark"] #moon-svg {
-    display: none;
-  }
-  #moon-svg,
-  html[data-theme="dark"] #sun-svg {
-    display: block;
-  }
   body {
     @apply flex min-h-[100svh] flex-col bg-skin-fill font-mono text-skin-base
     selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
