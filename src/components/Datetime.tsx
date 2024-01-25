@@ -42,7 +42,7 @@ export default function Datetime({
           <FormattedDatetime date={pubDatetime} />
         </span>
         {modDatetime && (
-          <span>
+          <span className="hidden md:inline-block">
             <span aria-hidden="true">{t("updatedAt")} </span>
             <FormattedDatetime date={modDatetime} />
           </span>
