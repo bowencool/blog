@@ -33,7 +33,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       {
         socialCount > 0 && (
           <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
+            <div class="social-links">{t("socialLinks")}:</div>
             <Socials />
           </div>
         )
