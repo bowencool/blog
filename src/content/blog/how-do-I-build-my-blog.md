@@ -89,27 +89,27 @@ It's not necessary for now.
 
 # Projects that can be learned from
 
-https://github.com/tangly1024/NotionNext
-https://www.lovchun.com/ The function is pretty good
-https://github.com/szmxx/blog Dark mode switching effects are worth learning
+- https://github.com/tangly1024/NotionNext
+- https://www.lovchun.com/ Its features is pretty good
+- https://github.com/szmxx/blog Dark mode switching effects are worth learning
 
 ## The UI design is very good:
 
-https://github.com/joshwcomeau/blog
-https://github.com/transitive-bullshit/nextjs-notion-starter-kit
-https://github.com/satnaing/satnaing.dev
-https://github.com/judygab/nextjs-portfolio
+- https://github.com/joshwcomeau/blog
+- https://github.com/transitive-bullshit/nextjs-notion-starter-kit
+- https://github.com/satnaing/satnaing.dev
+- https://github.com/judygab/nextjs-portfolio
 
 ## Some tools:
 
-https://github.com/NotionX/react-notion-x Render notion page in react
-https://github.com/LetTTGACO/elog Synchronize posts between Notion / Feishu Docs / Yuque / local markdown
+- https://github.com/NotionX/react-notion-x Render notion page in react
+- https://github.com/LetTTGACO/elog Synchronize posts between Notion / Feishu Docs / Yuque / local markdown
 
 ## Starting boilerplate?
 
-https://astro.build/themes/ Astro's official collection of themes, and I've picked two that are relatively viable:
-https://github.com/onwidget/astrowind Very nice UI but lacks some features specific to blogs
-https://github.com/satnaing/astro-paper I don’t really like its UI style, but the blog function is relatively complete
+- https://astro.build/themes/ Astro's official collection of themes, and I've picked two that are relatively viable:
+- https://github.com/onwidget/astrowind Very nice UI but lacks some features specific to blogs
+- https://github.com/satnaing/astro-paper I don’t really like its UI style, but the blog features is relatively complete
 
 Not many pages, not complicated, daisyui / shadcn can make one from scratch, I can also find a boilerplate with i18n (shadcn is powered by v0.dev, others can use ancodeai.com instead)
 
@@ -145,6 +145,8 @@ I chose to start development based on Astro paper, and then chose astro-i18next 
   - If the slugs of different language versions of the same blog are not the same, it will not be handled correctly when switching languages.
   - Defining new collections is stupid and doesn't seem to solve the problem of switching languages
   - After half a dozen searches, [change the name of the slug](https://github.com/withastro/astro/issues/7133#issuecomment-1585751826) is fine, for example I changed it to permalink
+
+## Other traps
 
 - The behavior of the development environment is inconsistent with that of the production environment. Perhaps this is due to the inconsistency between SSR mode and SSG mode? These issues can be resolved, but it feels somewhat uneasy.
 

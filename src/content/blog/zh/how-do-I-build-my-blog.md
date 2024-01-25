@@ -89,27 +89,27 @@ description: 本文讲述了作者在搭建博客的一些思考、权衡以及�
 
 # 可以借鉴的仓库
 
-https://github.com/tangly1024/NotionNext
-https://www.lovchun.com/ 功能挺不错的
-https://github.com/szmxx/blog 深色模式切换特效值得学习
+- https://github.com/tangly1024/NotionNext
+- https://www.lovchun.com/ 功能挺不错的
+- https://github.com/szmxx/blog 深色模式切换特效值得学习
 
 ## UI 设计非常好：
 
-https://github.com/joshwcomeau/blog
-https://github.com/transitive-bullshit/nextjs-notion-starter-kit
-https://github.com/satnaing/satnaing.dev
-https://github.com/judygab/nextjs-portfolio
+- https://github.com/joshwcomeau/blog
+- https://github.com/transitive-bullshit/nextjs-notion-starter-kit
+- https://github.com/satnaing/satnaing.dev
+- https://github.com/judygab/nextjs-portfolio
 
 ## 一些工具：
 
-https://github.com/NotionX/react-notion-x 渲染 notion page
-https://github.com/LetTTGACO/elog 在 Notion / 飞书云文档 / 语雀 / 本地 markdown 之间同步文章
+- https://github.com/NotionX/react-notion-x 渲染 notion page
+- https://github.com/LetTTGACO/elog 在 Notion / 飞书云文档 / 语雀 / 本地 markdown 之间同步文章
 
 ## 起步模板？
 
-https://astro.build/themes/ Astro 官方收集的仓库，挑了两个相对可行的仓库：
-https://github.com/onwidget/astrowind UI 很不错，但博客相关的功能不太完善
-https://github.com/satnaing/astro-paper UI 风格不太喜欢，但博客功能相对完善
+- https://astro.build/themes/ Astro 官方收集的仓库，挑了两个相对可行的仓库：
+- https://github.com/onwidget/astrowind UI 很不错，但博客相关的功能不太完善
+- https://github.com/satnaing/astro-paper UI 风格不太喜欢，但博客功能相对完善
 
 没几个页面，也不复杂，daisyui / shadcn 从头撸一个也行， 可以找一个 i18n 的模板（shadcn 有 v0.dev 加持，其他的可以用 ancodeai.com 代替）
 
@@ -141,10 +141,11 @@ https://github.com/satnaing/astro-paper UI 风格不太喜欢，但博客功能�
 - astro-i18next 的 `{ t, localizaPath }` 仅支持服务端，孤岛组件（react client component）SSR 没问题，但客户端加载 js 直接报错，这个我解决了。详情查看 https://github.com/yassinedoghri/astro-i18next/issues/84
 
 - slug 重复（ID in pathname）
-
   - 同一篇博客的不同语言版本 slug 不一样的话，切换语言时，无法正确处理
   - 定义新集合，太蠢了，而且好像也解决不了切换语言的问题
   - 搜了半天，[把 slug 改个名字](https://github.com/withastro/astro/issues/7133#issuecomment-1585751826)就好了，比如我就改成了permalink
+
+## 其他坑
 
 - 开发环境与生产环境行为不一致，也许是 SSR 模式和 SSG 模式行为不一致？这些也能解决，就是感觉不太放心
 
