@@ -92,17 +92,23 @@ const layoutProps = {
 
     <ul class="my-8">
       {
-        tags.map(slug => (
-          <li class="my-1 inline-block">
-            <a
-              href={localizePath(`/tags/${slug}`)}
-              transition:name={slug}
-              class="mr-2 text-sm underline decoration-dashed underline-offset-3 hover:text-skin-accent focus-visible:p-1"
-            >
-              #<span>{t(`tags:${slug}`)}</span>
-            </a>
-          </li>
-        ))
+        tags.map(tag => {
+          const slug = slugifyStr(tag);
+          return (
+            <li class="my-1 inline-block">
+              <a
+                href={localizePath(`/tags/${slug}`)}
+                transition:name={slug}
+                class="mr-2 text-sm underline decoration-dashed underline-offset-3 hover:text-skin-accent focus-visible:p-1"
+              >
+                #
+                <span>
+                  {t(`tags:${slug}`)}
+                </span>
+              </a>
+            </li>
+          );
+        })
       }
     </ul>
     <Giscus
