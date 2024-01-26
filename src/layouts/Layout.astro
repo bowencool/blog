@@ -5,7 +5,7 @@ import { ViewTransitions } from "astro:transitions";
 import i18next, { t, changeLanguage } from "i18next";
 import { HeadHrefLangs } from "astro-i18next/components";
 // import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
-
+// import { GoogleAnalytics } from 'astro-analytics';
 const pathname = Astro.url.pathname;
 // make this works with md file routes
 if (pathname.startsWith("/zh")) {
@@ -61,16 +61,12 @@ const socialImageURL = new URL(
 
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
-
-    <!-- General Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <HeadHrefLangs />
-
-    <!-- Article Published/Modified time -->
     {
       pubDatetime && (
         <meta
@@ -114,7 +110,7 @@ const socialImageURL = new URL(
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="rgba(var(--color-fill), var(--tw-bg-opacity))" /> -->
 
     {
-      googleSiteVerification && (
+      import.meta.env.PROD && googleSiteVerification && (
         <meta
           name="google-site-verification"
           content={googleSiteVerification}
@@ -128,10 +124,18 @@ const socialImageURL = new URL(
   <body>
     <slot />
     {import.meta.env.PROD && <>
-      <script>
+      <script is:inline>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      </script >
+      <script is:inline defer src="/_vercel/insights/script.js"></script>
+      <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-L6Q7CYFS27"></script>
+      <script is:inline>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-L6Q7CYFS27');
       </script>
-      <script defer src="/_vercel/insights/script.js"></script>
-    </s>}
+    </>}
   </body>
 </html>
