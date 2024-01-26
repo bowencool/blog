@@ -2,7 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import Tag from "@components/Tag.astro";
+import { localizePath } from "astro-i18next";
 import Datetime from "@components/Datetime";
 import FloatingTOC from "@components/FloatingTOC";
 import type { CollectionEntry } from "astro:content";
@@ -91,7 +91,19 @@ const layoutProps = {
     <FloatingTOC client:only collapseDepth={collapseDepth} />
 
     <ul class="my-8">
-      {tags.map(tag => <Tag slug={slugifyStr(tag)} />)}
+      {
+        tags.map(slug => (
+          <li class="my-1 inline-block">
+            <a
+              href={localizePath(`/tags/${slug}`)}
+              transition:name={slug}
+              class="mr-2 text-sm underline decoration-dashed underline-offset-3 hover:text-skin-accent focus-visible:p-1"
+            >
+              #<span>{t(`tags:${slug}`)}</span>
+            </a>
+          </li>
+        ))
+      }
     </ul>
     <Giscus
       client:idle

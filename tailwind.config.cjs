@@ -34,6 +34,7 @@ module.exports = {
         },
       },
       textUnderlineOffset: {
+        3: '3px',
         5: '5px',
         6: '6px',
       },

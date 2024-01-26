@@ -3,7 +3,9 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
-import Tag from "@components/Tag.astro";
+// import TagCloud from "./_TagCloud";
+import { localizePath } from "astro-i18next";
+// import { TagCloud } from "react-tagcloud";
 import getUniqueTags from "@utils/getUniqueTags";
 import i18next, { t, changeLanguage } from "i18next";
 import { getPostsByLang } from "@utils/getPosts";
@@ -12,14 +14,62 @@ changeLanguage("en");
 
 const posts = await getPostsByLang(i18next.language);
 let tags = getUniqueTags(posts);
+let maxCount = tags[0].count;
+let minCount = 1;
+tags.forEach(tag => {
+    if (tag.count > maxCount) {
+        maxCount = tag.count;
+    }
+    if (tag.count < minCount) {
+        minCount = tag.count;
+    }
+});
+function getFontSize(count: number) {
+    const maxFontSize = 45;
+    const minFontSize = 14;
+    const fontSize = minFontSize +
+        ((count - minCount) / (maxCount - minCount)) * (maxFontSize - minFontSize);
+    return fontSize;
+}
 ---
 
 <Layout title={t("tags") as string}>
   <Header activeNav="tags" />
   <Main pageTitle={t("tags") as string} pageDesc={t("tagsDesc") as string}>
     <ul>
-      {tags.map(tag => <Tag {tag} size="lg" />)}
+      {
+        tags.map(tag => (
+          <li class="mx-1 my-3 inline-block">
+            <a
+              href={localizePath(`/tags/${tag.slug}`)}
+              transition:name={tag.slug}
+              class="underline decoration-dashed underline-offset-5 hover:text-skin-accent focus-visible:p-1"
+              style={`font-size: ${getFontSize(tag.count)}px`}
+            >
+              #<span>{t(`tags:${tag.slug}`)}</span>
+            </a>
+          </li>
+        ))
+      }
     </ul>
+
+    <!-- <TagCloud
+      client:load
+      tags={tags}
+      minSize={14}
+      maxSize={45}
+      renderer={(tag, size, color) => (
+        <li className="inline-block underline-offset-5 mx-1 my-3">
+          <a
+            href={localizePath(`/tags/${tag.slug}`)}
+            transition:name={tag.slug}
+            class={`text-lg group pr-2`}
+          >
+            #<span>{t(`tags:${tag.slug}`)}</span>
+          </a>
+        </li>
+      )}
+    /> -->
   </Main>
   <Footer />
 </Layout>

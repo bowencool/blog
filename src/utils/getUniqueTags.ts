@@ -28,13 +28,13 @@ const getUniqueTags = (posts: CollectionEntry<"blog">[]) => {
     });
   });
 
-  const tags = Array.from(map.values()).sort((a, b) => {
+  const tags = Array.from(map.values()); /* .sort((a, b) => {
     if (b.count !== a.count) {
       return b.count - a.count;
     } else {
       return a.originalTagString.localeCompare(b.originalTagString);
     }
-  });
+  }) */
   return tags;
 };
 
