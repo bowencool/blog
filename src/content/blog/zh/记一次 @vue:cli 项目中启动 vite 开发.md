@@ -7,6 +7,7 @@ originalUrl: https://github.com/bowencool/blog/issues/14
 tags:
   - frontend
   - vite
+  - vue
   - webpack
 description: 记一次 @vue/cli 项目中启动 vite 开发
 ---
@@ -39,8 +40,8 @@ node_modules/d/index.js:7:30: error: Could not read from file: /Users/xxx/61/vit
 
 紧接着，第二个错误来了，是一个 alias 失效的问题，因为我是依赖 `@vue/cli-service@next（webpack@5）`，所以 vue-cli-plugin-vite 没有兼容情有可原，所以打算看看源码再决定如何处理。找到相关代码在 vue-cli-plugin-vite > [vite-plugin-vue-cli](https://github.com/IndexXuan/vite-plugin-vue-cli/blob/main/src/index.ts#L134) 里：
 
-```
-  config.resolve.alias = finalAlias
+```js
+config.resolve.alias = finalAlias;
 ```
 
 这一下就有些棘手了，因为它把路堵死了: alias 是直接覆盖的，我没法在外面扩展 alias 了，怎么办？等作者更新？那得啥时候去，我现在就要！这样受制于人，干脆自己启动 vite 算了，自己写 vite config ，那不是灵活地多？
@@ -57,8 +58,8 @@ node_modules/d/index.js:7:30: error: Could not read from file: /Users/xxx/61/vit
 - 个人偏好 ts，如果有复杂代码可以获得更好的提示，再说整个项目都是 ts，有现成的 tsconfig 可以用
 - vue.config.js 有个 eslint 报错，虽然不会影响业务代码，但是 VS Code 一直飘着红色早就不爽了，一直没时间解决：
 
-```vue.config.js
-const Components = require('unplugin-vue-components/webpack');
+```js
+const Components = require("unplugin-vue-components/webpack");
 // Unable to resolve path to module 'unplugin-vue-components/webpack'.eslint(import/no-unresolved)
 ```
 
@@ -70,7 +71,7 @@ const Components = require('unplugin-vue-components/webpack');
 
 然后我就尝试换一个编译器：swc。执行命令
 
-```
+```sh
 swc vue.config.ts -o vue.config.js -C module.type=commonjs -C jsc.target=es2021 -C module.noInterop=true
 ```
 
@@ -260,13 +261,13 @@ export default defineConfig({
 
 运行时报`global is not defined`，极少量，能被拿来在浏览器的代码，不会重度依赖 Nodejs 全局变量，大部分只是简单判断一下，在入口 html 里：
 
-```ejs
-    <% if (NODE_ENV === 'development') { %>
-    <script>
-      // fix vite dev
-      if (!window.global) window.global = window;
-    </script>
-    <% } %>
+```html
+<% if (NODE_ENV === 'development') { %>
+<script>
+  // fix vite dev
+  if (!window.global) window.global = window;
+</script>
+<% } %>
 ```
 
 ### 自动引入
