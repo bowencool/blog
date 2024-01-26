@@ -53,6 +53,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
                   href={localizePath(`/posts/${data.permalink || slug}`)}
                   frontmatter={data}
                   secHeading={false}
+                  transition:persist
                 />
               ))}
             </ul>

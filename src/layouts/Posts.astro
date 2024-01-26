@@ -20,14 +20,15 @@ const { currentPage, totalPages, paginatedPosts } = Astro.props;
 
 <Layout title={t("posts") as string}>
   <Header activeNav="posts" />
-  <Main
-    pageTitle={t("posts") as string}
-    pageDesc={t("postsDesc") as string}
-  >
+  <Main pageTitle={t("posts") as string} pageDesc={t("postsDesc") as string}>
     <ul>
       {
         paginatedPosts.map(({ data, slug }) => (
-          <Card href={localizePath(`/posts/${data.permalink || slug}`)} frontmatter={data} />
+          <Card
+            href={localizePath(`/posts/${data.permalink || slug}`)}
+            frontmatter={data}
+            transition:persist
+          />
         ))
       }
     </ul>

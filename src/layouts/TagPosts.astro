@@ -35,6 +35,7 @@ const { currentPage, totalPages, paginatedPosts, tag } = Astro.props;
           <Card
             href={localizePath(`/posts/${data.permalink || slug}`)}
             frontmatter={data}
+            transition:persist
           />
         ))
       }
