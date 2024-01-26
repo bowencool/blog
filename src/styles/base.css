@@ -11,7 +11,6 @@
     --color-card-muted: 205, 205, 205;
     --color-border: 236, 233, 233;
   }
-
   @media (prefers-color-scheme: dark) {
     :root {
       --color-fill: 33, 39, 55;
@@ -20,18 +19,11 @@
       --color-card: 52, 63, 96;
       --color-card-muted: 125, 79, 124;
       --color-border: 100, 36, 81;
-
-      /* --astro-code-color-background: #24292e;
-    --astro-code-token-comment: #6a737d;
-    --astro-code-token-keyword: #f97583;
-    --astro-code-token-string: #9ecbff;
-    --astro-code-token-parameter: #ffab70;
-    --astro-code-token-function: #b392f0;
-    --astro-code-token-constant: #79b8ff;
-    --astro-code-token-punctuation: #e1e4e8;
-    --astro-code-color-text: #e1e4e8;
-    --astro-code-token-string-expression: #116329;
-    --astro-code-token-link: white; */
+    }
+    .astro-code,
+    .astro-code span {
+      color: var(--shiki-dark) !important;
+      background-color: var(--shiki-dark-bg) !important;
     }
   }
 

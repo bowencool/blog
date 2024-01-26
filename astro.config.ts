@@ -28,7 +28,11 @@ export default defineConfig({
   ],
   markdown: {
     shikiConfig: {
-      // theme: "css-variables",
+      // https://shikiji.netlify.app/guide/dual-themes#light-dark-dual-themes
+      experimentalThemes: {
+        light: "github-light",
+        dark: "github-dark",
+      },
       wrap: true,
     },
     rehypePlugins: [
