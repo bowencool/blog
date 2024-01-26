@@ -11,6 +11,7 @@ tags:
   - tricks
   - backup
   - data-security
+  - automation
 description: As is well known, unRAID, as one of the most popular home NAS systems, does not provide remote disaster recovery capabilities (the last item in the 3-2-1 backup principle). As data in the NAS becomes more and more abundant and applications become increasingly complex, I am increasingly concerned about how to recover if all NAS hardware fails due to force majeure (earthquakes, floods, fires, theft, etc.). In order to ensure that data is absolutely safe, today let's talk about remote disaster recovery.
 ---
 
