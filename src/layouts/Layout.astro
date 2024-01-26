@@ -14,8 +14,6 @@ if (pathname.startsWith("/zh")) {
   changeLanguage("en");
 }
 
-const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
-
 export interface Props {
   title?: string;
   author?: string;
@@ -98,25 +96,8 @@ const socialImageURL = new URL(
 
     <!-- Page-specific Meta Tags -->
     <slot name="meta" />
-
-    <!-- Google Font -->
-    <!-- <GoogleFontsOptimizer
-      url="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
-    /> -->
-
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="rgb(251, 254, 251)" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="rgb(33, 39, 55)" />
-    <!-- <meta name="theme-color" media="(prefers-color-scheme: light)" content="rgba(var(--color-fill), var(--tw-bg-opacity))" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="rgba(var(--color-fill), var(--tw-bg-opacity))" /> -->
-
-    {
-      import.meta.env.PROD && googleSiteVerification && (
-        <meta
-          name="google-site-verification"
-          content={googleSiteVerification}
-        />
-      )
-    }
 
     <ViewTransitions />
 
