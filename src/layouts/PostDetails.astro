@@ -32,7 +32,6 @@ const {
 
 const { Content } = await post.render();
 
-// todo ogImage 支持多语言
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
 const ogUrl = new URL(ogImageUrl ?? `/posts/${permalink}.png`, Astro.url.origin)
   .href;
@@ -56,7 +55,7 @@ const layoutProps = {
 ---
 
 <Layout {...layoutProps}>
-  <!-- todo: set title and description to en -->
+  <!-- set title and description to en -->
   <!-- <meta
     slot="meta"
     name="giscus:backlink"
@@ -76,7 +75,6 @@ const layoutProps = {
     </button>
   </div>
   <main id="main-content">
-    <!-- todo -->
     <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
     <Datetime
       pubDatetime={pubDatetime}

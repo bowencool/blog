@@ -5,7 +5,6 @@ export default (post: CollectionEntry<"blog">) => {
   let title = post.data.title;
   const isChineseTitle = title.match(/[\u4e00-\u9fa5]/);
   if (isChineseTitle) {
-    // todo chinese image don't work well
     title = post.data.permalink.replace(/[-_]/g, " ");
     title = title.charAt(0).toUpperCase() + title.slice(1);
   }

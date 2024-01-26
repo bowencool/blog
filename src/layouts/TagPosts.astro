@@ -27,7 +27,6 @@ const { currentPage, totalPages, paginatedPosts, tag } = Astro.props;
     titleTransition={tag.slug}
     pageDesc={t("tagsDesc{{tag}}", { tag: t(`tags:${tag.slug}`) }) as string}
   >
-    <!-- todo trasnsition? -->
     <h1 slot="title" transition:name={tag.slug} >{`${t("tags")}:${tag.slug}`}</h1>
     <ul>
       {
