@@ -1,6 +1,5 @@
 ---
 import TagPosts from "@layouts/TagPosts.astro";
-import getPostsByTag from "@utils/getPostsByTag";
 import getPagination from "@utils/getPagination";
 import getUniqueTags from "@utils/getUniqueTags";
 import i18next, { t, changeLanguage } from "i18next";
@@ -11,16 +10,15 @@ changeLanguage("en");
 export async function getStaticPaths() {
     const posts = await getPostsByLang(i18next.language);
     const tags = getUniqueTags(posts);
-    return tags.map(({ tag, tagName }) => {
+    return tags.flatMap(tag => {
         return {
-            params: { tag },
-            props: { tag, tagName, posts },
+            params: { tag: tag.slug },
+            props: { tag },
         };
     });
 }
-const { tag, posts } = Astro.props;
-// console.log("tags [tag] index", posts.length);
-const postsByTag = getPostsByTag(posts, tag);
+const { tag } = Astro.props;
+const postsByTag = tag.posts;
 const pagination = getPagination({
     posts: postsByTag,
     page: 1,
@@ -28,4 +26,4 @@ const pagination = getPagination({
 });
 ---
 
-<TagPosts {...pagination} {tag} tagName={t(`tags:${tag}`)} />
+<TagPosts {...pagination} {tag} />

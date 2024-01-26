@@ -4,7 +4,7 @@ import { t } from "i18next";
 export const SITE: Site = {
   ogImage: "og.jpg",
   lightAndDarkMode: true,
-  postPerPage: 10,
+  postPerPage: 5,
 };
 
 export const LOGO_IMAGE = {

@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Layout from "@layouts/Layout.astro";
@@ -19,7 +18,7 @@ let tags = getUniqueTags(posts);
   <Header activeNav="tags" />
   <Main pageTitle={t("tags") as string} pageDesc={t("tagsDesc") as string}>
     <ul>
-      {tags.map(({ tag }) => <Tag {tag} size="lg" />)}
+      {tags.map(tag => <Tag {tag} size="lg" />)}
     </ul>
   </Main>
   <Footer />

@@ -1,24 +1,26 @@
 ---
 import { t } from "i18next";
 import { localizePath } from "astro-i18next";
+import { type Tag } from "@utils/getUniqueTags";
 
 export interface Props {
-  tag: string;
+  tag?: Tag;
+  slug?: string;
   size?: "sm" | "lg";
 }
 
-const { tag, size = "sm" } = Astro.props;
+const { tag, slug = tag?.slug, size = "sm" } = Astro.props;
 ---
 
 <li
   class={`inline-block underline-offset-5 ${size === "sm" ? "my-1" : "my-3 mx-1"}`}
 >
   <a
-    href={localizePath(`/tags/${tag}`)}
-    transition:name={tag}
+    href={localizePath(`/tags/${slug}`)}
+    transition:name={slug}
     class={`${size === "sm" ? "text-sm" : "text-lg"} pr-2 group`}
   >
-    #<span>{t(`tags:${tag}`)}</span>
+    #<span>{t(`tags:${slug}`)}</span>
   </a>
 </li>
 

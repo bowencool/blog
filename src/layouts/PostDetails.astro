@@ -91,7 +91,7 @@ const layoutProps = {
     <FloatingTOC client:only collapseDepth={collapseDepth} />
 
     <ul class="my-8">
-      {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
+      {tags.map(tag => <Tag slug={slugifyStr(tag)} />)}
     </ul>
     <Giscus
       client:idle

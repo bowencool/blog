@@ -8,26 +8,27 @@ import Card from "@components/Card";
 import Pagination from "@components/Pagination.astro";
 import { t } from "i18next";
 import { localizePath } from "astro-i18next";
+import type { Tag } from "@utils/getUniqueTags";
 
 export interface Props {
   currentPage: number;
   totalPages: number;
   paginatedPosts: CollectionEntry<"blog">[];
-  tag: string;
-  tagName: string;
+  tag: Tag;
 }
 
-const { currentPage, totalPages, paginatedPosts, tag, tagName } = Astro.props;
+const { currentPage, totalPages, paginatedPosts, tag } = Astro.props;
 ---
 
-<Layout title={`${t("tags")}: ${tagName}`}>
+<Layout title={`${t("tags")}: ${t(`tags:${tag.slug}`)}`}>
   <Header activeNav="tags" />
   <Main
-    pageTitle={[`${t("tags")}:`, `${tagName}`]}
-    titleTransition={tag}
-    pageDesc={t("tagsDesc{{tag}}", { tag: tagName }) as string}
+    pageTitle={[`${t("tags")}:`, t(`tags:${tag.slug}`)]}
+    titleTransition={tag.slug}
+    pageDesc={t("tagsDesc{{tag}}", { tag: t(`tags:${tag.slug}`) }) as string}
   >
-    <h1 slot="title" transition:name={tag}>{`${t("tags")}:${tag}`}</h1>
+    <!-- todo trasnsition? -->
+    <h1 slot="title" transition:name={tag.slug} >{`${t("tags")}:${tag.slug}`}</h1>
     <ul>
       {
         paginatedPosts.map(({ data, slug }) => (
@@ -44,9 +45,9 @@ const { currentPage, totalPages, paginatedPosts, tag, tagName } = Astro.props;
     {currentPage}
     {totalPages}
     prevUrl={localizePath(
-      `/tags/${tag}${currentPage - 1 !== 1 ? "/" + (currentPage - 1) : ""}`
+      `/tags/${tag.slug}${currentPage - 1 !== 1 ? "/" + (currentPage - 1) : ""}`
     )}
-    nextUrl={localizePath(`/tags/${tag}/${currentPage + 1}`)}
+    nextUrl={localizePath(`/tags/${tag.slug}/${currentPage + 1}`)}
   />
 
   <Footer noMarginTop={totalPages > 1} />
