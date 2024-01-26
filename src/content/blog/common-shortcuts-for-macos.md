@@ -1,50 +1,50 @@
 ---
 pubDatetime: 2022-03-18T13:04:58Z
 modDatetime: 2023-12-10T03:16:24Z
-title: 玩转 Mac 之通用快捷键（一）
+title: Common MacOS Shortcuts
 permalink: common-shortcuts-for-macos
 originalUrl: https://github.com/bowencool/blog/issues/16
 tags:
   - MacOS
   - tricks
-description: 玩转 Mac 之通用快捷键（一）
+description: This post shares some unifying shortcuts on MacOS for muscle memory formation.
 ---
 
-个人很不屑记忆特定应用的快捷键的（比如 chrome 的各种快捷键扩展程序）：
+I'm focusing on unifying shortcuts to form muscle memory. Personally, I don't want to memorize application-specific shortcuts (like various shortcuts of Chrome extensions):
 
-1. 不够通用；
-2. 如果是非全局的，那更没必要；
-3. 万一停更/下架/被替代又要重新记忆。
+1. Not versatile enough;
+2. If it's not global, then it's even less necessary;
+3. In case of stopping or being replaced, you have to remember again.
 
-> 本人是前端，IDE 仅测试 VS Code，其他的理论上是通用的。
+> Only one IDE, VS Code, was tested, the others are theoretically universal.
 
-## Tab 操作
+## Tabs
 
-实测 **Finder、 VS Code、Iterm2、浏览器**可以统一
+The actual test shows that **Finder, VS Code, Iterm2, and the browser** can be unified.
 
-- `⌘ + num` 切换到第 N 个 Tab
-<!-- - `⌘ + ⌥ + →` 切换到右侧一个 Tab  -->
-- `⌘ + W` 关闭当前 Tab
-- `⌘ + T` 新建 Tab 并聚焦
-- `⌘ + ⇧ + T` 重新打开刚刚关闭的 Tab，可以按多次恢复多个
-- `⌘ + N` 新建 窗口
+- `⌘ + num` Switch to the nth Tab
+<!-- - `⌘ + ⌥ + →` Switch to the right Tab  -->
+- `⌘ + W` Close the current Tab
+- `⌘ + T` Create new Tab and focus
+- `⌘ + ⇧ + T` Reopen the tab that was just closed, press multiple times to restore multiple tabs
+- `⌘ + N` New Window
 
-这部分快捷键 VS Code、Iterm2 默认不是这样的：
+This part of the shortcuts is not the default for VS Code and iTerm2.
 
-### Item2 设置
+### Set up Item2
 
-我现在用 [Warp](https://app.warp.dev/referral/6NP9Q8) , 不需要设置。
+I'm using [Warp](https://app.warp.dev/referral/6NP9Q8) , no setup required.
 
-- 统一 UI：`Appearance > General > Theme` 选择 `Minimal`
-- 总是显示 Tab：`Appearance > Tabs > Show tab bar even when there is only one tab 和 Show tab bar in fullscreen` 钩上，其他的随意
-- 设置快捷键：`Keys > Navigation Shortcuts > Shortcut to select a tab` 为 `⌘ Number`
+- Make the UI look uniform: Go to `Appearance > General > Theme` and select `Minimal`
+- Always show Tabs：Go to `Appearance > Tabs`, make sure `Show tab bar even when there is only one tab` and `Show tab bar in fullscreen` are enabled.
+- Set shortcut keys: Go to `Keys > Navigation Shortcuts` and set `Shortcut to select a tab` to `⌘ Number`
 
-### VS Code 设置
+### Set up VS Code
 
-`设置 > 键盘快捷方式`，把`workbench.action.openEditorAtIndex1` 设置为`cmd+1`，搜索 `cmd+1` 把其他无关快捷键删除。其他按键同理。我这里提供一份我设置好的，直接粘贴到 keybindings.json 里即可：
+Go to `Settings > Keyboard Shortcuts`, Set `workbench.action.openEditorAtIndex1` to `cmd+1` and search for `cmd+1` to remove any other extraneous shortcuts. Same for other keys. I've provided a copy of my setup here, just paste it directly into keybindings.json:
 
 <details>
-  <summary>查看代码</summary>
+  <summary>View Codes</summary>
 
 ```json
 [
@@ -306,63 +306,64 @@ description: 玩转 Mac 之通用快捷键（一）
 
 </details>
 
-## 光标
+## Cursor
 
-不少人移动光标只会用鼠标和方向键，这里再给大家扩充一些快捷键吧。
+Many people only use the mouse and arrow keys to move the cursor. Here are some shortcut keys for you.
 
-实测 **VS Code、Iterm2、Chrome 搜索框、网页中的 Input、Spotlight/Alfred 搜索框**
+Tested **VS Code, Iterm2, Chrome search box, Input in web pages, Spotlight/Alfred search boxes**
 
-### 移动
+### Moving
 
-大家都知道方向键每次移动一个单词，你可能不知道 `按住option ⌥ + 方向键` 每次移动一个单词。
+Everyone knows that the arrow keys move one word at a time, but you may not know that holding down `option ⌥ + arrow key` moves one word at a time.
 
-- `⌥ + ←` 向左移动一个单词
-- `⌥ + →` 向右移动一个单词
+- `⌥ + ←` Move the cursor one word to the left
+- `⌥ + →` Move the cursor one word to the right
 
-关于移动光标到行首和行尾，Home / End 不通用，有些地方是翻页功能，而且有些残废键盘比如 13 寸 Macbook Pro 根本没有这两个键，推荐使用下面的通用快捷键：
+Regarding moving the cursor to the beginning and end of a line, Home / End keys are not universal. In some places, they function as page navigation, and some keyboards such as the 13-inch Macbook Pro don't have these keys at all. It is recommended to use the following universal shortcuts:
 
-- `⌘ + ←` 移动光标到行首
-- `⌘ +  →` 移动光标到行尾
-- `⌃ + A` 移动光标到段落首部，无视软换行
-- `⌃ + E` 移动光标到段落尾部，无视软换行
+- `⌘ + ←` Move cursor to beginning of line
+- `⌘ + →` Move cursor to end of line
+- `⌃ + A` Move cursor to beginning of paragraph, ignoring soft line breaks
+- `⌃ + E` Move cursor to end of paragraph, ignoring soft line breaks
 
-### 删除
+### Deleting
 
-大家都知道 `backspace` 向左删除一个字符，不会还有人不知道 `delete` 向右删除一个字符吧。
+Everyone knows that `backspace` deletes a character to the left, and surely no one doesn't know that `delete` deletes a character to the right.
 
-`按住 option ⌥ + backspace/delete` 每次向左/右删除一个单词；
+Holding down `option ⌥ + backspace/delete` will delete a word to the left/right each time;
 
-- `⌥ + backspace` 向左删除一个单词
-- `⌥ + delete` 向右删除一个单词
+- `⌥ + backspace` deletes a word to the left
+- `⌥ + delete` deletes a word to the right
 
-`按住 command ⌘ + backspace/delete` 每次向左/右删除到行边界。
+Holding down `command ⌘ + backspace/delete` will delete to the beginning/end of line each time.
 
-- `⌘ + backspace` 删除当前位置到行首
-- `⌘ + delete` 删除当前位置到行尾
+- `⌘ + backspace` deletes from current position to beginning of line
+- `⌘ + delete` deletes from current position to end of line
 
-### 选中
+### Selecting
 
-和移动光标一样，只是多加了 `shift ⇧` 键：
+Just like moving the cursor, but with the addition of the `shift ⇧` key:
 
-- 鼠标双击选中当前单词
-- 鼠标三击选中当前行
-- `⌥ + ⇧ + ←` 选中范围向左扩大一个单词
-- `⌥ + ⇧ + →` 选中范围向右扩大一个单词
-- `⇧ + ←` 选中范围向左扩大一个字符
-- `⇧ + →` 选中范围向右扩大一个字符
-- `⇧ + ↑` 选中范围向上扩大一整行
+- Double-click to select the current word
+- Triple-click to select the current line
+- `⇧ + ←` to expand selection left by one character
+- `⇧ + →` to expand selection right by one character
+- `⇧ + ↑` to expand selection up by a whole line
+- `⇧ + ↓` to expand selection down by a whole line
+- `⌥ + ⇧ + ←` to expand selection left by one word
+- `⌥ + ⇧ + →` to expand selection right by one word
 
-这部分快捷键 VS Code、Iterm2 默认不是这样的：
+This part of the shortcuts is not the default for and iTerm2.
 
-### Item2 设置
+### Set up Item2
 
-`Profiles` > `Keys` > `Key Mapppings` > `Presets` > `Natural Text Editing` 时间长了不确定是不是这个了
+`Profiles` > `Keys` > `Key Mapppings` > `Presets` > `Natural Text Editing` It's been a long time. I'm not sure that's it.
 
-## 其他
+## Others
 
-实测**任何应用**均有效
+**Works on any application**
 
-- `⌘ + ⇧ + P` 呼出命令菜单，如果有的话
-- `⌘ + ,` 呼出设置菜单
+- `⌘ + ⇧ + P` Call out the command panel, if there is one
+- `⌘ + ,` Calls out the settings panel
 
-致力于统一快捷键，形成肌肉记忆。欢迎在评论区补充。
+Feel free to add in the comment section.
