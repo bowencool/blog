@@ -3,6 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import astroI18next from "astro-i18next";
 import sitemap from "@astrojs/sitemap";
+import rehypeExternalLinks from "rehype-external-links";
 
 import mdx from "@astrojs/mdx";
 
@@ -30,6 +31,9 @@ export default defineConfig({
       // theme: "css-variables",
       wrap: true,
     },
+    rehypePlugins: [
+      [rehypeExternalLinks, { target: "_blank", rel: ["noopener"] }],
+    ],
   },
   vite: {
     optimizeDeps: {

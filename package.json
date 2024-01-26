@@ -27,6 +27,7 @@
     "fuse.js": "^7.0.0",
     "github-slugger": "^2.0.0",
     "react-i18next": "^12.3.1",
+    "rehype-external-links": "^3.0.0",
     "satori": "^0.10.11",
     "tailwindcss": "^3.4.1",
     "tocbot": "^4.25.0",
