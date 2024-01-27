@@ -10,6 +10,7 @@ What are the differences compared to AstroPaper?
 - Refactored tags (also requires a lot of work)
   - Internationalization support (i18n)
   - Larger file size if there are more related articles
+  - Planned to implement RSS subscriptions for tags with a large number of articles (not yet implemented)
 - Dark theme toggle using only CSS variables
   - Dual code highlight themes
 - Floating table of contents using tocbot, rather than having it in the header
