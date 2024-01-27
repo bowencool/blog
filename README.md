@@ -7,9 +7,9 @@ Hello, this is my personal blog codebase which is forked from [AstroPaper](https
 What are the differences compared to AstroPaper?
 
 - Integration with astro-i18next (requires a significant amount of work)
-- Refactored tags (also requires a lot of work)
+- Refactored tags
   - Internationalization support (i18n)
-  - Larger file size if there are more related articles
+  - Show larger size if there are more related articles, see [preview](https://blog.bowen.cool/tags)
   - Planned to implement RSS subscriptions for tags with a large number of articles (not yet implemented)
 - Dark theme toggle using only CSS variables
   - Dual code highlight themes
