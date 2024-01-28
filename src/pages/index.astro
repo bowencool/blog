@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
@@ -20,6 +19,8 @@ changeLanguage("en");
 const posts = await getPostsByLang(i18next.language);
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
 
@@ -58,18 +59,17 @@ const socialCount = SOCIALS.filter(social => social.active).length;
               ))}
             </ul>
           </section>
-          <Hr />
+          {recentPosts.length > 0 && <Hr />}
         </>
       )
     }
 
-    <section id="recent-posts">
-      <h2>{t("recentPosts")}</h2>
-      <ul>
-        {
-          sortedPosts
-            .filter(({ data }) => !data.featured)
-            .map(
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts">
+          <h2>{t("recentPosts")}</h2>
+          <ul>
+            {recentPosts.map(
               ({ data, slug }, index) =>
                 index < 4 && (
                   <Card
@@ -78,20 +78,19 @@ const socialCount = SOCIALS.filter(social => social.active).length;
                     secHeading={false}
                   />
                 )
-            )
-        }
-      </ul>
-      <div class="all-posts-btn-wrapper">
-        <LinkButton href={localizePath("/posts")}>
-          {t("allPosts")}
-          <svg xmlns="http://www.w3.org/2000/svg"
-            ><path
-              d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
-            ></path>
-          </svg>
-        </LinkButton>
-      </div>
-    </section>
+            )}
+          </ul>
+          <div class="all-posts-btn-wrapper">
+            <LinkButton href={localizePath("/posts")}>
+              {t("allPosts")}
+              <svg xmlns="http://www.w3.org/2000/svg">
+                <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
+              </svg>
+            </LinkButton>
+          </div>
+        </section>
+      )
+    }
   </main>
 
   <Footer />

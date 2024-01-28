@@ -56,16 +56,15 @@
     prose-figcaption:!text-skin-base prose-figcaption:opacity-70
     prose-strong:!text-skin-base
 
-
     prose-code:rounded prose-code:bg-skin-card
     prose-code:bg-opacity-75 prose-code:p-1
-    prose-code:before:!content-[''] prose-code:after:!content-['']
+    prose-code:before:!content-none prose-code:after:!content-none
     prose-ol:!text-skin-base
     prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent
     prose-table:text-skin-base prose-th:border
     prose-th:border-skin-line prose-td:border
-    prose-td:border-skin-line prose-img:mx-auto
-    prose-img:!mt-2 prose-img:border-2
+    prose-td:border-skin-line prose-img:!my-2
+    prose-img:mx-auto prose-img:border-2
     prose-img:border-skin-line prose-hr:!border-skin-line;
   }
   .prose a {

@@ -5,6 +5,7 @@ export const SITE: Site = {
   ogImage: "og.jpg",
   lightAndDarkMode: true,
   postPerPage: 5,
+  scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
 };
 
 export const LOGO_IMAGE = {

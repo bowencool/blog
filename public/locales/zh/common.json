@@ -24,5 +24,6 @@
   "updatedAt": "更新于",
   "publishedAt": "发布于",
   "socialLinks": "社交链接",
+  "shareOn": "分享到",
   "found{{count}}ResultsFor{{query}}": "找到 {{count}} 个结果"
 }
