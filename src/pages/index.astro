@@ -20,7 +20,6 @@ const posts = await getPostsByLang(i18next.language);
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
-
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
 
