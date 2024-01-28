@@ -21,7 +21,7 @@ description: 记录一下配置 OpenVPN 过程中遇到的问题
 
 https://openvpn.net/community-resources/reference-manual-for-openvpn-2-4/
 
-# Route & DNS
+## Route & DNS
 
 连上后访问不了公司内网 10.10.10.0 IP段（各种虚拟机包括DNS解析），192.168 段（员工电脑）正常
 

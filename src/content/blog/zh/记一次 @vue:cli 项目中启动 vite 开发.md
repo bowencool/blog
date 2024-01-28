@@ -12,15 +12,15 @@ tags:
 description: 记一次 @vue/cli 项目中启动 vite 开发
 ---
 
-# 背景
+## 背景
 
 我司项目基本都是 @vue/cli ，毕竟是官方出品，稳定性、维护性有保障。但是最近新一代的 no bundle 工具 vite 风头也很盛，我想着在不破坏现有体系的情况下额外提供一种尝试 vite 的方案。
 
 本文并非全量迁移，仅多一个 vite 开发，生产还是用 @vue/cli 自带的 webpack，而且原有的 vue-cli-service serve 不受影响，技术栈为：@vue/cli-service@5、webpack@5、vite@2、vue@3
 
-# 历程
+## 历程
 
-## vue-cli-plugin-vite
+### vue-cli-plugin-vite
 
 首先，在开始之前，vite 问世之初，就已经有 [vite 和 vue/cli 的相关讨论](https://twitter.com/youyuxi/status/1354584410482499585)了，总结就是：现阶段 vue/cli 不会支持 vite。可以考虑 [vue-cli-plugin-vite](https://github.com/IndexXuan/vue-cli-plugin-vite)。然后我就顺理成章地去试试这个插件。
 
@@ -46,7 +46,7 @@ config.resolve.alias = finalAlias;
 
 这一下就有些棘手了，因为它把路堵死了: alias 是直接覆盖的，我没法在外面扩展 alias 了，怎么办？等作者更新？那得啥时候去，我现在就要！这样受制于人，干脆自己启动 vite 算了，自己写 vite config ，那不是灵活地多？
 
-## 自己写 vite config
+### 自己写 vite config
 
 首先这个启动方式是额外的尝鲜功能，想要维护性好就得尽可能从 vue.config.js 里复用配置。这个不难，直接开工。
 
@@ -63,9 +63,9 @@ const Components = require("unplugin-vue-components/webpack");
 // Unable to resolve path to module 'unplugin-vue-components/webpack'.eslint(import/no-unresolved)
 ```
 
-### 转换所有配置为 ts 文件
+#### 转换所有配置为 ts 文件
 
-#### 编译
+##### 编译
 
 一开始也是看了 issue 里提供的方案：`"prestart": "tsc vue.config.ts --noEmit"` + `git ignore vue.config.js`，但是我执行下来报错太多了...是一些第三方包的类型错误，有解决办法，但是不值当的。而且生成的产物可读性也差。
 
@@ -77,7 +77,7 @@ swc vue.config.ts -o vue.config.js -C module.type=commonjs -C jsc.target=es2021 
 
 但也有一些问题：swc 构建产物是 `exports.default = config` 而不是 `exports = config`。 @vue/cli 读 config 的时候并没有判断 \_\_esModule ，直接告诉你没有 "defalut" 这个 key。找了半天也找不到在哪配置这个，放弃了。
 
-#### 引用
+##### 引用
 
 再换一种办法：直接在 js 里引用 ts.
 
@@ -116,9 +116,9 @@ module.exports = config;
 
 </details>
 
-## 兼容 @vue/cli 配置
+### 兼容 @vue/cli 配置
 
-### entry & plugins
+#### entry & plugins
 
 vite 的入口是 html，可以用 vite-plugin-html-template 获得和 vue/cli 一致的体验。
 
@@ -133,7 +133,7 @@ vite 的入口是 html，可以用 vite-plugin-html-template 获得和 vue/cli �
 - vite-esbuild-typescript-checker
   - 支持 watch 模式，不会提示 node_modules/ 的错误
 
-### alias
+#### alias
 
 回到刚才那个 alias 失效的问题，这下就容易多了。
 
@@ -191,7 +191,7 @@ export default defineConfig({
 });
 ```
 
-### env
+#### env
 
 vite 的环境变量是 `import.meta.env.XXX` 是这种形式，但是我现在并不是全量迁移，不可能去把业务代码里的那么多引用全改了，所以必须采用一种兼容方案，可以采用 @rollup/plugin-replace，也可以用 define。当然，为了和 vue/cli 保持一致，这里需要把 .env[.xxx] 文件里的也定义一下：
 
@@ -230,7 +230,7 @@ export default defineConfig({
 });
 ```
 
-### babel
+#### babel
 
 vite 没有 babel 插件，官方说完全 cover @rollup/plugin-babel ，但是有时候就是会依赖一些插件，如[条件编译](https://github.com/kaysonwu/babel-plugin-preprocessor)。
 
@@ -255,9 +255,9 @@ export default defineConfig({
 
 注意一点：这插件仅对 tsx 文件（vue 文件里 `script[lang="tsx"]` 也算）生效，这个对我来说已经够了，想用的时候改个文件后缀也不算什么成本。
 
-## 运行时兼容
+### 运行时兼容
 
-### 全局变量
+#### 全局变量
 
 运行时报`global is not defined`，极少量，能被拿来在浏览器的代码，不会重度依赖 Nodejs 全局变量，大部分只是简单判断一下，在入口 html 里：
 
@@ -270,7 +270,7 @@ export default defineConfig({
 <% } %>
 ```
 
-### 自动引入
+#### 自动引入
 
 webpack 里通过 [require.context](https://webpack.docschina.org/guides/dependency-management/#requirecontext) ，而 vite 里是 [import.meta.globEager](https://vitejs.dev/guide/features.html#glob-import) ，这个兼容一下，我这里选择双重判断，用条件编译可以更直接地移除代码，写原生判断为了避免条件编译失效：
 
@@ -309,21 +309,21 @@ if (process.env.BUNDLER === "vite") {
 }
 ```
 
-### 兼容 qiankun
+#### 兼容 qiankun
 
 [官方暂未支持](https://github.com/umijs/qiankun/issues/1257) ，这里我选择了 [vite-plugin-qiankun](https://www.npmjs.com/package/vite-plugin-qiankun)，暂时没发现什么问题。
 
-## 优化推荐
+### 优化推荐
 
 推荐一个 vite 插件：https://github.com/antfu/vite-plugin-optimize-persist
 
-# 小结
+## 小结
 
 再次声明：本文并非全量迁移，仅多一个 vite 开发，生产还是用 @vue/cli 自带的 webpack。
 
 不构成开发建议，风险自担。
 
-# 参考链接
+## 参考链接
 
 - https://juejin.cn/post/7005731645911203877
 - https://github.com/IndexXuan/vue-cli-plugin-vite

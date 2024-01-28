@@ -7,14 +7,12 @@ originalUrl: https://github.com/bowencool/blog/issues/13
 tags:
   - frontend
   - typescript
-description: 记一次在 Typescript 中给 debounce 写注解
+description: 最近在用 ts 写一些东西，上次写 ts 还是去年的尝试
 ---
 
-最近在用 ts 写一些东西，上次写 ts 还是去年的尝试。。。开门见山吧：
+## 背景
 
-# 正文
-
-遇到一个 debounce 场景，我熟练的找到之前的 js 代码：
+最近遇到一个 debounce 场景，我熟练的找到之前的 js 代码：
 
 ```js
 export const debounce = (fn, ms = 300) => {

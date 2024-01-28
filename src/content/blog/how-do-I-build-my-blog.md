@@ -9,16 +9,16 @@ tags:
 description: This article describes some of the author's thoughts, tradeoffs, and experiences in building a blog in practice.
 ---
 
-# Why not use existing mature solutions?
+## Why not use existing mature solutions?
 
 - For long-term maintenance, as a developer, I still want to have complete control
   - The future is not just about blogs
   - If I find something interesting on someone else's blog, I am 99% certain that I can implement it without wasting energy on researching themes or plugins.
 - Astro is too excellent, with ultimate performance (island architecture) and extreme flexibility (arbitrary combination of react / vue, html, md / mdx, or even custom response), all-round crushing.
 
-# Where to store the article contents?
+## Where to store the article contents?
 
-## Git
+### Git
 
 - No additional cost required
 - Directly support various interactions, writing in React or Vue directly (pseudo requirement?)
@@ -26,41 +26,41 @@ description: This article describes some of the author's thoughts, tradeoffs, an
 - The repository will become larger and deployment will also become slower
 - Managing tags will be very tiring
 
-## DB
+### DB
 
 - Can't insert interactive content (pseudo-requirement? Can use inline codepen etc. instead)
 
-## Notion / Feishu Docs / Yuque
+### Notion / Feishu Docs / Yuque
 
 If I were not a programmer, I might choose these, but I am, and also a front-end one.
 
-## The Result
+### The Result
 
 Put it in the Git repository first, and consider a hybrid mode later.
 
-# Image hosting service
+## Image hosting service
 
 I'd like to use GitHub/Imgur, but Chinese access is restricted. The Aliyun OSS risks malicious traffic, so I'll put it in the git repository for now.
 
-# I18n
+## I18n
 
 In order to reach a global audience, I need to support both Chinese and English languages. The most desired interaction is side-by-side display, but it feels like the development workload might be quite large. Just use astro-i18next for now.
 
-# Subscription
+## Subscription
 
-## RSS
+### RSS
 
 It is a plain text content (xml/json/atom), built into Astro
 
-## Email
+### Email
 
 A little bit of trouble, will not be realized for the time being
 
-# Account system?
+## Account system?
 
 Two demands:
 
-## Comments/Responses
+### Comments/Responses
 
 - [Utterances](https://github.com/utterance/utterances) Open source and free, based on GitHub Issues. Since most of my previous posts were in issues, all the post comments are out of the way, perfect for me.
 - [Giscus](https://github.com/giscus) Open source and free, based on GitHub Discussions. The advantage of Discussion over Issue is that it supports nested views. Since Issues can be converted into Discussions, and comments will also be carried over, it is also very suitable for me.
@@ -69,43 +69,43 @@ Two demands:
 
 My final choice was Giscus.
 
-## Paid content/courses
+### Paid content/courses
 
 That must have my own account system. And also consider making a separate website. So I won't realize it for now.
 
-# Synchronize across all platforms?
+## Synchronize across all platforms?
 
-## Modify content synchronously
+### Modify content synchronously
 
 A bit unrealistic, not all platforms provide API
 
-## Display all the comments and the total number of likes across all platforms
+### Display all the comments and the total number of likes across all platforms
 
 It's not necessary for now.
 
-## Access statistics for all platforms
+### Access statistics for all platforms
 
 It's not necessary for now.
 
-# Projects that can be learned from
+## Projects that can be learned from
 
 - https://github.com/tangly1024/NotionNext
 - https://www.lovchun.com/ Its features is pretty good
 - https://github.com/szmxx/blog Dark mode switching effects are worth learning
 
-## The UI design is very good:
+### The UI design is very good:
 
 - https://github.com/joshwcomeau/blog
 - https://github.com/transitive-bullshit/nextjs-notion-starter-kit
 - https://github.com/satnaing/satnaing.dev
 - https://github.com/judygab/nextjs-portfolio
 
-## Some tools:
+### Some tools:
 
 - https://github.com/NotionX/react-notion-x Render notion page in react
 - https://github.com/LetTTGACO/elog Synchronize posts between Notion / Feishu Docs / Yuque / local markdown
 
-## Starting boilerplate?
+### Starting boilerplate?
 
 - https://astro.build/themes/ Astro's official collection of themes, and I've picked two that are relatively viable:
 - https://github.com/onwidget/astrowind Very nice UI but lacks some features specific to blogs
@@ -115,9 +115,9 @@ Not many pages, not complicated, daisyui / shadcn can make one from scratch, I c
 
 I ended up going with astro-paper + changing the features and styles myself.
 
-# Start working
+## Start working
 
-## I18n, A Big Trap
+### I18n, A Big Trap
 
 I chose to start development based on Astro paper, and then chose astro-i18next for internationalization. I ran into a big problem, which was my own fault for not realizing that it was still in the Beta stage.
 
@@ -146,7 +146,7 @@ I chose to start development based on Astro paper, and then chose astro-i18next 
   - Defining new collections is stupid and doesn't seem to solve the problem of switching languages
   - After half a dozen searches, [change the name of the slug](https://github.com/withastro/astro/issues/7133#issuecomment-1585751826) is fine, for example I changed it to permalink
 
-## Other traps
+### Other traps
 
 - The behavior of the development environment is inconsistent with that of the production environment. Perhaps this is due to the inconsistency between SSR mode and SSG mode? These issues can be resolved, but it feels somewhat uneasy.
 

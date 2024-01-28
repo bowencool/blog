@@ -10,20 +10,20 @@ tags:
 description: 把 iPad 作为 Mac mini 的唯一显示器，过年回家也能用 Mac mini 啦！无需外接显示器开启随航，最新 MacOS Ventura 版，无需 Luna Display
 ---
 
-# 更新
+## 更新
 
 直接用 Duet Display 吧，免费用户可以使用有线连接，暂时没有限制，下面的内容过时了
 
-# 效果预览
+## 效果预览
 
 无需额外显示器，使用用 iPad 的键盘、iPad 的鼠标/触控板、iPad 的屏幕操作你的 Mac。
 
-# 为什么会有这种需求？
+## 为什么会有这种需求？
 
 当然是 ~~买不起 Macbook~~ Mac mini 太香啦！但是过年回老家或者临时出差的时候，显示器带不走啊！
 如果你要跟我扯“Mac 能干的事 iPad 几乎都能干”，那我只能说“啊对对对”。
 
-# 现有的一些方案
+## 现有的一些方案
 
 也许你会想到便携显示器，可以，但质量一言难尽。iPad 屏幕素质又好，又不用额外花钱，完爆便携屏。
 
@@ -34,29 +34,29 @@ description: 把 iPad 作为 Mac mini 的唯一显示器，过年回家也能用
 
 付费方案 Luna Display / Duet Display 是最完美的，尤其是无需担心下一次系统升级的时候能不能用的问题，开发者会帮你想办法，就是有点贵。
 
-# 新的方案
+## 新的方案
 
 今天在这里几种平价方案：
 
 由 1.1 不难推出，如果有一个假的虚拟显示器欺骗系统，然后让 iPad 镜像到虚拟显示器，那么系统就可以输出 信号到 iPad 了，而且由于 iPad 是虚拟显示器的镜像，所以逻辑上 iPad 就是系统唯一显示器。
 
-## 第一步：先弄一个虚拟显示器。
+### 第一步：先弄一个虚拟显示器。
 
-### 软件法
+#### 软件法
 
 [BetterDisplay](https://github.com/waydabber/BetterDisplay/releases) 这款软件可以虚拟一个显示器欺骗系统。
 
-### 硬件法
+#### 硬件法
 
 可以去电商平台上搜 显卡欺骗器，十块钱以内就能搞定。这个我没试过，应该挺方便的。
 
-## 第二步：在没有真实显示器的情况下设置 iPad 为虚拟显示器的镜像。
+### 第二步：在没有真实显示器的情况下设置 iPad 为虚拟显示器的镜像。
 
-### 键鼠是连接到 iPad 上的
+#### 键鼠是连接到 iPad 上的
 
 参考[这个视频](https://www.youtube.com/watch?v=1RGGTRiSpEs&list=WL&index=4&t=375s&ab_channel=APPLEFANS%E8%98%8B%E6%9E%9C%E8%BF%B7)
 
-### 键鼠是连接到 Mac 上的
+#### 键鼠是连接到 Mac 上的
 
 预先设置：
 
@@ -76,7 +76,7 @@ description: 把 iPad 作为 Mac mini 的唯一显示器，过年回家也能用
 2. 如果没有设置开机自动，可以按 `command` + `space`唤出 Spotlight，然后输入软件名“BetterDisplay”回车以启动。
 3. 按下预先设置的快捷键。
 
-### 【推荐】用 iPhone / iPad 远程桌面
+#### 【推荐】用 iPhone / iPad 远程桌面
 
 预先设置：
 
@@ -90,7 +90,7 @@ description: 把 iPad 作为 Mac mini 的唯一显示器，过年回家也能用
 2. 如果没有设置开机自动，可以按 `command` + `space`唤出 Spotlight，然后输入软件名“Remote For Mac”回车以启动。
 3. 在 iPhone 上打开 Remote Pro，此时你的 iPhone 已经可以控制 Mac 了，轻触左上第一个形似显示器的图标，然后就能看到 Mac 的画面了，直接去设置屏幕镜像即可。
 
-## 第三步：【可选】将 iPad 的键盘输入转移到 Mac
+### 第三步：【可选】将 iPad 的键盘输入转移到 Mac
 
 预先设置：
 

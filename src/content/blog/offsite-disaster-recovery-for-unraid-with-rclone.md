@@ -23,7 +23,7 @@ Today we're taking about [RClone](https://rclone.org/) :
 
 In simple terms, RClone is a command-line tool for syncing online drives. It supports over 40 types of online drives. Today I will introduce the simple configuration of commonly seen domestic Alibaba Cloud Drive and OSS.
 
-# Installing RClone
+## Installing RClone
 
 Side note: The first time I installed it, I used the Docker version with a built-in GUI. However, after exploring the GUI for a while, I couldn't find the sync feature I was looking for. At the same time, as I was reading the official documentation, I gradually realized that this is a command-line tool. So, I switched to the unRAID plugin version because what I needed was almost a complete backup of all data on my Nas. It seemed unnecessary to open all directories to Docker containers if that were the case.
 
@@ -35,13 +35,13 @@ After installation is completed, run the command `rclone version` to confirm whe
 
 ![image](https://user-images.githubusercontent.com/20217146/184527686-cbfd9008-a5b4-416c-a6d4-61b0754e7d67.png)
 
-# Configuration
+## Configuration
 
 A faster way to configure is to go directly to Settings > User Utilities > rclone, paste the configuration into the configuration file, and refer to the content of the configuration file below.
 
 Using command line for configuration provides finer granularity, which is also a method provided in the official documentation: executing `rclone config` will pop up an interactive terminal session. According to the prompts, enter "n" to create a new configuration, and then follow the prompts to input further details.
 
-## OSS
+### OSS
 
 OSS configuration is very simple. For comparison with cloud storage, please refer to the official website. I believe it is more suitable for backup than cloud storage.
 
@@ -118,7 +118,7 @@ The important thing to note is that there are two synchronization commands:
 
 **bisync is what intuitively seems like bidirectional synchronization.** Not currently in use. For more details, please refer to the official documentation.
 
-## Aliyun Drive
+### Aliyun Drive
 
 Aliyun Drive does not have direct support, but is supported through the implementation of one of the standard protocols mentioned earlier, WebDAV.
 
@@ -141,9 +141,9 @@ pass = xxx
 
 After the operation is completed, you can obtain a remote connection equivalent to that of OSS, with exactly the same commands.
 
-# Automatic Synchronization
+## Automatic Synchronization
 
-## Install User Scripts
+### Install User Scripts
 
 I achieved scheduled tasks through the User Scripts plugin, which can be found by searching in the APPS panel.
 
@@ -153,7 +153,7 @@ There are two reasons why I didn't use crontab:
 
 2. Visual management.
 
-## Add a task
+### Add a task
 
 ```bash
 cd /boot/config/plugins/user.scripts/scripts
@@ -189,7 +189,7 @@ caches/**
 .pnpm-store/**
 ```
 
-## Set up task scheduling
+### Set up task scheduling
 
 Then just go to `Settings > User Utilities > User Scripts` to set up task scheduling.
 
@@ -212,7 +212,7 @@ echo "moving $LOCAL_PATH to $REMOTE_PATH"
 rclone copy $LOCAL_PATH oss:$REMOTE_PATH --progress
 ```
 
-# Backup flash
+## Backup flash
 
 flash backup is also very simple, just compress the `/boot` directory:
 

@@ -15,7 +15,7 @@ description: unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，
 
 unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋友在用，所以也没考虑其他 NAS 系统。稳定运行好多年了，体验极好，特此记录，以便分享。
 
-# 文件共享功能的使用
+## 文件共享功能的使用
 
 - 内网千兆的 SMB 网盘，几乎所有数码设备都原生支持。
   - 配合 OpenVPN 可以在外面访问。
@@ -29,29 +29,29 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 - 可以给 Mac 当 Time Machine 备份盘，全程无线备份，开启自动备份实现无感。
 - 摄像头监控视频储存。
 
-# 插件
+## 插件
 
-## Community Applications
+### Community Applications
 
 相当于 App Store
 
-## Recycle Bin
+### Recycle Bin
 
 回收站、废纸篓（仅当使用文件共享协议时生效）
 
-## Unassigned Devices [plus]
+### Unassigned Devices [plus]
 
 阵列之外的未分配设备，比如 U 盘、移动硬盘等。
 
-## Compose Manager
+### Compose Manager
 
 给 unRAID 添加 docker-compose 及管理面板。不能自定义图标就很烦。
 
-## USB Manager
+### USB Manager
 
 可以方便的管理 USB 设备，可以直接分配给虚拟机。轻度使用比硬件直通要方便。
 
-## User Scripts
+### User Scripts
 
 定时任务。我没用 crontab 的原因有两个：
 
@@ -60,25 +60,25 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 有些复杂的 cron 不生效，自己权衡一下吧。
 
-## NerdTools
+### NerdTools
 
 包管理器。目前安装了 vim、zsh、nodejs。
 
-## Dynamix File Manager
+### Dynamix File Manager
 
 直接在 unraid 后台管理页面上嵌一个文件管理器，有点作用，但不大。
 
-## RClone
+### RClone
 
 网盘同步工具，主要用来弥补缺失的异地容灾功能，参考[另一篇文章](./offsite-disaster-recovery-for-unraid-with-rclone)
 
-## [WireGuard](https://unraid.net/blog/wireguard-on-unraid)（unRAID内置）
+### [WireGuard](https://unraid.net/blog/wireguard-on-unraid)（unRAID内置）
 
 详情查看[这篇文章](./how-to-connect-to-the-home-intranet-from-outside)
 
-# 虚拟机
+## 虚拟机
 
-## 软路由 OpenWrt
+### 软路由 OpenWrt
 
 这个步骤需要买网卡硬件，然后直通给虚拟机，参考 B 站司波图的教程。
 
@@ -86,13 +86,13 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 2. OpenClash + MosDNS：科学上网。
 3. 其他插件我还没有精力、或者暂时没需求研究，比如广告屏蔽、流量管控等。
 
-## OpenVPN
+### OpenVPN
 
 详情查看[这篇文章](./how-to-connect-to-the-home-intranet-from-outside)
 
 因为 docker 版本已经不再维护，所以装到虚拟机了。
 
-## ~~Windows 10~~
+### ~~Windows 10~~
 
 我已经是苹果全家桶用户了，~~所以需要虚拟机来运行一些 Windows 平台独占的软件。~~
 
@@ -100,13 +100,13 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 我又组了一台 PC 用来打游戏，哈哈哈。
 
-# Docker
+## Docker
 
-## MySql & Redis
+### MySql & Redis
 
 基础设施。
 
-## Nginx
+### Nginx
 
 > 为了方便自动更新证书，已经移动到虚拟机里。
 
@@ -117,11 +117,11 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
    1. 证书用 Certbot 申请的，官网上写需要 80 端口开放，我被误导了很久，用了好久的自签证书。详情请查看[无 80 端口情况下使用 CertBot 申请SSL证书](https://www.cnblogs.com/ellisonzhang/p/14298492.html)。
    2. 自动续期：主要是用 [SDK](https://next.api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09) 往 DNS 解析里添加/修改一条 TXT 记录。阿里云的 API 文档在[这里](https://help.aliyun.com/document_detail/29745.html) ，大概两三个小时开发完成，[代码在此](https://gist.github.com/bowencool/d0bce4bfb853c7ec1b1a4964e9371381)。
 
-## Tailscale
+### Tailscale
 
 详情查看[这篇文章](./how-to-connect-to-the-home-intranet-from-outside)
 
-## ~~NextCloud~~
+### ~~NextCloud~~
 
 可以理解为私有部署的百度网盘、阿里云盘。
 
@@ -129,7 +129,7 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 小毛病有点多，强迫症已经卸载。
 
-## MtPhotos
+### MtPhotos
 
 照片管理服务，吹爆，功能接近苹果相册，你也可以尝试 [Immich](https://github.com/immich-app/immich)
 
@@ -142,11 +142,11 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 完爆国内所有网盘**（1.隐私及审查问题；2.会丢失 Exif 信息）**、 NextCloud、PhotoPrisma(操作反人类，没有多用户)、Pho、Xiaomi 相册。
 
-## Gitea
+### Gitea
 
 轻量 git 服务，Gitlab 太重了。工具链（GitLens、Alfred、第三方客户端等）也比较完善。
 
-## Bitwarden
+### Bitwarden
 
 跨平台密码管理工具，覆盖主流浏览器、Android、iOS、Mac 等，也支持命令行、Alfred。也可以记一些银行卡、地址表单等。
 
@@ -166,11 +166,11 @@ EnPass 也能私有部署但功能太简陋了。
 
 tips: Authenticator 放在手表上非常合适，不用找手机，~~微软家的 Authenticator 支持 iCloud 同步~~，salesforce 家的 Authenticator 支持 Apple Watch 上查看。用了一圈，强烈推荐 2FAS Auth，近期已经开源，就差 Apple Watch 功能发布了
 
-## ~~Home Assistant~~
+### ~~Home Assistant~~
 
 智能家居控制中心，可以把不同品牌的智能家居接到一起，举个例子，可以用 Siri 关米家的灯了。**体验不如米家**。
 
-## ~~Syncthing~~
+### ~~Syncthing~~
 
 用来同步一些软件配置的，重点就是 Alfred 和 iTerm2 配置。之前用 NextCloud 同步，但 NextCloud 经常出问题所以换了。
 
@@ -183,19 +183,19 @@ Syncthing 和 rclone 的区别是：syncthing 是后台实时的、分布式的�
 1. Syncthing ignore 语法太非主流，而且 ignore 文件好像不会在各设备间同步。
 2. 使用 Time Machine 恢复后，Syncthing 竟然还要手动重置一下 ID 才能用，真是自找麻烦。
 
-## [WebDAV](https://hub.docker.com/r/bytemark/webdav)
+### [WebDAV](https://hub.docker.com/r/bytemark/webdav)
 
 如果你装了 Nextcloud 或 Alist，那就不需要装这个了。
 
 和 SMB 差不多，WebDAV 是 HTTP 协议。有些第三方客户端支持 WebDAV 同步（Chrome 扩展程序居多），所以就装了一个。
 
-## [aliyundrive-webdav](https://hub.docker.com/r/messense/aliyundrive-webdav)
+### [aliyundrive-webdav](https://hub.docker.com/r/messense/aliyundrive-webdav)
 
 如果你装了 Alist，那就不需要装这个了。
 
 阿里云盘的 webDAV 实现，主要做备份用的。有缓存问题，问题不大。
 
-## AList
+### AList
 
 Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下载。
 
@@ -205,7 +205,7 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 我试了一下，权限这块我不太信任它。
 
-## [OpenLDAP](https://hub.docker.com/r/osixia/openldap/) + [phpldapadmin](https://hub.docker.com/r/osixia/phpldapadmin/)
+### [OpenLDAP](https://hub.docker.com/r/osixia/openldap/) + [phpldapadmin](https://hub.docker.com/r/osixia/phpldapadmin/)
 
 统一认证的。装的应用多了，改密码太费劲。
 
@@ -213,23 +213,23 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 目前已经接入了 OpenVPN 、Gitea。
 
-## ~~Transmission~~
+### ~~Transmission~~
 
 下载器，很久没用了。
 
-## ~~[xware](https://hub.docker.com/r/caiguai/docker-xware)~~
+### ~~[xware](https://hub.docker.com/r/caiguai/docker-xware)~~
 
 迅雷远程下载。装了没用到。
 
-## Aria2
+### Aria2
 
 22年底转为使用 [Aria2-Pro](https://p3terx.com/archives/docker-aria2-pro.html) + [AriaNg](https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html) / [Aria2 Explorer](https://chrome.google.com/webstore/detail/mpkodccbngfoacfalldjimigbofkhgjn) 作为全协议下载器。
 
-## Jellyfin
+### Jellyfin
 
 家庭影院服务。我的小核显有点吃力。对于普通人来说有点鸡肋，不如投屏方便。
 
-## ~~[QingLong](https://hub.docker.com/r/whyour/qinglong)~~
+### ~~[QingLong](https://hub.docker.com/r/whyour/qinglong)~~
 
 也是定时任务，主要用来自动做京东的任务。
 
@@ -237,25 +237,25 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 虽说不至于判个破坏计算机系统罪，但封号还是很有可能的，不用了。
 
-## ~~Wiznot(为知笔记)e~~ / ~~Joplin~~
+### ~~Wiznot(为知笔记)e~~ / ~~Joplin~~
 
 我最后还是决定用 IDE + Git 的方式代替这些笔记软件。我认为笔记软件做的再好，跟 IDE 比永远是小儿科。IDE 可以借助插件拥有无限可能，而且符合你的书写习惯。
 
-## RSSHub + FreshRSS
+### RSSHub + FreshRSS
 
 我越来越依赖 RSS，很高效。
 
 客户端的话 Mac / iOS 用 Reeder(付费) 或 NetNewsWire(开源免费)，安卓用 Feedme，全平台同步就很爽。
 
-## ~~[DeepL Free API](https://hub.docker.com/r/zu1k/deepl)~~ [DeepLX](https://github.com/OwO-Network/DeepLX)
+### ~~[DeepL Free API](https://hub.docker.com/r/zu1k/deepl)~~ [DeepLX](https://github.com/OwO-Network/DeepLX)
 
 给 [Bob](https://bobtranslate.com/) 和[沉浸式翻译](https://immersivetranslate.com/)用的
 
-# 下一步折腾计划
+## 下一步折腾计划
 
 下面是我接下来想实现的玩法，如果你也有推荐的、更新的玩法，欢迎交流。
 
-## 弃用光猫
+### 弃用光猫
 
 最近换过一次光猫（新的电信光猫都是这样了），然后出现一个问题：域名是解析到光猫的，从公网访问正常，从内网却无法访问，之前是好的，也没找到原因，推测是光猫拦截了。目前手动在 OpenWrt 修改 host 记录勉强能用。有知道的欢迎留言。我想买一个光转电模块直接插在 NAS 上，但是好像又没必要。
 
@@ -265,17 +265,17 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 2. 略微增加带宽，预估 5%~10%
 3. 不需要端口转发了
 
-## 研究一下ZFS
+### 研究一下ZFS
 
 Unraid 6.12 已经支持。
 
-## 加密备份
+### 加密备份
 
 Duplicacy / Duplicati
 
-# 2022年12月更新
+## 2022年12月更新
 
-## OpenWrt 开启了 IPv6
+### OpenWrt 开启了 IPv6
 
 [参考这篇文章](https://www.lategege.com/?p=676)，原因是居住环境是移动宽带，暂时没有公网 IP。
 
@@ -293,7 +293,7 @@ Duplicacy / Duplicati
    1. OpenWrt 记得去防火墙开启 MSS 钳制
    2. 光猫老旧也会引起卡顿，可以直接让运营商上门换新的
 
-## 通过 IPv6 访问内网服务
+### 通过 IPv6 访问内网服务
 
 最终形态：DDNS(IPv6) 直接指向 Nginx，Nginx 再转发给内网 IPv4 服务（Docker 容器）。我现在又有公网 IPv4 了，双栈解析。
 

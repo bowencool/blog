@@ -12,8 +12,6 @@ tags:
 description: 如何用 AST 对代码进行修改（含vue）
 ---
 
-# 【实战】如何用 AST 对代码进行修改
-
 阅读本文需要了解一些编译原理基础，如果你还不了解，推荐看看[这个](https://github.com/jamiebuilds/the-super-tiny-compiler)，快速了解。
 
 ## 什么是 AST

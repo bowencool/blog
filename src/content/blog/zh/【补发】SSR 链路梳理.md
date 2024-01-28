@@ -12,9 +12,9 @@ tags:
 description: Vue SSR 基本原理和流程
 ---
 
-# Vue SSR 链路梳理
+## Vue SSR 链路梳理
 
-## 什么是 SSR
+### 什么是 SSR
 
 服务端渲染 Server Side Render。与传统纯客户端渲染(Client Side Render)的差别是：
 CSR 模式下服务端返回的是：
@@ -41,14 +41,14 @@ SSR 模式下服务端返回的是
 </div>
 ```
 
-## 为什么要用 SSR
+### 为什么要用 SSR
 
 优点主要有两点：
 
 - 降低白屏时间
 - SEO 友好
 
-## SSR 时序图
+### SSR 时序图
 
 ![ssr1](https://user-images.githubusercontent.com/20217146/89017104-6002e880-d34c-11ea-952a-cd05502a5b37.jpeg)
 
@@ -77,7 +77,7 @@ Api Server->Client: { id: 3, order_sn: '12312364' }
 Note over Client: 更新视图
 ```
 
-### 虚拟 DOM 挂载到真实 DOM
+#### 虚拟 DOM 挂载到真实 DOM
 
 ![ssr2](https://user-images.githubusercontent.com/20217146/89017153-6e510480-d34c-11ea-9f06-e12dbafad1e4.jpeg)
 

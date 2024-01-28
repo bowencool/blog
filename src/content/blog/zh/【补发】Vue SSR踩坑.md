@@ -12,11 +12,11 @@ tags:
 description: 记录一下 Vue SSR 项目中遇到的问题
 ---
 
-## 很多库都会报window/document is not defined.
+## window/document is not defined
 
-而且报错的花样还不一样。很正常，没有考虑到SSR。解决方案是
+很多库都会报这个错误，花样还挺多。很正常，没有考虑到SSR。解决方案是
 
-- 懒加载
+### 懒加载
 
 ```js
 async mounted() {
@@ -28,7 +28,7 @@ async mounted() {
 }
 ```
 
-- 懒执行
+### 懒执行
 
 ```js
 mounted() {
@@ -40,6 +40,8 @@ render() {
   </div>)
 }
 ```
+
+### 自己造轮子
 
 - 实在不行只能自己造轮子用比如图片剪裁（这玩意儿当你import的那一刻就报错了。。）
 

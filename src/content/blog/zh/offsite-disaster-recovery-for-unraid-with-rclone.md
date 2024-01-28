@@ -23,7 +23,7 @@ description: 众所周知，unRAID 作为最流行的家用 Nas 系统之一，�
 
 简单点说，RClone 是一个网盘同步命令行工具。他支持 40 多种网盘类型，今天我介绍一下国内常见的阿里云盘、OSS 的简单配置：
 
-# 安装 RClone
+## 安装 RClone
 
 小插曲：第一次装的时候，我装了自带 GUI 的 Docker 版。但探索了半天 GUI，没找到我想要的同步功能。与此同时我也在看官方文档，在逐渐意识到这是一个命令行工具的情况后，我换成了 unRAID 插件版，因为我要的几乎是整个 Nas 的数据备份，那岂不是要把所有目录都开放给 Docker 容器，那 Docker 就多此一举了。
 
@@ -33,13 +33,13 @@ description: 众所周知，unRAID 作为最流行的家用 Nas 系统之一，�
 安装完成后，执行命令 `rclone version` 确认是否安装成功，或者去 Settings > User Utilities > rclone 面板查看：
 ![image](https://user-images.githubusercontent.com/20217146/184527686-cbfd9008-a5b4-416c-a6d4-61b0754e7d67.png)
 
-# 配置
+## 配置
 
 一个比较快的配置方式是直接去 Settings > User Utilities > rclone ，把配置粘贴到配置文件里去，配置文件内容参考下文。
 
 使用命令配置粒度更细，也是官网文档里给的方式：执行 `rclone config` 会弹出交互式的终端会话，根据提示，输入 n 表示新建配置，接下来按照提示输入即可
 
-## OSS
+### OSS
 
 OSS 配置最简单，跟网盘的对比可参考官网，我认为比网盘更适合做备份。
 
@@ -117,7 +117,7 @@ rclone sync /mnt/user/Public remote:/unraid/Public
 
 **bisync 才是直觉上的双向同步。** 暂时没用到。详细可以查看官方文档。
 
-## 阿里云盘
+### 阿里云盘
 
 阿里云盘并没有直接支持，而是通过上文提到的标准协议之一的 WebDAV 实现支持的。
 
@@ -140,9 +140,9 @@ pass = xxx
 
 操作完成后即可获得与 OSS 地位相同的远程连接，命令也一模一样。
 
-# 自动同步
+## 自动同步
 
-## 安装 User Scripts
+### 安装 User Scripts
 
 我是通过 User Scripts 这个插件实现的定时任务，通过 APPS 面板搜索即可。
 
@@ -151,7 +151,7 @@ pass = xxx
 1. 尽可能与 unRAID 解耦，所有数据都是插件级的，卸载即清空。之前因为连续升级 beta 系统而回滚过。
 2. 可视化管理。
 
-## 添加任务
+### 添加任务
 
 ```bash
 cd /boot/config/plugins/user.scripts/scripts
@@ -187,7 +187,7 @@ caches/**
 .pnpm-store/**
 ```
 
-## 设置任务调度
+### 设置任务调度
 
 然后去 `Settings > User Utilities > User Scripts` 设置任务调度即可。
 
@@ -210,7 +210,7 @@ echo "moving $LOCAL_PATH to $REMOTE_PATH"
 rclone copy $LOCAL_PATH oss:$REMOTE_PATH --progress
 ```
 
-# 备份 Flash
+## 备份 Flash
 
 flash backup 也很简单，就是把 `/boot` 目录压缩就行了：
 

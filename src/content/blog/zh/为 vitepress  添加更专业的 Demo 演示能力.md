@@ -12,7 +12,7 @@ description: 为 vitepress 添加更专业的 Demo 演示能力
 
 本文内容已经全部整理到 [Github](https://github.com/bowencool/create-vitepress-demo)，你也可以查看[示例站点](https://bowencool.github.io/create-vitepress-demo/guide/contribution.html)。
 
-# 背景
+## 背景
 
 vitepress 凭借着 vite 的秒级启动速度、markdown-it 的强大扩展能力、天然支持 vue3 在文档圈迅速流行开来，使用 vitepress 做 vue3 组件库文档也已经非常流行。笔者也有幸实践过一次，在这里记录一下。
 
@@ -23,7 +23,7 @@ vitepress 凭借着 vite 的秒级启动速度、markdown-it 的强大扩展能�
 
 笔者使用 vitepress 搭建业务组件库的文档，依赖 element-plus，根据 vitepress 文档，写了一个简单的 DemoContainer 组件用于包裹 Demo。
 
-## vitepress 缺点
+### vitepress 缺点
 
 随着时间的推移和组件数量的累积，现有的开发方式逐渐暴露出来一些问题：
 
@@ -70,19 +70,19 @@ table {
 1. Demo 引用繁琐
 2. 缺少 iframe 模式
 
-# 前置介绍
+## 前置介绍
 
-### 涉及到的框架之间的关系
+#### 涉及到的框架之间的关系
 
 vitepress 本质上是一个 vite 插件，使用它开发的文档网站效果相当于 vue3 + vite 的 ssr 项目，它在内部帮你把所有逻辑都封装好了，你只需要写 markdown 就行。
 
 对 markdown 的扩展能力是基于 markdown-it 写了很多 markdown-it 插件。源码里所写的 markdown 文档最终都会转成 vue 组件，原理如下：
 
-### vitepress 运行 vue 组件原理
+#### vitepress 运行 vue 组件原理
 
 把 markdown 编译成 html 字符串，把 html 字符串拼凑成一个 vue 字符串，交给 vue-loader，处理成一个 vue 组件挂载到页面上。
 
-# 调研
+## 调研
 
 - dumi 效果完美，可以说是标杆了。但是不支持 vue
 - storybook 并不是想要的 iframe 模式，也不行。
@@ -92,13 +92,13 @@ vitepress 本质上是一个 vite 插件，使用它开发的文档网站效果�
 
 最终决定尝试通过修改配置和自定义插件解决。
 
-# 研发
+## 研发
 
-## demo 引入简化
+### demo 引入简化
 
 参考了 [element-plus](https://github.com/element-plus/element-plus) 和 [vitepress-for-component](https://github.com/dewfall123/vitepress-for-component) ，定制一个 markdown-it 插件修改 html 编译结果。
 
-### 引入方式设计
+#### 引入方式设计
 
 element-plus 的引入方式不够清晰，也不够灵活。采用相对路径更清晰更灵活：
 
@@ -116,7 +116,7 @@ element-plus 的引入方式不够清晰，也不够灵活。采用相对路径�
 :::
 ```
 
-### 插件思路
+#### 插件思路
 
 遇到特定标记（如：`<demo src=xxx ... />`)，根据标记拼接字符串，将来会被插入到 vue template 里相应位置，通常情况下拼接 `<DemoContainer ... ><Demo/></DemoContainer>`，如果标记了以 iframe 模式运行 demo，则拼接一个`<iframe src=xxx ... />`
 
@@ -127,20 +127,20 @@ element-plus 的引入方式不够清晰，也不够灵活。采用相对路径�
 
 这一步把引入 Demo 的过程从原来的 15 行代码之间简化到 1 行。
 
-## iframe 模式
+### iframe 模式
 
-### 运行时动态创建 iframe
+#### 运行时动态创建 iframe
 
 试过在 DemoContainer 里 document.createElement('iframe')，但是没有成功：
 
 - 获取到 slot 内容的时候，组件代码已经运行了，此时放入沙箱已经晚了。
 - 获取到 demo 源代码交给 vue-compiler 编译这个**编译工作**在**运行时**做不现实。
 
-### 微前端
+#### 微前端
 
 这明显更复杂了，而且和动态 iframe 具有相同的问题。
 
-### 在 vite 配置里直接加入口
+#### 在 vite 配置里直接加入口
 
 第一个念头是 vite.config 里添加入口，因为 vite 就是支持多个 html 的。
 
@@ -192,7 +192,7 @@ const vitePressPlugin: Plugin = {
 
 </details>
 
-### 定制 devServer 中间件
+#### 定制 devServer 中间件
 
 上面 vitepress 的操作给了我灵感，我也写个 devServer 中间件，根据请求路径动态生成 html。试了一下，还真成功了，流程如下：
 
@@ -223,7 +223,7 @@ ViteDevServer->Browser: response: \n<!DOCTYPE html>\n...demo...
 ```
 -->
 
-### 构建模式
+#### 构建模式
 
 由于构建模式没有 devServer，所以上述 devServer 也不会生效。
 
@@ -244,7 +244,7 @@ Note over vite build: add all demo entry
 Note over vite build: write dist/~demos/
 ``` -->
 
-# 总结
+## 总结
 
 由于这套刚刚出炉，所以有很多的优化点，发出来权当抛砖引玉了。
 

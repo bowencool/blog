@@ -13,11 +13,11 @@ tags:
 description: This article introduces how Android and iOS devices can automatically forward pickup codes from text messages to the TODO app, using TickTick as an example.
 ---
 
-# iOS(iPhone/iPad)
+## iOS(iPhone/iPad)
 
 The steps are as follows:
 
-## Creating a "Shortcut"
+### Creating a "Shortcut"
 
 You can modify it based on [the shortcut command I shared](https://www.icloud.com/shortcuts/bfadc821175a4a93b3b9dddd836ea30b):
 
@@ -25,43 +25,43 @@ You can modify it based on [the shortcut command I shared](https://www.icloud.co
 
 You can also add it manually by following the steps below:
 
-### Add Action
+#### Add Action
 
 1. Open the "Shortcuts" app and tap the "+" in the upper right corner.
 1. Click "Add Action".
 1. Find "Match Text" in the pop-up window (under the "Documents" category, in yellow)
 1. Rename this shortcut to &quot;Add task to xxx list&quot;
 
-### Add a Parameter
+#### Add a Parameter
 
 1.  Click on the exclamation point at the bottom
 2.  Enable "Show in Share Sheet"
 3.  Click "Done"
 
-### Modify the parameter type
+#### Modify the parameter type
 
 1.  An additional card will appear, click on "Images and 18 more".
 2.  Click on "Clear" in the upper left corner (to quickly diable all options)
 3.  Find "Text" in the options below and turn it on.
 4.  Click "DOne".
 
-### Set Boundary Conditions
+#### Set Boundary Conditions
 
 "If there's no input":
 
 "Stop and Respond": "No content"
 
-### Set up the content matching rule
+#### Set up the content matching rule
 
 Change `Match [0-9a-zA-Z] in "text"` to `Match "快递|包裹|驿站|取件码" in "Shortcut Input"`.
 
 Where "Shortcut Input" is a magic variable, the following text is a regular expression pattern, "|" means "or". I tried "\\d-\\d-\\d{4}" and it didn't work. I don't know why.
 
-### Determine the match result
+#### Determine the match result
 
 `If "Matchs" "has any value"`，`Add "Shortcut Input" to the "XX List"`
 
-## Create new &quot;Automation&quot;
+### Create new &quot;Automation&quot;
 
 Automation: Run Immediately
 
@@ -71,13 +71,13 @@ Do `Add task to xxx List`(the shortcut you just created)
 
 ![automation](../../assets/images/forward-sms/automation.jpeg)
 
-# Andriod
+## Andriod
 
-## Install [SmsForwarder](https://github.com/pppscn/SmsForwarder)
+### Install [SmsForwarder](https://github.com/pppscn/SmsForwarder)
 
 The installation process will not be repeated.
 
-## Add a "Sender"
+### Add a "Sender"
 
 1. Open the SmsForwarder App.
 2. Switch to "Sender" in the bottom navigation bar.
@@ -154,7 +154,7 @@ app.use(router.routes()).use(router.allowedMethods()).listen(PORT);
 console.log(`listened http://localhost:${PORT}`);
 ```
 
-## Add a forwarding rule
+### Add a forwarding rule
 
 1. Open the App
 2. Switch to "Rules" in the bottom navigation bar.

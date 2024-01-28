@@ -12,6 +12,8 @@ description: Summarized some of the solutions used by authors to connect to the 
 
 This article discusses connecting to the internal network at home from outside, such as accessing internal IP, SSH, SMB, and using your OpenWrt. If you don't need to access the entire internal network and only require access to one of its services, setting up Nginx is sufficient. This article will not delve into that discussion.
 
+## Solutions Comparison
+
 Here are the solutions I have tried, and other suggestions are welcome in the comments for discussion.
 
 I initially used OpenConnect, which by default would mess up the local routing table, affecting daily use. However, since it was a long time ago, I won't write about it.
@@ -135,7 +137,7 @@ I initially used OpenConnect, which by default would mess up the local routing t
   </table>
 </div>
 
-# Additional:
+## Additional
 
 Main steps to set up Tailscale:
 

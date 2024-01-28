@@ -8,7 +8,7 @@ const blog = defineCollection({
       pubDatetime: z.date(),
       modDatetime: z.date().optional().nullable(),
       originalUrl: z.string().optional(),
-      collapseDepth: z.number().default(2),
+      collapseDepth: z.number().optional(),
       title: z.string(),
       permalink: z.string(),
       featured: z.boolean().optional(),

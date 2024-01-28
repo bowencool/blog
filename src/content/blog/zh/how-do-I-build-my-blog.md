@@ -9,16 +9,16 @@ tags:
 description: 本文讲述了作者在搭建博客的一些思考、权衡以及实践过程中的经验。
 ---
 
-# 为什么不用已有的成熟方案？
+## 为什么不用已有的成熟方案？
 
 - 打算长期维护的，作为开发者，还是想完全掌控一下
   - 未来不只是博客
   - 如果我在别人的博客上看到好玩的东西，我可以 99% 地确保它可以实现，而不用浪费精力去研究主题或插件。
 - Astro 太优秀了，拥有极致性能（孤岛架构）和极致灵活性（随意组合 react / vue, html, md / mdx, 甚至自定义响应，全方位碾压。
 
-# 文章内容储存在哪里？
+## 文章内容储存在哪里？
 
-## Git
+### Git
 
 - 不需要额外成本
 - 直接支持各种交互，直接写 React、Vue 都行（伪需求？）
@@ -26,41 +26,41 @@ description: 本文讲述了作者在搭建博客的一些思考、权衡以及�
 - 仓库越来越大，部署也会越来越慢
 - tags 管理会非常累
 
-## DB
+### DB
 
 - 无法插入交互式内容（伪需求？可以使用内嵌 codepen 等方式代替）
 
-## Notion / 飞书云文档 / 语雀
+### Notion / 飞书云文档 / 语雀
 
 如果我不是程序员，我可能会选择这些，但我是，而且还是个前端。
 
-## 结果
+### 结果
 
 先放 Git 仓库里，后期考虑混合模式。
 
-# 图床
+## 图床
 
 想用 GitHub/Imgur，但国内访问受限，OSS 有恶意流量的风险，先放仓库里吧
 
-# 国际化
+## 国际化
 
 要面向全球读者，就得支持中英双语，最想要的交互是对照显示，感觉开发量会有点大。算了先用 astro-i18next 顶一下。
 
-# 订阅
+## 订阅
 
-## RSS 订阅
+### RSS 订阅
 
 就是一个纯文本内容(xml/json/atom)，Astro 内置
 
-## Email 订阅
+### Email 订阅
 
 有点麻烦，暂不实现
 
-# 账号体系？
+## 账号体系？
 
 两个需求：
 
-## 评论/回应
+### 评论/回应
 
 - [Utterances](https://github.com/utterance/utterances) 开源免费，基于 GitHub Issues. 由于我之前的文章大部分都在 issues 里，所以所有文章评论都不需要操心了，非常适合我。
 - [Giscus](https://github.com/giscus) 开源免费，基于 GitHub Discussions. Discussion 比 Issue 的优势是支持楼中楼视图。由于 Issue 可以转成 Discussion ，而且评论也会带过去，所以也非常适合我。
@@ -69,43 +69,43 @@ description: 本文讲述了作者在搭建博客的一些思考、权衡以及�
 
 最终选择了 Giscus 。
 
-## 付费内容/课程
+### 付费内容/课程
 
 那必须有自己的账号体系了。而且也可以考虑单独做一个网站。所以先不实现。
 
-# 全平台同步？
+## 全平台同步？
 
-## 同步修改内容
+### 同步修改内容
 
 有点不现实，不是所有平台都提供 API 的
 
-## 显示全平台的评论、点赞数
+### 显示全平台的评论、点赞数
 
 暂时没什么必要
 
-## 全平台访问统计信息
+### 全平台访问统计信息
 
 暂时没什么必要
 
-# 可以借鉴的仓库
+## 可以借鉴的仓库
 
 - https://github.com/tangly1024/NotionNext
 - https://www.lovchun.com/ 功能挺不错的
 - https://github.com/szmxx/blog 深色模式切换特效值得学习
 
-## UI 设计非常好：
+### UI 设计非常好：
 
 - https://github.com/joshwcomeau/blog
 - https://github.com/transitive-bullshit/nextjs-notion-starter-kit
 - https://github.com/satnaing/satnaing.dev
 - https://github.com/judygab/nextjs-portfolio
 
-## 一些工具：
+### 一些工具：
 
 - https://github.com/NotionX/react-notion-x 渲染 notion page
 - https://github.com/LetTTGACO/elog 在 Notion / 飞书云文档 / 语雀 / 本地 markdown 之间同步文章
 
-## 起步模板？
+### 起步模板？
 
 - https://astro.build/themes/ Astro 官方收集的仓库，挑了两个相对可行的仓库：
 - https://github.com/onwidget/astrowind UI 很不错，但博客相关的功能不太完善
@@ -115,9 +115,9 @@ description: 本文讲述了作者在搭建博客的一些思考、权衡以及�
 
 最终选择了 astro-paper + 自己改功能、样式。
 
-# 实践
+## 实践
 
-## 国际化，踩大坑
+### 国际化，踩大坑
 
 选择了基于 astro paper 开始开发，然后选择了 astro-i18next 做国际化，踩大坑，怪我自己没看清它还处于 Beta 阶段。
 
@@ -145,7 +145,7 @@ description: 本文讲述了作者在搭建博客的一些思考、权衡以及�
   - 定义新集合，太蠢了，而且好像也解决不了切换语言的问题
   - 搜了半天，[把 slug 改个名字](https://github.com/withastro/astro/issues/7133#issuecomment-1585751826)就好了，比如我就改成了permalink
 
-## 其他坑
+### 其他坑
 
 - 开发环境与生产环境行为不一致，也许是 SSR 模式和 SSG 模式行为不一致？这些也能解决，就是感觉不太放心
 
