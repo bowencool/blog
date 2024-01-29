@@ -2,3 +2,41 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npx lint-staged
+
+# Modified files, update the modDatetime
+git diff --cached --name-status |
+grep -i 'content/blog/.*\.md$' |
+while read _ file; do
+  filecontent=$(cat "$file")
+  frontmatter=$(echo "$filecontent" | awk -v RS='---' 'NR==2{print}')
+  draft=$(echo "$frontmatter" | awk '/^draft: /{print $2}')
+
+  # 如果没有获取到 draft 字段，将其设置为 false
+  if [ -z "$draft" ]; then
+    draft="false"
+  fi
+
+  # 检查是否存在 modDatetime 字段
+  modDatetimeExists=$(echo "$frontmatter" | grep -c '^modDatetime:')
+
+  if [ "$draft" = "false" ]; then
+    echo "$file modDateTime updated"
+    if [ "$modDatetimeExists" -eq 0 ]; then
+      # 如果 modDatetime 不存在，那么在 pubDatetime 下面插入这个字段
+      echo "modDateTime not found, insert it"
+      perl -i -pe "s/(pubDatetime: .*)/\$1\nmodDatetime: $(date -u "+%Y-%m-%dT%H:%M:%SZ")/g" "$file"
+    else
+      # 如果 modDatetime 存在，那么更新这个字段
+      echo "modDateTime found, update it"
+      cat $file | sed "/---/,/---/s/^modDatetime:.*$/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%SZ")/" > tmp
+      mv tmp $file
+    fi
+    git add $file
+  fi
+  if [ "$draft" = "first" ]; then
+    echo "First release of $file, draft set to false and modDateTime removed"
+    cat $file | sed "/---.*/,/---.*/s/^modDatetime:.*$/modDatetime:/" | sed "/---.*/,/---.*/s/^draft:.*$/draft: false/" > tmp
+    mv tmp $file
+    git add $file
+  fi
+done
