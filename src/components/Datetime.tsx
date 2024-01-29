@@ -38,7 +38,7 @@ export default function Datetime({
         }`}
       >
         <span>
-          <span className="sr-only">{t("updatedAt")} </span>
+          <span className="sr-only">{t("publishedAt")} </span>
           <FormattedDatetime date={pubDatetime} />
         </span>
         {modDatetime && (
