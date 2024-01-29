@@ -1,5 +1,6 @@
 ---
 pubDatetime: 2024-01-25T13:37:23.000Z
+modDatetime: 2024-01-29T05:38:00Z
 title: How do I build my Blog
 permalink: how-do-i-build-my-blog
 tags:
@@ -158,3 +159,26 @@ I chose to start development based on Astro paper, and then chose astro-i18next 
   - The CSS weren't writen using nested syntax...
 
 Furthermore, I still need to change the style. I've almost finished reading through the entire code of this repository. If I had known earlier, I would have written it from scratch myself, that didn't save much time.
+
+### SSG vs SSR
+
+SSG (Static Page Generation):
+
+- Can also connect to a database, but only at the moment of building!
+- Requires predefining all possible paths with parameters.
+
+- Astro already supports SPA mode under SSG, so interactive experience is no longer an issue!
+
+SSR (Server Side Render):
+
+- Dynamic data (query, DB)
+
+- Redirection
+
+To be confirmed:
+
+- Can SSR hide the default Lang path?
+
+- How is Vercel's cold start speed?
+
+- Sitemap?

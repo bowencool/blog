@@ -1,5 +1,6 @@
 ---
 pubDatetime: 2024-01-25T13:37:23.000Z
+modDatetime: 2024-01-29T05:38:00Z
 title: 我是如何搭建博客的
 permalink: how-do-i-build-my-blog
 tags:
@@ -157,3 +158,22 @@ description: 本文讲述了作者在搭建博客的一些思考、权衡以及�
   - css 没有使用嵌套语法...
 
 再加上还要改样式，整个仓库代码几乎看完了，早知道我自己从零写了，这也没省多少时间。
+
+### SSG vs SSR
+
+SSG(Static Page Generation)：
+
+- 也能连数据库，但仅限构建的一刹那！
+- 需要预定义所有可能的参数。
+- Astro 已经支持 SSG 下的 SPA 模式，交互体验不再是问题！
+
+SSR(Server Side Render)：
+
+- 动态数据(query、DB)
+- 重定向
+
+To be confirmed:
+
+- SSR能不能做到隐藏默认 Lang 路径?
+- vercel 冷启动速度如何?
+- sitemap?
