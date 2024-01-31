@@ -5,7 +5,7 @@ npx lint-staged
 
 # Modified files, update the modDatetime
 git diff --cached --name-status |
-grep -i 'content/blog/.*\.md$' |
+grep -e '^M.*src/content/blog/.*\.md' |
 while read _ file; do
   filecontent=$(cat "$file")
   frontmatter=$(echo "$filecontent" | awk -v RS='---' 'NR==2{print}')
