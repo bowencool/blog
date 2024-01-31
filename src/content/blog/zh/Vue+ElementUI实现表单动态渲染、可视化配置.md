@@ -67,7 +67,7 @@ description: 前些日子碰到了动态渲染表单的需求，在这里记录�
 ```
 
 然后你需要把这个json渲染成这样：
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/3/4/161f097804b4c2fb~tplv-t2oaga2asx-image.image)
+![两个表单字段](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/3/4/161f097804b4c2fb~tplv-t2oaga2asx-image.image)
 最后提交表单的数据长这样：
 
 ```json
@@ -284,7 +284,7 @@ methods: {
 
 `element-ui`没有做这个功能，不过我觉得还是挺常见的，所以使用`el-input`手动封装了一个`input-number`:
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/3/5/161f5444c113df0d~tplv-t2oaga2asx-image.image)
+![input-number-preview](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/3/5/161f5444c113df0d~tplv-t2oaga2asx-image.image)
 
 ```vue
 <!--普通使用-->
@@ -315,7 +315,7 @@ methods: {
 ### 2.异步验证
 
 得益于[`async-validator`](https://github.com/yiminghe/async-validator)，我们可以很方便地自定义验证规则。
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/3/5/161f5642a8ab5d97~tplv-t2oaga2asx-image.image)
+![异步验证示例](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/3/5/161f5642a8ab5d97~tplv-t2oaga2asx-image.image)
 在配置中
 
 ```json
