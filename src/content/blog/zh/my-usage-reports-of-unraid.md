@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2023-12-08T07:20:10Z
+modDatetime: 2024-01-31T09:19:42Z
 featured: true
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
@@ -70,11 +70,11 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 ### RClone
 
-网盘同步工具，主要用来弥补缺失的异地容灾功能，参考[另一篇文章](./offsite-disaster-recovery-for-unraid-with-rclone)
+网盘同步工具，主要用来弥补缺失的异地容灾功能，参考[另一篇文章](/zh/posts/offsite-disaster-recovery-for-unraid-with-rclone)
 
 ### [WireGuard](https://unraid.net/blog/wireguard-on-unraid)（unRAID内置）
 
-详情查看[这篇文章](./how-to-connect-to-the-home-intranet-from-outside)
+详情查看[这篇文章](/zh/posts/how-to-connect-to-the-home-intranet-from-outside)
 
 ## 虚拟机
 
@@ -88,7 +88,7 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 ### OpenVPN
 
-详情查看[这篇文章](./how-to-connect-to-the-home-intranet-from-outside)
+详情查看[这篇文章](/zh/posts/how-to-connect-to-the-home-intranet-from-outside)
 
 因为 docker 版本已经不再维护，所以装到虚拟机了。
 
@@ -119,7 +119,7 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 ### Tailscale
 
-详情查看[这篇文章](./how-to-connect-to-the-home-intranet-from-outside)
+详情查看[这篇文章](/zh/posts/how-to-connect-to-the-home-intranet-from-outside)
 
 ### ~~NextCloud~~
 

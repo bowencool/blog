@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2023-12-08T07:20:10Z
+modDatetime: 2024-01-31T09:19:42Z
 featured: true
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
@@ -69,11 +69,11 @@ A file manager embedded directly in the unraid backend admin page, which is some
 
 ### RClone
 
-Web disk synchronization tool, mainly used to compensate for the missing offsite disaster recovery feature, refer to [another article](./offsite-disaster-recovery-for-unraid-with-rclone)
+Web disk synchronization tool, mainly used to compensate for the missing offsite disaster recovery feature, refer to [another article](/posts/offsite-disaster-recovery-for-unraid-with-rclone)
 
 ### [WireGuard](https://unraid.net/blog/wireguard-on-unraid) (unRAID built-in)
 
-For details, check out: [How to connect to home intranet from outside?](./how-to-connect-to-the-home-intranet-from-outside)
+For details, check out: [How to connect to home intranet from outside?](/posts/how-to-connect-to-the-home-intranet-from-outside)
 
 ## Virtual Machines
 
@@ -87,7 +87,7 @@ For this step, you need to buy the NIC hardware and pass it through to the VM, r
 
 ### OpenVPN
 
-For details, check out [this article](./how-to-connect-to-the-home-intranet-from-outside)
+For details, check out [this article](/posts/how-to-connect-to-the-home-intranet-from-outside)
 
 Since the docker version is no longer maintained, it's loaded into a virtual machine.
 
@@ -118,7 +118,7 @@ Used for
 
 ### Tailscale
 
-For more information, see [this article](./how-to-connect-to-the-home-intranet-from-outside).
+For more information, see [this article](/posts/how-to-connect-to-the-home-intranet-from-outside).
 
 ### ~~NextCloud~~
 
