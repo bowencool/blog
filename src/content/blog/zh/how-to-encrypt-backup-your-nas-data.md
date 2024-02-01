@@ -92,7 +92,44 @@ Failed to download the configuration file from the storage: InvalidObjectState: 
 这个错误同样是[存储类型](https://help.aliyun.com/zh/oss/user-guide/overview-53)造成的，解决方案：
 
 - 换成归档储存并开启直读就可以了。但是这样[价格就贵了](https://www.aliyun.com/price/product#/oss/detail/oss)。
-- TODO：先备份到本地路径，再 rclone 到 oss。也不是不行，对于我来说，重要文件都是小文件，不会太大，大文件几乎都是可以重新下载的资源，没有备份的需求。
+- 先备份到本地路径，再 rclone 到 oss。也不是不行，对于我来说，重要文件都是小文件，不会太大，大文件几乎都是可以重新下载的资源，没有备份的需求。
+
+### local disk
+
+```bash
+# 初始化 storage 和 repository
+duplicacy init -encrypt -storage-name dva -chunk-size 33554432 -max-chunk-size 67108864 share-bowen /mnt/user/backups/duplicacy
+# [可选]配置忽略文件
+duplicacy set -storage dva -filters /boot/config/plugins/user.scripts/scripts/duplicacyignore
+# 备份
+duplicacy backup -stats
+# 检查备份
+duplicacy list -files -chunks
+```
+
+测试一下在另一台设备上恢复：
+
+```bash
+mkdir Bowen
+cd Bowen
+# 初始化仓库时，会验证storage密码
+duplicacy init -encrypt -storage-name dva share-bowen smb://bowen@10.7.21.2/backups/duplicacy
+# 查看 revision number
+duplicacy list
+# 恢复版本为1的备份
+duplicacy restore -r 1 -hash -ignore-owner -overwrite -delete -stats
+# 查看恢复的文件
+ls
+```
+
+官方推荐将不同 repositories 备份到同一个 storage，这样可以最大限度利用数据去重功能。
+
+```bash
+duplicacy init -encrypt -storage-name dva -chunk-size 33554432 -max-chunk-size 67108864 share-photos /mnt/user/backups/duplicacy
+duplicacy set -storage dva -filters /boot/config/plugins/user.scripts/scripts/duplicacyignore
+```
+
+但我在实际操作中遇到了[这个错误](https://forum.duplicacy.com/t/runtime-out-of-memory-fatal-error-out-of-memory/6584)
 
 ## Kopia
 
