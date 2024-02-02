@@ -1,10 +1,9 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-02-02T08:42:21Z
+modDatetime: 2024-02-02T08:44:21Z
 title: 如何加密备份你的 NAS 数据
 featured: true
 permalink: how-to-encrypt-backup-your-data-on-your-nas
-originalUrl: https://github.com/bowencool/blog/issues/18
 tags:
   - nas
   - unRAID
