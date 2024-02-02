@@ -7,7 +7,7 @@ originalUrl: https://github.com/bowencool/blog/issues/11
 tags:
   - frontend
   - compiling
-  - coding
+  - programming
   - ast
 description: 如何用 AST 对代码进行修改（含vue）
 ---
@@ -89,10 +89,7 @@ const t = require("@babel/types");
 AST.program.body.splice(
   routerImportDeclarationIndex,
   0,
-  t.importDeclaration(
-    [t.importDefaultSpecifier(t.identifier("store"))],
-    t.stringLiteral("./store")
-  ) // 小技巧：等同于 t.identifier(`import store from './store'`)
+  t.importDeclaration([t.importDefaultSpecifier(t.identifier("store"))], t.stringLiteral("./store")) // 小技巧：等同于 t.identifier(`import store from './store'`)
 );
 // 注入构造参数
 newVueExpression.expression.arguments[0].properties.push(
@@ -119,9 +116,7 @@ let { code } = babel.transformFromAstSync(AST, entryContent, {
   presets: [],
 });
 // 中文反转义，选项里没找到相关配置，只能先手动处理一下了
-code = code.replace(/\\u([\d\w]{4})/gi, (m, g) =>
-  String.fromCharCode(parseInt(g, 16))
-);
+code = code.replace(/\\u([\d\w]{4})/gi, (m, g) => String.fromCharCode(parseInt(g, 16)));
 
 fs.writeFileSync(filepath, code);
 ```
@@ -134,9 +129,7 @@ fs.writeFileSync(filepath, code);
 
 ```js
 const compiler = require("vue-template-compiler");
-const sfcDescriptor = compiler.parseComponent(
-  fs.readFileSync(filePath, "utf-8")
-);
+const sfcDescriptor = compiler.parseComponent(fs.readFileSync(filePath, "utf-8"));
 ```
 
 sfcDescriptor 长这样：
