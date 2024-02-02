@@ -1,8 +1,7 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-02-02T08:44:21Z
+modDatetime: 2024-02-02T09:31:10Z
 title: 如何加密备份你的 NAS 数据
-featured: true
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
   - nas
@@ -41,7 +40,7 @@ description: 之前我们讲过如何用 RClone 将你的数据备份到云盘/O
 ### [Duplicati](https://github.com/duplicati/duplicati)
 
 - GUI 易上手
-- 默认最佳版本策略
+- 默认使用最佳版本策略
 - 但数据库易损坏？
 
 #### 阿里云 OSS
@@ -78,7 +77,7 @@ description: 之前我们讲过如何用 RClone 将你的数据备份到云盘/O
 
 ### [Kopia](https://github.com/kopia/kopia/)
 
-优点也有很多，但它还在 beta 阶段，这次就不详细说了
+也是一个非常优秀的工具，但它还在 beta 阶段，这次就不详细说了
 
 ## 储存终点的选择
 
