@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-01-25T13:37:23.000Z
-modDatetime: 2024-02-02T12:31:58Z
+modDatetime: 2024-02-02T13:20:39Z
 title: How do I build my Blog
 permalink: how-do-i-build-my-blog
 tags:
@@ -73,6 +73,16 @@ My final choice was Giscus.
 ### Paid content/courses
 
 That must have my own account system. And also consider making a separate website. So I won't realize it for now.
+
+## Traffic Analysis
+
+- Google Analytics is too heavy (script 200kb+), and cannot collect data in China (tested by myself).
+- Vercel's free plan: 2.5k events/month, retains one month of data, no pressure on Chinese collection.
+- Umami's free plan: 10k events/month, retains one year of data, no pressure on Chinese collection. **Can be self-hosted**.
+- BeamAnalytics' free plan: 100k events/month, unclear data retention time, the situation of Chinese collection remains to be observed (China Telecom can collect it, China Mobile cannot).
+- Others have not found any outstanding points for the time being.
+
+Finally I chose umami’s free plan.
 
 ## Synchronize across all platforms?
 
