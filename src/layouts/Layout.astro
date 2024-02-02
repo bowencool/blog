@@ -88,7 +88,14 @@ const socialImageURL = new URL(ogImage || "og.png" /* auto generated */, Astro.u
     <slot />
     {
       import.meta.env.PROD && (
-        <script defer src="https://us.umami.is/script.js" data-website-id="42b1c8f4-941e-4707-81b4-fbbefce5e3f0" />
+        <>
+          <script defer src="https://us.umami.is/script.js" data-website-id="42b1c8f4-941e-4707-81b4-fbbefce5e3f0" />
+          <script
+            defer
+            src="https://beamanalytics.b-cdn.net/beam.min.js"
+            data-token="d42e83e4-3397-4b96-9a6f-b740d481db9a"
+          />
+        </>
       )
     }
   </body>
