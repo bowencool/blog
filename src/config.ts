@@ -6,6 +6,7 @@ export const SITE: Site = {
   lightAndDarkMode: true,
   postPerPage: 5,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
+  tagRssable: tag => tag.count >= 3,
 };
 
 export const LOGO_IMAGE = {

@@ -5,6 +5,7 @@ export type Site = {
   lightAndDarkMode: boolean;
   postPerPage: number;
   scheduledPostMargin: number;
+  tagRssable: (tag: { count: number }) => boolean;
 };
 
 export type SocialObjects = {

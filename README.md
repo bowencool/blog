@@ -10,7 +10,7 @@ What are the differences compared to AstroPaper?
 - Refactored tags
   - Internationalization support (i18n)
   - Show larger size if there are more related articles, see [preview](https://blog.bowen.cool/tags)
-  - Planned to implement RSS subscriptions for tags with a large number of articles (not yet implemented)
+  - RSS subscriptions for tags with a large number of articles, for [example](https://blog.bowen.cool/tags/unraid)
 - Dark theme toggle using only CSS variables
   - Dual code highlight themes
 - Floating table of contents using tocbot, rather than having it in the header

@@ -9,6 +9,7 @@ import Pagination from "@components/Pagination.astro";
 import { t } from "i18next";
 import { localizePath } from "astro-i18next";
 import type { Tag } from "@utils/getUniqueTags";
+import { SITE } from "@config";
 
 export interface Props {
   currentPage: number;
@@ -23,11 +24,36 @@ const { currentPage, totalPages, paginatedPosts, tag } = Astro.props;
 <Layout title={`${t("tags")}: ${t(`tags:${tag.slug}`)}`}>
   <Header activeNav="tags" />
   <Main
-    pageTitle={[`${t("tags")}:`, t(`tags:${tag.slug}`)]}
-    titleTransition={tag.slug}
     pageDesc={t("tagsDesc{{tag}}", { tag: t(`tags:${tag.slug}`) }) as string}
   >
-    <h1 slot="title" transition:name={tag.slug} >{`${t("tags")}:${tag.slug}`}</h1>
+    <h1 slot="title">
+      {t("tags")}:{" "}
+      <span transition:name={tag.slug}>
+        {t(`tags:${tag.slug}`)}
+      </span>
+      {
+        SITE.tagRssable(tag) && (
+          <a
+            target="_blank"
+            href={localizePath(`/tags/${tag.slug}/rss.xml`)}
+            class="rss-link"
+            aria-label="rss feed"
+            title="RSS Feed"
+            data-astro-prefetch="false"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon">
+              <>
+                <path d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z" />
+                <path d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z" />
+                <circle cx="6" cy="18" r="2" />
+              </>
+            </svg>
+            <span class="sr-only">RSS Feed</span>
+          </a>
+        )
+      }
+    </h1>
+
     <ul>
       {
         paginatedPosts.map(({ data, slug }) => (

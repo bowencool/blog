@@ -1,37 +1,18 @@
 ---
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 
-interface StringTitleProp {
-  pageTitle: string;
+export type Props = {
   pageDesc?: string;
-}
-
-interface ArrayTitleProp {
-  pageTitle: string | [string, string];
-  titleTransition?: string;
-  pageDesc?: string;
-}
-
-export type Props = StringTitleProp | ArrayTitleProp;
+};
 
 const { props } = Astro;
 ---
 
 <Breadcrumbs />
 <main id="main-content">
-  {
-    "titleTransition" in props && Array.isArray(props.pageTitle) ? (
-      <h1>
-        {props.pageTitle[0]}
-        <span transition:name={props.titleTransition}>
-          {props.pageTitle[1]}
-        </span>
-      </h1>
-    ) : (
-      <h1>{props.pageTitle}</h1>
-    )
-  }
-  <p>{props.pageDesc}</p>
+  <slot name="title" />
+  <!-- <slot name="desc" /> -->
+  <p class="mb-6 mt-2">{props.pageDesc}</p>
   <slot />
 </main>
 
@@ -39,10 +20,7 @@ const { props } = Astro;
   #main-content {
     @apply mx-auto w-full max-w-3xl px-4 pb-4;
   }
-  #main-content h1 {
+  #main-content :global(> h1:first-of-type) {
     @apply text-2xl font-semibold sm:text-3xl;
-  }
-  #main-content p {
-    @apply mb-6 mt-2 italic;
   }
 </style>
