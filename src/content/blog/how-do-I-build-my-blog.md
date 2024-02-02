@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-01-25T13:37:23.000Z
-modDatetime: 2024-01-29T05:38:00Z
+modDatetime: 2024-02-02T12:20:44Z
 title: How do I build my Blog
 permalink: how-do-i-build-my-blog
 tags:
@@ -66,6 +66,7 @@ Two demands:
 - [Utterances](https://github.com/utterance/utterances) Open source and free, based on GitHub Issues. Since most of my previous posts were in issues, all the post comments are out of the way, perfect for me.
 - [Giscus](https://github.com/giscus) Open source and free, based on GitHub Discussions. The advantage of Discussion over Issue is that it supports nested views. Since Issues can be converted into Discussions, and comments will also be carried over, it is also very suitable for me.
 - Disqus is free for individual users, and support logging in with more social accounts. **No need to log in to respond**, but logging in is required for commenting.
+- [remark](https://github.com/umputun/remark42) Open source and free, similar to disqus.
 - The cost of self-development is too high, especially for front-end interactions
 
 My final choice was Giscus.
