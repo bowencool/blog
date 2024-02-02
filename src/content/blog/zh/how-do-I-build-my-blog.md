@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-01-25T13:37:23.000Z
-modDatetime: 2024-02-02T13:22:13Z
+modDatetime: 2024-02-02T13:27:08Z
 title: 我是如何搭建博客的
 permalink: how-do-i-build-my-blog
 tags:
@@ -74,7 +74,7 @@ description: 本文讲述了作者在搭建博客的一些思考、权衡以及�
 
 那必须有自己的账号体系了。而且也可以考虑单独做一个网站。所以先不实现。
 
-## 流量分析
+## 网站流量分析
 
 - google analytics 太笨重（脚本200kb+），而且国内数据采集不到（自测的）
 - vercel 免费套餐：2.5k事件/月，保留一个月的数据，国内采集无压力
