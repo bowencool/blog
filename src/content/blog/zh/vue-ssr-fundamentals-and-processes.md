@@ -1,14 +1,15 @@
 ---
 pubDatetime: 2020-07-31T08:27:32Z
-modDatetime: 2024-02-03T12:10:59Z
-title: 【补发】Vue SSR 基本原理和流程
+modDatetime: 2020-07-31T08:39:59Z
+title: SSR 基本原理和流程
 permalink: vue-ssr-fundamentals-and-processes
 originalUrl: https://github.com/bowencool/blog/issues/12
 tags:
   - frontend
+  - fullstack
   - ssr
   - vue
-  - fullstack
+  - react
 description: Vue SSR 基本原理和流程
 ---
 
