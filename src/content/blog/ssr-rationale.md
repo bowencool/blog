@@ -1,7 +1,7 @@
 ---
 pubDatetime: 2020-07-31T08:27:32Z
-modDatetime: 2024-02-03T14:50:15.507Z
-title: The basic principles and process of SSR (Server-Side Rendering)
+modDatetime: 2024-02-03T15:21:01Z
+title: The basic rationale and process of SSR (Server-Side Rendering)
 permalink: server-side-rendering-rationale
 originalUrl: https://github.com/bowencool/blog/issues/12
 tags:
@@ -10,7 +10,7 @@ tags:
   - ssr
   - vue
   - react
-description: The basic principles and process of SSR (Server-Side Rendering)
+description: The basic rationale and process of SSR (Server-Side Rendering)
 ---
 
 ## What is SSR
