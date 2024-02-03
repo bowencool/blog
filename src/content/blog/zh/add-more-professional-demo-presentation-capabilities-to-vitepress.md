@@ -6,6 +6,7 @@ permalink: add-more-professional-demo-presentation-capabilities-to-vitepress
 originalUrl: https://github.com/bowencool/blog/issues/15
 tags:
   - vitepress
+  - solution
   - frontend
 description: 为 vitepress 添加更专业的 Demo 演示能力
 ---
@@ -204,24 +205,23 @@ const vitePressPlugin: Plugin = {
       1. 通过入口地址从 vite 请求编译结果：`const module = await import('@fs/${demoEntry}')`
       2. 约定 module.default 导出自动挂载的组件。否则视为 demoEntry 自行挂载
 
-![流程图](https://user-images.githubusercontent.com/20217146/147480565-2e3b7b64-e5a0-4cb4-ab61-a0a7700ce595.png)
+<!-- ![流程图](https://user-images.githubusercontent.com/20217146/147480565-2e3b7b64-e5a0-4cb4-ab61-a0a7700ce595.png) -->
 
-<!--
-```sequence
-Browser->ViteDevServer: request: http://.../xxx.html
-ViteDevServer->MarkdownIt: read: /xxx.md
+```mermaid
+sequenceDiagram
+Browser->>ViteDevServer: request: http://.../xxx.html
+ViteDevServer->>MarkdownIt: read: /xxx.md
 Note over MarkdownIt: markdown-it-demo
-MarkdownIt->demos.json: write: { Demo123: { entry: '/.../demo.vue' }, ... }
-MarkdownIt->ViteDevServer: return: \n<!DOCTYPE html>\n...<iframe src="/~demos/Demo123.html" />...
-ViteDevServer->Browser: response: \n<!DOCTYPE html>\n...<iframe src="/~demos/Demo123.html" />...
-Browser->ViteDevServer: request: http://.../~demos/Demo123.html
-Note over ViteDevServer: vite-plugin-demo-iframe\nmatched\n /^\/~demos\/(\w+)\.html/
-ViteDevServer->demos.json: read: find Demo123.html's entry
-demos.json->ViteDevServer: return: Demo123.html's entry is '/.../demo.vue'
-Note over ViteDevServer: genHtml({ entry: '/.../demo.vue' }):\n<!DOCTYPE html>\n...demo...
-ViteDevServer->Browser: response: \n<!DOCTYPE html>\n...demo...
+MarkdownIt->>demos.json: write: { Demo123: { entry: '/.../demo.vue' }, ... }
+MarkdownIt->>ViteDevServer: return: <br><!DOCTYPE html><br>...<iframe src="/~demos/Demo123.html" />...
+ViteDevServer->>Browser: response: <br><!DOCTYPE html><br>...<iframe src="/~demos/Demo123.html" />...
+Browser->>ViteDevServer: request: http://.../~demos/Demo123.html
+Note over ViteDevServer: vite-plugin-demo-iframe<br>matched<br> /^\/~demos\/(\w+)\.html/
+ViteDevServer->>demos.json: read: find Demo123.html's entry
+demos.json->>ViteDevServer: return: Demo123.html's entry is '/.../demo.vue'
+Note over ViteDevServer: genHtml({ entry: '/.../demo.vue' }):<br><!DOCTYPE html><br>...demo...
+ViteDevServer->>Browser: response: <br><!DOCTYPE html><br>...demo...
 ```
--->
 
 #### 构建模式
 
@@ -231,18 +231,19 @@ vitepress 和处理请求一样一刀切，没有留余地，无法通过 vite �
 
 所以只能在 `vitepress build` 之后再跑一遍 `vite build -c=xxx`
 
-![流程图](https://user-images.githubusercontent.com/20217146/147480688-9bc9bbf0-d08e-47d5-a511-be401c04bfaa.png)
+<!-- ![流程图](https://user-images.githubusercontent.com/20217146/147480688-9bc9bbf0-d08e-47d5-a511-be401c04bfaa.png) -->
 
-<!-- ```sequence
-vitepress build->MarkdownIt: read: /xxx.md
+```mermaid
+sequenceDiagram
+vitepress build->>MarkdownIt: read: /xxx.md
 Note over MarkdownIt: markdown-it-demo
-MarkdownIt->demos.json: write: { Demo123: { entry: '/.../demo.vue' }, ... }
-MarkdownIt->vitepress build: return: \n<!DOCTYPE html>\n...<iframe src="/~demos/Demo123.html" />...
+MarkdownIt->>demos.json: write: { Demo123: { entry: '/.../demo.vue' }, ... }
+MarkdownIt->>vitepress build: return: <br><!DOCTYPE html><br>...<iframe src="/~demos/Demo123.html" />...
 Note over vitepress build: write dist/
-vite build->demos.json: read: all demos
+vite build->>demos.json: read: all demos
 Note over vite build: add all demo entry
 Note over vite build: write dist/~demos/
-``` -->
+```
 
 ## 总结
 
