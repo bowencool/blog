@@ -8,13 +8,12 @@
     "build": "astro build",
     "prebuild": "astro-i18next generate && playwright install --with-deps chromium",
     "postbuild": "jampack ./dist",
+    "deploy": "vercel build && vercel deploy --prebuilt",
+    "deploy:prod": "vercel build --prod && vercel deploy --prod --prebuilt",
     "preview": "astro preview",
-    "sync": "astro sync",
-    "astro": "astro",
+    "prepare": "husky install",
     "format:check": "prettier --check . --plugin=prettier-plugin-astro",
     "format": "prettier --write . --plugin=prettier-plugin-astro",
-    "cz": "cz",
-    "prepare": "husky install",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -45,8 +44,6 @@
     "@types/react": "^18.2.48",
     "@typescript-eslint/parser": "^6.19.0",
     "astro-eslint-parser": "^0.16.2",
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.56.0",
     "eslint-plugin-astro": "^0.31.3",
     "husky": "^8.0.3",
@@ -57,11 +54,6 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,mdx,json,astro}": [
