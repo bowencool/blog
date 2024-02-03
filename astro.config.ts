@@ -4,6 +4,8 @@ import react from "@astrojs/react";
 import astroI18next from "astro-i18next";
 import sitemap from "@astrojs/sitemap";
 import rehypeExternalLinks from "rehype-external-links";
+import rehypeMermaid from "rehype-mermaid";
+import rehypeShikiji from "rehype-shikiji";
 
 import mdx from "@astrojs/mdx";
 
@@ -27,16 +29,20 @@ export default defineConfig({
     mdx(),
   ],
   markdown: {
-    shikiConfig: {
-      // https://shikiji.netlify.app/guide/dual-themes#light-dark-dual-themes
-      experimentalThemes: {
-        light: "github-light",
-        dark: "github-dark",
-      },
-      wrap: true,
-    },
+    syntaxHighlight: false,
     rehypePlugins: [
       [rehypeExternalLinks, { target: "_blank", rel: ["noopener"] }],
+      [rehypeMermaid, { dark: true, strategy: "img-svg" }],
+      [
+        rehypeShikiji,
+        {
+          themes: {
+            light: "github-light",
+            dark: "github-dark",
+          },
+          wrap: true,
+        },
+      ],
     ],
   },
   vite: {

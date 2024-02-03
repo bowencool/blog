@@ -13,6 +13,7 @@ What are the differences compared to AstroPaper?
   - RSS subscriptions for tags with a large number of articles, for [example](https://blog.bowen.cool/tags/unraid)
 - Dark theme toggle using only CSS variables
   - Dual code highlight themes
+- [Mermaid](https://github.com/mermaid-js/mermaid) integration
 - Floating table of contents using tocbot, rather than having it in the header
 - Giscus integration for comments and discussions
 - External links open in new tabs by default
