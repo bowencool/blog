@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2020-07-31T08:27:32Z
-modDatetime: 2024-02-03T15:21:01Z
+modDatetime: 2024-02-04T11:01:29Z
 title: The basic rationale and process of SSR (Server-Side Rendering)
 permalink: server-side-rendering-rationale
 originalUrl: https://github.com/bowencool/blog/issues/12
@@ -64,10 +64,10 @@ Api Server->>Node Server: { name: 'Bowen', id: 982347 }
 Api Server->>Node Server: { list: [Array(20)], total: 123 }
 
 Note over Node Server: Set data, taking store.commit as an example
-Note over Node Server: Rendering full HTML: generally by the framework to provide api. (This process should be the prefetched data,<br>that is, the initial store, stuffed to the Client, to avoid the Client repeated requests,<br>one to save network resources, and to avoid the inconsistency of the data of the two requests lead to the page jitter)
+Note over Node Server: Rendering full HTML: generally by the framework to provide api.<br>(This process should be the prefetched data, <br>that is, the initial store, stuffed to the Client, to avoid the Client repeated requests,<br>one to save network resources, <br>and to avoid the inconsistency of the data of the two requests lead to the page jitter)
 Node Server->>Client: Return the HTML
 Note over Client: The browser starts to render HTML, which is already a complete DOM tree.
-Note over Client: The browser starts to download and execute javascript, checks the prefetched data stuffed back from the server, and generates a virtual DOM, for example:<br>new Vue({ el: '#app' })
+Note over Client: The browser starts to download and execute javascript,<br>checks the prefetched data stuffed back from the server, <br>and generates a virtual DOM, for example:new Vue({ el: '#app' })
 Note over Client: Mount the virtual DOM to the real DOM (see image below)
 Note over Client: End of Part one. The following is the same as a normal CSR.
 Note over Client: Switch the route to:<br>/order/3
