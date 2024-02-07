@@ -19,17 +19,14 @@ const { currentPage, totalPages, paginatedPosts } = Astro.props;
 ---
 
 <Layout title={t("posts") as string}>
+  {currentPage > 1 && <meta name="robots" content="noindex" slot="meta" />}
   <Header activeNav="posts" />
   <Main pageDesc={t("postsDesc") as string}>
     <h1 slot="title">{t("posts")}</h1>
     <ul>
       {
         paginatedPosts.map(({ data, slug }) => (
-          <Card
-            href={localizePath(`/posts/${data.permalink || slug}`)}
-            frontmatter={data}
-            transition:persist
-          />
+          <Card href={localizePath(`/posts/${data.permalink || slug}`)} frontmatter={data} transition:persist />
         ))
       }
     </ul>
@@ -38,9 +35,7 @@ const { currentPage, totalPages, paginatedPosts } = Astro.props;
   <Pagination
     {currentPage}
     {totalPages}
-    prevUrl={localizePath(
-      `/posts${currentPage - 1 !== 1 ? "/" + (currentPage - 1) : ""}`
-    )}
+    prevUrl={localizePath(`/posts${currentPage - 1 !== 1 ? "/" + (currentPage - 1) : ""}`)}
     nextUrl={localizePath(`/posts/${currentPage + 1}`)}
   />
 

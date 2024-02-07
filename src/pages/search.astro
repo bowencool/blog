@@ -13,14 +13,15 @@ changeLanguage("en");
 const posts = await getPostsByLang(i18next.language);
 // List of items to search in
 const searchList = posts.map(({ data, slug }) => ({
-    title: data.title,
-    description: data.description,
-    data,
-    slug,
+  title: data.title,
+  description: data.description,
+  data,
+  slug,
 }));
 ---
 
 <Layout title={t("search") as string}>
+  <meta name="robots" content="noindex" slot="meta" />
   <Header activeNav="search" />
   <Main pageDesc={t("searchDesc") as string}>
     <h1 slot="title">{t("search")}</h1>
