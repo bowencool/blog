@@ -1,11 +1,12 @@
 ---
 pubDatetime: 2023-09-25T05:54:07Z
-modDatetime: 2023-09-25T06:56:53Z
+modDatetime: 2024-02-10T07:28:42Z
 title: 如何在外面连接到家里的内网？
 permalink: how-to-connect-to-the-home-intranet-from-outside
 originalUrl: https://github.com/bowencool/blog/issues/26
 tags:
   - nas
+  - unRAID
   - network
 description: 总结了一些作者使用过的连接家庭内网的方案。
 ---
