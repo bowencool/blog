@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-02-10T07:19:24Z
+modDatetime: 2024-02-11T13:18:39Z
 title: How to encrypt backup your data on your nas
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -158,4 +158,24 @@ duplicacy init -encrypt -storage-name dva -chunk-size 33554432 -max-chunk-size 6
 duplicacy set -storage dva -filters /boot/config/plugins/user.scripts/scripts/duplicacyignore
 ```
 
-But I encountered [this error](https://forum.duplicacy.com/t/runtime-out-of-memory-fatal-error-out-of-memory/6584) in practice, to be continued.
+But I encountered [this error](https://forum.duplicacy.com/t/runtime-out-of-memory-fatal-error-out-of-memory/6584) in actual operation, which looks a bit like a memory leak, but it's okay, it only reports an error during initialization. Just run it a few more times and there will be no problem with the subsequent incremental backups.
+
+Below is my scheduled task script
+
+```bash
+#!/bin/bash
+
+export DUPLICACY_DVA_PASSWORD=xxx
+
+cd /mnt/user/Bowen
+duplicacy backup -stats -storage dva
+duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
+
+cd /mnt/user/Photos
+duplicacy backup -stats -storage dva
+duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
+
+export RCLONE_EXCLUDE_FROM=/boot/config/plugins/user.scripts/scripts/rcloneignore
+export RCLONE_BWLIMIT="08:00,3M:off 01:00,off"
+rclone --checksum sync /mnt/user/backups/duplicacy alist:/189cloud/duplicacy --progress
+```

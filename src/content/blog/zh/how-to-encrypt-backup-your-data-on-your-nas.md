@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-02-10T07:19:24Z
+modDatetime: 2024-02-11T13:18:39Z
 title: 如何加密备份你的 NAS 数据
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -187,4 +187,26 @@ duplicacy init -encrypt -storage-name dva -chunk-size 33554432 -max-chunk-size 6
 duplicacy set -storage dva -filters /boot/config/plugins/user.scripts/scripts/duplicacyignore
 ```
 
-但我在实际操作中遇到了[这个错误](https://forum.duplicacy.com/t/runtime-out-of-memory-fatal-error-out-of-memory/6584)，未完待续。
+但我在实际操作中遇到了[这个错误](https://forum.duplicacy.com/t/runtime-out-of-memory-fatal-error-out-of-memory/6584)，有点像内存泄露，不过没关系，也就初始化的时候报错，多跑几次就行了，后面增量备份没有问题。
+
+下面是我的定时任务脚本
+
+```bash
+#!/bin/bash
+
+export DUPLICACY_DVA_PASSWORD=xxx
+
+cd /mnt/user/Bowen
+duplicacy backup -stats -storage dva
+duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
+
+cd /mnt/user/Photos
+duplicacy backup -stats -storage dva
+duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
+
+export RCLONE_EXCLUDE_FROM=/boot/config/plugins/user.scripts/scripts/rcloneignore
+export RCLONE_BWLIMIT="08:00,3M:off 01:00,off"
+# sync 只修改远程, bisync 才是双向同步
+# copy 只增加远程
+rclone --checksum sync /mnt/user/backups/duplicacy alist:/189cloud/duplicacy --progress
+```
