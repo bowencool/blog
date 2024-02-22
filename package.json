@@ -44,6 +44,7 @@
     "@types/react": "^18.2.52",
     "@typescript-eslint/parser": "^6.20.0",
     "astro-eslint-parser": "^0.16.3",
+    "code-inspector-plugin": "^0.9.0",
     "eslint": "^8.56.0",
     "eslint-plugin-astro": "^0.31.4",
     "husky": "^8.0.3",

@@ -3,6 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import astroI18next from "astro-i18next";
 import sitemap from "@astrojs/sitemap";
+import { codeInspectorPlugin } from "code-inspector-plugin";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeMermaid from "rehype-mermaid";
 import rehypeShikiji from "rehype-shikiji";
@@ -49,6 +50,7 @@ export default defineConfig({
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"],
     },
+    plugins: [codeInspectorPlugin({ bundler: "vite" })],
   },
   scopedStyleStrategy: "where",
 });
