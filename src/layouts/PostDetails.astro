@@ -34,12 +34,9 @@ const {
 const { Content } = await post.render();
 
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
-const ogUrl = new URL(ogImageUrl ?? `/posts/${permalink}.png`, Astro.url.origin)
-  .href;
+const ogUrl = new URL(ogImageUrl ?? `/posts/${permalink}.png`, Astro.url.origin).href;
 
-const isFromGitHubIssue =
-  originalUrl &&
-  originalUrl.startsWith("https://github.com/bowencool/blog/issues");
+const isFromGitHubIssue = originalUrl && originalUrl.startsWith("https://github.com/bowencool/blog/issues");
 const giscusLang = i18next.language.startsWith("zh") ? "zh-CN" : "en";
 // const giscusBacklink = Astro.url.origin + Astro.url.pathname.replace(/^\/zh/, "");
 
@@ -63,23 +60,21 @@ const layoutProps = {
     content={giscusBacklink}
   /> -->
   <Header />
+
+  <!-- <div class="progress-container fixed top-0 z-10 h-1 w-full bg-skin-fill">
+    <div class="progress-bar h-1 w-0 bg-skin-accent" id="myBar"></div>
+  </div> -->
+
   <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
     <button class="focus-outline mb-2 mt-8 flex hover:opacity-75" id="go-back">
       <svg xmlns="http://www.w3.org/2000/svg"
-        ><path
-          d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
-        ></path>
+        ><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
       </svg><span>{t("goBack")}</span>
     </button>
   </div>
   <main id="main-content">
     <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
-    <Datetime
-      pubDatetime={pubDatetime}
-      modDatetime={modDatetime}
-      size="lg"
-      className="my-2"
-    />
+    <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} size="lg" className="my-2" />
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />
     </article>
@@ -123,17 +118,10 @@ const layoutProps = {
       lang={giscusLang}
     />
 
-    <div
-      class="flex flex-col-reverse items-center justify-between gap-6 sm:flex-row-reverse sm:items-end sm:gap-4"
-    >
-      <button
-        id="back-to-top"
-        class="focus-outline whitespace-nowrap py-1 hover:opacity-75"
-      >
+    <div class="flex flex-col-reverse items-center justify-between gap-6 sm:flex-row-reverse sm:items-end sm:gap-4">
+      <button id="back-to-top" class="focus-outline whitespace-nowrap py-1 hover:opacity-75">
         <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90">
-          <path
-            d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
-          ></path>
+          <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
         </svg>
         <span>{t("backToTop")}</span>
       </button>
@@ -226,4 +214,39 @@ const layoutProps = {
     }
   }
   attachCopyButtons();
+
+  /** Create a progress indicator
+   *  at the top */
+  function createProgressBar() {
+    // Create the main container div
+    const progressContainer = document.createElement("div");
+    progressContainer.className = "progress-container fixed top-0 z-10 h-1 w-full bg-skin-fill";
+
+    // Create the progress bar div
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-skin-accent";
+    progressBar.id = "myBar";
+
+    // Append the progress bar to the progress container
+    progressContainer.appendChild(progressBar);
+
+    // Append the progress container to the document body or any other desired parent element
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar
+   *  when user scrolls */
+  function updateScrollProgress() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    if (document) {
+      const myBar = document.getElementById("myBar");
+      if (myBar) {
+        myBar.style.width = scrolled + "%";
+      }
+    }
+  }
+  document.addEventListener("scroll", updateScrollProgress);
 </script>
