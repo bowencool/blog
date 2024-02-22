@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-02-11T13:18:39Z
+modDatetime: 2024-02-22T11:49:33Z
 title: How to encrypt backup your data on your nas
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -111,13 +111,13 @@ Next, let's document the exploration process of Duplicacy.
 
 With the above experience, let's go ahead and set the backup endpoint directly to WebDAV
 
-```
+```bash
 duplicacy init -encrypt -storage-name adrive share-bowen webdav://bowen@10.7.21.2:48080/duplicacy
 ```
 
 Error:
 
-```
+```text
 Failed to load the WebDAV storage at webdav: Maximum backoff reached
 ```
 

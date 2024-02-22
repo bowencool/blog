@@ -33,7 +33,7 @@ https://openvpn.net/community-resources/reference-manual-for-openvpn-2-4/
 
 暂时也没找到解决办法，妥协了，把 Wi-Fi DNS 抄在 client config，没有完美解决。
 
-```
+```text
 # client.ovpn
 ...
 dhcp-option DNS 10.10.10.100
@@ -42,7 +42,7 @@ dhcp-option DNS 10.10.10.102
 ...
 ```
 
-```
+```text
 # server.conf
 ...
 

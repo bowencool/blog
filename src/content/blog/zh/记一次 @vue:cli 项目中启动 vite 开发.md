@@ -26,7 +26,7 @@ description: 记一次 @vue/cli 项目中启动 vite 开发
 
 刚启动就遇到了第一个[错误](https://github.com/vitejs/vite/issues/4701)：
 
-```
+```text
 > node_modules/d/index.js:7:30: error: Could not read from file: /Users/xxx/61/vite-project/node_modules/es5-ext/string/index.js#/contains
     7 │   , contains        = require("es5-ext/string/#/contains");
       ╵                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,7 +83,7 @@ swc vue.config.ts -o vue.config.js -C module.type=commonjs -C jsc.target=es2021 
 
 首先尝试的是：`require('@swc/register')` ，直接报错：
 
-```
+```text
 SyntaxError: Cannot use import statement outside a module
 ```
 
@@ -297,11 +297,7 @@ if (process.env.BUNDLER === "vite") {
   // #endif
 } else if (process.env.BUNDLER === "webpack") {
   // #if BUNDLER === 'webpack'
-  const ctx: __WebpackModuleApi.RequireContext = require.context(
-    "./",
-    true,
-    /\.routes\.tsx?$/
-  );
+  const ctx: __WebpackModuleApi.RequireContext = require.context("./", true, /\.routes\.tsx?$/);
   ctx.keys().forEach((key: string) => {
     handleEachModule(ctx(key), key);
   });

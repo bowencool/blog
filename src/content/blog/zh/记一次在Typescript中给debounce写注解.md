@@ -73,7 +73,7 @@ export function debounce<F extends NoReturFn>(fn: F, ms: number = 300): F {
 
 一保存，又飘红了：
 
-```
+```text
 不能将类型“(this: ThisParameterType<F>, ...args: any[]) => void”分配给类型“F”。
   "(this: ThisParameterType<F>, ...args: any[]) => void" 可赋给 "F" 类型的约束，但可以使用约束 "NoReturFn" 的其他子类型实例化 "F"。ts(2322)
 ```
@@ -149,10 +149,7 @@ export function debounce<F extends NoReturnFn>(
 后来又了解到：泛型的参数和函数的参数并不需要一一对应，精简了下：
 
 ```ts
-export function debounce<T, P extends any[]>(
-  fn: (this: T, ...p: P) => undefined | void,
-  ms: number = 300
-) {
+export function debounce<T, P extends any[]>(fn: (this: T, ...p: P) => undefined | void, ms: number = 300) {
   let timeoutId: ReturnType<typeof setTimeout>;
   return function debounced(this: T, ...args: P) {
     if (timeoutId !== void 0) {

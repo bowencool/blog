@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-14T07:55:35Z
-modDatetime: 2024-01-17T17:01:50Z
+modDatetime: 2024-02-22T11:49:33Z
 title: 使用 RClone 实现 unRAID 的异地容灾
 featured: true
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
@@ -45,7 +45,7 @@ OSS 配置最简单，跟网盘的对比可参考官网，我认为比网盘更�
 
 配置文件内容：
 
-```
+```text
 [oss]
 type = s3
 provider = Alibaba
@@ -57,7 +57,7 @@ acl = private
 
 自行配置：
 
-```
+```text
 # 远程连接名称
 name> oss
 # 储存类型，可以输入对应的数字编号，也可以直接输入已知类型
@@ -78,7 +78,7 @@ storage_class>
 
 接下来再执行 `rclone config` 就能看到刚刚配置好的远程连接了：
 
-```
+```text
 Current remotes:
 Name                 Type
 ====                 ====
@@ -89,8 +89,8 @@ oss                  s3
 
 > `lsd` 的意思是列出目录，`oss:` 是 `远程连接名:路径` 的格式，路径为空表示根目录。
 
-```
-          -1 2022-08-07 11:36:13        -1 unraid # 这是 bucket 名称，需要自己创建
+```text
+-1 2022-08-07 11:36:13        -1 unraid # 这是 bucket 名称，需要自己创建
 ```
 
 [常见命令](https://rclone.org/docs/#subcommands)
@@ -129,7 +129,7 @@ rclone sync /mnt/user/Public remote:/unraid/Public
 
 成功之后，把下面内容追加到配置文件里去：
 
-```
+```text
 [adrive]
 type = webdav
 url = http://localhost:8080
@@ -171,7 +171,7 @@ rclone --no-update-modtime sync /mnt/user/Public adrive:/unraid/Public --exclude
 
 我的 rcloneignore 文件内容：
 
-```
+```text
 *DS_Store
 .AppleDB/**
 .Recycle.Bin/**

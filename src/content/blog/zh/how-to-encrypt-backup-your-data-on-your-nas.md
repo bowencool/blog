@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-02-11T13:18:39Z
+modDatetime: 2024-02-22T11:49:33Z
 title: 如何加密备份你的 NAS 数据
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -130,13 +130,13 @@ description: 之前我们讲过如何用 RClone 将你的数据备份到云盘/O
 
 有了上面的经验，我们来直接把备份终点设为 WebDAV
 
-```
+```bash
 duplicacy init -encrypt -storage-name adrive share-bowen webdav://bowen@10.7.21.2:48080/duplicacy
 ```
 
 报错：
 
-```
+```text
 Failed to load the WebDAV storage at webdav: Maximum backoff reached
 ```
 

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-14T07:55:35Z
-modDatetime: 2024-02-02T09:31:10Z
+modDatetime: 2024-02-22T11:49:33Z
 title: How to use RClone to backup your data to cloud drives/storages
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
 featured: true
@@ -47,7 +47,7 @@ OSS configuration is very simple. For comparison with cloud storage, please refe
 
 Configuration file content:
 
-```
+```text
 [oss]
 type = s3
 provider = Alibaba
@@ -59,7 +59,7 @@ acl = private
 
 Configurate it with tips:
 
-```
+```text
 # Remote connection name
 name> oss
 # Storage type, either by entering the corresponding numeric number or by entering the known type directly
@@ -79,7 +79,7 @@ storage_class>
 
 The next step is to execute `rclone config` and you will be able to see the remote connection that was just configured.
 
-```
+```text
 Current remotes:
 Name                 Type
 ====                 ====
@@ -90,8 +90,8 @@ The command `rclone lsd oss:` is used to test the connection.
 
 > The meaning of `lsd` is to list directories, and `oss:` is in the format of `remote connection name: path`, with an empty path indicating the root directory.
 
-```
-          -1 2022-08-07 11:36:13        -1 unraid # This is the name of the bucket, you need to create it yourself
+```text
+-1 2022-08-07 11:36:13        -1 unraid # This is the name of the bucket, you need to create it yourself
 ```
 
 [Common commands](https://rclone.org/docs/#subcommands)
@@ -130,7 +130,7 @@ I won't go into detail about using Docker images in this process. However, I enc
 
 After successful setup, append the following content to the configuration file:
 
-```
+```text
 [adrive]
 type = webdav
 url = http://localhost:8080
@@ -173,7 +173,7 @@ rclone --no-update-modtime sync /mnt/user/Public adrive:/unraid/Public --exclude
 
 The contents of my rcloneignore file:
 
-```
+```text
 *DS_Store
 .AppleDB/**
 .Recycle.Bin/**

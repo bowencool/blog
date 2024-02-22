@@ -13,10 +13,10 @@ changeLanguage("en");
 const posts = await getPostsByLang(i18next.language);
 // List of items to search in
 const searchList = posts.map(({ data, slug }) => ({
-  title: data.title,
-  description: data.description,
-  data,
-  slug,
+    title: data.title,
+    description: data.description,
+    data,
+    slug,
 }));
 ---
 
