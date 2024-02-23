@@ -12,13 +12,14 @@ tags:
 description: 当节流和去抖遇到异步，它们会擦出怎样的火花？
 ---
 
+import ThrottleAsyncResultDemo from "../../_demos/ThrottleAsyncResultDemo";
+
 2021.05.31 更新：
 所有代码已经包含到 [async-utilities](https://github.com/bowencool/async-utilities) 仓库中，并且已发布到 [npm](https://www.npmjs.com/package/@bowencool/async-utilities)
 
 ---
 
-<!--
-第一位男子叫异步
+{/* 第一位男子叫异步
 身着西装赛徐公
 他有个弟弟叫回调
 但异步只爱Promise
@@ -31,8 +32,7 @@ description: 当节流和去抖遇到异步，它们会擦出怎样的火花？
 他们决定出去闯荡世界
 他们踏上了旅程
 成为了人们的偶像
-偶然有一天
--->
+偶然有一天 */}
 
 ## 背景
 
@@ -84,7 +84,7 @@ form.addEventListener("submit", handler);
 1. 短时间内每个事件都会产生一个 `promise`，核心需求是降频。即“`promise`三千，我只取一个结果”
 2. `promise` 的响应时间是不确定的
 
-### 第一点，降频
+### 降频
 
 先回想一下同步代码中事件降频：节流(`throttle`)、防抖(`debounce`)。关于这两者，相信你已经很熟悉了，我们一句话概括：
 
@@ -92,10 +92,12 @@ form.addEventListener("submit", handler);
 
 把我们的需求也改成这种句式：在**短时间内**的多次相同事件中取一次调用。所以，这个“**短时间内**”才是关键 !
 
-### 第二点，重写定义时间间隔
+### 重新定义间隔
 
 我们希望**上一个`promise`结束之前，接下来的`promise`创建操作统统丢弃**。所以，“短时间内”就等于“上一个`promise`的`pending`期间”，“接下来的`promise`创建操作统统丢弃”意思就是“取第一次”，`promise`的丢弃可以通过创建“永远`pending`”的`promise`实现，所以我们的需求就是：
 **在上一个`promise`的`pending`期间，多次`promise`创建操作中取第一次(就是这个正在`pending`的`promise`)执行。**
+
+### 编码
 
 思路都参考了，代码也参考一下吧，这里贴个简易版的节流实现代码：
 
@@ -144,11 +146,21 @@ function throttleAsyncResult(fn) {
 }
 ```
 
-使用方法([Demo](https://bowencool.github.io/async-utilities/functions/throttleAsyncResult/readme.html))：
+### 使用方法([Demo](https://bowencool.github.io/async-utilities/functions/throttleAsyncResult/readme.html))
 
-```js
-// 网络请求
-function api(data) {
+> 以下 Demo 以网络请求为例，打开 Devtool 查看效果。
+
+<ThrottleAsyncResultDemo client:load />
+
+<br />
+
+<details>
+  <summary>查看代码</summary>
+
+```tsx
+import { throttleAsyncResult } from "@bowencool/async-utilities";
+/* make a network request */
+function api(data: { msg: string }) {
   console.log("submiting", data);
   return fetch("https://httpbin.org/delay/1.5", {
     body: JSON.stringify(data),
@@ -156,17 +168,26 @@ function api(data) {
     mode: "cors",
   });
 }
+
 const throttledApi = throttleAsyncResult(api);
 
-// 模拟业务逻辑
-const button = document.getElementById("button");
-button.addEventListener("click", async function () {
-  const rez = await throttledApi({
-    msg: "some data to be sent",
-  });
-  console.log("completed");
-});
+export default function ThrottleAsyncResultDemo() {
+  return (
+    <button
+      onClick={async function () {
+        const rez = await throttledApi({
+          msg: "some data to be sent",
+        });
+        console.log("completed");
+      }}
+    >
+      submit(click me quickly)
+    </button>
+  );
+}
 ```
+
+</details>
 
 打开开发者工具可以看到，无论点击多快，始终不会出现请求并行的情况：
 ![image](https://user-images.githubusercontent.com/20217146/73516882-d45bde00-4434-11ea-9cd4-0131730af133.png)

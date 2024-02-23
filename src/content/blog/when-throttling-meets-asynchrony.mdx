@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2020-01-16T10:14:43Z
-modDatetime: 2024-02-23T16:29:42Z
+modDatetime: 2024-02-23T08:46:24Z
 title: When throttling and debouncing meet asynchronous, what kind of sparks will they create?
 featured: true
 permalink: when-throttling-meets-asynchrony
@@ -11,6 +11,8 @@ tags:
   - async
 description: When throttling and debouncing meet asynchronous, what kind of sparks will they create?
 ---
+
+import ThrottleAsyncResultDemo from "../_demos/ThrottleAsyncResultDemo";
 
 2021.05.31 Update:
 
@@ -69,21 +71,23 @@ Let's sort it out first:
 
 2. The response time of a `promise` is uncertain.
 
-### First point, frequency reduction
+### Frequency reduction
 
-Recall the event frequency reduction in synchronous code: throttle and debounce. Regarding these two, I believe you are already very familiar with them; let's summarize in one sentence:
+Recall the event frequency reduction in synchronous code: `throttle` and `debounce`. Regarding these two, I believe you are already very familiar with them; let's summarize in one sentence:
 
 > Both are **taking one call from multiple same events within a unit of time (also can be said as: for three thousand events, I only execute once)**; the difference is that **the former takes the first occurrence while the latter takes the last**.
 
 Let’s rephrase our requirement in this style: taking one call from multiple same events within a **short period of time**. So, this "**short period of time**" is key!
 
-### Second point, redefine interval
+### Interval redefinition
 
-We hope that before **the previous `promise` ends**, all subsequent operations to create new `promises` are discarded. Therefore, "within a short period of time" equals "during the pending period of the previous promise", and discarding all subsequent promise creation operations means "taking the first occurrence". The discarding of `promise` can be achieved by creating a `promise` that is "forever `pending`"; thus our requirement becomes:
+We hope that before **the previous `promise` ends**, all subsequent operations to create new `promises` are discarded. Therefore, "within a short period of time" equals "during the pending period of the previous `promise`", and discarding all subsequent `promise` creation operations means "taking the first occurrence". The discarding of `promise` can be achieved by creating a `promise` that is "forever `pending`"; thus our requirement becomes:
 
-**During the pending period of the previous promise, take only the first operation out of multiple attempts to create new promises (which would be this currently pending promise) for execution.**
+**During the pending period of the previous `promise`, take only the first operation out of multiple attempts to create new `promises` (which would be this currently `pending promise`) for execution.**
 
-Now that we've discussed ideas let's also refer to some code, here's a simple version implementation code for throttling:
+### Coding
+
+Now that we've discussed ideas let's also refer to some code, here's a simple version implementation code for `throttling`:
 
 ```js
 /**
@@ -130,11 +134,21 @@ function throttleAsyncResult(fn) {
 }
 ```
 
-Usage([Demo](https://bowencool.github.io/async-utilities/functions/throttleAsyncResult/readme.html))：
+### Usage([Demo](https://bowencool.github.io/async-utilities/functions/throttleAsyncResult/readme.html))
 
-```js
-// make a network request
-function api(data) {
+> The following demo takes a network request as an example and opens Devtool to see the effect.
+
+<ThrottleAsyncResultDemo client:load />
+
+<br />
+
+<details>
+  <summary>View Source Code</summary>
+
+```tsx
+import { throttleAsyncResult } from "@bowencool/async-utilities";
+/* make a network request */
+function api(data: { msg: string }) {
   console.log("submiting", data);
   return fetch("https://httpbin.org/delay/1.5", {
     body: JSON.stringify(data),
@@ -142,17 +156,26 @@ function api(data) {
     mode: "cors",
   });
 }
+
 const throttledApi = throttleAsyncResult(api);
 
-// business logic
-const button = document.getElementById("button");
-button.addEventListener("click", async function () {
-  const rez = await throttledApi({
-    msg: "some data to be sent",
-  });
-  console.log("completed");
-});
+export default function ThrottleAsyncResultDemo() {
+  return (
+    <button
+      onClick={async function () {
+        const rez = await throttledApi({
+          msg: "some data to be sent",
+        });
+        console.log("completed");
+      }}
+    >
+      submit(click me quickly)
+    </button>
+  );
+}
 ```
+
+</details>
 
 When you open the developer tools, you can see that no matter how fast you click, there will never be a situation where requests are made in parallel:
 

@@ -97,6 +97,9 @@
   .prose h2#table-of-contents + p {
     @apply hidden;
   }
+  .prose button:not(pre button) {
+    @apply px-2 rounded bg-skin-card text-skin-base focus:outline-dashed outline-skin-fill;
+  }
 
   /* ===== scrollbar ===== */
   html {

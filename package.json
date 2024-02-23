@@ -20,6 +20,7 @@
     "@astrojs/check": "^0.5.5",
     "@astrojs/mdx": "^2.1.1",
     "@astrojs/rss": "^4.0.5",
+    "@bowencool/async-utilities": "^2.5.4",
     "@giscus/react": "^2.4.0",
     "@resvg/resvg-js": "^2.6.0",
     "astro": "^4.4.2",
