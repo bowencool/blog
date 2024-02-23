@@ -3,6 +3,7 @@ pubDatetime: 2021-12-27T14:27:05Z
 modDatetime: 2023-08-06T07:51:27Z
 title: 为 vitepress 添加更专业的 Demo 演示能力
 permalink: add-more-professional-demo-presentation-capabilities-to-vitepress
+featured: true
 originalUrl: https://github.com/bowencool/blog/issues/15
 tags:
   - vitepress

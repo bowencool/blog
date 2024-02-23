@@ -3,6 +3,7 @@ pubDatetime: 2020-07-31T08:27:32Z
 modDatetime: 2024-02-04T11:01:29Z
 title: The basic rationale and process of SSR (Server-Side Rendering)
 permalink: server-side-rendering-rationale
+featured: true
 originalUrl: https://github.com/bowencool/blog/issues/12
 tags:
   - frontend

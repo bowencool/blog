@@ -1,8 +1,9 @@
 ---
 pubDatetime: 2020-07-31T01:24:29Z
 modDatetime: 2024-02-07T03:30:12Z
-title: How to Modify Code with Code
+title: How to modify code with code
 permalink: how-to-modify-code-with-ast
+featured: true
 originalUrl: https://github.com/bowencool/blog/issues/11
 tags:
   - frontend

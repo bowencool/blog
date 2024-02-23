@@ -70,7 +70,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
           <ul>
             {recentPosts.map(
               ({ data, slug }, index) =>
-                index < 4 && (
+                index < 5 && (
                   <Card
                     href={localizePath(`/posts/${data.permalink || slug}`)}
                     frontmatter={data}

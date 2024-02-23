@@ -4,6 +4,7 @@ modDatetime: 2024-02-03T14:50:15.507Z
 title: SSR（服务端渲染）基本原理和流程
 permalink: server-side-rendering-rationale
 originalUrl: https://github.com/bowencool/blog/issues/12
+featured: true
 tags:
   - frontend
   - fullstack

@@ -3,6 +3,7 @@ pubDatetime: 2020-07-31T01:24:29Z
 modDatetime: 2024-02-07T03:58:34Z
 title: 如何用代码修改代码（含vue）
 permalink: how-to-modify-code-with-ast
+featured: true
 originalUrl: https://github.com/bowencool/blog/issues/11
 tags:
   - frontend
