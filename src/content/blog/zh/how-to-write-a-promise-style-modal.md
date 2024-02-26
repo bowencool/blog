@@ -1,5 +1,6 @@
 ---
 pubDatetime: 2024-02-26T16:40:15.000+08:00
+modDatetime: 2024-02-26T13:58:09Z
 title: 如何封装一个 Promise 风格的弹窗？
 permalink: how-to-write-a-promise-style-dialog
 featured: true
@@ -359,6 +360,7 @@ const Demo: React.FC = () => {
 ##### rootComponent
 
 <!-- TODO -->
+
 像 [shadcn toast](https://ui.shadcn.com/docs/components/toast) 那样，也是一种好的设计，但我觉得跟 `contextHolder` 方案差不多，有时间再更新了。
 
 #### 双击按钮弹出两个 Modal
@@ -367,6 +369,8 @@ const Demo: React.FC = () => {
 
 ## 结语
 
-利用这个思路，你可以如法炮制到任何弹出层，比如 Drawer、ImagePreview、Notification 等。
+本文的实现方式已经[开源](https://github.com/bowencool/create-antd-modal)并发布到 npm，大家可以直接使用。
+
+利用这个思路，你可以如法炮制到任何弹出层，比如 Drawer、[ImagePreview](https://bowencool.github.io/create-antd-modal/documents/functions/create-image-preview)、Notification 等。
 
 > 给 antd 提了 [PR](https://github.com/ant-design/ant-design/pull/39660)，被无情关闭。
