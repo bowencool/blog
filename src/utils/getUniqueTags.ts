@@ -1,5 +1,6 @@
 import { slugifyStr } from "./slugify";
 import type { CollectionEntry } from "astro:content";
+import getSortedPosts from "./getSortedPosts";
 
 export interface Tag {
   slug: string;
@@ -35,6 +36,9 @@ const getUniqueTags = (posts: CollectionEntry<"blog">[]) => {
       return a.originalTagString.localeCompare(b.originalTagString);
     }
   }) */
+  tags.forEach(tag => {
+    tag.posts = getSortedPosts(tag.posts);
+  });
   return tags;
 };
 
