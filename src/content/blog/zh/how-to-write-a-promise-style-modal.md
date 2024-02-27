@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-26T16:40:15.000+08:00
-modDatetime: 2024-02-26T13:58:09Z
+modDatetime: 2024-02-27T03:12:43Z
 title: 如何封装一个 Promise 风格的弹窗？
 permalink: how-to-write-a-promise-style-dialog
 featured: true
@@ -308,7 +308,7 @@ createModal<DataType>({
 });
 ```
 
-然后再封装一个高阶函数用来塞一些默认参数以简化代码，就是函数柯里化。但这样也有缺点：并非所有的 `ContextProvider` 都是 Root 级别的，如果有个页面级别的 `ContextProvider`，又要再写一遍 `modalRender`，很不方便。
+然后再封装一个高阶函数用来塞一些默认参数以简化代码。但这样也有缺点：并非所有的 `ContextProvider` 都是 Root 级别的，如果有个页面级别的 `ContextProvider`，又要再写一遍 `modalRender`，很不方便。
 
 最初的版本是这样的，但我始终觉得有更好的方案，所以就一直认为这个东西没有做完，也没有宣传推广啥的。
 
@@ -353,7 +353,7 @@ const Demo: React.FC = () => {
 
 原理头一回也没看懂，隔段时间再去看，突然就懂了，其实也很简单：
 
-`contextHolder` 其实就是一个 `ReactNode[]`，调用 `createModal()` 的时候，把 `<Modal><Form>{children}</Form></Modal>` 加到数组里就行了（当然还有合适的移除时机），用户直接在页面组件里渲染这个 `ReactNode[]` 就完事了。
+**`contextHolder` 其实就是一个 `ReactNode[]`，调用 `createModal()` 的时候，把 `<Modal><Form>{children}</Form></Modal>` 加到数组里就行了（当然还有合适的移除时机），用户直接在页面组件里渲染这个 `ReactNode[]` 就完事了。**
 
 恍然大悟，豁然开朗，醍醐灌顶，妙啊！
 
