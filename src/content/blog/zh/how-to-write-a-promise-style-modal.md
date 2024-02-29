@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-26T16:40:15.000+08:00
-modDatetime: 2024-02-27T03:12:43Z
+modDatetime: 2024-02-29T11:32:42Z
 title: 如何封装一个 Promise 风格的弹窗？
 permalink: how-to-write-a-promise-style-dialog
 featured: true
@@ -15,7 +15,7 @@ description: 本文介绍了一种非常简洁的 Modal/Dialog 写法。
 
 ## 背景
 
-纵观各大 UI 库，所有的 `Modal`/`Dialog` 几乎全部都和原生 `dialog` 有着一样的 `API`，以 `antd` 为例：
+纵观各大流行的 UI 库，所有的 `Modal`/`Dialog` 几乎全部都和原生 `dialog` 有着一样的 `API`，以 `antd` 为例：
 
 - 一个 `open`/`visible` 状态控制弹窗的显隐性
 - 最常见的 CRUD 页面“点击按钮弹出编辑表单”场景，还需要：
@@ -215,15 +215,15 @@ const columns: TableProps<DataType>["columns"] = [
 ];
 ```
 
-### Modal.method()
+### [Modal.method()](https://ant-design.antgroup.com/components/modal-cn#modalmethod)
 
 非常理想的方法，不需要维护`visible`/`confirmLoading`，但官方并不支持表单场景，而且 `props` 也是阉割版。
 
-## 一种“新”的思路
+## 一种“新”的思想
 
-> 其实不算“新”，只是很少人用而已。
+> 实际上并不是“新”，只是很少有人使用。
 
-回忆一下 `const name = window.prompt("please type a name")`，这个代码多简单，不需要维护什么 `visible`/`confirmLoading`，也不需要声明什么`model`/`dialog`，为什么不能用这种 `API` 呢？无非就是一个 `input` 改成一个 `form` 而已。
+回想一下 `const name = window.prompt("please type a name")` 这段代码，它非常简单，无需维护任何 `visible`/`confirmLoading` 属性，也不必声明什么 `model`/`dialog`。为什么我们不能使用这样的 `API` 呢？其实就是将一个 `input` 替换成一个 `form` 而已。
 
 ### 幻想时间（API 设计）
 
@@ -232,6 +232,17 @@ const columns: TableProps<DataType>["columns"] = [
 比如上面的需求一句话总结就是：“点击‘编辑’按钮打开一个弹窗表单，用户修改表单后点击确定就提交，提交有 `loading` 效果，提交成功后就关闭弹窗，提交失败不关闭。”
 
 理想的代码如下：
+
+- 点击时按需创建 Modal 和 Form；
+- 不需要维护 visible，创建即打开 Modal；
+- 点击“确认”，自动校验表单，按钮自动开始 loading；
+- 表单检验完成后，把表单的值自动传递给 props.onOk，提交到 API；
+- onOk 支持异步（返回 promise），成功后自动关闭 Modal；
+- onOk 失败时, error 传递给单独的 onFailed 处理, 自动结束 loading，并且不关闭 Modal 以继续修改表单值;
+- 由于每次都是新的Form，所以也不需要什么 form.setFieldsValue()，初始化直接使用 initialValues；
+- 所有 modalProps 都原封不动的保留
+- 本身是一个异步函数，可以轻松和其他异步任务实现串行、并行等...
+- 可以脱离页面事件运行，比如：请求返回401时，弹出一个 ModalForm
 
 ```tsx
 const columns: TableProps<DataType>["columns"] = [
@@ -243,19 +254,6 @@ const columns: TableProps<DataType>["columns"] = [
       <Space>
         <a
           onClick={() => {
-            {
-              /*
-            点击时按需创建 Modal 和 Form；
-            不需要维护 visible，创建即打开 Modal；
-            点击“确认”，自动校验表单，按钮自动开始 loading；
-            表单检验完成后，把表单的值自动传递给 props.onOk，提交到 API；
-            onOk 支持异步（返回 promise），成功后自动关闭 Modal；
-            onOk 失败时, error 传递给单独的 onFailed 处理, 自动结束 loading，并且不关闭 Modal 以继续修改表单值;
-            由于每次都是新的Form，所以也不需要什么 form.setFieldsValue()，初始化直接使用 initialValues；
-            所有 modalProps 都原封不动的保留
-            本身是一个异步函数，可以轻松和其他异步任务实现串行、并行等...
-            */
-            }
             await createModal<DataType>({
               title: "Edit",
               maskClosable: false,
@@ -283,7 +281,7 @@ const columns: TableProps<DataType>["columns"] = [
 
 ### 基本功能实现
 
-TODO
+TODO（可以先查看[源代码](https://github.com/bowencool/create-antd-modal)）
 
 ### 一些问题及优化
 
@@ -308,9 +306,9 @@ createModal<DataType>({
 });
 ```
 
-然后再封装一个高阶函数用来塞一些默认参数以简化代码。但这样也有缺点：并非所有的 `ContextProvider` 都是 Root 级别的，如果有个页面级别的 `ContextProvider`，又要再写一遍 `modalRender`，很不方便。
+然后再封装一个高阶函数用来填充一些默认参数和通用参数以简化代码。但这样也有缺点：并非所有的 `ContextProvider` 都是 Root 级别的，如果有个页面级别的 `ContextProvider`，又要再写一遍 `modalRender`，很不方便。
 
-最初的版本是这样的，但我始终觉得有更好的方案，所以就一直认为这个东西没有做完，也没有宣传推广啥的。
+最初的版本是这样的，但我始终认为有更好的方案。因此，我一直觉得这个项目还未完成，也没有进行宣传推广。
 
 ```ts
 export function createFunctionWithDefaultProps<T, R = void>(defaultParams: CreateModalProps<T, R>) {
@@ -321,7 +319,7 @@ export function createFunctionWithDefaultProps<T, R = void>(defaultParams: Creat
 
 ##### contextHolder
 
-后来我参考了 antd 官方 `Modal.useModal()`，直接把新创建的 `ReactElement` 挂到 `Root` 下，这样不需要处理 `Context` 了：
+后来我参考了 antd 官方 [Modal.useModal()](https://ant-design.antgroup.com/components/modal-cn#modalusemodal)，直接把新创建的 `ReactElement` 挂到 `Root` 下，这样不需要处理 `Context` 了：
 
 ```tsx
 const Demo: React.FC = () => {
@@ -367,10 +365,10 @@ const Demo: React.FC = () => {
 
 由于每次都是函数式调用，所以只需要加个 throttle 即可，时间间隔只需要取 `Modal` 的动画时间即可，因为 `Modal` 弹出动画结束时，mask 就会把按钮挡住。
 
-## 结语
+## 最后
 
-本文的实现方式已经[开源](https://github.com/bowencool/create-antd-modal)并发布到 npm，大家可以直接使用。
+本文介绍的实现方法已经[开源](https://github.com/bowencool/create-antd-modal)并发布到 npm，欢迎大家直接使用。
 
-利用这个思路，你可以如法炮制到任何弹出层，比如 Drawer、[ImagePreview](https://bowencool.github.io/create-antd-modal/documents/functions/create-image-preview)、Notification 等。
+根据这个思路，你可以轻松创建各种弹出层组件，如 Drawer、[ImagePreview](https://bowencool.github.io/create-antd-modal/documents/functions/create-image-preview)、Notification 等。
 
-> 给 antd 提了 [PR](https://github.com/ant-design/ant-design/pull/39660)，被无情关闭。
+> 我曾向 antd 提交了一个 [PR](https://github.com/ant-design/ant-design/pull/39660)，但遗憾地被关闭了。
