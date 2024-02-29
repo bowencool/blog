@@ -34,12 +34,11 @@ export async function GET(ctx: APIContext<{ tag: Tag }, { tag: string }>) {
     // customData: "<image></image>",
     items: postsByTag.map(({ data, slug }) => {
       const permalink = data.permalink ?? slug;
-      const ogImage =
-        data.ogImage ?? `${import.meta.env.SITE}/posts/${permalink}.png`;
+      const ogImage = data.ogImage ?? `${import.meta.env.SITE}/posts/${permalink}.png`;
       return {
         link: localizePath(`/posts/${permalink}`),
         title: data.title,
-        description: `${data.description}<img src="${ogImage}" />`,
+        description: `<img src="${ogImage}" /><br>${data.description}`,
         pubDate: new Date(data.modDatetime ?? data.pubDatetime),
       };
     }),
