@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-14T07:55:35Z
-modDatetime: 2024-02-22T11:49:33Z
+modDatetime: 2024-03-01T04:14:51Z
 title: 使用 RClone 实现 unRAID 的异地容灾
 featured: true
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
@@ -217,3 +217,12 @@ flash backup 也很简单，就是把 `/boot` 目录压缩就行了：
 ```bash
 tar -czvf /tmp/`hostname`_flash.tgz --exclude 'previous*' --exclude "System Volume Information" --exclude 'logs*' /boot
 ```
+
+## 此方案的不足
+
+- 没有加密，所有网盘都有隐私和审查问题，OSS 也一样
+- 如果同步照片到网盘的话，国内所有网盘都会抹掉 EXIF 里面的位置信息
+- 会造成大量 OSS 请求数，产生额外费用
+- 没有版本历史
+
+若想进一步优化请看[这篇文章](/zh/posts/how-to-encrypt-backup-your-data-on-your-nas)。

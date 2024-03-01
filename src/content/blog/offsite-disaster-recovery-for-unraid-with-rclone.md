@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-14T07:55:35Z
-modDatetime: 2024-02-22T11:49:33Z
+modDatetime: 2024-03-01T04:14:51Z
 title: How to use RClone to backup your data to cloud drives/storages
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
 featured: true
@@ -219,3 +219,12 @@ flash backup is also very simple, just compress the `/boot` directory:
 ```bash
 tar -czvf /tmp/`hostname`_flash.tgz --exclude 'previous*' --exclude "System Volume Information" --exclude 'logs*' /boot
 ```
+
+## Disadvantages of this solution
+
+- Lack of encryption, posing privacy and review issues for all cloud drives, including OSS.
+- If photos are synchronized to the cloud drive, all domestic cloud drives will erase the location information in EXIF.
+- It will generate a large number of OSS requests, resulting in additional fees.
+- No version history
+
+For further optimization see [this article](/posts/how-to-encrypt-backup-your-data-on-your-nas)。
