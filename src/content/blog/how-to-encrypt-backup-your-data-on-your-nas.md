@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-03-01T04:14:51Z
+modDatetime: 2024-03-01T04:26:02Z
 title: How to encrypt backup your data on your nas
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -106,6 +106,8 @@ The first tool I experienced was Duplicati. The Docker installation was very sim
 ### Duplicacy
 
 Next, let's document the exploration process of Duplicacy.
+
+Installation process: The official community does not have directly available plugins or Docker images. My method is to download the executable file directly from [GitHub Releases](https://github.com/gilbertchen/duplicacy/releases) (you may need to use the `chmod +x [file]` command), and then place it in the `/usr/local/bin` directory.
 
 #### To WebDAV:
 

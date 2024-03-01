@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-03-01T04:14:51Z
+modDatetime: 2024-03-01T04:26:02Z
 title: 如何加密备份你的 NAS 数据
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -124,7 +124,9 @@ description: 之前我们讲过如何用 RClone 将你的数据备份到云盘/O
 
 ### Duplicacy
 
-接下来记录一下 Duplicacy 的探索过程：
+记录一下我探索 Duplicacy 的过程：
+
+安装过程：官方社区没有直接可用的插件或 Docker 镜像。我的方法是直接从[GitHub Releases](https://github.com/gilbertchen/duplicacy/releases)下载可执行文件（可能需要使用`chmod +x [file]`命令），然后将其放入`/usr/local/bin`目录中。
 
 #### WebDAV:
 
