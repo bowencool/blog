@@ -22,7 +22,6 @@ const { currentPage, totalPages, paginatedPosts, tag } = Astro.props;
 ---
 
 <Layout title={`${t("tags")}: ${t(`tags:${tag.slug}`)}`}>
-  {currentPage > 1 && <meta name="robots" content="noindex" slot="meta" />}
   <Header activeNav="tags" />
   <Main pageDesc={t("tagsDesc{{tag}}", { tag: t(`tags:${tag.slug}`) }) as string}>
     <h1 slot="title">

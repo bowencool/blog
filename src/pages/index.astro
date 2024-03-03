@@ -18,6 +18,7 @@ changeLanguage("en");
 
 const posts = await getPostsByLang(i18next.language);
 const sortedPosts = getSortedPosts(posts);
+// const featuredPosts = posts.filter(({ data }) => data.featured).sort((a, b) => (a.data.pubDatetime > b.data.pubDatetime ? -1 : 1));
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 const socialCount = SOCIALS.filter(social => social.active).length;
@@ -71,11 +72,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
             {recentPosts.map(
               ({ data, slug }, index) =>
                 index < 5 && (
-                  <Card
-                    href={localizePath(`/posts/${data.permalink || slug}`)}
-                    frontmatter={data}
-                    secHeading={false}
-                  />
+                  <Card href={localizePath(`/posts/${data.permalink || slug}`)} frontmatter={data} secHeading={false} />
                 )
             )}
           </ul>

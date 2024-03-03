@@ -19,7 +19,6 @@ const { currentPage, totalPages, paginatedPosts } = Astro.props;
 ---
 
 <Layout title={t("posts") as string}>
-  {currentPage > 1 && <meta name="robots" content="noindex" slot="meta" />}
   <Header activeNav="posts" />
   <Main pageDesc={t("postsDesc") as string}>
     <h1 slot="title">{t("posts")}</h1>
