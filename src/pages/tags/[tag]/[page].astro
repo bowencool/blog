@@ -10,26 +10,28 @@ import { getPostsByLang } from "@utils/getPosts";
 changeLanguage("en");
 
 export interface Props {
-    post: CollectionEntry<"blog">;
-    tag: Tag;
+  post: CollectionEntry<"blog">;
+  tag: Tag;
 }
 export async function getStaticPaths() {
-    const posts = await getPostsByLang(i18next.language);
-    const tags = getUniqueTags(posts);
-    return tags.flatMap(tag => {
-        const totalPages = getPageNumbers(tag.posts.length);
-        return totalPages.map(page => ({
-            params: { tag: tag.slug, page },
-            props: { tag },
-        }));
-    });
+  const posts = await getPostsByLang(i18next.language);
+  const tags = getUniqueTags(posts);
+  return tags.flatMap(tag => {
+    const totalPages = getPageNumbers(tag.posts.length);
+    return totalPages
+      .filter(page => page > 1)
+      .map(page => ({
+        params: { tag: tag.slug, page },
+        props: { tag },
+      }));
+  });
 }
 const { page } = Astro.params;
 const { tag } = Astro.props;
 const postsByTag = tag.posts;
 const pagination = getPagination({
-    posts: postsByTag,
-    page,
+  posts: postsByTag,
+  page,
 });
 ---
 

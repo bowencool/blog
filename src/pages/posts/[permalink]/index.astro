@@ -11,40 +11,42 @@ import { getPostsByLang } from "@utils/getPosts";
 changeLanguage("en");
 
 export interface Props {
-    post: CollectionEntry<"blog">;
+  post: CollectionEntry<"blog">;
 }
 export async function getStaticPaths() {
-    const allPathes: {
-        params: Record<string, string>;
-        props?: {
-            post: any;
-        };
-    }[] = [];
-    const posts = await getPostsByLang(i18next.language);
-    //   console.log(posts);
-    posts.forEach(post => {
-        // const { body, ...rest } = post;
-        // console.log(rest);
-        allPathes.push({
-            params: { permalink: post.data.permalink || post.slug },
-            props: { post },
-        });
+  const allPathes: {
+    params: Record<string, string>;
+    props?: {
+      post: any;
+    };
+  }[] = [];
+  const posts = await getPostsByLang(i18next.language);
+  //   console.log(posts);
+  posts.forEach(post => {
+    // const { body, ...rest } = post;
+    // console.log(rest);
+    allPathes.push({
+      params: { permalink: post.data.permalink || post.slug },
+      props: { post },
     });
-    // console.log(posts.length, getPageNumbers(posts.length))
-    getPageNumbers(posts.length).map(pageNum => {
-        allPathes.push({
-            params: { permalink: String(pageNum) },
-        });
+  });
+  // console.log(posts.length, getPageNumbers(posts.length))
+  getPageNumbers(posts.length)
+    .filter(page => page > 1)
+    .map(pageNum => {
+      allPathes.push({
+        params: { permalink: String(pageNum) },
+      });
     });
-    return allPathes;
-    //   const postResult = posts.map(post => ({
-    //       params: { permalink: post.permalink },
-    //       props: { post },
-    //   }));
-    //   const pagePaths = getPageNumbers(posts.length).map(pageNum => ([{
-    //     params: { permalink: String(pageNum) },
-    //   }]));
-    //   return [...postResult, ...pagePaths];
+  return allPathes;
+  //   const postResult = posts.map(post => ({
+  //       params: { permalink: post.permalink },
+  //       props: { post },
+  //   }));
+  //   const pagePaths = getPageNumbers(posts.length).map(pageNum => ([{
+  //     params: { permalink: String(pageNum) },
+  //   }]));
+  //   return [...postResult, ...pagePaths];
 }
 const { permalink } = Astro.params;
 const { post } = Astro.props;
@@ -52,8 +54,8 @@ const posts = await getPostsByLang(i18next.language);
 const sortedPosts = getSortedPosts(posts);
 // console.log("posts [permalink]", posts.length);
 const pagination = getPagination({
-    posts: sortedPosts,
-    page: permalink,
+  posts: sortedPosts,
+  page: permalink,
 });
 ---
 
