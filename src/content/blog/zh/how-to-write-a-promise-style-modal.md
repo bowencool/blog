@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-26T16:40:15.000+08:00
-modDatetime: 2024-02-29T11:32:42Z
+modDatetime: 2024-03-05T13:14:51Z
 title: 如何封装一个 Promise 风格的弹窗？
 permalink: how-to-write-a-promise-style-dialog
 featured: true
@@ -8,7 +8,6 @@ tags:
   - frontend
   - javascript
   - react
-  - promise
   - async
 description: 本文介绍了一种非常简洁的 Modal/Dialog 写法。
 ---

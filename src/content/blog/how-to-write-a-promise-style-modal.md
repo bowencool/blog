@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-26T16:40:15.000+08:00
-modDatetime: 2024-02-27T03:12:43Z
+modDatetime: 2024-03-05T13:14:51Z
 title: How to write a promise-style dialog?
 permalink: how-to-write-a-promise-style-dialog
 featured: true
@@ -8,7 +8,6 @@ tags:
   - frontend
   - javascript
   - react
-  - promise
   - async
 description: This article introduces a very concise way of writing Modal/Dialog.
 ---
