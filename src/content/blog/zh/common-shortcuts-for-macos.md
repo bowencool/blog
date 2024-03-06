@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-03-18T13:04:58Z
-modDatetime: 2023-12-10T03:16:24Z
+modDatetime: 2024-03-06T11:06:37Z
 title: 玩转 Mac 之通用快捷键
 permalink: common-shortcuts-for-macos
 originalUrl: https://github.com/bowencool/blog/issues/16
@@ -24,6 +24,8 @@ description: 此文章分享了一些 MacOS 上的统一快捷键，以便于形
 
 - `⌘ + num` 切换到第 n 个标签页
 <!-- - `⌘ + ⌥ + →` 切换到右侧标签页  -->
+- `^ + Tab` 切换到下一个标签页
+- `^ + ⇧ + Tab` 切换到上一个标签页
 - `⌘ + W` 关闭当前标签页
 - `⌘ + T` 新建标签页并聚焦
 - `⌘ + ⇧ + T` 重新打开刚刚关闭的标签页，可以按多次恢复多个

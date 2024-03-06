@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-03-18T13:04:58Z
-modDatetime: 2023-12-10T03:16:24Z
+modDatetime: 2024-03-06T11:06:37Z
 title: Common MacOS Shortcuts
 permalink: common-shortcuts-for-macos
 originalUrl: https://github.com/bowencool/blog/issues/16
@@ -24,6 +24,8 @@ The actual test shows that **Finder, VS Code, Iterm2, and the browser** can be u
 
 - `⌘ + num` Switch to the nth Tab
 <!-- - `⌘ + ⌥ + →` Switch to the right Tab  -->
+- `^ + Tab` Switch to the next Tab
+- `^ + ⇧ + Tab` Switch to the previous Tab
 - `⌘ + W` Close the current Tab
 - `⌘ + T` Create new Tab and focus
 - `⌘ + ⇧ + T` Reopen the tab that was just closed, press multiple times to restore multiple tabs
