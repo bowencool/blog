@@ -7,7 +7,7 @@ Hello, this is my personal blog codebase which is forked from [AstroPaper](https
 What are the differences compared to AstroPaper?
 
 - Integration with [astro-i18next](https://github.com/yassinedoghri/astro-i18next) (requires a significant amount of work)
-  - For the convenience of toggling languages and the freedom to rename files, this repository utilizes "frontmatter.permalink" instead of "post.slug". This is because [Astro does not permit identical slugs for different language versions of the same post so far](https://github.com/withastro/astro/issues/7133#issuecomment-1585751826).
+  - For the convenience of toggling languages and the freedom to rename files, this repository utilizes "frontmatter.permalink" instead of "post.slug". This is because [Astro does not permit identical slugs for different language versions of the same post so far](https://github.com/withastro/astro/issues/7133#issuecomment-1585751826). This also caused a minor cache issue on the local development server.
 - Refactored tags
   - Internationalization support (i18n)
   - Show larger size if there are more related articles, see [preview](https://blog.bowen.cool/tags)
