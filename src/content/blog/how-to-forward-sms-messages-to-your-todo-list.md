@@ -4,7 +4,7 @@ modDatetime: 2024-01-24T11:06:07.000Z
 title: How to forward sms messages to your todo list
 permalink: how-to-forward-sms-messages-to-your-todo-list
 tags:
-  - Andriod
+  - Android
   - iOS
   - iPhone
   - tricks
@@ -70,7 +70,7 @@ Do `Add task to xxx List`(the shortcut you just created)
 
 ![automation](../../assets/images/forward-sms/automation.jpeg)
 
-## Andriod
+## Android
 
 ### Install [SmsForwarder](https://github.com/pppscn/SmsForwarder)
 

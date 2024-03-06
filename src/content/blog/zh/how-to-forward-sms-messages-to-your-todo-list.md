@@ -4,7 +4,7 @@ modDatetime: 2024-01-24T11:06:07.000Z
 title: 如何将短信中的快递取件码自动转发到滴答清单/待办事项等 TODO 应用
 permalink: how-to-forward-sms-messages-to-your-todo-list
 tags:
-  - Andriod
+  - Android
   - iOS
   - iPhone
   - tricks
