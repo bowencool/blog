@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-03-07T19:40:54Z
+modDatetime: 2024-03-07T20:18:15Z
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -175,7 +175,7 @@ Tips: Authenticator on a smartwatch works well as you don't have to find your ph
 
 A smart home control center that can connect different brands of smart home devices together. For example, you can use Siri to control Xiaomi's lights. **The experience is not as good as Mi Home**.
 
-### Syncthing
+### ~~Syncthing~~
 
 Used to synchronize software configurations, with a focus on Alfred and iTerm2 configurations. Previously used NextCloud for synchronization, but NextCloud often had problems so I switched.
 
@@ -186,8 +186,9 @@ The difference between Syncthing and rclone is that Syncthing is a real-time, di
 I have replaced Syncthing with rclone (crontab) + webdav for the following reasons:
 
 1. Syncthing's ignore syntax is too non-mainstream, and it seems that its ignored file do not sync between devices.
-
 2. After restored from Time Machine, Syncthing actually requires manual resetting of ID before it can be used again; truly troublesome.
+
+Seafile, as mentioned in the comments section, is also a good solution.
 
 ### [WebDAV](https://hub.docker.com/r/bytemark/webdav)
 
@@ -267,6 +268,10 @@ For the client, use Reeder (paid) or NetNewsWire (open source free) for Mac / iO
 
 Used for [Bob](https://bobtranslate.com/) and [Immersive Translate](https://immersivetranslate.com/).
 
+### Duplicacy / Duplicati
+
+See [this post](/posts/how-to-encrypt-backup-your-data-on-your-nas)
+
 ## Next Step Plan
 
 Here is the feature I want to implement next. If you have any recommended or updated feature, feel free to share.
@@ -286,10 +291,6 @@ Advantages:
 ### Research ZFS
 
 Unraid 6.12 already supports it.
-
-### Encrypted backup
-
-Duplicacy / Duplicati
 
 ## Update December 2022
 

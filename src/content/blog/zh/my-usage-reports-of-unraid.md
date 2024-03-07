@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-03-07T19:40:54Z
+modDatetime: 2024-03-07T20:18:15Z
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -182,6 +182,8 @@ Syncthing 和 rclone 的区别是：syncthing 是后台实时的、分布式的�
 1. Syncthing ignore 语法太非主流，而且 ignore 文件好像不会在各设备间同步。
 2. 使用 Time Machine 恢复后，Syncthing 竟然还要手动重置一下 ID 才能用，真是自找麻烦。
 
+评论区提到的 Seafile 也是一个好的方案。
+
 ### [WebDAV](https://hub.docker.com/r/bytemark/webdav)
 
 如果你装了 Nextcloud 或 Alist，那就不需要装这个了。
@@ -260,6 +262,10 @@ FreshRSS 的作用是全平台同步以及精细化管理，不是必须的，�
 
 给 [Bob](https://bobtranslate.com/) 和[沉浸式翻译](https://immersivetranslate.com/)用的
 
+### Duplicacy / Duplicati
+
+查看[这篇文章](/zh/posts/how-to-encrypt-backup-your-data-on-your-nas)
+
 ## 下一步折腾计划
 
 下面是我接下来想实现的玩法，如果你也有推荐的、更新的玩法，欢迎交流。
@@ -274,13 +280,9 @@ FreshRSS 的作用是全平台同步以及精细化管理，不是必须的，�
 2. 略微增加带宽，预估 5%~10%
 3. 不需要端口转发了
 
-### 研究一下ZFS
+### 研究一下 ZFS
 
 Unraid 6.12 已经支持。
-
-### 加密备份
-
-Duplicacy / Duplicati
 
 ## 2022年12月更新
 
