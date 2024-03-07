@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-01-31T09:19:42Z
+modDatetime: 2024-03-07T19:36:01Z
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -236,13 +236,19 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 虽说不至于判个破坏计算机系统罪，但封号还是很有可能的，不用了。
 
-### ~~Wiznot(为知笔记)e~~ / ~~Joplin~~
+### ~~Wiznot(为知笔记)e~~ / ~~Joplin~~ / ~~AppFlowy~~
 
 我最后还是决定用 IDE + Git 的方式代替这些笔记软件。我认为笔记软件做的再好，跟 IDE 比永远是小儿科。IDE 可以借助插件拥有无限可能，而且符合你的书写习惯。
 
-### RSSHub + FreshRSS
+### FreshRSS + RSSHub + [WeWeRSS](https://github.com/cooderl/wewe-rss)
 
-我越来越依赖 RSS，很高效。
+我越来越依赖 RSS，在一个地方获取所有信息，很高效，而且不会被推荐算法裹挟。
+
+RSSHub 将各种原本不支持 RSS 的网站转化成 RSS，比如 Bilibili、知乎、微博、小红书、Twitter、Telegram...
+
+WeWeRSS 专注于将微信公众号转成 RSS。
+
+FreshRSS 的作用是全平台同步以及精细化管理，不是必须的，但推荐使用。正常情况下 RSS 客户端可以直接添加订阅，也可以登录到 FreshRSS。
 
 客户端的话 Mac / iOS 用 Reeder(付费) 或 NetNewsWire(开源免费)，安卓用 Feedme，全平台同步就很爽。
 

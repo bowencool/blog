@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-01-31T09:19:42Z
+modDatetime: 2024-03-07T19:36:01Z
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -243,13 +243,19 @@ After using it for a while, hundreds of Jingdong beans were credited to my accou
 
 Although it may not be enough to be convicted of damaging computer systems, being banned is still very likely, so I stopped using it.
 
-### ~~Wiznote~~ / ~~Joplin~~
+### ~~Wiznote~~ / ~~Joplin~~ / ~~AppFlowy~~
 
 In the end, I decided to use IDE + Git instead of these note-taking software. I think no matter how well note-taking software is done, it will always be inferior to IDE. IDE can have unlimited possibilities with plugins and can conform to your writing habits.
 
-### RSSHub + FreshRSS
+### FreshRSS + RSSHub + [WeWeRSS](https://github.com/cooderl/wewe-rss)
 
-I'm relying more and more on RSS, it's very efficient.
+I'm relying more and more on RSS, it's efficient to get all the information in one place and not be held hostage by recommendation algorithms.
+
+RSSHub converts all kinds of websites that don't support RSS into RSS, such as Bilibili, Zhihu, Weibo, Xiaohongshu, Twitter, Telegram...
+
+WeWeRSS specializes in converting WeChat to RSS.
+
+The role of FreshRSS is to synchronize the whole platform and fine management, not necessary, but recommended. Under normal circumstances RSS client can directly add subscriptions, you can also login to FreshRSS.
 
 For the client, use Reeder (paid) or NetNewsWire (open source free) for Mac / iOS, and Feedme for Android. It's great to have cross-platform synchronization.
 
