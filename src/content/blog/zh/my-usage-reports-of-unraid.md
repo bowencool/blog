@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-03-07T19:36:01Z
+modDatetime: 2024-03-07T19:40:54Z
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -223,6 +223,10 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 ### Aria2
 
 22年底转为使用 [Aria2-Pro](https://p3terx.com/archives/docker-aria2-pro.html) + [AriaNg](https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html) / [Aria2 Explorer](https://chrome.google.com/webstore/detail/mpkodccbngfoacfalldjimigbofkhgjn) 作为全协议下载器。
+
+### [MeTuBe](https://github.com/alexta69/metube)
+
+一键下载各种网站视频，类似于Downie。
 
 ### Jellyfin
 
