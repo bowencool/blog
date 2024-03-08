@@ -1,5 +1,6 @@
 ---
 pubDatetime: 2024-03-06T10:54:18.000+08:00
+modDatetime: 2024-03-08T02:44:25Z
 title: The Browser Rendering Process
 permalink: browser-knowledge
 tags:
@@ -8,7 +9,7 @@ tags:
 description: This article summarizes some of the browser-related interview questions, including browser architecture, rendering process, performance optimization, and so on.
 ---
 
-> This article was translated by OpenAI GPT-4, Google Gemini and DeepLX.
+> This article was translated by OpenAI GPT-4, Google Gemini, and DeepLX. It is too long for proofreading.
 
 ## Multi-process architecture
 
