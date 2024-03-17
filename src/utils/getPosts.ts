@@ -33,6 +33,6 @@ export async function getPostsByLang(lang: string) {
       filteredPosts.push(posts[0]);
     }
   });
-  console.log(lang, filteredPosts.length, allPosts.length);
+  // console.log(lang, filteredPosts.length, allPosts.length);
   return filteredPosts;
 }

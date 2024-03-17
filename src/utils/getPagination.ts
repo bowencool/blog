@@ -7,11 +7,7 @@ interface GetPaginationProps<T> {
   isIndex?: boolean;
 }
 
-const getPagination = <T>({
-  posts,
-  page,
-  isIndex = false,
-}: GetPaginationProps<T[]>) => {
+const getPagination = <T>({ posts, page, isIndex = false }: GetPaginationProps<T[]>) => {
   const totalPagesArray = getPageNumbers(posts.length);
   const totalPages = totalPagesArray.length;
 
@@ -24,7 +20,7 @@ const getPagination = <T>({
   const lastPost = isIndex ? SITE.postPerPage : currentPage * SITE.postPerPage;
   const startPost = isIndex ? 0 : lastPost - SITE.postPerPage;
   const paginatedPosts = posts.slice(startPost, lastPost);
-  console.log(posts.length, currentPage);
+  // console.log(posts.length, currentPage);
   return {
     totalPages,
     currentPage,
