@@ -3,10 +3,13 @@ import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import astroI18next from "astro-i18next";
 import sitemap from "@astrojs/sitemap";
+import { h } from "hastscript";
 import { codeInspectorPlugin } from "code-inspector-plugin";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeMermaid from "rehype-mermaid";
+import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeShikiji from "rehype-shikiji";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 import mdx from "@astrojs/mdx";
 
@@ -32,6 +35,19 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: false,
     rehypePlugins: [
+      rehypeHeadingIds,
+      [
+        rehypeAutolinkHeadings,
+        {
+          content: () => h("span.iconfont.icon-link", { ariaHidden: "true" }),
+          properties: {
+            className: ["anchor"],
+            ariaLabel: "Anchor",
+            ariaHidden: "true",
+            tabIndex: -1,
+          },
+        },
+      ],
       [rehypeExternalLinks, { target: "_blank", rel: ["noopener"] }],
       [rehypeMermaid, { dark: true, strategy: "img-svg" }],
       [

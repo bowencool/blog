@@ -48,7 +48,7 @@
     @apply outline-2 outline-offset-1 outline-skin-fill
     focus-visible:no-underline focus-visible:outline-dashed;
   }
-  svg:not([id^=mermaid]) {
+  svg:not([id^="mermaid"]) {
     @apply inline-block h-6 w-6 fill-skin-base group-hover:fill-skin-accent;
   }
   svg.icon-tabler {
@@ -57,18 +57,17 @@
     sm:scale-110;
   }
   .prose {
-    @apply prose-headings:!mb-3 prose-headings:!text-skin-base
-    prose-p:!text-skin-base
-    prose-a:!decoration-dashed prose-a:underline-offset-5
-    prose-a:!text-skin-accent prose-blockquote:!border-l-skin-accent
+    @apply /* */
+    prose-headings:!mb-3
+    prose-headings:!text-skin-base
+    prose-p:!text-skin-base prose-blockquote:!border-l-skin-accent
     prose-blockquote:border-opacity-50 prose-blockquote:opacity-80
-    prose-figcaption:!text-skin-base prose-figcaption:opacity-70
-    prose-strong:!text-skin-base
+    prose-figcaption:!text-skin-base
 
+    prose-figcaption:opacity-70 prose-strong:!text-skin-base
     prose-code:rounded prose-code:bg-skin-card
     prose-code:bg-opacity-75 prose-code:p-1
-    prose-code:before:!content-none prose-code:after:!content-none
-    /* prose-code:!text-skin-base */
+    prose-code:!text-skin-base prose-code:before:!content-none prose-code:after:!content-none
     prose-ol:!text-skin-base
     prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent
     prose-table:text-skin-base prose-th:border
@@ -76,9 +75,27 @@
     prose-td:border-skin-line prose-img:!my-2
     prose-img:mx-auto prose-img:border-2
     prose-img:border-skin-line prose-hr:!border-skin-line;
-  }
-  .prose a {
-    @apply break-words hover:!text-skin-accent;
+    a:not(.anchor) {
+      @apply break-words text-skin-accent decoration-dashed underline-offset-5;
+    }
+    a.anchor {
+      @apply text-skin-base;
+      opacity: 0;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      position: absolute;
+      left: -1.25em;
+      padding-right: 0.25em;
+      top: 0;
+    }
+    :is(h1, h2, h3, h4, h5, h6) {
+      position: relative;
+      &:hover {
+        .anchor {
+          @apply opacity-100;
+        }
+      }
+    }
   }
   .prose thead th:first-child,
   tbody td:first-child,
@@ -92,7 +109,7 @@
     @apply focus-outline;
   }
   .prose button:not(pre button) {
-    @apply px-2 rounded bg-skin-card text-skin-base focus:outline-dashed outline-skin-fill;
+    @apply rounded bg-skin-card px-2 text-skin-base outline-skin-fill focus:outline-dashed;
   }
 
   /* ===== scrollbar ===== */

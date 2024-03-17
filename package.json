@@ -55,7 +55,8 @@
     "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-tailwindcss": "^0.5.12",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rehype-autolink-headings": "^7.1.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,mdx,json,astro}": [
