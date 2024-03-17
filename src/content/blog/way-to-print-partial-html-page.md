@@ -1,5 +1,6 @@
 ---
 pubDatetime: 2024-03-17T10:19:37.000+08:00
+modDatetime: 2024-03-17T03:17:18Z
 title: The easiest way to print a specific area (element) of an HTML page
 permalink: way-to-print-partial-html-page
 tags:
@@ -17,6 +18,16 @@ description: The easiest way to print a specific area of an HTML page.
   <div class="print-only">You can only see me when printing.</div>
   <div class="printable">You can see me both on the page and when printing.</div>
 </body>
+```
+
+Or create content using JavaScript:
+
+```js
+const domToBePrinted = document.createElement("div");
+domToBePrinted.classList.add("print-only");
+// set the content
+domToBePrinted.innerHTML = "...";
+document.body.appendChild(domToBePrinted);
 ```
 
 ## Add CSS
@@ -43,7 +54,7 @@ description: The easiest way to print a specific area of an HTML page.
 window.print();
 ```
 
-If you want to set the content using javascript:
+If you want to set the content using JavaScript:
 
 ```js
 const domToBePrinted = document.createElement("div");

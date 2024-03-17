@@ -1,5 +1,6 @@
 ---
 pubDatetime: 2024-03-17T10:19:37.000+08:00
+modDatetime: 2024-03-17T03:18:06Z
 title: 打印 HTML 页面特定区域（元素）的最简单方法
 permalink: way-to-print-partial-html-page
 tags:
@@ -17,6 +18,16 @@ description: 打印 HTML 页面特定区域（元素）的最简单方法
   <div class="print-only">你只能在打印的时候才能看到我。</div>
   <div class="printable">你在页面上和打印时都能看到我。</div>
 </body>
+```
+
+或者使用 JavaScript 创建内容：
+
+```js
+const domToBePrinted = document.createElement("div");
+domToBePrinted.classList.add("print-only");
+// set the content
+domToBePrinted.innerHTML = "...";
+document.body.appendChild(domToBePrinted);
 ```
 
 ## 添加 CSS
@@ -43,7 +54,7 @@ description: 打印 HTML 页面特定区域（元素）的最简单方法
 window.print();
 ```
 
-如果您想使用 javascript 设置内容：
+如果您想使用 JavaScript 设置内容：
 
 ```js
 const domToBePrinted = document.createElement("div");
