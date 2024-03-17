@@ -19,5 +19,12 @@ What are the differences compared to AstroPaper?
 - [Mermaid](https://github.com/mermaid-js/mermaid) integration with dual themes
 - Floating table of contents using [tocbot](https://tscanlin.github.io/tocbot/), rather than having it in the header
 - [Giscus](https://giscus.app/) integration for comments and discussions
-- [MDX](https://mdxjs.com/) integration for advanced markdown features
+- [MDX](https://mdxjs.com/) integration for advanced markdown features for article collections
+- [rehype-autolink-headings](https://github.com/rehypejs/rehype-autolink-headings) integration
 - Planned integration with [astro-icon](https://github.com/natemoo-re/astro-icon) or other icon libraries to avoid the need for manually copying SVGs (not yet implemented)
+
+## Known Issues
+
+1. astro-i18next type error
+2. `public/locales` does not support hot reloading for now, moving it to the src directory might be helpful.
+3. When developing locally, it's common that the multilingual versions of articles do not match the website settings. Opening and making a modification to the corresponding file to trigger hot reloading can solve this issue; this problem does not exist in production environments.

@@ -19,5 +19,12 @@
 - [Mermaid](https://github.com/mermaid-js/mermaid) 集成双主题
 - 使用 [tocbot](https://tscanlin.github.io/tocbot/) 实现浮动目录，而非放置于文章开头
 - [Giscus](https://giscus.app/) 集成评论和讨论功能
-- [MDX](https://mdxjs.com/) 集成用于高级 Markdown 功能
-- 计划与 [astro-icon](https://github.com/natemoo-re/astro-icon) 或其他图标库集成以避免手动复制 SVGs（尚未实现）
+- [MDX](https://mdxjs.com/) 集成用于文章集合高级 Markdown 功能
+- [rehype-autolink-headings](https://github.com/rehypejs/rehype-autolink-headings) 集成
+- 计划与 [astro-icon](https://github.com/natemoo-re/astro-icon) 或其他图标库集成以避免手动复制 SVG（尚未实现）
+
+## 已知问题
+
+1. astro-i18next 类型报错
+2. `public/locales` 暂不支持热更新，移动到 src 目录下也许有用。
+3. 本地开发时经常出现文章的多语言版本与网站设置对应不上，打开对应文件进行一次修改保存触发热更新即可，生产环境无此问题。
