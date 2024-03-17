@@ -7,7 +7,7 @@ originalUrl: https://github.com/bowencool/blog/issues/22
 tags:
   - nas
   - unRAID
-  - tricks
+  - hacks
 description: Every time unRAID is booted, the Home directory is reset, resulting in the installation of oh-my-zsh being wiped out. Here's how to do it, Automatically install it every time you boot up, and restore the configuration.
 ---
 

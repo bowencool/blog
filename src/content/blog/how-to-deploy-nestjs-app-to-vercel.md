@@ -5,7 +5,7 @@ title: How to deploy nestjs app to vercel
 permalink: how-to-deploy-nestjs-app-to-vercel
 originalUrl: https://github.com/bowencool/blog/issues/23
 tags:
-  - tricks
+  - hacks
   - fullstack
   - nodejs
   - serverless

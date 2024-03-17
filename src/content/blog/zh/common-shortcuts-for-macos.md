@@ -6,7 +6,7 @@ permalink: common-shortcuts-for-macos
 originalUrl: https://github.com/bowencool/blog/issues/16
 tags:
   - MacOS
-  - tricks
+  - hacks
 description: 此文章分享了一些 MacOS 上的统一快捷键，以便于形成肌肉记忆。
 ---
 

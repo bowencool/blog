@@ -8,6 +8,7 @@ tags:
   - nas
   - unRAID
   - network
+  - hacks
 description: Summarized some of the solutions used by authors to connect to the home network.
 ---
 

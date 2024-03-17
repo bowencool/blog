@@ -7,7 +7,7 @@ tags:
   - Android
   - iOS
   - iPhone
-  - tricks
+  - hacks
   - automation
 description: 本文介绍了安卓和iOS设备如何将短信中的快递取件码自动转发到 TODO 应用中，本文以滴答清单为例。
 ---

@@ -8,7 +8,7 @@ originalUrl: https://github.com/bowencool/blog/issues/18
 tags:
   - nas
   - unRAID
-  - tricks
+  - hacks
   - backup
   - data-security
   - automation

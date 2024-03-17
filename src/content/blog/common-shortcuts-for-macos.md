@@ -6,7 +6,7 @@ permalink: common-shortcuts-for-macos
 originalUrl: https://github.com/bowencool/blog/issues/16
 tags:
   - MacOS
-  - tricks
+  - hacks
 description: This post shares some unifying shortcuts on MacOS for muscle memory formation.
 ---
 

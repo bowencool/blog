@@ -7,7 +7,7 @@ tags:
   - Android
   - iOS
   - iPhone
-  - tricks
+  - hacks
   - automation
 description: This article introduces how Android and iOS devices can automatically forward pickup codes from text messages to the TODO app, using TickTick as an example.
 ---

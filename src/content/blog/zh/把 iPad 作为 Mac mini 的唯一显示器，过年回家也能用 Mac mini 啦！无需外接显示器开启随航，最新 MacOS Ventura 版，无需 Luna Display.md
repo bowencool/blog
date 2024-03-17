@@ -6,7 +6,7 @@ permalink: use-ipad-as-the-sole-display-for-mac-mini
 originalUrl: https://github.com/bowencool/blog/issues/21
 tags:
   - MacOS
-  - tricks
+  - hacks
 description: 把 iPad 作为 Mac mini 的唯一显示器，过年回家也能用 Mac mini 啦！无需外接显示器开启随航，最新 MacOS Ventura 版，无需 Luna Display
 ---
 

@@ -7,7 +7,7 @@ originalUrl: https://github.com/bowencool/blog/issues/22
 tags:
   - nas
   - unRAID
-  - tricks
+  - hacks
   - automation
 description: unRAID 每次开机，Home 目录都会重置一下，导致安装的 oh-my-zsh 荡然无存。这里提供一个办法：每次开机自动安装，并且恢复配置。
 ---

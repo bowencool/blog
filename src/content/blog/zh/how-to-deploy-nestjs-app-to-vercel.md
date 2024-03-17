@@ -5,7 +5,7 @@ title: 如何在 vercel 中部署 nestjs 应用
 permalink: how-to-deploy-nestjs-app-to-vercel
 originalUrl: https://github.com/bowencool/blog/issues/23
 tags:
-  - tricks
+  - hacks
   - fullstack
   - nodejs
   - serverless

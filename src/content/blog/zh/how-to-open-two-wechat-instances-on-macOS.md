@@ -6,7 +6,7 @@ permalink: how-to-open-two-wechat-instances-on-macOS
 originalUrl: https://github.com/bowencool/blog/issues/25
 tags:
   - macOS
-  - tricks
+  - hacks
 description: MacOS 双开微信
 ---
 

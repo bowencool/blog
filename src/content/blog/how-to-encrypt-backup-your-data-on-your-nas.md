@@ -6,7 +6,7 @@ permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
   - nas
   - unRAID
-  - tricks
+  - hacks
   - backup
   - data-security
   - automation
