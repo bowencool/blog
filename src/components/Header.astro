@@ -1,8 +1,8 @@
 ---
-import { LOGO_IMAGE, SITE } from "@config";
+import { LOGO_IMAGE } from "@config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
-
+import { Icon } from "astro-icon/components";
 import { LanguageSelector } from "astro-i18next/components";
 import { t } from "i18next";
 import { localizePath } from "astro-i18next";
@@ -43,13 +43,7 @@ const { activeNav } = Astro.props;
           title="RSS Feed"
           data-astro-prefetch="false"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-            ><path
-              d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-            ></path><path
-              d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-            ></path><circle cx="6" cy="18" r="2"></circle>
-          </svg>
+          <Icon name="mdi:rss" class="rss-icon" />
           <span class="sr-only">RSS Feed</span>
         </a>
       </div>
@@ -81,45 +75,28 @@ const { activeNav } = Astro.props;
         </button>
         <ul id="menu-items" class="display-none sm:flex">
           <li>
-            <a
-              href={localizePath("/posts")}
-              class={activeNav === "posts" ? "active" : ""}
-            >
+            <a href={localizePath("/posts")} class={activeNav === "posts" ? "active" : ""}>
               {t("posts")}
             </a>
           </li>
           <li>
-            <a
-              href={localizePath("/tags")}
-              class={activeNav === "tags" ? "active" : ""}
-            >
+            <a href={localizePath("/tags")} class={activeNav === "tags" ? "active" : ""}>
               {t("tags")}
             </a>
           </li>
           <li>
-            <a
-              href={localizePath("/about")}
-              class={activeNav === "about" ? "active" : ""}
-            >
+            <a href={localizePath("/about")} class={activeNav === "about" ? "active" : ""}>
               {t("about")}
             </a>
           </li>
           <li>
             <LinkButton
               href={localizePath("/search")}
-              className={`focus-outline p-3 sm:p-1 ${
-                activeNav === "search" ? "active" : ""
-              } flex`}
+              className={`focus-outline p-3 sm:p-1 ${activeNav === "search" ? "active" : ""} flex`}
               ariaLabel="search"
               title="Search"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="scale-125 sm:scale-100"
-                ><path
-                  d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"
-                ></path>
-              </svg>
+              <Icon name="mdi:search" />
               <span class="sr-only">Search</span>
             </LinkButton>
           </li>
@@ -139,7 +116,7 @@ const { activeNav } = Astro.props;
     /* @apply ml-1; */
   }
   .rss-icon {
-    @apply h-8 w-8 fill-skin-accent scale-110;
+    @apply h-8 w-8 scale-110 fill-skin-accent;
   }
   #skip-to-content {
     @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
@@ -151,7 +128,7 @@ const { activeNav } = Astro.props;
     @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
   }
   .logo {
-    @apply whitespace-nowrap absolute py-1 text-xl font-semibold sm:static sm:text-2xl;
+    @apply absolute whitespace-nowrap py-1 text-xl font-semibold sm:static sm:text-2xl;
   }
   .hamburger-menu {
     @apply self-end p-2 sm:hidden;
@@ -164,7 +141,7 @@ const { activeNav } = Astro.props;
     @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
   }
   nav ul {
-    @apply mt-4 w-44 /* gird grid-cols-2 grid-rows-4 */ gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
+    @apply /* gird */ mt-4 w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
   }
   nav ul li {
     @apply col-span-2 flex items-center justify-center;
@@ -220,10 +197,7 @@ const { activeNav } = Astro.props;
       const menuExpanded = menuBtn.getAttribute("aria-expanded") === "true";
       menuIcon?.classList.toggle("is-active");
       menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
-      menuBtn.setAttribute(
-        "aria-label",
-        menuExpanded ? "Open Menu" : "Close Menu"
-      );
+      menuBtn.setAttribute("aria-label", menuExpanded ? "Open Menu" : "Close Menu");
       menuItems?.classList.toggle("display-none");
     });
   }

@@ -5,13 +5,14 @@ import astroI18next from "astro-i18next";
 import sitemap from "@astrojs/sitemap";
 import { h } from "hastscript";
 import { codeInspectorPlugin } from "code-inspector-plugin";
+import mdx from "@astrojs/mdx";
+import icon from "astro-icon";
+
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeMermaid from "rehype-mermaid";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeShikiji from "rehype-shikiji";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-
-import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
@@ -26,6 +27,12 @@ export default defineConfig({
   integrations: [
     tailwind({
       applyBaseStyles: false,
+    }),
+    icon({
+      iconDir: "src/assets/icons",
+      include: {
+        mdi: ["rss", "search"], // Loads only Material Design Icon's "account" SVG
+      },
     }),
     react(),
     astroI18next(),
