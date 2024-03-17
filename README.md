@@ -25,6 +25,5 @@ What are the differences compared to AstroPaper?
 
 ## Known Issues
 
-1. astro-i18next type error
-2. `public/locales` does not support hot reloading for now, moving it to the src directory might be helpful.
-3. When developing locally, it's common that the multilingual versions of articles do not match the website settings. Opening and making a modification to the corresponding file to trigger hot reloading can solve this issue; this problem does not exist in production environments.
+1. `public/locales` does not support hot reloading for now, moving it to the src directory might be helpful.
+2. When developing locally, it's common that the multilingual versions of articles do not match the website settings. Opening and making a modification to the corresponding file to trigger hot reloading can solve this issue; this problem does not exist in production environments.

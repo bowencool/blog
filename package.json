@@ -62,5 +62,10 @@
     "*.{js,jsx,ts,tsx,md,mdx,json,astro}": [
       "prettier --write"
     ]
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "astro-i18next@1.0.0-beta.21": "patches/astro-i18next@1.0.0-beta.21.patch"
+    }
   }
 }
