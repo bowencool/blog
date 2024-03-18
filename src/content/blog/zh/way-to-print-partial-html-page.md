@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-17T10:19:37.000+08:00
-modDatetime: 2024-03-17T03:18:06Z
+modDatetime: 2024-03-18T09:09:37Z
 title: 打印 HTML 页面特定区域（元素）的最简单方法
 permalink: way-to-print-partial-html-page
 tags:
@@ -92,6 +92,8 @@ window.addEventListener(
 window.print();
 ```
 
+查看[Demo](https://bowencool.github.io/print-react-component)
+
 ## 优点
 
 - 不会破坏页面现有元素及其交互性（EventListeners）
@@ -99,4 +101,4 @@ window.print();
 
 ## 在 React 或 Vue 中打印
 
-TODO
+请查看 [print-react-component](https://github.com/bowencool/print-react-component)

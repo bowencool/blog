@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-17T10:19:37.000+08:00
-modDatetime: 2024-03-17T03:17:18Z
+modDatetime: 2024-03-18T09:09:37Z
 title: The easiest way to print a specific area (element) of an HTML page
 permalink: way-to-print-partial-html-page
 tags:
@@ -92,6 +92,8 @@ window.addEventListener(
 window.print();
 ```
 
+[Live Demo](https://bowencool.github.io/print-react-component)
+
 ## Pros
 
 - It will not break the existing elements of the page and their interactivity.（EventListeners）
@@ -99,4 +101,4 @@ window.print();
 
 ## Printing in React or Vue
 
-TODO
+See [print-react-component](https://github.com/bowencool/print-react-component)
