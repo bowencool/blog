@@ -76,7 +76,16 @@
     prose-img:mx-auto prose-img:border-2
     prose-img:border-skin-line prose-hr:!border-skin-line;
     a:not(.anchor) {
-      @apply break-words text-skin-accent decoration-dashed underline-offset-5;
+      @apply break-words text-skin-accent underline-offset-5;
+      /* &::before {
+        font-family: "iconfont" !important;
+        font-size: 1em;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin-right: 3px;
+        content: "\e6a2";
+      } */
     }
     a.anchor {
       @apply text-skin-base;
