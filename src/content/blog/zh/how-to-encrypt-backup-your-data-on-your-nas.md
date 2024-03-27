@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-03-27T18:58:20Z
+modDatetime: 2024-03-27T19:19:51Z
 title: 如何加密备份你的 NAS 数据
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -49,13 +49,17 @@ description: 之前我们讲过如何用 RClone 将你的数据备份到云盘/O
 
 #### WebDAV
 
-支持 WebDAV。那我们很快就想到先把云盘/OSS转成 WebDAV（我用的是 AList），再用它备份到 WebDAV。我尝试了一下：
+支持 WebDAV。那我们很快就想到先把云盘/OSS转成 WebDAV（我用的是 AList，最近新增了 S3 Server，也就是说可以把网盘转成 S3），再用它备份到 WebDAV。我尝试了一下：
 
 ##### WebDAV => OSS
 
 可行。
 
 ##### WebDAV => adrive
+
+可行。
+
+##### S3 => adrive
 
 可行。
 
