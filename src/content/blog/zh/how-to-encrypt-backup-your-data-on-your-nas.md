@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-03-27T18:51:01Z
+modDatetime: 2024-03-27T18:58:20Z
 title: 如何加密备份你的 NAS 数据
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -128,7 +128,7 @@ description: 之前我们讲过如何用 RClone 将你的数据备份到云盘/O
 
 安装过程：官方社区没有直接可用的插件或 Docker 镜像。我的方法是直接从[GitHub Releases](https://github.com/gilbertchen/duplicacy/releases)下载可执行文件（可能需要使用`chmod +x [file]`命令），然后将其放入`/usr/local/bin`目录中。
 
-#### WebDAV:
+#### WebDAV
 
 有了上面的经验，我们来直接把备份终点设为 WebDAV
 
@@ -144,7 +144,7 @@ Failed to load the WebDAV storage at webdav: Maximum backoff reached
 
 我换了其他 WebDAV 实现也一样，应该是 duplicacy 本身的问题，又看了一眼文档：WebDAV 还在 beta 阶段
 
-#### 阿里云 OSS:
+#### 阿里云 OSS
 
 那我再试试直接备份到 OSS 吧：
 
@@ -154,7 +154,7 @@ duplicacy init -encrypt -storage-name oss share-bowen s3://hangzhou@oss-cn-hangz
 
 遇到了上面提到了“能备份但不能校验”的问题。如果你用的是标准储存或归档储存并开启直读，应该不会遇到这个错误。我就不再继续实验了，后面的流程和备份到本地是一样的：
 
-#### local disk
+#### 本地路径
 
 提示：推荐使用下一节提到的 S3 协议代替本地路径，只需要更换 storage 终点即可。
 
