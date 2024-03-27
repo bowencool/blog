@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-03-01T04:26:02Z
+modDatetime: 2024-03-27T18:51:01Z
 title: How to encrypt backup your data on your nas
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -127,6 +127,8 @@ I tried another WebDAV implementation, and the issue remains the same. It should
 
 #### To local disk
 
+Tip: It is recommended to use the S3 protocol mentioned in the next section instead of the local path, just change the storage endpoint.
+
 ```bash
 # Initialize storage and repository
 duplicacy init -encrypt -storage-name dva -chunk-size 33554432 -max-chunk-size 67108864 share-bowen /mnt/user/backups/duplicacy
@@ -180,4 +182,32 @@ duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
 export RCLONE_EXCLUDE_FROM=/boot/config/plugins/user.scripts/scripts/rcloneignore
 export RCLONE_BWLIMIT="08:00,3M:off 01:00,off"
 rclone --checksum sync /mnt/user/backups/duplicacy alist:/189cloud/duplicacy --progress
+```
+
+#### To S3
+
+AList has recently added S3 Server (rclone also has this feature, I just realized it) and is highly recommended. All operations are the same as in the section above, replacing the backup endpoint with the endpoint of AList, ie:
+
+```bash
+duplicacy init -encrypt -storage-name alist-s3 -chunk-size 33554432 -max-chunk-size 67108864 share-bowen minio://189cloud@10.7.21.2:15246/189cloud/duplicacy
+# or add a new storage：
+duplicacy add -encrypt -chunk-size 33554432 -max-chunk-size 67108864 -copy dva alist-s3 share-bowen minio://189cloud@10.7.21.2:15246/189cloud/duplicacy
+```
+
+Scheduled task script:
+
+```bash
+#!/bin/bash
+
+export DUPLICACY_ALIST_S3_PASSWORD=xxx
+export DUPLICACY_ALIST_S3_S3_ID=xxx
+export DUPLICACY_ALIST_S3_S3_SECRET=xxx
+
+cd /mnt/user/Bowen
+duplicacy backup -stats -storage alist-s3 # -dry-run
+duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
+
+cd /mnt/user/Photos
+duplicacy backup -stats -storage alist-s3
+duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
 ```

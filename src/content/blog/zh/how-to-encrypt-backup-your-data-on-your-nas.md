@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-03-01T04:26:02Z
+modDatetime: 2024-03-27T18:51:01Z
 title: 如何加密备份你的 NAS 数据
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -156,6 +156,8 @@ duplicacy init -encrypt -storage-name oss share-bowen s3://hangzhou@oss-cn-hangz
 
 #### local disk
 
+提示：推荐使用下一节提到的 S3 协议代替本地路径，只需要更换 storage 终点即可。
+
 ```bash
 # 初始化 storage 和 repository
 duplicacy init -encrypt -storage-name dva -chunk-size 33554432 -max-chunk-size 67108864 share-bowen /mnt/user/backups/duplicacy
@@ -211,4 +213,32 @@ export RCLONE_BWLIMIT="08:00,3M:off 01:00,off"
 # sync 只修改远程, bisync 才是双向同步
 # copy 只增加远程
 rclone --checksum sync /mnt/user/backups/duplicacy alist:/189cloud/duplicacy --progress
+```
+
+#### S3 协议
+
+AList 最近新增了 S3 Server（rclone 也有这个功能，我才知道），强烈推荐。所有操作和上面一节一样，把备份终点换成 AList 的终点，即：
+
+```bash
+duplicacy init -encrypt -storage-name alist-s3 -chunk-size 33554432 -max-chunk-size 67108864 share-bowen minio://189cloud@10.7.21.2:15246/189cloud/duplicacy
+# 或者添加一个新 storage：
+duplicacy add -encrypt -chunk-size 33554432 -max-chunk-size 67108864 -copy dva alist-s3 share-bowen minio://189cloud@10.7.21.2:15246/189cloud/duplicacy
+```
+
+定时任务脚本：
+
+```bash
+#!/bin/bash
+
+export DUPLICACY_ALIST_S3_PASSWORD=xxx
+export DUPLICACY_ALIST_S3_S3_ID=xxx
+export DUPLICACY_ALIST_S3_S3_SECRET=xxx
+
+cd /mnt/user/Bowen
+duplicacy backup -stats -storage alist-s3 # -dry-run
+duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
+
+cd /mnt/user/Photos
+duplicacy backup -stats -storage alist-s3
+duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
 ```
