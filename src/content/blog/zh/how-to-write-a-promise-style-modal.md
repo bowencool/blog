@@ -276,11 +276,14 @@ const columns: TableProps<DataType>["columns"] = [
 ];
 ```
 
-答案是肯定的，并且已经[开源](https://github.com/bowencool/create-antd-modal)，稳定运行好几年了。下面讲一下实现原理和遇到的一些问题：
+答案是肯定的，下面讲一下实现原理和遇到的一些问题：
 
 ### 基本功能实现
 
-TODO（可以先查看[源代码](https://github.com/bowencool/create-antd-modal)）
+TODO：可以先查看源代码：
+
+- [antd 版](https://github.com/bowencool/create-antd-modal)
+- [shadcn 版](https://gist.github.com/bowencool/19511f252bed876e5218fadc8e3423e1)
 
 ### 一些问题及优化
 

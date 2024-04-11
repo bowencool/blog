@@ -276,11 +276,15 @@ const columns: TableProps<DataType>["columns"] = [
 ];
 ```
 
-The answer is yes, and it has been [open source](https://github.com/bowencool/create-antd-modal) and has been running stably for several years. Let’s talk about the implementation and some problems encountered:
+The answer is yes. Let’s talk about the implementation and some problems encountered:
 
 ### Basic function implementation
 
-TODO (you can check [source code](https://github.com/bowencool/create-antd-modal) first)
+TODO: you can check source code first:
+
+- [antd version](https://github.com/bowencool/create-antd-modal)
+- [shadcn version](https://gist.github.com/bowencool/19511f252bed876e5218fadc8e3423e1)
+
 
 ### Some problems and optimizations
 
