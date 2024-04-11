@@ -27,3 +27,20 @@
 
 1. `public/locales` 暂不支持热更新，移动到 src 目录下也许有用。
 2. 本地开发时经常出现文章的多语言版本与网站设置对应不上，打开对应文件进行一次修改保存触发热更新即可，生产环境无此问题。
+
+## 如何更新
+
+在 GitHub 上：只需点击 `Sync fork`
+
+在您的本地机器上：
+
+```bash
+# 添加一个远程仓库
+git remote add upstream https://github.com/bowencool/blog.git
+
+# 将 upstream/main 合并到你的分支中
+git merge upstream/main --no-ff
+
+# 或者将你的分支变基到 upstream/main 上
+git rebase upstream/main && git push -f
+```

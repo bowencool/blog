@@ -27,3 +27,20 @@ What are the differences compared to AstroPaper?
 
 1. `public/locales` does not support hot reloading for now, moving it to the src directory might be helpful.
 2. When developing locally, it's common that the multilingual versions of articles do not match the website settings. Opening and making a modification to the corresponding file to trigger hot reloading can solve this issue; this problem does not exist in production environments.
+
+## How to update
+
+On GitHub: Just Click "Sync fork"
+
+On your local machine:
+
+```bash
+# add a remote
+git remote add upstream https://github.com/bowencool/blog.git
+
+# merge upstream/main into your branch
+git merge upstream/main --no-ff
+
+# or rebase your branch onto upstream/main
+git rebase upstream/main && git push -f
+```
