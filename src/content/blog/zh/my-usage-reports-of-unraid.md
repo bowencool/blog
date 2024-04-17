@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-04-17T17:26:31Z
+modDatetime: 2024-04-17T17:34:05Z
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -127,6 +127,10 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 功能真的多，生态是真的丰富，不只是网盘。
 
 小毛病有点多，强迫症已经卸载。
+
+### Seafile
+
+评论区推荐的，已经用上了。
 
 ### MtPhotos
 

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-04-17T17:26:31Z
+modDatetime: 2024-04-17T17:34:05Z
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -118,6 +118,10 @@ Used for
 ### Tailscale
 
 For more information, see [this article](/posts/how-to-connect-to-the-home-intranet-from-outside).
+
+### Seafile
+
+Recommended in the comments section and I've used it.
 
 ### ~~NextCloud~~
 
