@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-03-07T20:18:15Z
+modDatetime: 2024-04-17T17:26:31Z
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -134,12 +134,16 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 - 地图相册、场景识别、人脸识别、文本识别...
   - **在本地识别，支持使用 PC 硬件加速识别**
+  - 人脸识别效果一言难尽
 - 以文搜图，比如搜：湖
-- 客户端功能完善
-- 支持已有文件夹，可以通过 iCloudPD 同步到本地，用 MtPhotos 管理。（好处是全程无感自动备份，不需要打开任何 APP）
+- 客户端~~功能完善~~
+  - 仅支持 copy，缺少 rclone 那样的 sync 功能
 - 多用户支持
+- 支持已有文件夹原地管理，不会更改目录结构（Immich 是不支持的）
+  - 可以搭配 iCloudPD 同步到本地，用 MtPhotos 管理。（好处是全程无感自动备份，不需要打开任何 APP）
+- 支持编辑照片的拍摄时间、位置信息（直接写入文件 Exif）
 
-完爆国内所有网盘**（1.隐私及审查问题；2.会丢失 Exif 信息）**、 NextCloud、PhotoPrisma(操作反人类，没有多用户)、Pho、Xiaomi 相册。
+完爆所有国内网盘**（1.隐私及审查问题；2. Exif 信息会被修改）**、 NextCloud、PhotoPrisma(操作反人类，没有多用户)、Pho。
 
 ### Gitea
 

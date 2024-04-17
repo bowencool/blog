@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-03-07T20:18:15Z
+modDatetime: 2024-04-17T17:26:31Z
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -129,21 +129,20 @@ There are quite a few minor issues, so I uninstalled it due to my perfectionism.
 
 ### MtPhotos
 
-Photo management service, amazing, with functions similar to Apple's photo album, you can also try [Immich](https://github.com/immich-app/immich)
+Photo management service, highly praised, functionality close to Apple Photos, you can also try [Immich](https://github.com/immich-app/immich)
 
 - Map albums, scene recognition, face recognition, text recognition...
-
-- **Local recognition supported, with PC hardware acceleration**
-
-- Search images by text, for example: search for "lake"
-
-- Complete client functionality
-
-- Support existing folders and sync to local using iCloudPD for management with MtPhotos. (The benefit is seamless automatic backup without needing to open any app)
-
+  - **Local recognition supported with PC hardware acceleration**
+  - Face recognition results are hard to describe
+- Search images by text, for example: lake
+- Client ~~fully featured~~
+  - Only supports copy; lacks sync feature like rclone
 - Multi-user support
+- Supports managing existing folders in place without changing directory structure (not supported by Immich)
+  - Can be paired with iCloudPD to sync locally and managed by MtPhotos. (The advantage is a completely seamless automatic backup without needing to open any APP)
+- Supports editing the shooting time and location information of photos (directly written to file Exif)
 
-Outperforms all Chinese cloud storage services **(1. privacy and censorship issues; 2. may lose Exif information)**, NextCloud, PhotoPrisma (inhuman operation and no multi-user support), Pho, Xiaomi Album.
+Far surpasses all domestic cloud services **(1. Privacy and censorship issues; 2. Exif information will be modified)**, NextCloud, PhotoPrisma (user-unfriendly operation and no multi-user support), Pho.
 
 ### Gitea
 
