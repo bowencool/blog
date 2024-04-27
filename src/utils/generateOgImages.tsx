@@ -3,17 +3,16 @@ import { Resvg } from "@resvg/resvg-js";
 import { type CollectionEntry } from "astro:content";
 import postOgImage from "./og-templates/post";
 import siteOgImage from "./og-templates/site";
-// import fs from 'fs/promises';
+import fs from "fs/promises";
 
 // Regular Font
-const fontRegular: ArrayBuffer = await fetch(
-  "https://www.1001fonts.com/download/font/ibm-plex-mono.regular.ttf"
-).then(r => r.arrayBuffer());
+const fontRegular = await fs.readFile(process.cwd() + "/public/ibm-plex-mono.regular.ttf");
 
 // Bold Font
-const fontBold: ArrayBuffer = await fetch(
-  "https://www.1001fonts.com/download/font/ibm-plex-mono.bold.ttf"
-).then(r => r.arrayBuffer());
+// const fontBold: ArrayBuffer = await fetch(
+//   "https://www.1001fonts.com/download/font/ibm-plex-mono.bold.ttf"
+// ).then(r => r.arrayBuffer());
+const fontBold = await fs.readFile(process.cwd() + "/public/ibm-plex-mono.bold.ttf");
 
 const options: SatoriOptions = {
   width: 1200,
