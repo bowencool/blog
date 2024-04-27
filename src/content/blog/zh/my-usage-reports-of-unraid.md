@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-04-17T17:34:05Z
+modDatetime: 2024-04-27T12:52:53Z
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -138,7 +138,7 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 - 地图相册、场景识别、人脸识别、文本识别...
   - **在本地识别，支持使用 PC 硬件加速识别**
-  - 人脸识别效果一言难尽
+  - 人脸识别~~效果一言难尽~~最近可以用 deepface 识别了
 - 以文搜图，比如搜：湖
 - 客户端~~功能完善~~
   - 仅支持 copy，缺少 rclone 那样的 sync 功能

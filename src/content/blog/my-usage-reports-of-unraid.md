@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-04-17T17:34:05Z
+modDatetime: 2024-04-27T12:52:53Z
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -137,7 +137,7 @@ Photo management service, highly praised, functionality close to Apple Photos, y
 
 - Map albums, scene recognition, face recognition, text recognition...
   - **Local recognition supported with PC hardware acceleration**
-  - Face recognition results are hard to describe
+  - Face recognition ~~is not very well~~ can use deepface now.
 - Search images by text, for example: lake
 - Client ~~fully featured~~
   - Only supports copy; lacks sync feature like rclone
