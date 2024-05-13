@@ -56,7 +56,7 @@ SSR 模式下服务端返回的是
 ```mermaid
 sequenceDiagram
 Note over Client: 输入URL回车: <br>http://xxx.com/order/list?page=1&size=20
-Client ->> Node Server: 发送get请求
+Client -->> Node Server: 发送get请求
 Note over Node Server: 收到请求
 Note over Node Server: 解析URL（由router提供api），得到具体路由、组件<br>例如：[Layout、OrderList]
 Note over Node Server: 【可选业务逻辑】解析路由/组件所需要的条件，例如：<br>权限不够，返回403；未登陆，重定向到login。

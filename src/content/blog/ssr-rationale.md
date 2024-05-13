@@ -54,7 +54,7 @@ The main advantages are:
 ```mermaid
 sequenceDiagram
 Note over Client: Type the url and press Enter: <br>http://xxx.com/order/list?page=1&size=20
-Client ->> Node Server: Send a GET request
+Client -->> Node Server: Send a GET request
 Note over Node Server: Receive the request
 Note over Node Server: Parsing URLs (api provided by router) to get specific routes, components<br>For example：[Layout、OrderList]
 Note over Node Server: [Optional Business Logic] Analyze the conditions required by the route/component, for example: <br>Return 403 when user have insufficient permissions, redirect to login if not logged in
