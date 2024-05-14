@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-04-27T12:52:53Z
+modDatetime: 2024-05-14T05:57:43Z
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -55,7 +55,7 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 定时任务。我没用 crontab 的原因有两个：
 
 1. 所有配置、脚步都在 Flash 备份范围内。（crontab 也可以通过文件的方式 `crontab ~/.crontab` 恢复）
-2. 简单的可视化管理。
+2. 简单的管理页面和日志管理。
 
 有些复杂的 cron 不生效，自己权衡一下吧。
 
@@ -77,7 +77,7 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 ## 虚拟机
 
-### 软路由 OpenWrt
+### OpenWrt
 
 这个步骤需要买网卡硬件，然后直通给虚拟机，参考 B 站司波图的教程。
 
@@ -85,9 +85,9 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 2. OpenClash + MosDNS：科学上网。
 3. 其他插件我还没有精力、或者暂时没需求研究，比如广告屏蔽、流量管控等。
 
-### OpenVPN
+### CentOS
 
-详情查看[这篇文章](/zh/posts/how-to-connect-to-the-home-intranet-from-outside)
+主要装 OpenVPN，详情查看[这篇文章](/zh/posts/how-to-connect-to-the-home-intranet-from-outside)
 
 因为 docker 版本已经不再维护，所以装到虚拟机了。
 
@@ -98,6 +98,16 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 ~~我已经转为使用 Parallels Desktop 模拟 Window 环境了。~~
 
 我又组了一台 PC 用来打游戏，哈哈哈。
+
+### Ubuntu
+
+安装 shairport-sync + snapcast 实现多房间（全屋）音响系统。 airplay2 方案已经实现，但我还想支持 windows 和安卓，仍在探索阶段。
+
+选 Ubuntu 的原因：
+
+1. 安装 Docker 版本的 shairport-sync 后，苹果设备无法找到它。
+2. snapcast 文档仅仅说明了通过 stdout 把 shairport-sync 设置为音源，我不知道如何通过 Docker container 做到这一点，也许通过网络？
+3. snapcast 在 Ubuntu 上可以直接装，CentOS 还要自己编译，如果能解决第二点，Docker 版也挺方便。
 
 ## Docker
 
@@ -119,18 +129,6 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 ### Tailscale
 
 详情查看[这篇文章](/zh/posts/how-to-connect-to-the-home-intranet-from-outside)
-
-### ~~NextCloud~~
-
-可以理解为私有部署的百度网盘、阿里云盘。
-
-功能真的多，生态是真的丰富，不只是网盘。
-
-小毛病有点多，强迫症已经卸载。
-
-### Seafile
-
-评论区推荐的，已经用上了。
 
 ### MtPhotos
 
@@ -175,7 +173,19 @@ tips: Authenticator 放在手表上非常合适，不用找手机，~~微软家�
 
 ### ~~Home Assistant~~
 
-智能家居控制中心，可以把不同品牌的智能家居接到一起，举个例子，可以用 Siri 关米家的灯了。**体验不如米家**。
+智能家居控制中心，可以把不同品牌的智能家居接到一起，举个例子，可以用 Siri 关米家的灯了。**我的评价是可玩性高，自定义强，但并不值得耗费这么大的精力，非常折腾，不如直接用米家**。
+
+### ~~NextCloud~~
+
+可以理解为私有部署的百度网盘、阿里云盘。
+
+功能真的多，生态是真的丰富，不只是网盘。
+
+小毛病有点多，强迫症已经卸载。
+
+### Seafile
+
+评论区推荐的，已经用上了。
 
 ### ~~Syncthing~~
 
@@ -183,14 +193,24 @@ tips: Authenticator 放在手表上非常合适，不用找手机，~~微软家�
 
 同步和挂载的区别是：挂载是远程的文件，断开连接就没了。同步就是把你本地跟远程保持一致，断开也没啥影响。
 
-Syncthing 和 rclone 的区别是：syncthing 是后台实时的、分布式的。rclone 是命令式的，单向的（双向同步还处于 BETA 阶段），类似 rsync，主要做网盘同步。
+Syncthing、Seafile 和 rclone 之间的区别在于：Syncthing 是后台实时运行且分布式的。Seafile 同样支持后台实时同步，但需要一个服务器，类似于 NextCloud 或 OneDrive。rclone 则是基于命令操作的，并且默认为单向同步（其双向同步功能还处于测试阶段），类似于 rsync，主要用于网盘同步和备份等任务，通常与定时任务一起使用。
 
-已经使用 rclone(crontab) + webdav 代替 Syncthing，原因如下：
+我已经放弃 Syncthing，原因如下：
 
-1. Syncthing ignore 语法太非主流，而且 ignore 文件好像不会在各设备间同步。
+1. Syncthing ignore 语法太非主流，而且 ignore 文件不会在各设备间同步。
 2. 使用 Time Machine 恢复后，Syncthing 竟然还要手动重置一下 ID 才能用，真是自找麻烦。
 
-评论区提到的 Seafile 也是一个好的方案。
+### AList
+
+Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下载。
+
+它可以通过自带的 webdav 弥补 rclone 不支持的网盘类型，比如夸克网盘。
+
+它可以通过自带的 s3 解决一些小众软件比如 duplicacy 不支持 WebDAV 的问题，比如[这个帖子](/zh/posts/how-to-encrypt-backup-your-data-on-your-nas/)。
+
+它可以代替 Nginx(autoindex) 托管 Public 文件夹，以便分享给朋友，或者让朋友直接上传。
+
+我之前试过它的权限管理，下载链接没有鉴权...我不太信任它。
 
 ### [WebDAV](https://hub.docker.com/r/bytemark/webdav)
 
@@ -203,16 +223,6 @@ Syncthing 和 rclone 的区别是：syncthing 是后台实时的、分布式的�
 如果你装了 Alist，那就不需要装这个了。
 
 阿里云盘的 webDAV 实现，主要做备份用的。有缓存问题，问题不大。
-
-### AList
-
-Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下载。
-
-可以通过自带的 webdav 弥补 rclone 不支持的网盘类型，比如夸克网盘。
-
-可以代替 Nginx(autoindex) 托管 Public 文件夹，以便分享给朋友。
-
-我试了一下，权限这块我不太信任它。
 
 ### [OpenLDAP](https://hub.docker.com/r/osixia/openldap/) + [phpldapadmin](https://hub.docker.com/r/osixia/phpldapadmin/)
 

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-04-27T12:52:53Z
+modDatetime: 2024-05-14T05:57:43Z
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -55,8 +55,9 @@ Allows easy management of USB devices, which can be assigned directly to VMs. Li
 Timed tasks. I don't use crontab for two reasons:
 
 1. all configurations, scripts are within Flash backup. (crontab can also be restored as a file `crontab ~/.crontab`)
-2. simple visual management.
-   Some complex cron doesn't work, so weigh it yourself.
+2. Simple dashboard and log management.
+
+Some complex cron doesn't work, so weigh it yourself.
 
 ### NerdTools
 
@@ -76,7 +77,7 @@ For details, check out: [How to connect to home intranet from outside?](/posts/h
 
 ## Virtual Machines
 
-### Soft routing OpenWrt
+### OpenWrt
 
 For this step, you need to buy the NIC hardware and pass it through to the VM, refer to the tutorial on Site B Spoto.
 
@@ -84,7 +85,7 @@ For this step, you need to buy the NIC hardware and pass it through to the VM, r
 2. OpenClash + MosDNS: Special demand on the Chinese network.
 3. Other plugins I haven't had the energy, or the need to look into for a while, such as adblocking and traffic control.
 
-### OpenVPN
+### CentOS for OpenVPN
 
 For details, check out [this article](/posts/how-to-connect-to-the-home-intranet-from-outside)
 
@@ -97,6 +98,16 @@ I am already an Apple ecosystem user, ~~so I need a virtual machine to run some 
 ~~I have switched to using Parallels Desktop to simulate the Windows environment.~~
 
 I built a PC for gaming, hahaha.
+
+### Ubuntu
+
+Install shairport-sync + snapcast to implement a multi-room (whole house) sound system. The Airplay2 solution has been implemented, but I also want to support Windows and Android, and am still in the exploration stage.
+
+Reasons for choosing Ubuntu:
+
+1. After installing the Docker version of shairport-sync, Apple devices cannot find it.
+2. The snapcast documentation only explains how to set shairport-sync as an audio source through stdout; I don't know how to do this via a Docker container, perhaps through the network?
+3. Snapcast can be directly installed on Ubuntu, whereas CentOS requires manual compilation; if the second point can be resolved, the Docker version would also be quite convenient.
 
 ## Docker
 
@@ -118,18 +129,6 @@ Used for
 ### Tailscale
 
 For more information, see [this article](/posts/how-to-connect-to-the-home-intranet-from-outside).
-
-### Seafile
-
-Recommended in the comments section and I've used it.
-
-### ~~NextCloud~~
-
-It can be understood as a privately deployed AWS S3 or Google Drive.
-
-It has a lot of features and a rich ecosystem, not just cloud storage.
-
-There are quite a few minor issues, so I uninstalled it due to my perfectionism.
 
 ### MtPhotos
 
@@ -176,7 +175,19 @@ Tips: Authenticator on a smartwatch works well as you don't have to find your ph
 
 ### Home Assistant
 
-A smart home control center that can connect different brands of smart home devices together. For example, you can use Siri to control Xiaomi's lights. **The experience is not as good as Mi Home**.
+A smart home control center that can connect different brands of smart home devices together. For example, you can use Siri to control Xiaomi's lights. **My evaluation is that it has high playability and strong customization, but it's not worth the effort. It's very troublesome, better to just use Mi Home directly.**.
+
+### ~~NextCloud~~
+
+It can be understood as a privately deployed AWS S3 or Google Drive.
+
+It has a lot of features and a rich ecosystem, not just cloud storage.
+
+There are quite a few minor issues, so I uninstalled it due to my perfectionism.
+
+### Seafile
+
+Recommended in the comments section and I've used it.
 
 ### ~~Syncthing~~
 
@@ -184,14 +195,24 @@ Used to synchronize software configurations, with a focus on Alfred and iTerm2 c
 
 The difference between synchronization and mounting is that mounting refers to remote files, which disappear when the connection is disconnected. Synchronization, on the other hand, means keeping your local and remote files consistent, with no significant impact if the connection is disconnected.
 
-The difference between Syncthing and rclone is that Syncthing is a real-time, distributed background process, while rclone is command-based and primarily used for one-way synchronization (bidirectional sync is still in the beta stage). It's similar to rsync and mainly used for cloud storage synchronization.
+The differences between Syncthing, Seafile, and rclone are: Syncthing runs in real-time in the background and is decentralized. Seafile also supports real-time synchronization in the background but requires a server, similar to NextCloud or OneDrive. Rclone is command-based and by default performs one-way synchronization (its bidirectional sync feature is still in the beta stage), similar to rsync. It's primarily used for tasks like cloud storage syncing and backup, often used together with scheduled tasks.
 
-I have replaced Syncthing with rclone (crontab) + webdav for the following reasons:
+I have gave up Syncthing for the following reasons:
 
 1. Syncthing's ignore syntax is too non-mainstream, and it seems that its ignored file do not sync between devices.
 2. After restored from Time Machine, Syncthing actually requires manual resetting of ID before it can be used again; truly troublesome.
 
-Seafile, as mentioned in the comments section, is also a good solution.
+### AList
+
+Web version of the file browser, which has many features, such as support for cloud storage, synchronization, and downloading.
+
+It can compensate for the types of cloud storage not supported by rclone through its built-in webdav, such as Quark Cloud.
+
+It can solve some niche software issues like duplicacy not supporting WebDAV through its own s3 solution, like [this post](/posts/how-to-encrypt-backup-your-data-on-your-nas/).
+
+It can replace Nginx(autoindex) to host a Public folder for sharing with friends or allowing friends to upload directly.
+
+I have tried its permission management before; the download links had no authentication... I don't quite trust it.
 
 ### [WebDAV](https://hub.docker.com/r/bytemark/webdav)
 
@@ -204,16 +225,6 @@ Similar to SMB, WebDAV uses the HTTP protocol. Some third-party clients support 
 If you have installed Alist, then you don't need to install this.
 
 This is an implementation of webDAV for Aliyun Drive mainly used for backup purposes. There are some caching issues but they are not significant.
-
-### AList
-
-A web-based file browser with many features such as support for cloud storage, synchronization, and downloads.
-
-It can use its built-in webdav feature to compensate for rclone's lack of support for certain types of cloud storage like Quark Cloud.
-
-It can be used instead of Nginx(autoindex) to host the Public folder in order to share files with friends.
-
-I tried it out and I'm not very trusting of its permissions handling.
 
 ### [OpenLDAP](https://hub.docker.com/r/osixia/openldap/) + [phpldapadmin](https://hub.docker.com/r/osixia/phpldapadmin/)
 
@@ -237,7 +248,7 @@ By the end of 2022, I switched to using [Aria2-Pro](https://p3terx.com/archives/
 
 ### [MeTuBe](https://github.com/alexta69/metube)
 
-一键下载各种网站视频，类似于Downie。
+Download videos from various websites in one click, similar to Downie.
 
 ### Jellyfin
 
