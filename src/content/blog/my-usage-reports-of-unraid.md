@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-05-14T05:57:43Z
+modDatetime: 2024-05-14T06:05:26Z
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -79,7 +79,7 @@ For details, check out: [How to connect to home intranet from outside?](/posts/h
 
 ### OpenWrt
 
-For this step, you need to buy the NIC hardware and pass it through to the VM, refer to the tutorial on Site B Spoto.
+This step requires purchasing a network card hardware, then passing it through to the virtual machine, refer to Spoto's tutorial on Bilibili.com.
 
 1. DDNS: Used to automatically resolve domain names to the correct public IP, because the public IP of telecom broadband changes every now and then, and fixed public IP is too expensive.
 2. OpenClash + MosDNS: Special demand on the Chinese network.
