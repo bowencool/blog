@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-07-04T05:04:49Z
+modDatetime: 2024-07-04T05:06:23Z
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -303,9 +303,9 @@ Here is the feature I want to implement next. If you have any recommended or upd
 unRAID 6.12 already supports it. unRAID 7 already supports using RAID-Z instead of traditional arrays.
 The downside is that you can't reduce the number of disks gracefully.
 
-## Update December 2022
+## Updates at December 2022
 
-### OpenWrt has enabled IPv6
+### IPv6 was enabled on OpenWrt
 
 [Refer to this article](https://www.lategege.com/?p=676), the reason is that the living environment is using china mobile broadband, and there is currently no public IP.
 
