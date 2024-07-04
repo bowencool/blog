@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-05-14T06:05:26Z
+modDatetime: 2024-07-04T05:04:49Z
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -63,7 +63,9 @@ Some complex cron doesn't work, so weigh it yourself.
 
 Package manager. Currently vim, zsh, and nodejs are installed.
 
-### Dynamix File Manager
+### ~~Dynamix File Manager~~
+
+> unRAID 7 has integrated it.
 
 A file manager embedded directly in the unraid backend admin page, which is somewhat useful, but not much.
 
@@ -124,7 +126,8 @@ Used for
 1. Allocate domain names instead of [IP]:[Port]
 2. Unified handling of https
    1. The certificate is applied for using Certbot, and the official website states that port 80 needs to be open. I was misled for a long time and used self-signed certificates for a long time. For details, please refer to [Applying SSL Certificate with CertBot without Port 80](https://www.cnblogs.com/ellisonzhang/p/14298492.html).
-   2. Automatic renewal: mainly use the [SDK](https://next.api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09) to add/modify a TXT record in DNS resolution. Aliyun's API documentation is available [here](https://help.aliyun.com/document_detail/29745.html). It took about two or three hours to develop, and the code is available [here](https://gist.github.com/bowencool/d0bce4bfb853c7ec1b1a4964e9371381)."
+   2. Automatic renewal: mainly use the [SDK](https://next.api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09) to add/modify a TXT record in DNS resolution. Aliyun's API documentation is available [here](https://help.aliyun.com/document_detail/29745.html). It took about two or three hours to develop, and the code is available [here](https://gist.github.com/bowencool/d0bce4bfb853c7ec1b1a4964e9371381).
+      1. I recently saw the docker version of auto-requesting certificates, haven't used it yet: https://github.com/certd/certd
 
 ### Tailscale
 
@@ -132,24 +135,25 @@ For more information, see [this article](/posts/how-to-connect-to-the-home-intra
 
 ### MtPhotos
 
-Photo management service, highly praised, functionality close to Apple Photos, you can also try [Immich](https://github.com/immich-app/immich)
+Photo management service, functionality close to Apple Photos, you can also try [Immich](https://github.com/immich-app/immich)
 
 - Map albums, scene recognition, face recognition, text recognition...
   - **Local recognition supported with PC hardware acceleration**
-  - Face recognition ~~is not very well~~ can use deepface now.
-- Search images by text, for example: lake
+  - Face recognition is not very well; although it can be used with deepface now, the effect is also quite average.
+- Search images by text, for example: "lake"
 - Client ~~fully featured~~
   - Only supports copy; lacks sync feature like rclone
+  - Lack of "Synchronize only specified time range" function, emailed twice and the reply was "No development plan".
 - Multi-user support
-- Supports managing existing folders in place without changing directory structure (not supported by Immich)
+- Supports managing existing folders in place without changing directory structure (That's what I like about it. Immich doesn't support it.)
   - Can be paired with iCloudPD to sync locally and managed by MtPhotos. (The advantage is a completely seamless automatic backup without needing to open any APP)
-- Supports editing the shooting time and location information of photos (directly written to file Exif)
+- Supports editing the shooting time and location information of photos (Writes directly to the file Exif, very useful for organizing old photos.)
 
 Far surpasses all domestic cloud services **(1. Privacy and censorship issues; 2. Exif information will be modified)**, NextCloud, PhotoPrisma (user-unfriendly operation and no multi-user support), Pho.
 
 ### Gitea
 
-Lightweight git service, Gitlab is too heavy. The tool chain (GitLens, Alfred, third-party clients, etc.) is also relatively complete.
+Lightweight git service, Gitlab is too heavy.
 
 ### Bitwarden
 
@@ -226,7 +230,9 @@ If you have installed Alist, then you don't need to install this.
 
 This is an implementation of webDAV for Aliyun Drive mainly used for backup purposes. There are some caching issues but they are not significant.
 
-### [OpenLDAP](https://hub.docker.com/r/osixia/openldap/) + [phpldapadmin](https://hub.docker.com/r/osixia/phpldapadmin/)
+### ~~[OpenLDAP](https://hub.docker.com/r/osixia/openldap/) + [phpldapadmin](https://hub.docker.com/r/osixia/phpldapadmin/)~~
+
+> It's not worth the hassle. It's less work to just Bitwarden/1Password to generate random passwords.
 
 Unified authentication. With so many applications installed, changing passwords is too cumbersome.
 
@@ -248,9 +254,9 @@ By the end of 2022, I switched to using [Aria2-Pro](https://p3terx.com/archives/
 
 ### [MeTuBe](https://github.com/alexta69/metube)
 
-Download videos from various websites in one click, similar to Downie.
+Download videos from various websites in one click, similar to Downie. I don't need it at all, lol.
 
-### Jellyfin
+### ~~Jellyfin~~
 
 Home theater service. My little integrated graphics are struggling a bit. It's a bit redundant for ordinary people, not as convenient as screen casting.
 
@@ -266,15 +272,17 @@ Although it may not be enough to be convicted of damaging computer systems, bein
 
 In the end, I decided to use IDE + Git instead of these note-taking software. I think no matter how well note-taking software is done, it will always be inferior to IDE. IDE can have unlimited possibilities with plugins and can conform to your writing habits.
 
+If you need multi-device synchronization, consider Obsidian, which does not require registration and can be used directly by opening the iCloud folder. Moreover, you can still use an IDE to edit on your computer. This is inconvenient with Joplin because its directory structure is not human-readable.
+
 ### FreshRSS + RSSHub + [WeWeRSS](https://github.com/cooderl/wewe-rss)
 
-I'm relying more and more on RSS, it's efficient to get all the information in one place and not be held hostage by recommendation algorithms.
+I'm relying more and more on RSS, it's efficient to get all the information in one place and not be held hostage by recommendation algorithms. One downside is that there's too much information, and it's impossible to read it all, haha, even just reading the titles is a big waste of time.
 
 RSSHub converts all kinds of websites that don't support RSS into RSS, such as Bilibili, Zhihu, Weibo, Xiaohongshu, Twitter, Telegram...
 
 WeWeRSS specializes in converting WeChat to RSS.
 
-The role of FreshRSS is to synchronize the whole platform and fine management, not necessary, but recommended. Under normal circumstances RSS client can directly add subscriptions, you can also login to FreshRSS.
+The role of FreshRSS is to synchronize the whole platform and fine management, not necessary, but recommended. Under normal circumstances RSS client can directly add subscriptions, you can also login to FreshRSS. This service has a competitor called TTRSS, which also supports self-host.
 
 For the client, use Reeder (paid) or NetNewsWire (open source free) for Mac / iOS, and Feedme for Android. It's great to have cross-platform synchronization.
 
@@ -290,21 +298,10 @@ See [this post](/posts/how-to-encrypt-backup-your-data-on-your-nas)
 
 Here is the feature I want to implement next. If you have any recommended or updated feature, feel free to share.
 
-### Deprecated Optical Modem
+### Look into ZFS (RAID-Z)
 
-Recently changed the optical modem (new telecom optical modems are all like this), and then encountered a problem: the domain name is resolved to the optical modem, normal access from the public network, but cannot be accessed from the internal network. It was fine before, and I couldn't find the reason. I suspect that the optical modem intercepted it. Currently, manually modifying host records in OpenWrt can barely work. If anyone knows about this, please leave a message. I want to buy an optical-to-electric module directly plugged into NAS, but it seems unnecessary.
-
-Advantages:
-
-1. Solve this loopback access problem
-
-2. Slightly increase bandwidth, estimated at 5%~10%
-
-3. No need for port forwarding anymore
-
-### Research ZFS
-
-Unraid 6.12 already supports it.
+unRAID 6.12 already supports it. unRAID 7 already supports using RAID-Z instead of traditional arrays.
+The downside is that you can't reduce the number of disks gracefully.
 
 ## Update December 2022
 

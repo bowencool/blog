@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-05-14T05:57:43Z
+modDatetime: 2024-07-04T05:04:49Z
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -63,7 +63,9 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 包管理器。目前安装了 vim、zsh、nodejs。
 
-### Dynamix File Manager
+### ~~Dynamix File Manager~~
+
+> unRAID 7 已集成。
 
 直接在 unraid 后台管理页面上嵌一个文件管理器，有点作用，但不大。
 
@@ -125,6 +127,7 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 2. 统一处理 https
    1. 证书用 Certbot 申请的，官网上写需要 80 端口开放，我被误导了很久，用了好久的自签证书。详情请查看[无 80 端口情况下使用 CertBot 申请SSL证书](https://www.cnblogs.com/ellisonzhang/p/14298492.html)。
    2. 自动续期：主要是用 [SDK](https://next.api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09) 往 DNS 解析里添加/修改一条 TXT 记录。阿里云的 API 文档在[这里](https://help.aliyun.com/document_detail/29745.html) ，大概两三个小时开发完成，[代码在此](https://gist.github.com/bowencool/d0bce4bfb853c7ec1b1a4964e9371381)。
+      1. 最近看到了 docker 版的自动申请证书，还没使用：https://github.com/certd/certd
 
 ### Tailscale
 
@@ -132,24 +135,25 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 ### MtPhotos
 
-照片管理服务，吹爆，功能接近苹果相册，你也可以尝试 [Immich](https://github.com/immich-app/immich)
+照片管理服务，功能接近苹果相册，你也可以尝试 [Immich](https://github.com/immich-app/immich)
 
 - 地图相册、场景识别、人脸识别、文本识别...
   - **在本地识别，支持使用 PC 硬件加速识别**
-  - 人脸识别~~效果一言难尽~~最近可以用 deepface 识别了
+  - 人脸识别效果一言难尽，虽然可以用 deepface，但效果也是很一般。
 - 以文搜图，比如搜：湖
 - 客户端~~功能完善~~
   - 仅支持 copy，缺少 rclone 那样的 sync 功能
+  - 缺少“仅同步指定时间范围”功能，发邮件问了两遍，答复都是“没有开发计划”
 - 多用户支持
-- 支持已有文件夹原地管理，不会更改目录结构（Immich 是不支持的）
+- 支持已有文件夹原地管理，不会更改目录结构（这一点我很喜欢，Immich 是不支持的）
   - 可以搭配 iCloudPD 同步到本地，用 MtPhotos 管理。（好处是全程无感自动备份，不需要打开任何 APP）
-- 支持编辑照片的拍摄时间、位置信息（直接写入文件 Exif）
+- 支持编辑照片的拍摄时间、位置信息（直接写入文件 Exif，整理老照片非常有用）
 
 完爆所有国内网盘**（1.隐私及审查问题；2. Exif 信息会被修改）**、 NextCloud、PhotoPrisma(操作反人类，没有多用户)、Pho。
 
 ### Gitea
 
-轻量 git 服务，Gitlab 太重了。工具链（GitLens、Alfred、第三方客户端等）也比较完善。
+轻量 git 服务，Gitlab 太重了。
 
 ### Bitwarden
 
@@ -224,7 +228,9 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 阿里云盘的 webDAV 实现，主要做备份用的。有缓存问题，问题不大。
 
-### [OpenLDAP](https://hub.docker.com/r/osixia/openldap/) + [phpldapadmin](https://hub.docker.com/r/osixia/phpldapadmin/)
+### ~~[OpenLDAP](https://hub.docker.com/r/osixia/openldap/) + [phpldapadmin](https://hub.docker.com/r/osixia/phpldapadmin/)~~
+
+> 不值得折腾。直接 Bitwarden/1Password 生成随机密码更省事。
 
 统一认证的。装的应用多了，改密码太费劲。
 
@@ -244,11 +250,15 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 22年底转为使用 [Aria2-Pro](https://p3terx.com/archives/docker-aria2-pro.html) + [AriaNg](https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html) / [Aria2 Explorer](https://chrome.google.com/webstore/detail/mpkodccbngfoacfalldjimigbofkhgjn) 作为全协议下载器。
 
-### [MeTuBe](https://github.com/alexta69/metube)
+### ~~[MeTuBe](https://github.com/alexta69/metube)~~
 
-一键下载各种网站视频，类似于Downie。
+一键下载各种网站视频，类似于 Downie。根本用不到，哈哈。
 
-### Jellyfin
+### Stirling-PDF
+
+PDF 的各种操作。使用频率非常低，只用过一次签名。也有很多免费的在线版，但安全/隐私没保障。
+
+### ~~Jellyfin~~
 
 家庭影院服务。我的小核显有点吃力。对于普通人来说有点鸡肋，不如投屏方便。
 
@@ -264,15 +274,17 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 我最后还是决定用 IDE + Git 的方式代替这些笔记软件。我认为笔记软件做的再好，跟 IDE 比永远是小儿科。IDE 可以借助插件拥有无限可能，而且符合你的书写习惯。
 
+有多端同步需求的话，可以考虑 Obsidian，无需注册，直接打开 iCloud 文件夹即可。而且电脑上仍然可以使用 IDE 编辑。这一点 Joplin 不太方便，因为它的目录结构不是人类可读的。
+
 ### FreshRSS + RSSHub + [WeWeRSS](https://github.com/cooderl/wewe-rss)
 
-我越来越依赖 RSS，在一个地方获取所有信息，很高效，而且不会被推荐算法裹挟。
+我越来越依赖 RSS，在一个地方获取所有信息，很高效，而且不会被推荐算法裹挟。有个缺点就是信息太多了，根本看不完，哈哈，即使只看标题，也很浪费时间。
 
 RSSHub 将各种原本不支持 RSS 的网站转化成 RSS，比如 Bilibili、知乎、微博、小红书、Twitter、Telegram...
 
 WeWeRSS 专注于将微信公众号转成 RSS。
 
-FreshRSS 的作用是全平台同步以及精细化管理，不是必须的，但推荐使用。正常情况下 RSS 客户端可以直接添加订阅，也可以登录到 FreshRSS。
+FreshRSS 的作用是全平台同步以及精细化管理，不是必须的，但推荐使用。正常情况下 RSS 客户端可以直接添加订阅，也可以登录到 FreshRSS。这个服务有个竞品叫 TTRSS，也是支持 self-host 的。
 
 客户端的话 Mac / iOS 用 Reeder(付费) 或 NetNewsWire(开源免费)，安卓用 Feedme，全平台同步就很爽。
 
@@ -288,9 +300,9 @@ FreshRSS 的作用是全平台同步以及精细化管理，不是必须的，�
 
 下面是我接下来想实现的玩法，如果你也有推荐的、更新的玩法，欢迎交流。
 
-### 弃用光猫
+### ~~弃用光猫~~
 
-最近换过一次光猫（新的电信光猫都是这样了），然后出现一个问题：域名是解析到光猫的，从公网访问正常，从内网却无法访问，之前是好的，也没找到原因，推测是光猫拦截了。目前手动在 OpenWrt 修改 host 记录勉强能用。有知道的欢迎留言。我想买一个光转电模块直接插在 NAS 上，但是好像又没必要。
+最近换过一次光猫（新的电信光猫都是这样了），然后出现一个问题：域名是解析到光猫的，从公网访问正常，从内网却无法访问，之前是好的，也没找到原因，推测是光猫拦截了。目前手动在 OpenWrt 修改 host 记录勉强能用。有知道的欢迎留言。~~我想买一个光转电模块直接插在 NAS 上，但是好像又没必要。~~需要猫棒来仿冒光猫，没必要折腾。
 
 优点：
 
@@ -298,9 +310,11 @@ FreshRSS 的作用是全平台同步以及精细化管理，不是必须的，�
 2. 略微增加带宽，预估 5%~10%
 3. 不需要端口转发了
 
-### 研究一下 ZFS
+### 研究一下 ZFS（RAID-Z）
 
-Unraid 6.12 已经支持。
+unRAID 6.12 已经支持。unRAID 7 已经支持使用 RAID-Z 代替传统阵列了。
+
+缺点是无法优雅减少硬盘数量。
 
 ## 2022年12月更新
 
