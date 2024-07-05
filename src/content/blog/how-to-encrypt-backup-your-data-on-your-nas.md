@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-07-05T06:13:53Z
+modDatetime: 2024-07-05T06:24:55Z
 title: How to encrypt backup your data on your nas
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -97,7 +97,7 @@ It's also an excellent tool, but it's still in beta. I also tried it out and it 
 
 </details>
 
-## Practical Experience
+## Hands on
 
 ### Duplicati
 
