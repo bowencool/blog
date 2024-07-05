@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-07-04T05:06:23Z
+modDatetime: 2024-07-05T06:10:50Z
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -290,7 +290,7 @@ For the client, use Reeder (paid) or NetNewsWire (open source free) for Mac / iO
 
 Used for [Bob](https://bobtranslate.com/) and [Immersive Translate](https://immersivetranslate.com/).
 
-### Duplicacy / Duplicati
+### Duplicacy / Duplicati / Kopia
 
 See [this post](/posts/how-to-encrypt-backup-your-data-on-your-nas)
 

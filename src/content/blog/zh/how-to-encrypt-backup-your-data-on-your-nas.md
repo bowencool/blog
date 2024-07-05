@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-03-27T19:19:51Z
+modDatetime: 2024-07-05T06:10:50Z
 title: 如何加密备份你的 NAS 数据
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -69,19 +69,19 @@ description: 之前我们讲过如何用 RClone 将你的数据备份到云盘/O
 
 ### [Duplicacy](https://github.com/gilbertchen/duplicacy)
 
-加强版 Duplicati，它拥有最强的备份功能（[它自己和竞品做了比较](https://github.com/gilbertchen/duplicacy?tab=readme-ov-file#comparison-with-other-backup-tools)），简单提几个要点：
+加强版 Duplicati，它拥有更强的备份功能（[它自己和竞品做了比较](https://github.com/gilbertchen/duplicacy?tab=readme-ov-file#comparison-with-other-backup-tools)），简单提几个要点：
 
+- 命令行版免费，Web GUI 不免费。
 - 数据去重功能，可以节省不少储存空间。（有点像 Git、Seafile，好像 ZFS 也有这个功能）
 - 多个仓库可以共享一个存储，最大限度利用数据去重功能。
 - 同时备份到多个储存。
 - 并非采用固定大小，而是平均大小，这样仅修改少部分文件的时候会比较节省空间和时间。
 - 备份文件有损坏的话，仅相关文件受到影响，不会影响整个目录。
 - 更活跃的开发团队、更少的负面消息。
-- 命令行版免费，Web GUI 不免费。
 
 ### [Kopia](https://github.com/kopia/kopia/)
 
-也是一个非常优秀的工具，但它还在 beta 阶段，这次就不详细说了
+也是一个非常优秀的工具，但它还在 beta 阶段。我也尝试了一下，感觉比前面两个好用多了。具体看下面实战部分。
 
 ## 储存终点的选择
 
@@ -124,7 +124,11 @@ description: 之前我们讲过如何用 RClone 将你的数据备份到云盘/O
 
 ### Duplicati
 
-我最先体验的是 Duplicati，Docker 安装，非常简单，GUI 也非常容易上手，就不再赘述了。
+我最先体验的是 Duplicati，Docker 安装，非常简单，GUI 也容易上手。我的主观感受是：
+
+1. 页面逻辑不够清晰，尤其是配置 S3 那里，表单逻辑混乱。
+2. 配置共享也有点麻烦，必须完整的导出文件再导入。
+3. 还有 ignore 语法我也不太喜欢。
 
 ### Duplicacy
 
@@ -246,3 +250,13 @@ cd /mnt/user/Photos
 duplicacy backup -stats -storage alist-s3
 duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
 ```
+
+用了几个月后，duplicacy 出现了 404 NoSuchKey 的错误，也没搜到，懒得反馈了，转头试用一下 Kopia：
+
+### Kopia
+
+直接安装 Docker 版，我启动的时候报错找不到 htpasswd 文件，手动生成一个就好了。
+
+进入 WebUI，虽然不够精致，但逻辑非常清晰，配置项细节非常多，比 duplicati 强多了。
+
+备份很多照片也没报错。

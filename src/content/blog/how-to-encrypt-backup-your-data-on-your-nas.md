@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-03-27T18:58:20Z
+modDatetime: 2024-07-05T06:10:50Z
 title: How to encrypt backup your data on your nas
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -45,19 +45,19 @@ You can take a look at [this post](https://forum.duplicati.com/t/duplicati-vs-du
 
 ### [Duplicacy](https://github.com/gilbertchen/duplicacy)
 
-Enhanced version of Duplicati, which boasts the most powerful backup features ([it has compared itself with competitors](https://github.com/gilbertchen/duplicacy?tab=readme-ov-file#comparison-with-other-backup-tools)), let me highlight a few key points:
+Enhanced version of Duplicati, which boasts a better powerful backup features ([it has compared itself with competitors](https://github.com/gilbertchen/duplicacy?tab=readme-ov-file#comparison-with-other-backup-tools)), let me highlight a few key points:
 
+- Command line version is free while Web GUI is not free.
 - Data deduplication feature that can save a lot of storage space. (Similar to Git, Seafile, and it seems ZFS also has this feature)
 - Multiple repositories can share one storage, maximizing the use of data deduplication.
 - Backup one repository to multiple storages.
 - Not using fixed size but average size, which saves space and time when only modifying a small part of files.
 - If backup files are damaged, only relevant files are affected without impacting the entire directory.
 - More active development team and fewer negative messages.
-- Command line version is free while Web GUI is not free.
 
 ### [Kopia](https://github.com/kopia/kopia/)
 
-It's also an excellent tool, but it's still in beta, so I won't go into detail this time around.
+It is also a very good tool, but it is still in the beta stage. I also tried it and felt that it was much better than the previous two.
 
 ## Storage Endpoint Selection
 
@@ -101,7 +101,13 @@ It's also an excellent tool, but it's still in beta, so I won't go into detail t
 
 ### Duplicati
 
-The first tool I experienced was Duplicati. The Docker installation was very simple, and the GUI was also very easy to use. I won't go into detail about it.
+The first thing I experienced was Duplicati, installed via Docker, which was very simple and the GUI was easy to use. My subjective impressions are:
+
+1. The page logic is not clear enough, especially when configuring S3; the form logic is confusing.
+
+2. Configuring sharing is also a bit troublesome; you must completely export files and then import them.
+
+3. I also don't like the ignore syntax.
 
 ### Duplicacy
 
@@ -211,3 +217,13 @@ cd /mnt/user/Photos
 duplicacy backup -stats -storage alist-s3
 duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
 ```
+
+After using it for several months, duplicacy showed a 404 NoSuchKey error, which I couldn't find any information on and was too lazy to report. So I turned to try Kopia:
+
+### Kopia
+
+I directly installed the Docker version, but when I started it, there was an error saying that the htpasswd file could not be found. Manually creating one solved the problem.
+
+Upon entering the WebUI, the logic is very clear and there are many detailed configuration options—much better than duplicati.
+
+Backing up many photos also did not cause any errors.

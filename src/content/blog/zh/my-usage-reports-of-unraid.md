@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-07-04T05:04:49Z
+modDatetime: 2024-07-05T06:10:50Z
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -292,7 +292,7 @@ FreshRSS 的作用是全平台同步以及精细化管理，不是必须的，�
 
 给 [Bob](https://bobtranslate.com/) 和[沉浸式翻译](https://immersivetranslate.com/)用的
 
-### Duplicacy / Duplicati
+### Duplicacy / Duplicati / Kopia
 
 查看[这篇文章](/zh/posts/how-to-encrypt-backup-your-data-on-your-nas)
 
