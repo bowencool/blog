@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-07-05T06:10:50Z
+modDatetime: 2024-07-05T06:13:53Z
 title: 如何加密备份你的 NAS 数据
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -81,7 +81,7 @@ description: 之前我们讲过如何用 RClone 将你的数据备份到云盘/O
 
 ### [Kopia](https://github.com/kopia/kopia/)
 
-也是一个非常优秀的工具，但它还在 beta 阶段。我也尝试了一下，感觉比前面两个好用多了。具体看下面实战部分。
+也是一个非常优秀的工具，但它还在 beta 阶段。我也尝试了一下，拥有前两者的所有优点，感觉比前面两个好用多了。具体看下面实战部分。
 
 ## 储存终点的选择
 

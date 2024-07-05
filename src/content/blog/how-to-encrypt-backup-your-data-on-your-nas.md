@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-07-05T06:10:50Z
+modDatetime: 2024-07-05T06:13:53Z
 title: How to encrypt backup your data on your nas
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -57,7 +57,7 @@ Enhanced version of Duplicati, which boasts a better powerful backup features ([
 
 ### [Kopia](https://github.com/kopia/kopia/)
 
-It is also a very good tool, but it is still in the beta stage. I also tried it and felt that it was much better than the previous two.
+It's also an excellent tool, but it's still in beta. I also tried it out and it has all the advantages of the first two and feels much better than the first two. See below for the hands-on section.
 
 ## Storage Endpoint Selection
 
