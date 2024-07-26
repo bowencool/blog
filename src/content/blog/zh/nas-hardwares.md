@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-06-25T20:40:58.000+08:00
-modDatetime: 2024-07-15T02:45:09Z
+modDatetime: 2024-07-26T12:38:53Z
 title: 半瓶水的 NAS 硬件升级草案
 permalink: nas-hardwares
 tags:
@@ -73,7 +73,7 @@ description: 我目前的 NAS 是由一台 8 年前的旧电脑改造而成的�
 | [畅网微控N305](https://item.jd.com/10102810600735.html#crumb-wrap)                                       | 1468 | ITX 170mm | 12代板U一体 | 6        | 2   | 1    | 4          | D5 4800 x1 笔记本条                       | DC          | 没啥必要                           |
 | [畅网微控Q670](https://item.jd.com/10101537998975.html)                                                  | 888  | ITX 170mm | 12/13/14    | 8        | 3   | 1    | 2          | D5 5600 x2 台式机条<br>(12代U 仅支持4800) | ATX 8+24Pin |                                    |
 | [畅网微控H670](https://item.jd.com/10101537998975.html)                                                  | 1018 | ITX 170mm | 12/13/14    | 8        | 3   | 1    | 2          | 同上                                      |             | 接口数量一样，但规格更高<br>没必要 |
-| <mark>[MAG B660M MORTAR DDR4](https://www.msi.cn/Motherboard/MAG-B660M-MORTAR-DDR4/Specification)</mark> | 890  | MATX      | 12/13/14    | 6        | 2   | 3    | 1          | D4 4800 x4 台式                           |             | MATX 首选                          |
+| <mark>[MAG B660M MORTAR DDR4](https://www.msi.cn/Motherboard/MAG-B660M-MORTAR-DDR4/Specification)</mark> | 780  | MATX      | 12/13/14    | 6        | 2   | 3    | 1          | D4 4800 x4 台式                           |             | MATX 首选                          |
 | [微星 B760M](https://item.jd.com/100051301777.html)                                                      | 649  | MATX      | 12/13/14    | 4        | 2   | 2    | 1\*千兆    | D4 4800 x2 台式                           | 24+8        |                                    |
 
 ## 内存
