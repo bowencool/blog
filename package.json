@@ -10,6 +10,7 @@
     "postbuild": "jampack ./dist",
     "deploy": "vercel build && vercel deploy --prebuilt",
     "deploy:prod": "vercel build --prod && vercel deploy --prod --prebuilt",
+    "postdeploy:prod": "git push",
     "preview": "astro preview",
     "prepare": "husky",
     "format:check": "prettier --check . --plugin=prettier-plugin-astro",
