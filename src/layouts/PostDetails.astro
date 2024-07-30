@@ -125,14 +125,12 @@ const layoutProps = {
       )
     }
 
-    <div class="flex flex-col-reverse items-center justify-between gap-6 sm:flex-row-reverse sm:items-end sm:gap-4">
-      <button id="back-to-top" class="focus-outline whitespace-nowrap py-1 hover:opacity-75">
-        <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90">
-          <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
-        </svg>
-        <span>{t("backToTop")}</span>
-      </button>
-    </div>
+    <button id="back-to-top" class="whitespace-nowrap bg-skin-fill py-1">
+      <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90">
+        <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
+      </svg>
+      <span>{t("backToTop")}</span>
+    </button>
   </main>
   <Footer />
   <div class="progress"></div>
@@ -160,6 +158,22 @@ const layoutProps = {
     }
     to {
       transform: scaleX(1);
+    }
+  }
+  #back-to-top {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    animation: back-progress 1s linear forwards;
+    animation-timeline: scroll();
+    animation-range: entry 0 100px;
+  }
+  @keyframes back-progress {
+    from {
+      transform: translateY(150%);
+    }
+    to {
+      transform: translateY(0%);
     }
   }
 </style>
