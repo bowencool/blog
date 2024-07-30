@@ -150,7 +150,7 @@ const layoutProps = {
     right: 0;
     transform-origin: 0 50%;
     animation: grow-progress 3s linear;
-    animation-timeline: scroll();
+    animation-timeline: scroll() !important;
   }
   @keyframes grow-progress {
     from {
@@ -165,7 +165,7 @@ const layoutProps = {
     right: 10px;
     bottom: 10px;
     animation: back-progress 1s linear forwards;
-    animation-timeline: scroll();
+    animation-timeline: scroll() !important;
     animation-range: entry 0 100px;
   }
   @keyframes back-progress {
