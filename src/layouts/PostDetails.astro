@@ -135,6 +135,7 @@ const layoutProps = {
     </div>
   </main>
   <Footer />
+  <div class="progress"></div>
 </Layout>
 
 <style>
@@ -143,6 +144,23 @@ const layoutProps = {
   }
   .post-title {
     @apply text-2xl font-semibold text-skin-accent;
+  }
+  .progress {
+    @apply fixed z-10 h-1 bg-skin-accent;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform-origin: 0 50%;
+    animation: grow-progress 3s linear;
+    animation-timeline: scroll();
+  }
+  @keyframes grow-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
   }
 </style>
 <style is:global>
@@ -222,39 +240,4 @@ const layoutProps = {
     }
   }
   attachCopyButtons();
-
-  /** Create a progress indicator
-   *  at the top */
-  function createProgressBar() {
-    // Create the main container div
-    const progressContainer = document.createElement("div");
-    progressContainer.className = "progress-container fixed top-0 z-10 h-1 w-full bg-skin-fill";
-
-    // Create the progress bar div
-    const progressBar = document.createElement("div");
-    progressBar.className = "progress-bar h-1 w-0 bg-skin-accent";
-    progressBar.id = "myBar";
-
-    // Append the progress bar to the progress container
-    progressContainer.appendChild(progressBar);
-
-    // Append the progress container to the document body or any other desired parent element
-    document.body.appendChild(progressContainer);
-  }
-  createProgressBar();
-
-  /** Update the progress bar
-   *  when user scrolls */
-  function updateScrollProgress() {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    if (document) {
-      const myBar = document.getElementById("myBar");
-      if (myBar) {
-        myBar.style.width = scrolled + "%";
-      }
-    }
-  }
-  document.addEventListener("scroll", updateScrollProgress);
 </script>
