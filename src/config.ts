@@ -24,6 +24,18 @@ export const SOCIALS: SocialObjects = [
     active: true,
   },
   {
+    name: "Bilibili",
+    href: "https://space.bilibili.com/263249661",
+    linkTitle: `Follow ${t("websiteAuthor")} on Bilibili`,
+    active: true,
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/@bowencool",
+    linkTitle: `Subscribe ${t("websiteAuthor")}'s Channel on YouTube`,
+    active: true,
+  },
+  {
     name: "Twitter",
     href: "https://twitter.com/bowencool_",
     linkTitle: `Follow ${t("websiteAuthor")} on Twitter`,
