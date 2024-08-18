@@ -30,6 +30,7 @@
   "iphone": "iPhone",
   "android": "Android",
   "ios": "iOS",
+  "browser": "Browser",
   "network": "Network",
   "automation": "Automation",
   "tricks": "Tricks",

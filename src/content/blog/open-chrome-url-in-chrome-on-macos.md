@@ -6,6 +6,7 @@ featured: true
 tags:
   - hacks
   - macos
+  - browser
 description: Chrome did not register itself to open URLs that start with "chrome://". I'm going to share some tips on how to fix this.
 ---
 
