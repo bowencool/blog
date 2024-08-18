@@ -97,4 +97,4 @@ And open "chrome://history" through other app, for example, Raycast. And select 
 
 ![Select the new Application](https://i.imgur.com/joYWA16.png)
 
-And you will find everythings works. 🎉🎉🎉
+And you will find everythings works. 🎉🎉🎉 If not, try rebooting the system.
