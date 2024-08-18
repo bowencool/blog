@@ -30,15 +30,38 @@ description: Chrome 没有注册以“chrome://”开头的URL。我在这里分
 
 ## 一劳永逸的解决方案
 
-首先，我们应该将“chrome://”和“chrome-extension://”协议链接到Chrome。这可以通过修改`/Applications/Google Chrome.app/Contents/Info.plist`来完成（现在不要修改）：
+首先，我们应该将“chrome://”和“chrome-extension://”这两个 URL Schema 链接到 Chrome。这可以通过修改`/Applications/Google Chrome.app/Contents/Info.plist`来完成（现在不要修改）：
 
-![Info.plist](../../../assets/images/chrome-url/config.png)
+```diff
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>Web site URL</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>http</string>
+				<string>https</string>
++				<string>chrome</string>
++				<string>chrome-extension</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>Local file URL</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>file</string>
+			</array>
+		</dict>
+	</array>
+```
 
-然而，这会破坏Chrome，并且在更新时对用户不友好。因此，我们可以创建一个新应用来链接这两个URL模式：
+然而，这会破坏Chrome，并且在更新时对用户不友好。因此，我们可以创建一个新应用来链接这两个URL Schema：
 
 打开 `/Applications/Utilities/Script Editor.app` 并将以下代码粘贴到其中：
 
-```
+```applescript
 on open location this_URL
 	tell application "Google Chrome"
 		open location this_URL
@@ -53,7 +76,7 @@ end open location
 
 打开 `/Applications/ChromeProtocol.app/Contents/Info.plist` 并添加以下配置：
 
-```
+```xml
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

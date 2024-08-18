@@ -32,13 +32,36 @@ You will see that Chrome has opened its history page. But you must do these step
 
 First of all, we should link the "chrome://" and "chrome-extension://" schema to Chrome. This can be done by modify `/Applications/Google Chrome.app/Contents/Info.plist`(don't do it right now):
 
-![Info.plist](https://i.imgur.com/hSMLciU.png)
+```diff
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>Web site URL</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>http</string>
+				<string>https</string>
++				<string>chrome</string>
++				<string>chrome-extension</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>Local file URL</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>file</string>
+			</array>
+		</dict>
+	</array>
+```
 
 However, this will break Chrome and is not user-friendly when there is an update. So, we can make a new Application to link the two url schemas:
 
 Open `/Applications/Utilities/Script Editor.app` and paste the following code into it:
 
-```
+```applescript
 on open location this_URL
 	tell application "Google Chrome"
 		open location this_URL
@@ -53,7 +76,7 @@ Click "File" and select "Export." Set the file format to "Application," name the
 
 Open `/Applications/ChromeProtocol.app/Contents/Info.plist` and add the following config:
 
-```
+```xml
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
