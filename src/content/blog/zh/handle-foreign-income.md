@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-08-17T11:14:15.000+08:00
-modDatetime: 2024-08-28T16:59:49Z
+modDatetime: 2024-08-28T17:08:48Z
 title: 处理外汇收入
 permalink: handle-foreign-income
 featured: false
@@ -16,7 +16,7 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
 
 ## 方案对比
 
-由于 Deel 可以无损转到 Wise 并且秒到账，所以下面会省略 Deel -> Wise 的流程。按推荐程度排序：
+由于 Deel 可以无损转到 Wise(<a href="https://wise.com/zh-cn/help/articles/2955298/%E4%BA%BA%E6%B0%91%E5%B8%81%E6%B1%87%E6%AC%BE%E6%8C%87%E5%8D%97">邀请链接</a>) 并且秒到账，所以下面会省略 Deel -> Wise 的流程。按推荐程度排序：
 
 <table>
   <thead>
@@ -30,7 +30,7 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
   </thead>
   <tbody>
     <tr>
-      <td>Wise -> OCBC</td>
+      <td><a href="https://wise.com/zh-cn/help/articles/2955298/%E4%BA%BA%E6%B0%91%E5%B8%81%E6%B1%87%E6%AC%BE%E6%8C%87%E5%8D%97">Wise</a> -> OCBC</td>
       <td><mark>0</mark></td>
       <td>-</td>
       <td>即时</td>
@@ -50,8 +50,7 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
             可以炒美股
           </li>
         </ul>
-        还回啥国？我的邀请码是<code>JS5U37JB</code>，30 天内入金 S$1000 激活，有 S$15 (≈¥82) 奖励！<br>
-        <a href="https://wise.com/zh-cn/help/articles/2955298/%E4%BA%BA%E6%B0%91%E5%B8%81%E6%B1%87%E6%AC%BE%E6%8C%87%E5%8D%97">Wise 邀请链接</a>，奖励不详
+        还回啥国？我的邀请码是<code>JS5U37JB</code>，30 天内入金 S$1000 激活，有 S$15(≈¥82) 奖励！
       </td>
     </tr>
     <tr>
@@ -72,7 +71,7 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
     <tr>
       <td>Wise -> 支付宝/微信</td>
       <td>1%</td>
-      <td>50 万 CNY/年<br>5 万 CNY/笔</td>
+      <td>50 万人民币/年<br>5 万人民币/笔</td>
       <td>最快秒到，最慢两个工作日</td>
       <td>
         <a href="https://wise.com/zh-cn/help/articles/2955298/%E4%BA%BA%E6%B0%91%E5%B8%81%E6%B1%87%E6%AC%BE%E6%8C%87%E5%8D%97">Wise 邀请链接</a>，奖励不详<br>
@@ -87,28 +86,6 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
       <td>两个工作日左右</td>
       <td><mark>正规工资流水</mark></td>
     </tr>
-    <tr>
-      <td><s>Wise -> 银联</s></td>
-      <td>1%</td>
-      <td>5 万 USD/年，1.8 万 CNY/笔</td>
-      <td>-</td>
-      <td>无法添加储蓄卡</td>
-    </tr>
-    <tr>
-      <td><s>Wise -> 国内全币信用卡</s></td>
-      <td>1.13 USD</td>
-      <td>-</td>
-      <td>-</td>
-      <td>全部被退回，原因不详，也查不到记录</td>
-    </tr>
-    <tr>
-      <td><s>deel -> 国内全币信用卡</s></td>
-      <td>0.25% (最低 5 USD)</td>
-      <td>-</td>
-      <td>-</td>
-      <td>同上</td>
-    </tr>
-
   </tbody>
 </table>
 
