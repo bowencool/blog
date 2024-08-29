@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-08-29T13:25:03Z
+modDatetime: 2024-08-29T13:35:54Z
 title: How to encrypt backup your data on your nas
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -54,44 +54,6 @@ Enhanced version of Duplicati, which boasts a better powerful backup features ([
 ### [Kopia](https://github.com/kopia/kopia/)
 
 It's also an excellent tool, but it's still in beta. I also tried it out and it has all the advantages of the first two and feels much better than the first two. See below for the hands-on section.
-
-## Storage Endpoint Selection
-
-<details>
-  <summary>This section is for <b>Chinese readers only</b>, click to review</summary>
-
-### 国内云盘
-
-- （加密备份可解）EXIF 信息会被胡乱涂改，修改用户文件这点非常恶心
-- （加密备份可解）隐私和审查问题，稍微敏感一点的内容会被无情封禁
-- 2C 的产品非常不可靠
-  - 不同程度的限速问题
-  - 花里胡哨的营销
-    - 阿里云盘各种非永久容量，太麻烦了
-    - 夸克网盘故意不写容量到期时间
-- ~~储存容量并不划算~~我有NAS了，根本不想掏钱买网盘，我宁愿买 OSS
-  - 中国移动云盘、天翼云盘应该有一些优惠套餐，比如我在写这篇文章的时候，电信送了我4个T的天翼云盘有效期两年。登录看了一眼中国移动云盘，1T容量有效期一年
-
-### 阿里云 OSS
-
-2B 的产品，速度、稳定性、可用性全都超高，完爆网盘，不会有限制或者陷阱，明码标价。以下仅讨论最常用的阿里云 OSS，其他 S3/OSS 同理。
-
-#### 标准储存
-
-标准储存有几个活动挺划算的，没有坑：
-
-- 体验资源包，一年 9 块，40G 储存容量，但超出就不划算了，这么小的容量根本不够用，不推荐。
-- 500G 也做活动，一年 118，这个非常划算，比网盘便宜多了，容量也够用，强烈推荐。
-
-#### [深度冷备份](https://help.aliyun.com/zh/oss/user-guide/overview-53)相对来说最划算：
-
-- [储存价格非常低(0.0075 元/GB/月)](https://www.aliyun.com/price/product#/oss/detail/oss)
-- 请求费用非常高。
-- 数据不能直接读取，实际操作下来并不适合加密工具直接备份，因为备份校验的过程需要读取文件。
-  - 当然也可以换成归档储存并开启直读，那这样价格就高了点，不太推荐。
-  - 先备份到本地磁盘，再用 RClone 把备份文件 sync 上去。这样会占用不少本地磁盘空间，把 chunkSize 设置大一点，这样请求次数就降下来了，对于我来说，重要文件都是小文件，不会太大，大文件几乎都是可以重新下载的资源，没有备份的需求。算是目前~~最佳~~最便宜的方案了。
-
-</details>
 
 ## Hands on
 
