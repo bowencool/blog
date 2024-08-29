@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-14T07:55:35Z
-modDatetime: 2024-03-01T04:14:51Z
+modDatetime: 2024-08-29T13:14:55Z
 title: How to use RClone to backup your data to cloud drives/storages
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
 featured: true
@@ -177,9 +177,11 @@ The contents of my rcloneignore file:
 *DS_Store
 .AppleDB/**
 .Recycle.Bin/**
-.stfolder/**
-.stversions/**
-.duplicacy/**
+$RECYCLE.BIN/**
+.Trash/**
+lost+found/**
+tmp/**
+temp/**
 node_modules/**
 cache/**
 caches/**
@@ -220,11 +222,64 @@ flash backup is also very simple, just compress the `/boot` directory:
 tar -czvf /tmp/`hostname`_flash.tgz --exclude 'previous*' --exclude "System Volume Information" --exclude 'logs*' /boot
 ```
 
+## Encrypted backup
+
+### Why?
+
+All Chinese cloud storage services (including OSS) have privacy and censorship issues. Cloud storage will erase location information in photo EXIF data, and there is a risk of deletion (whether you share publicly or not, all content must undergo censorship).
+
+### Hands on
+
+```text
+# Add a new remote storage. Enter a name (take `secret` as an example)
+name> secret
+# Select 'crypt' as the type
+Storage> crypt
+# Select an existing remote and path as the root directory of the new remote
+remote> oss:/mybackup
+# How to encrypt the filenames. (The default value standard has a filename length limit, obfuscate is recommended)
+filename_encryption> obfuscate
+# Option to either encrypt directory names or leave them intact.
+directory_name_encryption> true
+# Password or pass phrase for encryption.
+Enter the password:
+password:
+Confirm the password:
+password:
+# Password or pass phrase for salt. Optional but recommended. Should be different to the previous password.
+# I generated it randomly, just save the configuration and paste it when you need it
+y/g/n> g
+```
+
+The usage of the new remote is the same as other remotes:
+
+```bash
+# Encrypted backup to `oss:/mybackup/Photos`
+rclone sync /mnt/user/Photos secret:/Photos
+
+# If you view the file directly, you will find that the file name has been obfuscated and you cannot directly read the content of the file by downloading it directly.
+rclone lsf --max-depth 1 oss:/mybackup/Photos
+
+# View/download real directories and files through `secret:`
+rclone lsd secret:/Photos
+rclone copy secret:/Photos ~/MyPhotos
+```
+
+Once set up for the first time, you can freely paste and modify the configuration file thereafter:
+
+```text
+[secret]
+type = crypt
+remote = alist:/adrive/backup
+password = *** ENCRYPTED ***
+password2 = *** ENCRYPTED ***
+```
+
 ## Disadvantages of this solution
 
-- Lack of encryption, posing privacy and review issues for all cloud drives, including OSS.
-- If photos are synchronized to the cloud drive, all domestic cloud drives will erase the location information in EXIF.
 - It will generate a large number of OSS requests, resulting in additional fees.
 - No version history
+- No compression
+- No deduplication
 
 For further optimization see [this article](/posts/how-to-encrypt-backup-your-data-on-your-nas)。

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-14T07:55:35Z
-modDatetime: 2024-03-01T04:14:51Z
+modDatetime: 2024-08-29T13:14:55Z
 title: 使用 RClone 实现 unRAID 的异地容灾
 featured: true
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
@@ -175,9 +175,11 @@ rclone --no-update-modtime sync /mnt/user/Public adrive:/unraid/Public --exclude
 *DS_Store
 .AppleDB/**
 .Recycle.Bin/**
-.stfolder/**
-.stversions/**
-.duplicacy/**
+$RECYCLE.BIN/**
+.Trash/**
+lost+found/**
+tmp/**
+temp/**
 node_modules/**
 cache/**
 caches/**
@@ -218,11 +220,63 @@ flash backup 也很简单，就是把 `/boot` 目录压缩就行了：
 tar -czvf /tmp/`hostname`_flash.tgz --exclude 'previous*' --exclude "System Volume Information" --exclude 'logs*' /boot
 ```
 
+## 加密备份
+
+### 为什么？
+
+国内所有网盘（OSS 也一样）都有隐私和审查问题，网盘都会抹掉照片 EXIF 里面的位置信息，而且有被和谐的风险（不管你有没有公开分享，全都要接受审查）。
+
+### 上手
+
+```text
+# 添加一个新 remote storage；输入名称（以 secret 为例）
+name> secret
+# 类型选择 `crypt`
+Storage> crypt
+# 选择一个已经存在的 remote 及路径作为新的 remote 的根目录
+remote> oss:/mybackup
+# 选择文件名的混淆方式（默认值 standard 有文件名长度限制，推荐 obfuscate）
+filename_encryption> obfuscate
+# 是否混淆目录名
+directory_name_encryption> true
+# 用来加密的密码
+Enter the password:
+password:
+Confirm the password:
+password:
+# 密码或口令用于加盐。（可选但建议使用。应与之前的密码不同。我是随机生成的，保存好配置用的时候粘贴配置即可）
+y/g/n> g
+```
+
+新的 remote 的使用方法和其他 remote 一样：
+
+```bash
+# 加密备份到 oss:/mybackup/Photos
+rclone sync /mnt/user/Photos secret:/Photos
+
+# 直接查看文件，你会发现，文件名已经混淆，直接下载文件也无法直接读取其内容
+rclone lsf --max-depth 1 oss:/mybackup/Photos
+
+# 通过 secret: 查看/下载真实目录及文件。
+rclone lsd secret:/Photos
+rclone copy secret:/Photos ~/MyPhotos
+```
+
+第一次设置好后，以后就可以随意粘贴并修改配置文件：
+
+```text
+[secret]
+type = crypt
+remote = alist:/adrive/backup
+password = *** ENCRYPTED ***
+password2 = *** ENCRYPTED ***
+```
+
 ## 此方案的不足
 
-- 没有加密，所有网盘都有隐私和审查问题，OSS 也一样
-- 如果同步照片到网盘的话，国内所有网盘都会抹掉 EXIF 里面的位置信息
 - 会造成大量 OSS 请求数，产生额外费用
 - 没有版本历史
+- 没有压缩
+- 没有优化重复文件
 
 若想进一步优化请看[这篇文章](/zh/posts/how-to-encrypt-backup-your-data-on-your-nas)。
