@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-08-29T13:14:55Z
+modDatetime: 2024-08-29T13:25:03Z
 title: How to encrypt backup your data on your nas
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -85,7 +85,7 @@ It's also an excellent tool, but it's still in beta. I also tried it out and it 
 
 #### [深度冷备份](https://help.aliyun.com/zh/oss/user-guide/overview-53)相对来说最划算：
 
-- [储存价格非常低](https://www.aliyun.com/price/product#/oss/detail/oss)
+- [储存价格非常低(0.0075 元/GB/月)](https://www.aliyun.com/price/product#/oss/detail/oss)
 - 请求费用非常高。
 - 数据不能直接读取，实际操作下来并不适合加密工具直接备份，因为备份校验的过程需要读取文件。
   - 当然也可以换成归档储存并开启直读，那这样价格就高了点，不太推荐。

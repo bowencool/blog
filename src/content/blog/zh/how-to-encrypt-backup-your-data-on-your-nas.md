@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-08-29T13:14:55Z
+modDatetime: 2024-08-29T13:25:03Z
 title: 如何加密备份你的 NAS 数据
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -106,11 +106,11 @@ description: 之前我们讲过如何用 RClone 将你的数据备份到云盘/O
 
 #### [深度冷备份](https://help.aliyun.com/zh/oss/user-guide/overview-53)相对来说最划算：
 
-- [储存价格非常低](https://www.aliyun.com/price/product#/oss/detail/oss)
+- [储存价格非常低(0.0075 元/GB/月)](https://www.aliyun.com/price/product#/oss/detail/oss)
 - 请求费用非常高。
 - 数据不能直接读取，实际操作下来并不适合加密工具直接备份，因为备份校验的过程需要读取文件。
   - 当然也可以换成归档储存并开启直读，那这样价格就高了点，不太推荐。
-  - 先备份到本地磁盘，再用 RClone 把备份文件 sync 上去。这样会占用不少本地磁盘空间，把 chunkSize 设置大一点，这样请求次数就降下来了，对于我来说，重要文件都是小文件，不会太大，大文件几乎都是可以重新下载的资源，没有备份的需求。算是目前~~最佳~~最便宜的方案了。
+  - 先备份到本地磁盘，再用 RClone 把备份文件 sync 上去。不如直接 rclone crypt。
 
 ### 其他
 
