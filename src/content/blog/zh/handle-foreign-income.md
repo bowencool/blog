@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-08-17T11:14:15.000+08:00
-modDatetime: 2024-08-28T17:08:48Z
+modDatetime: 2024-08-30T16:24:25Z
 title: 处理外汇收入
 permalink: handle-foreign-income
 featured: false
@@ -31,7 +31,7 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
   <tbody>
     <tr>
       <td><a href="https://wise.com/zh-cn/help/articles/2955298/%E4%BA%BA%E6%B0%91%E5%B8%81%E6%B1%87%E6%AC%BE%E6%8C%87%E5%8D%97">Wise</a> -> OCBC</td>
-      <td><mark>0</mark></td>
+      <td><mark>0.3%</mark></td>
       <td>-</td>
       <td>即时</td>
       <td>
