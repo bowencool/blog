@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-07-05T06:10:50Z
+modDatetime: 2024-09-15T13:02:31Z
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -150,6 +150,8 @@ Photo management service, functionality close to Apple Photos, you can also try 
 - Supports editing the shooting time and location information of photos (Writes directly to the file Exif, very useful for organizing old photos.)
 
 Far surpasses all domestic cloud services **(1. Privacy and censorship issues; 2. Exif information will be modified)**, NextCloud, PhotoPrisma (user-unfriendly operation and no multi-user support), Pho.
+
+For specific strategies, please refer to [this article](/posts/how-do-i-manage-my-photos).
 
 ### Gitea
 

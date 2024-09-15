@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-07-05T06:10:50Z
+modDatetime: 2024-09-15T13:02:31Z
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -150,6 +150,8 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 - 支持编辑照片的拍摄时间、位置信息（直接写入文件 Exif，整理老照片非常有用）
 
 完爆所有国内网盘**（1.隐私及审查问题；2. Exif 信息会被修改）**、 NextCloud、PhotoPrisma(操作反人类，没有多用户)、Pho。
+
+具体策略请查看[这篇文章](/zh/posts/how-do-i-manage-my-photos)。
 
 ### Gitea
 
