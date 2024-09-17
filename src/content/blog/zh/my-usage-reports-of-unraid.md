@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-09-15T13:02:31Z
+modDatetime: 2024-09-17T01:06:34Z
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -252,9 +252,9 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 22年底转为使用 [Aria2-Pro](https://p3terx.com/archives/docker-aria2-pro.html) + [AriaNg](https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html) / [Aria2 Explorer](https://chrome.google.com/webstore/detail/mpkodccbngfoacfalldjimigbofkhgjn) 作为全协议下载器。
 
-### ~~[MeTuBe](https://github.com/alexta69/metube)~~
+### [MeTuBe](https://github.com/alexta69/metube)
 
-一键下载各种网站视频，类似于 Downie。根本用不到，哈哈。
+一键下载各种网站视频，类似于 Downie。我偶尔用它来下载音乐。
 
 ### Stirling-PDF
 
@@ -294,9 +294,11 @@ FreshRSS 的作用是全平台同步以及精细化管理，不是必须的，�
 
 给 [Bob](https://bobtranslate.com/) 和[沉浸式翻译](https://immersivetranslate.com/)用的
 
-### Duplicacy / Duplicati / Kopia
+### ~~Duplicacy / Duplicati / Kopia~~
 
-查看[这篇文章](/zh/posts/how-to-encrypt-backup-your-data-on-your-nas)
+~~查看[这篇文章](/zh/posts/how-to-encrypt-backup-your-data-on-your-nas)~~
+
+各有各的毛病，只有 rlcone 最稳定，查看[这篇文章](/zh/posts/offsite-disaster-recovery-for-unraid-with-rclone)。
 
 ## 下一步折腾计划
 
@@ -314,9 +316,9 @@ FreshRSS 的作用是全平台同步以及精细化管理，不是必须的，�
 
 ### 研究一下 ZFS（RAID-Z）
 
-unRAID 6.12 已经支持。unRAID 7 已经支持使用 RAID-Z 代替传统阵列了。
+> 为什么？因为现在阵列写入会掉速，无论什么系统，甚至用插线挂载拷贝也掉速，以前没什么感觉，现在开始剪视频了，素材动辄几十G，阵列性能太拖后腿了。
 
-缺点是无法优雅减少硬盘数量。
+unRAID 6.12 已经支持。unRAID 7 已经支持使用 RAID-Z 代替传统阵列了。
 
 ## 2022年12月更新
 
@@ -326,7 +328,7 @@ unRAID 6.12 已经支持。unRAID 7 已经支持使用 RAID-Z 代替传统阵列
 
 好处是：
 
-1. 不需要端口转发了，直接解析到 Nginx。
+1. 不需要端口转发了，直接解析到 Nginx 所在的虚拟机。
 2. ~~可以使用 443 和 80 端口了（不确定，反正我才用了几个星期就有问题了）~~。
 
 缺点是：

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-09-15T13:02:31Z
+modDatetime: 2024-09-17T01:06:34Z
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -256,7 +256,7 @@ By the end of 2022, I switched to using [Aria2-Pro](https://p3terx.com/archives/
 
 ### [MeTuBe](https://github.com/alexta69/metube)
 
-Download videos from various websites in one click, similar to Downie. I don't need it at all, lol.
+Download videos from various websites in one click, similar to Downie. I occasionally use it to download music.
 
 ### ~~Jellyfin~~
 
@@ -292,9 +292,11 @@ For the client, use Reeder (paid) or NetNewsWire (open source free) for Mac / iO
 
 Used for [Bob](https://bobtranslate.com/) and [Immersive Translate](https://immersivetranslate.com/).
 
-### Duplicacy / Duplicati / Kopia
+### ~~Duplicacy / Duplicati / Kopia~~
 
-See [this post](/posts/how-to-encrypt-backup-your-data-on-your-nas)
+~~See [this post](/posts/how-to-encrypt-backup-your-data-on-your-nas)~~
+
+Each has its own issues, only rlcone is the most stable, see [this article](/posts/offsite-disaster-recovery-for-unraid-with-rclone).
 
 ## Next Step Plan
 
@@ -302,8 +304,9 @@ Here is the feature I want to implement next. If you have any recommended or upd
 
 ### Look into ZFS (RAID-Z)
 
+> Why? Because now array writing will slow down, no matter what system, even using a cable to mount and copy also slows down. I didn't feel it before, but now that I've started editing videos, the materials are easily tens of GBs, and the array performance is really lagging behind.
+
 unRAID 6.12 already supports it. unRAID 7 already supports using RAID-Z instead of traditional arrays.
-The downside is that you can't reduce the number of disks gracefully.
 
 ## Updates at December 2022
 
@@ -313,7 +316,7 @@ The downside is that you can't reduce the number of disks gracefully.
 
 Advantages:
 
-1. No need for port forwarding, can directly resolve to Nginx.
+1. No need for port forwarding, directly resolve to the virtual machine where Nginx is located.
 2. ~~Can use ports 443 and 80 (not sure, but I encountered problems after only a few weeks)~~.
 
 Disadvantages:
