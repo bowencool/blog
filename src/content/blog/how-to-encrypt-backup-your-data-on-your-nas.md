@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-08-29T13:35:54Z
+modDatetime: 2024-09-17T01:12:03Z
 title: How to encrypt backup your data on your nas
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -10,7 +10,7 @@ tags:
   - backup
   - data-security
   - automation
-description: We previously discussed how to use RClone to back up your data to cloud drives/OSS and other remote storage services. However, using RClone directly in this way is too straightforward, lacking any privacy and versioning for backups. In this issue, we will talk about encrypted backups.
+description: We previously discussed how to use RClone to back up your data to cloud drives/OSS and other remote storage services, but using RClone directly this way lacks some advanced features.
 ---
 
 ## Cons of RClone
@@ -21,6 +21,8 @@ Previously, we discussed [How to use RClone to backup your data to cloud drives/
 - No version history
 - No compression
 - No deduplication
+
+Note: rclone also supports encrypted incremental backups, see [this article](/zh/posts/offsite-disaster-recovery-for-unraid-with-rclone).
 
 ## Comparison of Encryption Backup Tools
 

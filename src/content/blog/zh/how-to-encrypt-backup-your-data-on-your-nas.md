@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-02T08:30:35Z
-modDatetime: 2024-08-29T13:35:54Z
+modDatetime: 2024-09-17T01:12:03Z
 title: 如何加密备份你的 NAS 数据
 permalink: how-to-encrypt-backup-your-data-on-your-nas
 tags:
@@ -10,7 +10,7 @@ tags:
   - backup
   - data-security
   - automation
-description: 之前我们讲过如何用 RClone 将你的数据备份到云盘/OSS等远程存储服务，但是直接使用 RClone 这种方式太过直白，毫无隐私可言，而且备份没有版本。这期我们来聊聊加密备份。
+description: 之前我们讲过如何用 RClone 将你的数据备份到云盘/OSS等远程存储服务，但是直接使用 RClone 这种方式缺少一些高级特性。
 ---
 
 ## RClone 的缺点
@@ -21,6 +21,8 @@ description: 之前我们讲过如何用 RClone 将你的数据备份到云盘/O
 - 没有版本历史
 - 没有压缩
 - 没有优化重复文件
+
+注意：rclone 同样支持加密增量备份，查看[这篇文章](/zh/posts/offsite-disaster-recovery-for-unraid-with-rclone)。
 
 ## 加密备份工具的对比
 
