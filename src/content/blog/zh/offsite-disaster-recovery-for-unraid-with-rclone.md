@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-14T07:55:35Z
-modDatetime: 2024-08-29T13:49:42Z
+modDatetime: 2024-09-17T09:05:33Z
 title: 使用 RClone 实现 unRAID 的异地容灾
 featured: true
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
@@ -311,9 +311,6 @@ password2 = *** ENCRYPTED ***
 - [储存价格非常低(0.0075 元/GB/月)](https://www.aliyun.com/price/product#/oss/detail/oss)
 - GET请求费用还好（0.1 元/万次）。（校验文件的请求，每次都要校验所有文件，所以适当降低频率）
 - PUT请求费用略高（3.5 元/万次）。（上传文件的请求方法，已经上传的文件不会重复上传）
-- 数据不能直接读取，实际操作下来并不适合加密工具直接备份，因为备份校验的过程需要读取文件。
-  - 当然也可以换成归档储存并开启直读，那这样价格就高了点，不太推荐。
-  - 先备份到本地磁盘，再用 RClone 把备份文件 sync 上去。不如直接 rclone crypt。
 
 ### 其他
 
