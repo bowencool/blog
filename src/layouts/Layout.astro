@@ -95,6 +95,7 @@ const socialImageURL = new URL(ogImage || "og.png" /* auto generated */, Astro.u
             src="https://beamanalytics.b-cdn.net/beam.min.js"
             data-token="d42e83e4-3397-4b96-9a6f-b740d481db9a"
           />
+          {/* Google ADs */}
           <script
             defer
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2549574061595223"
@@ -102,13 +103,13 @@ const socialImageURL = new URL(ogImage || "og.png" /* auto generated */, Astro.u
           />
           <ins
             class="adsbygoogle"
-            style="display:block;"
+            style="display:inline-block;width:728px;max-width:100vw;height:90px;margin:0 auto;"
             data-ad-client="ca-pub-2549574061595223"
             data-ad-slot="3112953036"
             data-ad-format="auto"
             data-full-width-responsive="true"
           />
-          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          <script defer>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </>
       )
     }
