@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-08-17T11:14:15.000+08:00
-modDatetime: 2024-08-30T16:24:25Z
+modDatetime: 2024-10-08T04:47:59Z
 title: 处理外汇收入
 permalink: handle-foreign-income
 featured: false
@@ -30,12 +30,30 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://wise.com/zh-cn/help/articles/2955298/%E4%BA%BA%E6%B0%91%E5%B8%81%E6%B1%87%E6%AC%BE%E6%8C%87%E5%8D%97">Wise</a> -> OCBC</td>
+      <td><a href="https://wise.com/zh-cn/help/articles/2955298/%E4%BA%BA%E6%B0%91%E5%B8%81%E6%B1%87%E6%AC%BE%E6%8C%87%E5%8D%97">Wise</a> -> <a href="https://ibkr.com/referral/bowen379">IBKR</a></td>
+      <td><mark>1.13USD</mark></td>
+      <td>-</td>
+      <td>半小时左右</td>
+      <td>
+        IBKR 是老牌美国券商了：
+        <ul>
+          <li>
+            全中文在线开户（需在手机上操作，只需要护照）。
+          </li>
+          <li>
+            可以交易世界各地的股票。
+          </li>
+        </ul>
+        还回啥国？通过我的<a href="https://ibkr.com/referral/bowen379">邀请链接</a>开户，奖励是第一年入金 1% 的等额股票。
+      </td>
+    </tr>
+    <tr>
+      <td><a href="https://wise.com/zh-cn/help/articles/2955298/%E4%BA%BA%E6%B0%91%E5%B8%81%E6%B1%87%E6%AC%BE%E6%8C%87%E5%8D%97">Wise</a> -> OCBC(邀请码<code>JS5U37JB</code>)</td>
       <td><mark>0.3%</mark></td>
       <td>-</td>
       <td>即时</td>
       <td>
-        新加坡第二大银行：
+        OCBC 是新加坡第二大银行：
         <ul>
           <li>
             全中文在线开户（需在手机上操作，只需要护照），而且提交后秒通过。
