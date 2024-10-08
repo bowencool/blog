@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-08-17T11:14:15.000+08:00
-modDatetime: 2024-10-08T04:54:25Z
+modDatetime: 2024-10-08T04:57:11Z
 title: 处理外汇收入
 permalink: handle-foreign-income
 featured: false
@@ -92,7 +92,7 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
       <td>50 万人民币/年<br>5 万人民币/笔</td>
       <td>最快秒到，最慢两个工作日</td>
       <td>
-        <a href="https://wise.com/zh-cn/help/articles/2955298/%E4%BA%BA%E6%B0%91%E5%B8%81%E6%B1%87%E6%AC%BE%E6%8C%87%E5%8D%97">Wise 邀请链接</a>，奖励不详<br>
+        <a href="https://wise.com/invite/dic/gpwpbk5">Wise 邀请链接</a>，奖励不详<br>
         Wise 美国客户有利息。非中国客户可以办张信用卡。<br>
         <a href="https://wise.com/zh-cn/help/articles/2955298/%E4%BA%BA%E6%B0%91%E5%B8%81%E6%B1%87%E6%AC%BE%E6%8C%87%E5%8D%97">Wise人民币汇款指南</a>
       </td>
