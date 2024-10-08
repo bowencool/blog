@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-08-17T11:14:15.000+08:00
-modDatetime: 2024-10-08T04:57:11Z
+modDatetime: 2024-10-08T05:01:36Z
 title: 处理外汇收入
 permalink: handle-foreign-income
 featured: false
@@ -80,8 +80,8 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
       <td>-</td>
       <td>即时</td>
       <td>
-        iFast 转到支付宝无手续费。<br>
-        iFast 甚至还有 <mark>4% 利率（定期 4.5%）</mark>，这利率还回啥国啊！<br>
+        iFast 转到支付宝无手续费（本人未验证）。<br>
+        iFast 甚至还有 <mark>4% 活期利率（定期可以达到 4.5%）</mark>，这利率还回啥国啊！<br>
         而且全程中文资料（身份证或护照）在线开户，使用我的
         <a href="https://www.ifastgb.com/tellafriend/bowenz9247">邀请链接</a>注册完成后并存入 £500，我们俩都有 £5(≈¥47) 奖励！
       </td>
