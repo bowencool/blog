@@ -210,8 +210,7 @@ const layoutProps = {
   @import "tocbot/dist/tocbot.css";
 </style>
 
-<script>
-  const lang = document.querySelector("html")?.getAttribute("lang") || "en";
+<script data-astro-rerun>
   /** Scrolls the document to the top when
    * the "Back to Top" button is clicked. */
   document.querySelector("#back-to-top")?.addEventListener("click", () => {
@@ -220,6 +219,7 @@ const layoutProps = {
   });
   document.querySelector("#go-back")?.addEventListener("click", () => {
     if (history.length === 1) {
+      const lang = document.querySelector("html")?.getAttribute("lang") || "en";
       window.location.pathname = lang === "zh" ? "/zh" : "/";
     } else {
       history.back();
@@ -253,7 +253,7 @@ const layoutProps = {
       });
     }
 
-    async function copyCode(block: HTMLPreElement, button: HTMLButtonElement) {
+    async function copyCode(block, button) {
       let code = block.querySelector("code");
       let text = code?.innerText;
 
