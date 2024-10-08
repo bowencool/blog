@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-08-17T11:14:15.000+08:00
-modDatetime: 2024-10-08T04:47:59Z
+modDatetime: 2024-10-08T04:54:25Z
 title: 处理外汇收入
 permalink: handle-foreign-income
 featured: false
@@ -16,7 +16,7 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
 
 ## 方案对比
 
-由于 Deel 可以无损转到 Wise(<a href="https://wise.com/zh-cn/help/articles/2955298/%E4%BA%BA%E6%B0%91%E5%B8%81%E6%B1%87%E6%AC%BE%E6%8C%87%E5%8D%97">邀请链接</a>) 并且秒到账，所以下面会省略 Deel -> Wise 的流程。按推荐程度排序：
+由于 Deel 可以无损转到 Wise(<a href="https://wise.com/invite/dic/gpwpbk5">邀请链接</a>) 并且秒到账，所以下面会省略 Deel -> Wise 的流程。按推荐程度排序：
 
 <table>
   <thead>
@@ -30,7 +30,7 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://wise.com/zh-cn/help/articles/2955298/%E4%BA%BA%E6%B0%91%E5%B8%81%E6%B1%87%E6%AC%BE%E6%8C%87%E5%8D%97">Wise</a> -> <a href="https://ibkr.com/referral/bowen379">IBKR</a></td>
+      <td><a href="https://wise.com/invite/dic/gpwpbk5">Wise</a> -> <a href="https://ibkr.com/referral/bowen379">IBKR</a></td>
       <td><mark>1.13USD</mark></td>
       <td>-</td>
       <td>半小时左右</td>
