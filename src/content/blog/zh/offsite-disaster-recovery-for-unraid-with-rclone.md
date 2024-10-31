@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-14T07:55:35Z
-modDatetime: 2024-09-17T09:05:33Z
+modDatetime: 2024-10-31T03:15:48Z
 title: 使用 RClone 实现 unRAID 的异地容灾
 featured: true
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
@@ -306,11 +306,13 @@ password2 = *** ENCRYPTED ***
 - 体验资源包，一年 9 块，40G 储存容量，但超出就不划算了，这么小的容量根本不够用，不推荐。
 - 500G 也做活动，一年 118，这个非常划算，比网盘便宜多了，容量也够用，强烈推荐。
 
-#### [深度冷备份](https://help.aliyun.com/zh/oss/user-guide/overview-53)相对来说最划算：
+#### [冷归档存储](https://help.aliyun.com/zh/oss/user-guide/overview-53)相对来说最划算：
 
-- [储存价格非常低(0.0075 元/GB/月)](https://www.aliyun.com/price/product#/oss/detail/oss)
-- GET请求费用还好（0.1 元/万次）。（校验文件的请求，每次都要校验所有文件，所以适当降低频率）
-- PUT请求费用略高（3.5 元/万次）。（上传文件的请求方法，已经上传的文件不会重复上传）
+[储存价格非常低(0.015 元/GB/月)](https://www.aliyun.com/price/product#/oss/detail/oss)。
+
+深度冷归档虽然储存价格更低，但 PUT 请求费用贵了 35 倍！（实测并不是上传一个文件就是一个 PUT 请求，实际统计比上传文件数要多）
+
+不需要关心数据取回费用，平时用不到，真用到的时候，再贵也值得。
 
 ### 其他
 
