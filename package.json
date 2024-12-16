@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "predev": "astro-i18next generate",
     "prebuild": "astro-i18next generate && playwright install --with-deps chromium",
     "postbuild": "jampack ./dist",
     "deploy": "vercel build && vercel deploy --prebuilt",
