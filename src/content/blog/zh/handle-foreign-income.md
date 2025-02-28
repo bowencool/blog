@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-08-17T11:14:15.000+08:00
-modDatetime: 2024-10-08T05:16:08Z
+modDatetime: 2025-02-28T09:07:53Z
 title: 处理外汇收入
 permalink: handle-foreign-income
 featured: false
@@ -30,10 +30,14 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://wise.com/invite/dic/gpwpbk5">Wise</a> -> <a href="https://ibkr.com/referral/bowen379">IBKR</a></td>
+      <td>
+        <a href="https://wise.com/invite/dic/gpwpbk5">Wise</a>
+        ->
+        <a href="https://ibkr.com/referral/bowen379">IBKR</a>
+      </td>
       <td><mark>1.13USD</mark></td>
       <td>-</td>
-      <td>半小时左右</td>
+      <td>一天之内</td>
       <td>
         IBKR 盈透证券是老牌美国券商了：
         <ul>
@@ -72,6 +76,22 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
       </td>
     </tr>
     <tr>
+      <td><a href="https://wise.com/invite/dic/gpwpbk5">Wise</a> -> <a href="https://ibkr.com/referral/bowen379">IBKR</a> -> OCBC
+      </td>
+      <td><mark>1.13USD+max(2USD,0.002%)</mark></td>
+      <td>-</td>
+      <td>1~2个工作日</td>
+      <td>此方案优于 Wise -> OCBC</td>
+    </tr>
+    <tr>
+      <td><a href="https://wise.com/invite/dic/gpwpbk5">Wise</a> -> <a href="https://ibkr.com/referral/bowen379">IBKR</a> -> iFast
+      </td>
+      <td><mark>1.13USD+max(2USD,0.002%)</mark></td>
+      <td>-</td>
+      <td>1~2个工作日</td>
+      <td>此方案优于 Wise -> iFast</td>
+    </tr>
+    <tr>
       <td>
         <a href="https://wise.com/zh-cn/help/articles/2955298/%E4%BA%BA%E6%B0%91%E5%B8%81%E6%B1%87%E6%AC%BE%E6%8C%87%E5%8D%97">Wise</a><br> ->
         <a href="https://www.ifastgb.com/tellafriend/bowenz9247">iFast</a> (IBAN方式)
@@ -108,3 +128,9 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
 </table>
 
 如果有香港卡的话，玩法更多。等我办了之后再更新。
+
+## 几个技巧：
+
+1. GBP 在 wise/ibkr/ifast 之间互转免费；SGD 在 wise <-> ocbc <-> 新加坡券商之间互转免费；HKD 应该也是一样的。
+2. 长桥SG和长桥HK之间划转也免费，但是长桥的汇率一般般。
+3. IBKR 换汇费率极低，比如如果你想要 Wise 换成 SGD 再转到 OCBC，不如先转到 IBKR 换汇，然后从 IBKR 取出。而且 IBKR 取出费用也低，甚至每月第一次免费取出。
