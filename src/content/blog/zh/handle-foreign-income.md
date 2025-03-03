@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-08-17T11:14:15.000+08:00
-modDatetime: 2025-02-28T09:07:53Z
+modDatetime: 2025-03-03T01:56:42Z
 title: 处理外汇收入
 permalink: handle-foreign-income
 featured: false
@@ -80,16 +80,16 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
       </td>
       <td><mark>1.13USD+max(2USD,0.002%)</mark></td>
       <td>-</td>
-      <td>1~2个工作日</td>
-      <td>此方案优于 Wise -> OCBC</td>
+      <td>3~5个工作日</td>
+      <td>IBKR 换汇成功还需要等待 3 个工作日才能取出</td>
     </tr>
     <tr>
       <td><a href="https://wise.com/invite/dic/gpwpbk5">Wise</a> -> <a href="https://ibkr.com/referral/bowen379">IBKR</a> -> iFast
       </td>
       <td><mark>1.13USD+max(2USD,0.002%)</mark></td>
       <td>-</td>
-      <td>1~2个工作日</td>
-      <td>此方案优于 Wise -> iFast</td>
+      <td>3~5个工作日</td>
+      <td>-</td>
     </tr>
     <tr>
       <td>
