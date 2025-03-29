@@ -1,5 +1,6 @@
 ---
 pubDatetime: 2024-09-15T17:03:46.000+08:00
+modDatetime: 2025-03-29T11:19:44Z
 title: How do I manage my photos?
 permalink: how-do-i-manage-my-photos
 featured: false
@@ -82,7 +83,7 @@ I tried several popular solutions and ultimately chose [MT Photos](https://mtmt.
           <li><mark>In-place management of existing files</mark> (scan and analyze directly after mapping the directory, without changing the directory structure)</li>
         </ol>
       </td>
-      <td>The mobile APP requires payment; The mobile APP lacks the "Synchronize only specified time range" feature.</td>
+      <td>Require payment; The mobile APP lacks the "Synchronize only specified time range" feature.</td>
     </tr>
   </tbody>
 </table>

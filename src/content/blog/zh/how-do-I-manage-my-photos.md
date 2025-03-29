@@ -1,5 +1,6 @@
 ---
 pubDatetime: 2024-09-15T17:03:46.000+08:00
+modDatetime: 2025-03-29T11:19:44Z
 title: 我是如何管理我的照片的
 permalink: how-do-i-manage-my-photos
 featured: false
@@ -82,7 +83,7 @@ description: 随着照片越来越多，iCloud、MiCloud 已经完全不划算�
           <li><mark>已有文件原地管理</mark>（映射目录后直接扫描分析，不会更改目录结构）</li>
         </ol>
       </td>
-      <td>APP 需要付费；APP 缺少“仅同步指定时间范围”功能</td>
+      <td>需要付费；APP 缺少“仅同步指定时间范围”功能</td>
     </tr>
   </tbody>
 </table>
