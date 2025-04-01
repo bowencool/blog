@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-08-17T11:14:15.000+08:00
-modDatetime: 2025-03-03T01:56:42Z
+modDatetime: 2025-04-01T08:02:34Z
 title: 处理外汇收入
 permalink: handle-foreign-income
 featured: false
@@ -35,7 +35,7 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
         ->
         <a href="https://ibkr.com/referral/bowen379">IBKR</a>
       </td>
-      <td><mark>1.13USD</mark></td>
+      <td>1.13USD</td>
       <td>-</td>
       <td>一天之内</td>
       <td>
@@ -53,7 +53,7 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
     </tr>
     <tr>
       <td><a href="https://wise.com/zh-cn/help/articles/2955298/%E4%BA%BA%E6%B0%91%E5%B8%81%E6%B1%87%E6%AC%BE%E6%8C%87%E5%8D%97">Wise</a> -> OCBC(邀请码<code>JS5U37JB</code>)</td>
-      <td><mark>0.3%</mark>(仅换汇损耗)</td>
+      <td>0.3%(仅换汇损耗)</td>
       <td>-</td>
       <td>即时</td>
       <td>
@@ -69,34 +69,26 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
             可在全球刷卡消费（开通360账户，会有一个虚拟借记卡，可以绑定微信/支付宝/Apple Pay/Google Pay 等，也可以申请实体卡平邮到国内。）
           </li>
           <li>
-            可以开通<a href="https://activity.lbmkt.ing/pages/longbridge/7415/index.html?app_id=longbridge&org_id=1&channel=HM20240006&account_channel=lb&lang=zh-CN&invite-code=J2PQM7&utm_source=longbridge_app_share">长桥证券(新加坡)</a>、<a href="https://m.usmartsg.com/promo/overseas/bonus-dec.html?ICode=7lft&langType=1&Id=">uSMART 盈力证券</a>，炒美股、港股、新加坡股。
+            可以开通<a href="https://activity.lbmkt.ing/pages/longbridge/7415/index.html?app_id=longbridge&org_id=1&channel=HM20240006&account_channel=lb&lang=zh-CN&invite-code=J2PQM7&utm_source=longbridge_app_share">长桥证券(新加坡)</a>、<a href="https://m.usmartsg.com/promo/overseas/bonus-dec.html?ICode=7lft&langType=1&Id=">uSMART 盈力证券</a>（不好用），炒美股、港股、新加坡股。
           </li>
         </ul>
         还回啥国？我的邀请码是<code>JS5U37JB</code>，30 天内入金 S$1000 激活，有 S$15(≈¥82) 奖励！
       </td>
     </tr>
     <tr>
-      <td><a href="https://wise.com/invite/dic/gpwpbk5">Wise</a> -> <a href="https://ibkr.com/referral/bowen379">IBKR</a> -> OCBC
+      <td><a href="https://wise.com/invite/dic/gpwpbk5">Wise</a> -> <a href="https://ibkr.com/referral/bowen379">IBKR</a> -> OCBC/iFast/...
       </td>
-      <td><mark>1.13USD+max(2USD,0.002%)</mark></td>
+      <td>1.13USD + max(2USD, 0.002%)</td>
       <td>-</td>
-      <td>3~5个工作日</td>
-      <td>IBKR 换汇成功还需要等待 3 个工作日才能取出</td>
-    </tr>
-    <tr>
-      <td><a href="https://wise.com/invite/dic/gpwpbk5">Wise</a> -> <a href="https://ibkr.com/referral/bowen379">IBKR</a> -> iFast
-      </td>
-      <td><mark>1.13USD+max(2USD,0.002%)</mark></td>
-      <td>-</td>
-      <td>3~5个工作日</td>
-      <td>-</td>
+      <td>1~4个工作日</td>
+      <td>IBKR 不能转出三个工作日内的入金（如果你 IBKR 已经有余额了，则可以换血转出）</td>
     </tr>
     <tr>
       <td>
         <a href="https://wise.com/zh-cn/help/articles/2955298/%E4%BA%BA%E6%B0%91%E5%B8%81%E6%B1%87%E6%AC%BE%E6%8C%87%E5%8D%97">Wise</a><br> ->
         <a href="https://www.ifastgb.com/tellafriend/bowenz9247">iFast</a> (IBAN方式)
       </td>
-      <td><mark>0.3%</mark>(仅换汇损耗)</td>
+      <td>0.3%(仅换汇损耗)</td>
       <td>-</td>
       <td>即时</td>
       <td>
