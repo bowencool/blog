@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-09-17T01:06:34Z
+modDatetime: 2025-04-12T07:06:40Z
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -16,14 +16,14 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 ## 文件共享功能的使用
 
-- 内网千兆的 SMB 网盘，几乎所有数码设备都原生支持。
-  - 配合 OpenVPN 可以在外面访问。
-  - 装一个 WebDAV 可以实现 HTTP 访问。_重要数据切勿暴露到外网_
+- 内网 2.5Gpbs 的 SMB 网盘，几乎所有数码设备都原生支持。
+  - [配合 OpenVPN/Tailscale/WireGuard/Frp 等在外面访问](/zh/posts/how-to-connect-to-the-home-intranet-from-outside)。
+  - 装一个 [WebDAV](https://github.com/hacdias/webdav) 实现 HTTPS 访问。_重要数据切勿暴露到外网_
   - 以 Mac OS Finder 为例：
     - 同一个局域网内，会收到广播，直接侧边栏寻找即可。
     - 如果没找到或者是在外面通过 VPN 访问，点击“前往 > 连接服务器”，根据协议输入 URL 即可在侧边栏找到
-- 自带奇偶校验，随意一块硬盘坏了都可以直接用新硬盘恢复。大大提升容错性。
-- 配合 RClone 定期备份到 xx网盘云盘 / OSS。
+- 自带奇偶校验(RAID5)，随意一块硬盘坏了都可以直接用新硬盘恢复。大大提升容错性。
+- [定期使用 RClone 进行加密备份到网盘/云盘/OSS。](/zh/offsite-disaster-recovery-for-unraid-with-rclone)
 - 自带权限管理。
 - 可以给 Mac 当 Time Machine 备份盘，全程无线备份，开启自动备份实现无感。
 - 摄像头监控视频储存。
@@ -44,7 +44,7 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 ### Compose Manager
 
-给 unRAID 添加 docker-compose 及管理面板。不能自定义图标就很烦。
+给 unRAID 添加 docker-compose 及管理面板。
 
 ### USB Manager
 
@@ -52,22 +52,7 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 ### User Scripts
 
-定时任务。我没用 crontab 的原因有两个：
-
-1. 所有配置、脚步都在 Flash 备份范围内。（crontab 也可以通过文件的方式 `crontab ~/.crontab` 恢复）
-2. 简单的管理页面和日志管理。
-
-有些复杂的 cron 不生效，自己权衡一下吧。
-
-### NerdTools
-
-包管理器。目前安装了 vim、zsh、nodejs。
-
-### ~~Dynamix File Manager~~
-
-> unRAID 7 已集成。
-
-直接在 unraid 后台管理页面上嵌一个文件管理器，有点作用，但不大。
+定时任务。对比 crontab 多了简单的 UI 和日志管理。但是有些复杂的 cron 表达式不生效，不太推荐。
 
 ### RClone
 
@@ -83,15 +68,9 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 这个步骤需要买网卡硬件，然后直通给虚拟机，参考 B 站司波图的教程。
 
-1. DDNS：用于将域名自动解析到正确的公网 IP，因为电信宽带的公网 IP 隔三差五就会变化，而且固定公网 IP 太贵了。
+1. DDNS：用于将域名自动解析到正确的公网 IP，因为国内宽带的公网 IP 隔三差五就会变化，而且固定公网 IP 太贵了。
 2. OpenClash + MosDNS：科学上网。
-3. 其他插件我还没有精力、或者暂时没需求研究，比如广告屏蔽、流量管控等。
-
-### CentOS
-
-主要装 OpenVPN，详情查看[这篇文章](/zh/posts/how-to-connect-to-the-home-intranet-from-outside)
-
-因为 docker 版本已经不再维护，所以装到虚拟机了。
+3. 其他插件我懒得研究，比如广告屏蔽、流量管控等。
 
 ### ~~Windows 10~~
 
@@ -117,19 +96,12 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 基础设施。
 
-### Nginx
-
-> 为了方便自动更新证书，已经移动到虚拟机里。
-
-用来
+### Nginx + [certimate](https://github.com/usual2970/certimate)/[certd](https://github.com/certd/certd)
 
 1. 分配域名代替 [IP]:[Port]
-2. 统一处理 https
-   1. 证书用 Certbot 申请的，官网上写需要 80 端口开放，我被误导了很久，用了好久的自签证书。详情请查看[无 80 端口情况下使用 CertBot 申请SSL证书](https://www.cnblogs.com/ellisonzhang/p/14298492.html)。
-   2. 自动续期：主要是用 [SDK](https://next.api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09) 往 DNS 解析里添加/修改一条 TXT 记录。阿里云的 API 文档在[这里](https://help.aliyun.com/document_detail/29745.html) ，大概两三个小时开发完成，[代码在此](https://gist.github.com/bowencool/d0bce4bfb853c7ec1b1a4964e9371381)。
-      1. 最近看到了 docker 版的自动申请证书，还没使用：https://github.com/certd/certd
+2. 统一处理 https 证书和 CORS 等等常见配置，专业的事情交给专业的软件。
 
-### Tailscale
+### Tailscale / Frpc
 
 详情查看[这篇文章](/zh/posts/how-to-connect-to-the-home-intranet-from-outside)
 
@@ -177,9 +149,9 @@ EnPass 也能私有部署但功能太简陋了。
 
 tips: Authenticator 放在手表上非常合适，不用找手机，~~微软家的 Authenticator 支持 iCloud 同步~~，salesforce 家的 Authenticator 支持 Apple Watch 上查看。用了一圈，强烈推荐 2FAS Auth，近期已经开源，就差 Apple Watch 功能发布了
 
-### ~~Home Assistant~~
+### Home Assistant
 
-智能家居控制中心，可以把不同品牌的智能家居接到一起，举个例子，可以用 Siri 关米家的灯了。**我的评价是可玩性高，自定义强，但并不值得耗费这么大的精力，非常折腾，不如直接用米家**。
+智能家居控制中心，可以把不同品牌的智能家居接到一起，举个例子，可以用 Siri 关米家的灯了。**我的评价是可玩性高，自定义强，但并不值得耗费这么大的精力，非常折腾，不如直接用米家**。[米家官方插件](https://github.com/XiaoMi/ha_xiaomi_home)正在频繁更新，期待它成熟的那一天。
 
 ### ~~NextCloud~~
 
@@ -216,9 +188,11 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 它可以代替 Nginx(autoindex) 托管 Public 文件夹，以便分享给朋友，或者让朋友直接上传。
 
+而且它的 WebDAV 协议没有实现 PROPFIND 方法，会导致 Tampermonkey 无限循环。
+
 我之前试过它的权限管理，下载链接没有鉴权...我不太信任它。
 
-### [WebDAV](https://hub.docker.com/r/bytemark/webdav)
+### [WebDAV](https://github.com/hacdias/webdav)
 
 如果你装了 Nextcloud 或 Alist，那就不需要装这个了。
 
@@ -272,7 +246,7 @@ PDF 的各种操作。使用频率非常低，只用过一次签名。也有很�
 
 虽说不至于判个破坏计算机系统罪，但封号还是很有可能的，不用了。
 
-### ~~Wiznot(为知笔记)e~~ / ~~Joplin~~ / ~~AppFlowy~~
+### ~~Wiznot(为知笔记)e~~ / ~~Joplin~~ / ~~AppFlowy~~ / Docmost
 
 我最后还是决定用 IDE + Git 的方式代替这些笔记软件。我认为笔记软件做的再好，跟 IDE 比永远是小儿科。IDE 可以借助插件拥有无限可能，而且符合你的书写习惯。
 
@@ -306,13 +280,15 @@ FreshRSS 的作用是全平台同步以及精细化管理，不是必须的，�
 
 ### ~~弃用光猫~~
 
-最近换过一次光猫（新的电信光猫都是这样了），然后出现一个问题：域名是解析到光猫的，从公网访问正常，从内网却无法访问，之前是好的，也没找到原因，推测是光猫拦截了。目前手动在 OpenWrt 修改 host 记录勉强能用。有知道的欢迎留言。~~我想买一个光转电模块直接插在 NAS 上，但是好像又没必要。~~需要猫棒来仿冒光猫，没必要折腾。
+~~最近换过一次光猫（新的电信光猫都是这样了），然后出现一个问题：域名是解析到光猫的，从公网访问正常，从内网却无法访问，之前是好的，也没找到原因，推测是光猫拦截了。目前手动在 OpenWrt 修改 host 记录勉强能用。有知道的欢迎留言。我想买一个光转电模块直接插在 NAS 上，但是好像又没必要。~~
 
 优点：
 
 1. 解决这个回环访问的问题
 2. 略微增加带宽，预估 5%~10%
 3. 不需要端口转发了
+
+没必要折腾：需要猫棒来仿冒光猫；而且光猫也有网络保护的作用。
 
 ### 研究一下 ZFS（RAID-Z）
 
@@ -342,6 +318,6 @@ unRAID 6.12 已经支持。unRAID 7 已经支持使用 RAID-Z 代替传统阵列
 
 ### 通过 IPv6 访问内网服务
 
-最终形态：DDNS(IPv6) 直接指向 Nginx，Nginx 再转发给内网 IPv4 服务（Docker 容器）。我现在又有公网 IPv4 了，双栈解析。
+最终形态：DDNS(IPv6) 直接指向 Nginx，Nginx 再转发给内网 IPv4 服务（Docker 容器）。
 
 可以看下[这个帖子](https://www.v2ex.com/t/488116)及里面提到的链接。

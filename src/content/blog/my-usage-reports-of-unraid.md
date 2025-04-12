@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2024-09-17T01:06:34Z
+modDatetime: 2025-04-12T07:06:40Z
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -16,14 +16,14 @@ unRAID is a home NAS system, and it's also my first time using a NAS. Because so
 
 ## Usage of File Sharing Function
 
-- Gigabit SMB network drive in the local network, almost all digital devices support it natively.
-  - Can be accessed remotely with OpenVPN.
-  - Installing a WebDAV can enable HTTP access. _Important data should not be exposed to the public network_
+- 2.5Gpbs SMB network drive in the local network, almost all digital devices support it natively.
+  - [Can be accessed remotely with OpenVPN/Tailscale/WireGuard/Frp](/posts/how-to-connect-to-the-home-intranet-from-outside)。
+  - Installing a [WebDAV](https://github.com/hacdias/webdav) can enable HTTP access. _Important data should not be exposed to the public network_
   - For example, in Mac OS Finder:
     - In the same local area network, you will receive broadcasts, and you can find it directly in the sidebar.
     - If you can't find it or are accessing it via VPN from outside, click "Go > Connect to Server", enter the URL according to the protocol, and you can find it in the sidebar.
-- Built-in parity check, any hard drive can be directly replaced and recovered with a new one. Greatly improves fault tolerance.
-- Regular backup to xx network cloud disk / OSS with RClone.
+- Built-in parity check(RAID5), any hard drive can be directly replaced and recovered with a new one. Greatly improves fault tolerance.
+- [Periodic encrypted backup to XX Network Cloud Disk/OSS using RClone.](/posts/offsite-disaster-recovery-for-unraid-with-rclone)
 - Built-in permission management.
 - Can be used as a Time Machine backup disk for Mac, wireless backup throughout, automatic backup for seamless experience.
 - Storage for surveillance camera footage.
@@ -44,7 +44,7 @@ Unassigned devices outside the array, such as USB flash drives, removable drives
 
 ### Compose Manager
 
-Adds docker-compose and a management panel to unRAID. Not being able to customize the icon is annoying.
+Adds docker-compose and a management panel to unRAID.
 
 ### USB Manager
 
@@ -52,22 +52,7 @@ Allows easy management of USB devices, which can be assigned directly to VMs. Li
 
 ### User Scripts
 
-Timed tasks. I don't use crontab for two reasons:
-
-1. all configurations, scripts are within Flash backup. (crontab can also be restored as a file `crontab ~/.crontab`)
-2. Simple dashboard and log management.
-
-Some complex cron doesn't work, so weigh it yourself.
-
-### NerdTools
-
-Package manager. Currently vim, zsh, and nodejs are installed.
-
-### ~~Dynamix File Manager~~
-
-> unRAID 7 has integrated it.
-
-A file manager embedded directly in the unraid backend admin page, which is somewhat useful, but not much.
+Scheduled tasks. Compared to crontab, it has a simple UI and log management. However, some complex cron expressions do not work, and it is not recommended.
 
 ### RClone
 
@@ -83,15 +68,9 @@ For details, check out: [How to connect to home intranet from outside?](/posts/h
 
 This step requires purchasing a network card hardware, then passing it through to the virtual machine, refer to Spoto's tutorial on Bilibili.com.
 
-1. DDNS: Used to automatically resolve domain names to the correct public IP, because the public IP of telecom broadband changes every now and then, and fixed public IP is too expensive.
+1. DDNS: Used to automatically resolve domain names to the correct public IP, because the public IP of Chinese broadband changes every now and then, and fixed public IP is too expensive.
 2. OpenClash + MosDNS: Special demand on the Chinese network.
-3. Other plugins I haven't had the energy, or the need to look into for a while, such as adblocking and traffic control.
-
-### CentOS for OpenVPN
-
-For details, check out [this article](/posts/how-to-connect-to-the-home-intranet-from-outside)
-
-Since the docker version is no longer maintained, it's loaded into a virtual machine.
+3. Other plugins I was lazy to explore, such as adblocking and traffic control.
 
 ### ~~Windows 10~~
 
@@ -117,17 +96,12 @@ Reasons for choosing Ubuntu:
 
 Infrastructure.
 
-### Nginx
-
-> has been moved to a virtual machine to facilitate automatic certificate renewal.
+### Nginx + [certimate](https://github.com/usual2970/certimate)/[certd](https://github.com/certd/certd)
 
 Used for
 
 1. Allocate domain names instead of [IP]:[Port]
-2. Unified handling of https
-   1. The certificate is applied for using Certbot, and the official website states that port 80 needs to be open. I was misled for a long time and used self-signed certificates for a long time. For details, please refer to [Applying SSL Certificate with CertBot without Port 80](https://www.cnblogs.com/ellisonzhang/p/14298492.html).
-   2. Automatic renewal: mainly use the [SDK](https://next.api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09) to add/modify a TXT record in DNS resolution. Aliyun's API documentation is available [here](https://help.aliyun.com/document_detail/29745.html). It took about two or three hours to develop, and the code is available [here](https://gist.github.com/bowencool/d0bce4bfb853c7ec1b1a4964e9371381).
-      1. I recently saw the docker version of auto-requesting certificates, haven't used it yet: https://github.com/certd/certd
+2. Unified processing of common configurations such as https certificates and CORS, and leave professional matters to professional software.
 
 ### Tailscale
 
@@ -181,7 +155,7 @@ Tips: Authenticator on a smartwatch works well as you don't have to find your ph
 
 ### Home Assistant
 
-A smart home control center that can connect different brands of smart home devices together. For example, you can use Siri to control Xiaomi's lights. **My evaluation is that it has high playability and strong customization, but it's not worth the effort. It's very troublesome, better to just use Mi Home directly.**.
+A smart home control center that can connect different brands of smart home devices together. For example, you can use Siri to control Xiaomi's lights. **My evaluation is that it has high playability and strong customization, but it's not worth the effort. It's very troublesome, better to just use Mi Home directly.**. The [Official Mi Home Integration](https://github.com/XiaoMi/ha_xiaomi_home) is being updated frequently, looking forward to the day it matures.
 
 ### ~~NextCloud~~
 
@@ -220,7 +194,9 @@ It can replace Nginx(autoindex) to host a Public folder for sharing with friends
 
 I have tried its permission management before; the download links had no authentication... I don't quite trust it.
 
-### [WebDAV](https://hub.docker.com/r/bytemark/webdav)
+And its WebDAV protocol does not implement the PROPFIND method, which will cause Tampermonkey to enter an infinite loop.
+
+### [WebDAV](https://github.com/hacdias/webdav)
 
 If you have installed Nextcloud or Alist, then you don't need to install this.
 
@@ -270,7 +246,7 @@ After using it for a while, hundreds of Jingdong beans were credited to my accou
 
 Although it may not be enough to be convicted of damaging computer systems, being banned is still very likely, so I stopped using it.
 
-### ~~Wiznote~~ / ~~Joplin~~ / ~~AppFlowy~~
+### ~~Wiznote~~ / ~~Joplin~~ / ~~AppFlowy~~ / Docmost
 
 In the end, I decided to use IDE + Git instead of these note-taking software. I think no matter how well note-taking software is done, it will always be inferior to IDE. IDE can have unlimited possibilities with plugins and can conform to your writing habits.
 
@@ -330,6 +306,6 @@ Disadvantages:
 
 ### Accessing Intranet Services via IPv6
 
-Final form: DDNS (IPv6) directly points to Nginx, which then forwards to the intranet IPv4 service (Docker container). I now have a public IPv4 address again, with dual-stack resolution.
+Final form: DDNS (IPv6) directly points to Nginx, which then forwards to the intranet IPv4 service (Docker container).
 
 You can take a look at [this post](https://www.v2ex.com/t/488116) and the links mentioned within.
