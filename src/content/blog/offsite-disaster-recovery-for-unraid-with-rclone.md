@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-14T07:55:35Z
-modDatetime: 2024-08-29T13:14:55Z
+modDatetime: 2025-04-28T02:13:26Z
 title: How to use RClone to backup your data to cloud drives/storages
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
 featured: true
@@ -145,13 +145,7 @@ After the operation is completed, you can obtain a remote connection equivalent 
 
 ### Install User Scripts
 
-I achieved scheduled tasks through the User Scripts plugin, which can be found by searching in the APPS panel.
-
-There are two reasons why I didn't use crontab:
-
-1. To decouple from unRAID as much as possible, all data is at the plugin level and will be cleared upon uninstallation. I have rolled back before due to consecutive upgrades of beta systems.
-
-2. Visual management.
+I achieved scheduled tasks through the User Scripts plugin, which can be found by searching in the APPS panel. You can also use the system's built-in crontab.
 
 ### Add a task
 

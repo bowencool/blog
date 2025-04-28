@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-14T07:55:35Z
-modDatetime: 2024-10-31T03:15:48Z
+modDatetime: 2025-04-28T02:13:26Z
 title: 使用 RClone 实现 unRAID 的异地容灾
 featured: true
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
@@ -144,12 +144,7 @@ pass = xxx
 
 ### 安装 User Scripts
 
-我是通过 User Scripts 这个插件实现的定时任务，通过 APPS 面板搜索即可。
-
-我没用 crontab 的原因有两个：
-
-1. 尽可能与 unRAID 解耦，所有数据都是插件级的，卸载即清空。之前因为连续升级 beta 系统而回滚过。
-2. 可视化管理。
+我是通过 User Scripts 这个插件实现的定时任务，通过 APPS 面板搜索即可。也可以使用系统自带的 crontab。
 
 ### 添加任务
 
