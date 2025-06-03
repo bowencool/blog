@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-14T07:55:35Z
-modDatetime: 2025-04-28T02:13:26Z
+modDatetime: 2025-06-03T04:04:11Z
 title: How to use RClone to backup your data to cloud drives/storages
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
 featured: true
@@ -195,17 +195,29 @@ By the way, I'd like to share a script with a compressed and dated version.
 
 ```bash
 #!/bin/bash
-NOW=`date +"%Y-%m-%d"`
-cd /mnt/user
+cd /mnt/user/appdata
 
-LOCAL_PATH=/tmp/appdata.tar.gz
-REMOTE_PATH=/unraid/appdata/$NOW/
+TODAY=`date +'%Y%m%d'`
+NAME=appdata_$TODAY.tgz
+LOCAL_DIR=/mnt/user/Downloads/tmp
+LOCAL_PATH=$LOCAL_DIR/$NAME
+REMOTE_DIR=/unraid
 
-tar -czvf $LOCAL_PATH appdata
-echo "=> done $LOCAL_PATH"
+mkdir -p $LOCAL_DIR
 
-echo "moving $LOCAL_PATH to $REMOTE_PATH"
-rclone copy $LOCAL_PATH oss:$REMOTE_PATH --progress
+tar\
+   --exclude-from="/boot/config/plugins/user.scripts/scripts/tar_exclude"\
+   --exclude-caches\
+   --exclude-backups\
+   --exclude-vcs\
+   --exclude-vcs-ignores\
+   -czvf $LOCAL_PATH .
+
+echo "uploading to $REMOTE_DIR"
+rclone copy $LOCAL_PATH oss:$REMOTE_DIR --progress
+
+echo "Cleaning up old backups older than 60 days..."
+rclone delete oss:$REMOTE_DIR --include="appdata_*" --min-age 60d --progress
 ```
 
 ## Backup flash
