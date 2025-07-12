@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-14T07:55:35Z
-modDatetime: 2025-06-03T04:04:11Z
+modDatetime: 2025-07-12T10:20:42Z
 title: 使用 RClone 实现 unRAID 的异地容灾
 featured: true
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
@@ -204,6 +204,8 @@ REMOTE_DIR=/unraid
 
 mkdir -p $LOCAL_DIR
 
+# 注意：通过直接的文件操作来备份一个正在运行的复杂数据库(MySQL, PostgreSQL, SQLite)是行不通的，100%不能恢复。
+# 得先把数据库停掉，再备份文件才能有效。或者是使用数据库系统自身提供的专用备份工具，通过标准的客户端连接来执行备份操作。
 tar\
    --exclude-from="/boot/config/plugins/user.scripts/scripts/tar_exclude"\
    --exclude-caches\

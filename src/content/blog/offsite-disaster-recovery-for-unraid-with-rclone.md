@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-14T07:55:35Z
-modDatetime: 2025-06-03T04:04:11Z
+modDatetime: 2025-07-12T10:20:42Z
 title: How to use RClone to backup your data to cloud drives/storages
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
 featured: true
@@ -205,6 +205,8 @@ REMOTE_DIR=/unraid
 
 mkdir -p $LOCAL_DIR
 
+# Note: It is not feasible to back up a running complex database (MySQL, PostgreSQL, SQLite) through direct file operations, it will not be recoverable 100%.
+# First, the database needs to be stopped before backing up the files to be effective. Or use the specialized backup tools provided by the database system, and perform the backup operation through a standard client connection.
 tar\
    --exclude-from="/boot/config/plugins/user.scripts/scripts/tar_exclude"\
    --exclude-caches\
