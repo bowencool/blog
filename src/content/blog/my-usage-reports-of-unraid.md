@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2025-07-13T07:04:19Z
+modDatetime: 2025-07-13T07:13:43Z
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -96,7 +96,7 @@ Reasons for choosing Ubuntu:
 
 Infrastructure.
 
-### Nginx + [certimate](https://github.com/usual2970/certimate)/[certd](https://github.com/certd/certd)
+### Nginx + [certd](https://github.com/certd/certd)/~~[certimate](https://github.com/usual2970/certimate)~~
 
 Used for
 
@@ -182,7 +182,7 @@ I have gave up Syncthing for the following reasons:
 1. Syncthing's ignore syntax is too non-mainstream, and it seems that its ignored file do not sync between devices.
 2. After restored from Time Machine, Syncthing actually requires manual resetting of ID before it can be used again; truly troublesome.
 
-### AList
+### ~~AList~~ OpenList
 
 Web version of the file browser, which has many features, such as support for cloud storage, synchronization, and downloading.
 
@@ -198,13 +198,13 @@ And its WebDAV protocol does not implement the PROPFIND method, which will cause
 
 ### [WebDAV](https://github.com/hacdias/webdav)
 
-If you have installed Nextcloud or Alist, then you don't need to install this.
+If you have installed Nextcloud or OpenList, then you don't need to install this.
 
 Similar to SMB, WebDAV uses the HTTP protocol. Some third-party clients support WebDAV synchronization (mostly Chrome extensions), so I installed it for that purpose.
 
 ### [aliyundrive-webdav](https://hub.docker.com/r/messense/aliyundrive-webdav)
 
-If you have installed Alist, then you don't need to install this.
+If you have installed OpenList, then you don't need to install this.
 
 This is an implementation of webDAV for Aliyun Drive mainly used for backup purposes. There are some caching issues but they are not significant.
 
@@ -238,7 +238,7 @@ Download videos from various websites in one click, similar to Downie. I occasio
 
 Home theater service. My little integrated graphics are struggling a bit. It's a bit redundant for ordinary people, not as convenient as screen casting.
 
-However, I recently used it to [build my own music streaming service](/zh/posts/self-host-music-streaming-service), and it was really enjoyable.
+However, I recently used it to [self-host my own music streaming service](/posts/self-host-music-streaming-service), and it was really enjoyable.
 
 ### ~~[QingLong](https://hub.docker.com/r/whyour/qinglong)~~
 

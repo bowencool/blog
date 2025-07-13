@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2025-07-13T07:04:19Z
+modDatetime: 2025-07-13T07:13:43Z
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -96,7 +96,7 @@ unRAID 是一个家用 NAS 系统，也是我第一次接触 NAS，因为有朋�
 
 基础设施。
 
-### Nginx + [certimate](https://github.com/usual2970/certimate)/[certd](https://github.com/certd/certd)
+### Nginx + [certd](https://github.com/certd/certd)/~~[certimate](https://github.com/usual2970/certimate)~~
 
 1. 分配域名代替 [IP]:[Port]
 2. 统一处理 https 证书和 CORS 等等常见配置，专业的事情交给专业的软件。
@@ -178,7 +178,7 @@ Syncthing、Seafile 和 rclone 之间的区别在于：Syncthing 是后台实时
 1. Syncthing ignore 语法太非主流，而且 ignore 文件不会在各设备间同步。
 2. 使用 Time Machine 恢复后，Syncthing 竟然还要手动重置一下 ID 才能用，真是自找麻烦。
 
-### AList
+### ~~AList~~ OpenList
 
 Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下载。
 
@@ -194,13 +194,13 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 ### [WebDAV](https://github.com/hacdias/webdav)
 
-如果你装了 Nextcloud 或 Alist，那就不需要装这个了。
+如果你装了 Nextcloud 或 OpenList，那就不需要装这个了。
 
 和 SMB 差不多，WebDAV 是 HTTP 协议。有些第三方客户端支持 WebDAV 同步（Chrome 扩展程序居多），所以就装了一个。
 
 ### [aliyundrive-webdav](https://hub.docker.com/r/messense/aliyundrive-webdav)
 
-如果你装了 Alist，那就不需要装这个了。
+如果你装了 OpenList，那就不需要装这个了。
 
 阿里云盘的 webDAV 实现，主要做备份用的。有缓存问题，问题不大。
 
