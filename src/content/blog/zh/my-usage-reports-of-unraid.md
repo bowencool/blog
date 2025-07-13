@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2025-04-12T07:06:40Z
+modDatetime: 2025-07-13T07:04:19Z
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -234,9 +234,11 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 PDF 的各种操作。使用频率非常低，只用过一次签名。也有很多免费的在线版，但安全/隐私没保障。
 
-### ~~Jellyfin~~
+### Jellyfin
 
 家庭影院服务。我的小核显有点吃力。对于普通人来说有点鸡肋，不如投屏方便。
+
+但是，我最近用它[自建了音乐流媒体](/zh/posts/self-host-music-streaming-service)，还是很爽的。
 
 ### ~~[QingLong](https://hub.docker.com/r/whyour/qinglong)~~
 

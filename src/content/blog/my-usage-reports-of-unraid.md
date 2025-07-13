@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2025-04-12T07:06:40Z
+modDatetime: 2025-07-13T07:04:19Z
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -234,9 +234,11 @@ By the end of 2022, I switched to using [Aria2-Pro](https://p3terx.com/archives/
 
 Download videos from various websites in one click, similar to Downie. I occasionally use it to download music.
 
-### ~~Jellyfin~~
+### Jellyfin
 
 Home theater service. My little integrated graphics are struggling a bit. It's a bit redundant for ordinary people, not as convenient as screen casting.
+
+However, I recently used it to [build my own music streaming service](/zh/posts/self-host-music-streaming-service), and it was really enjoyable.
 
 ### ~~[QingLong](https://hub.docker.com/r/whyour/qinglong)~~
 
