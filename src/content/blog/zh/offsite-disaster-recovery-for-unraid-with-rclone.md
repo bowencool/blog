@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-14T07:55:35Z
-modDatetime: 2025-07-12T10:20:42Z
+modDatetime: 2025-07-14T12:15:28.000+08:00
 title: 使用 RClone 实现 unRAID 的异地容灾
 featured: true
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
@@ -121,7 +121,7 @@ rclone sync /mnt/user/Public remote:/unraid/Public
 
 阿里云盘并没有直接支持，而是通过上文提到的标准协议之一的 WebDAV 实现支持的。
 
-我用的是 [messense/aliyundrive-webdav](https://hub.docker.com/r/messense/aliyundrive-webdav)，你也可以用 alist，支持的国内网盘更多。
+我用的是 [messense/aliyundrive-webdav](https://hub.docker.com/r/messense/aliyundrive-webdav)，你也可以用 openlist，支持的国内网盘更多。
 
 使用 Docker 镜像这个过程就不赘述了，不过我遇到一个坑：
 
@@ -276,7 +276,7 @@ rclone copy secret:/Photos ~/MyPhotos
 ```text
 [secret]
 type = crypt
-remote = alist:/adrive/backup
+remote = openlist:/adrive/backup
 password = *** ENCRYPTED ***
 password2 = *** ENCRYPTED ***
 ```

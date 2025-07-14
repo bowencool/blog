@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-14T07:55:35Z
-modDatetime: 2025-07-12T10:20:42Z
+modDatetime: 2025-07-14T12:15:28.000+08:00
 title: How to use RClone to backup your data to cloud drives/storages
 permalink: offsite-disaster-recovery-for-unraid-with-rclone
 featured: true
@@ -122,7 +122,7 @@ The important thing to note is that there are two synchronization commands:
 
 Aliyun Drive does not have direct support, but is supported through the implementation of one of the standard protocols mentioned earlier, WebDAV.
 
-I use [messense/aliyundrive-webdav](https://hub.docker.com/r/messense/aliyundrive-webdav), and you can also use alist, which supports more domestic cloud drives.
+I use [messense/aliyundrive-webdav](https://hub.docker.com/r/messense/aliyundrive-webdav), and you can also use openlist, which supports more domestic cloud drives.
 
 I won't go into detail about using Docker images in this process. However, I encountered a pitfall:
 
@@ -278,7 +278,7 @@ Once set up for the first time, you can freely paste and modify the configuratio
 ```text
 [secret]
 type = crypt
-remote = alist:/adrive/backup
+remote = openlist:/adrive/backup
 password = *** ENCRYPTED ***
 password2 = *** ENCRYPTED ***
 ```
