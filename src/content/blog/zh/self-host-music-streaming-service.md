@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-13T13:36:23.000+08:00
-modDatetime: 2025-07-14T11:49:16Z
+modDatetime: 2025-07-14T11:53:48.000+08:00
 title: 自建音乐流媒体服务
 permalink: self-host-music-streaming-service
 featured: false
