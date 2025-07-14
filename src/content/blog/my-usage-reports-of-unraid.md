@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2025-07-13T07:13:43Z
+modDatetime: 2025-07-14T21:25:04.000+08:00
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -280,12 +280,6 @@ Each has its own issues, only rlcone is the most stable, see [this article](/pos
 
 Here is the feature I want to implement next. If you have any recommended or updated feature, feel free to share.
 
-### Look into ZFS (RAID-Z)
-
-> Why? Because now array writing will slow down, no matter what system, even using a cable to mount and copy also slows down. I didn't feel it before, but now that I've started editing videos, the materials are easily tens of GBs, and the array performance is really lagging behind.
-
-unRAID 6.12 already supports it. unRAID 7 already supports using RAID-Z instead of traditional arrays.
-
 ## Updates at December 2022
 
 ### IPv6 was enabled on OpenWrt
@@ -311,3 +305,15 @@ Disadvantages:
 Final form: DDNS (IPv6) directly points to Nginx, which then forwards to the intranet IPv4 service (Docker container).
 
 You can take a look at [this post](https://www.v2ex.com/t/488116) and the links mentioned within.
+
+## Updates at July 2025
+
+### Migrated to ZFS
+
+### Look into ZFS (RAID-Z)
+
+> Why? Because now array writing will slow down, no matter what system, even using a cable to mount and copy also slows down. I didn't feel it before, but now that I've started editing videos, the materials are easily tens of GBs, and the array performance is really lagging behind.
+
+I originally planned to set up a RAIDZ1, but I accidentally came across an idea of not setting up RAID at all. It was like a sudden enlightenment. Why should I insist on having redundancy for all data? There's no need. Just protect important data in ZFS, and it's okay if movies, TV series, etc., are lost. They take up space, slow down (the old array) performance, have very low access frequency, and just occupy hard drives, consuming electricity. It's completely unnecessary. I can put them on specific hard drives, and when not used, they can be put into hibernation. I should have realized this earlier.
+
+My important data plus high-frequency accessed data is less than 1TB, just photos, videos, documents, system data, application data, plus game screenshots and recordings, which would be at most 2TB. The growth rate in the future is definitely going to be very slow. Eventually, I gave up on RAIDZ1, and used two 4TB drives to set up a ZFS Mirror. The performance of ZFS Mirror is even better. Other hard drives are used to store unimportant video and film resources, and I also removed the parity drive, releasing the hard drive's inherent performance. Since the access frequency is low, I also set up automatic hibernation, saving electricity costs and extending the life of the hard drive. I'm really a genius!
