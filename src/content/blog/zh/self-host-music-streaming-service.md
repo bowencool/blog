@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-13T13:36:23.000+08:00
-modDatetime: 2025-07-13T07:28:25Z
+modDatetime: 2025-07-14T11:49:16Z
 title: 自建音乐流媒体服务
 permalink: self-host-music-streaming-service
 featured: false
@@ -33,7 +33,7 @@ description: 近几年我用过网易云音乐、Apple Music（国区）、Youtu
 
 缺少的几百首，我自己写脚本对比本地文件和导出列表，发现只要是多个歌手合作的作品，它直接解析失败，写脚本又自动匹配了约200首。
 
-还剩一百多首音乐，自己一个个搜索、试听、下载，没有搜到的或被封禁的音乐，去[HiFiNi](https://www.hifini.com/index-0-2.htm)下载了，最终一千多首全都到本地并且刮削整理好了。
+还剩一百多首音乐，自己一个个搜索、试听、下载，没有搜到的或被封禁的音乐，去HiFiNi(已经[无法访问，查看代替方案](https://v2ex.com/t/1143866))下载了，最终一千多首全都到本地并且刮削整理好了。
 
 硬要说缺点，就是这个项目是作者私人用的，文档几乎没有，UIUX 很原始（虽然用了最新的前端技术，但不是这个时代的交互体验😂），免费公用要啥自行车啊，我反手就是多个账号全都 star。
 
@@ -45,7 +45,7 @@ description: 近几年我用过网易云音乐、Apple Music（国区）、Youtu
 
 最著名的当然是 [Navidrome](https://github.com/navidrome/navidrome) 了，我也试了，发现它不能显示同一个文件夹下的封面 cover.jpg，而 Jellyfin 可以，所以我直接选了 Jellyfin。
 
-客户端用[音流](https://github.com/gitbobobo/StreamMusic)，支持全平台。而且它支持的服务端还挺多的，而且所有基础功能全免费，就冲这格局，我直接付费买断了。
+客户端用[音流](https://github.com/gitbobobo/StreamMusic)，支持全平台。而且它支持的服务端还挺多的，而且所有基础功能全免费，就冲这格局，我直接付费买断了。（是我孤陋寡闻了，Navidrome 客户端挺多的）
 
 我在 MacOS、iPhone、Android 上都装了，除了不能直接搜索和下载网上的新歌，其他体验完美！甚至（管理员账户）可以删除服务器里的音乐！
 
