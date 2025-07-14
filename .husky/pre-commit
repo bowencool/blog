@@ -24,11 +24,11 @@ git diff --cached --name-status |
       if [ "$modDatetimeExists" -eq 0 ]; then
         # 如果 modDatetime 不存在，那么在 pubDatetime 下面插入这个字段
         echo "modDateTime not found, insert it"
-        perl -i -pe "s/(pubDatetime: .*)/\$1\nmodDatetime: $(date "+%Y-%m-%dT%H:%M:%S%z")/g" "$file"
+        perl -i -pe "s/(pubDatetime: .*)/\$1\nmodDatetime: $(date "+%Y-%m-%dT%H:%M:%SZ")/g" "$file"
       else
         # 如果 modDatetime 存在，那么更新这个字段
         echo "modDateTime found, update it"
-        cat $file | sed "/---/,/---/s/^modDatetime:.*$/modDatetime: $(date "+%Y-%m-%dT%H:%M:%S%z")/" >tmp
+        cat $file | sed "/---/,/---/s/^modDatetime:.*$/modDatetime: $(date "+%Y-%m-%dT%H:%M:%SZ")/" >tmp
         mv tmp $file
       fi
       git add $file
