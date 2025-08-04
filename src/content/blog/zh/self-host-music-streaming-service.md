@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-13T13:36:23.000+08:00
-modDatetime: 2025-07-14T11:53:48.000+08:00
+modDatetime: 2025-08-04T23:27:40.000+08:00
 title: 自建音乐流媒体服务
 permalink: self-host-music-streaming-service
 featured: false
@@ -43,9 +43,9 @@ description: 近几年我用过网易云音乐、Apple Music（国区）、Youtu
 
 ## 音乐流媒体服务+客户端
 
-最著名的当然是 [Navidrome](https://github.com/navidrome/navidrome) 了，我也试了，发现它不能显示同一个文件夹下的封面 cover.jpg，而 Jellyfin 可以，所以我直接选了 Jellyfin。
+最著名的当然是 [Navidrome](https://github.com/navidrome/navidrome) 了，但我老早就装了 Jellyfin，都差不多，随便选一个。
 
-客户端用[音流](https://github.com/gitbobobo/StreamMusic)，支持全平台。而且它支持的服务端还挺多的，而且所有基础功能全免费，就冲这格局，我直接付费买断了。（是我孤陋寡闻了，Navidrome 客户端挺多的）
+客户端我目前用[音流](https://github.com/gitbobobo/StreamMusic)，支持全平台。而且它支持的服务端还挺多的，而且所有基础功能全免费，就冲这格局，我直接付费买断了。（是我孤陋寡闻了，Navidrome 客户端挺多的）
 
 我在 MacOS、iPhone、Android 上都装了，除了不能直接搜索和下载网上的新歌，其他体验完美！甚至（管理员账户）可以删除服务器里的音乐！
 
