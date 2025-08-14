@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-08-17T11:14:15.000+08:00
-modDatetime: 2025-04-01T08:02:34Z
+modDatetime: 2025-08-14T21:05:42.000+08:00
 title: 处理外汇收入
 permalink: handle-foreign-income
 featured: false
@@ -47,6 +47,8 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
           <li>
             可以交易世界各地的股票。
           </li>
+          <li>极低的换汇成本。</li>
+          <li>每月一次免费提现。</li>
         </ul>
         还回啥国？通过我的<a href="https://ibkr.com/referral/bowen379">邀请链接</a>开户，奖励是第一年入金 1% 的等额股票。
       </td>
@@ -60,10 +62,10 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
         OCBC 是新加坡第二大银行：
         <ul>
           <li>
-            全中文在线开户（需在手机上操作，只需要护照），而且提交后秒通过。
+            <s>全中文在线开户（需在手机上操作，只需要护照），而且提交后秒通过。</s> 关门了，不给外国人注册了。。。
           </li>
           <li>
-            美元定期 4% 以上（可以根据规则叠加利率）。
+            美元定期 <s>4% 以上</s>降息了目前 3.8% 左右（可以根据规则叠加利率），作为对比，余额宝利率 1.5% 左右。
           </li>
           <li>
             可在全球刷卡消费（开通360账户，会有一个虚拟借记卡，可以绑定微信/支付宝/Apple Pay/Google Pay 等，也可以申请实体卡平邮到国内。）
@@ -78,7 +80,7 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
     <tr>
       <td><a href="https://wise.com/invite/dic/gpwpbk5">Wise</a> -> <a href="https://ibkr.com/referral/bowen379">IBKR</a> -> OCBC/iFast/...
       </td>
-      <td>1.13USD + max(2USD, 0.002%)</td>
+      <td>1.13USD + min(2USD, 0.002%)</td>
       <td>-</td>
       <td>1~4个工作日</td>
       <td>IBKR 不能转出三个工作日内的入金（如果你 IBKR 已经有余额了，则可以换血转出）</td>
@@ -92,8 +94,8 @@ description: 最近我成为了一名数字游民，在这里分享一下我是�
       <td>-</td>
       <td>即时</td>
       <td>
-        iFast 转到支付宝无手续费（本人未验证）。<br>
-        iFast 甚至还有 <mark>4% 活期利率（定期可以达到 4.5%）</mark>，这利率还回啥国啊！<br>
+        iFast 转到支付宝无手续费?（本人未验证）<br>
+        iFast 甚至还有<s>4% 活期利率，定期可以达到 4.5%</s>，降息了目前 3.8% 左右，作为对比，余额宝利率 1.5% 左右，这利率还回啥国啊！<br>
         而且全程中文资料（身份证或护照）在线开户，使用我的
         <a href="https://www.ifastgb.com/tellafriend/bowenz9247">邀请链接</a>注册完成后并存入 £500，我们俩都有 £5(≈¥47) 奖励！
       </td>
