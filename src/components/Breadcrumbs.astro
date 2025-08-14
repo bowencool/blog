@@ -2,9 +2,7 @@
 import i18next, { t } from "i18next";
 import { localizePath } from "astro-i18next";
 // Remove current url path and remove trailing slash if exists
-const currentUrlPath = Astro.url.pathname
-  .replace(/\/+$/, "")
-  .replace(/^\/zh/, "");
+const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "").replace(/^\/zh/, "");
 
 // Get url array from path
 // eg: /tags/tailwindcss => ['tags', 'tailwindcss']
@@ -30,9 +28,7 @@ const breadcrumbList = currentUrlPath.split("/").slice(1);
         if (breadcrumb.match(/^\d+$/)) {
           return (
             <li>
-              <span aria-current="page">
-                {t("page{{n}}", { n: breadcrumb })}
-              </span>
+              <span aria-current="page">{t("page{{n}}", { n: breadcrumb })}</span>
             </li>
           );
         }
@@ -55,7 +51,7 @@ const breadcrumbList = currentUrlPath.split("/").slice(1);
 
 <style>
   .breadcrumb {
-    @apply mx-auto mb-1 mt-8 w-full max-w-3xl px-4;
+    @apply mx-auto mb-1 mt-8 w-full max-w-5xl px-4;
     a {
       @apply opacity-70 hover:opacity-100;
     }

@@ -4,7 +4,6 @@ import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import Layout from "./Layout.astro";
 
-
 export interface Props {
   frontmatter: {
     title: string;
@@ -19,8 +18,8 @@ const { frontmatter } = Astro.props;
   <Header activeNav="about" />
   <Breadcrumbs />
   <main id="main-content">
-    <section id="about" class="prose mb-28 max-w-3xl prose-img:border-0">
-      <h1 class="text-2xl tracking-wider sm:text-3xl">{frontmatter.title}</h1>
+    <section id="about" class="prose mb-28 max-w-5xl prose-img:border-0">
+      <h1 class="text-2xl tracking-wider sm:text-5xl">{frontmatter.title}</h1>
       <slot />
     </section>
   </main>
