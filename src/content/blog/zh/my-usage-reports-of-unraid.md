@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2025-07-23T16:03:16.000+08:00
+modDatetime: 2025-08-15T12:21:49.000+08:00
 title: 我的 unRAID 使用报告
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -198,7 +198,7 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 ### [WebDAV](https://github.com/hacdias/webdav)
 
-如果你装了 Nextcloud 或 OpenList，那就不需要装这个了。
+如果你装了 Nextcloud 或 OpenList 或 Seafile，那就不需要装这个了。但我个人还是更喜欢使用这些更纯粹、更专业的工具。
 
 和 SMB 差不多，WebDAV 是 HTTP 协议。有些第三方客户端支持 WebDAV 同步（Chrome 扩展程序居多），所以就装了一个。
 
@@ -218,13 +218,9 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 目前已经接入了 OpenVPN 、Gitea。
 
-### ~~Transmission~~
+### ~~Transmission / [qbittorrent](https://github.com/linuxserver/docker-qbittorrent/pkgs/container/qbittorrent) / [Gopeed](https://hub.docker.com/r/liwei2633/gopeed) / [xware](https://hub.docker.com/r/caiguai/docker-xware)~~
 
-下载器，很久没用了。
-
-### ~~[xware](https://hub.docker.com/r/caiguai/docker-xware)~~
-
-迅雷远程下载。装了没用到。
+下载器，几乎用不到。
 
 ### Aria2
 
@@ -234,9 +230,13 @@ Web 版的文件浏览器，功能非常多，比如支持网盘、同步、下�
 
 一键下载各种网站视频，类似于 Downie。我偶尔用它来下载音乐。
 
+### [convertx](https://github.com/c4illin/ConvertX/pkgs/container/convertx)
+
+在线文件转换器，支持1000+种格式
+
 ### Stirling-PDF
 
-PDF 的各种操作。使用频率非常低，只用过一次签名。也有很多免费的在线版，但安全/隐私没保障。
+PDF 的各种操作。使用频率非常低，只用过一次签名功能。
 
 ### Jellyfin
 

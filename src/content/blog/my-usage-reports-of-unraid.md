@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2025-07-23T16:03:16.000+08:00
+modDatetime: 2025-08-15T12:21:49.000+08:00
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -208,7 +208,7 @@ Similar to SMB, WebDAV uses the HTTP protocol. Some third-party clients support 
 
 ### [aliyundrive-webdav](https://hub.docker.com/r/messense/aliyundrive-webdav)
 
-If you have installed OpenList, then you don't need to install this.
+If you have installed OpenList, then you don't need to install this. But I still prefer using these more pure and professional tools.
 
 This is an implementation of webDAV for Aliyun Drive mainly used for backup purposes. There are some caching issues but they are not significant.
 
@@ -222,13 +222,9 @@ Tried FreeIPA, but encountered an error that couldn't be resolved, so I gave up.
 
 Currently integrated with OpenVPN and Gitea.
 
-### ~~Transmission~~
+### ~~Transmission / [qbittorrent](https://github.com/linuxserver/docker-qbittorrent/pkgs/container/qbittorrent) / [Gopeed](https://hub.docker.com/r/liwei2633/gopeed) / [xware](https://hub.docker.com/r/caiguai/docker-xware)~~
 
-A downloader that hasn't been used for a long time.
-
-### ~~[xware](https://hub.docker.com/r/caiguai/docker-xware)~~
-
-Remote download tool for Thunder. Installed but not used.
+Downloaders that haven't been used for a long time.
 
 ### Aria2
 
@@ -237,6 +233,14 @@ By the end of 2022, I switched to using [Aria2-Pro](https://p3terx.com/archives/
 ### [MeTuBe](https://github.com/alexta69/metube)
 
 Download videos from various websites in one click, similar to Downie. I occasionally use it to download music.
+
+### [convertx](https://github.com/c4illin/ConvertX/pkgs/container/convertx)
+
+Online file converter, supports 1000+ formats
+
+### Stirling-PDF
+
+Various operations of PDF. Used very infrequently, only used once for the signature function.
 
 ### Jellyfin
 
