@@ -69,5 +69,8 @@
       "astro-i18next@1.0.0-beta.21": "patches/astro-i18next@1.0.0-beta.21.patch"
     }
   },
-  "packageManager": "pnpm@8.15.6+sha1.8105075ad0aa306138be128c017e9c41e28ecffa"
+  "packageManager": "pnpm@8.15.6+sha1.8105075ad0aa306138be128c017e9c41e28ecffa",
+  "engines": {
+    "node": "20.x"
+  }
 }
