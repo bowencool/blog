@@ -4,11 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-patchedDependencies:
-  astro-i18next@1.0.0-beta.21:
-    hash: h23iai6fwpm2pi5rzzlhffudjq
-    path: patches/astro-i18next@1.0.0-beta.21.patch
-
 dependencies:
   '@astrojs/check':
     specifier: ^0.5.9
@@ -33,7 +28,7 @@ dependencies:
     version: 4.5.18(typescript@5.4.5)
   astro-i18next:
     specifier: ^1.0.0-beta.21
-    version: 1.0.0-beta.21(patch_hash=h23iai6fwpm2pi5rzzlhffudjq)(astro@4.5.18)
+    version: 1.0.0-beta.21(astro@4.5.18)
   fuse.js:
     specifier: ^7.0.0
     version: 7.0.0
@@ -2269,7 +2264,7 @@ packages:
       - supports-color
     dev: true
 
-  /astro-i18next@1.0.0-beta.21(patch_hash=h23iai6fwpm2pi5rzzlhffudjq)(astro@4.5.18):
+  /astro-i18next@1.0.0-beta.21(astro@4.5.18):
     resolution: {integrity: sha512-1YPqwexumHpK/d9afEoi52CBFTu6k4MYv/oHjsaAasZDvFClU6U5VPttC/OgZcXRYggCM6ee2LOnyHqlmXOeLA==}
     hasBin: true
     peerDependencies:
@@ -2288,7 +2283,6 @@ packages:
     transitivePeerDependencies:
       - encoding
     dev: false
-    patched: true
 
   /astro@4.5.18(typescript@5.4.5):
     resolution: {integrity: sha512-iytLnUfyUneKMjIQdj79zzniByXtcmGNDobIV/gjGsatC9vAyPqeCT8TbMqfkRBMeYGs+S/wCzSoPqaaMJiQnw==}
