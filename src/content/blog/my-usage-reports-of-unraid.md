@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2022-08-13T07:16:50Z
-modDatetime: 2025-08-15T12:21:49.000+08:00
+modDatetime: 2025-10-31T16:17:24.000+08:00
 title: My unRAID Usage Report
 permalink: my-usage-reports-of-unraid
 originalUrl: https://github.com/bowencool/blog/issues/17
@@ -159,7 +159,23 @@ Tips: Authenticator on a smartwatch works well as you don't have to find your ph
 
 ### Home Assistant
 
-A smart home control center that can connect different brands of smart home devices together. For example, you can use Siri to control Xiaomi's lights. **My evaluation is that it has high playability and strong customization, but it's not worth the effort. It's very troublesome, better to just use Mi Home directly.**. The [Official Mi Home Integration](https://github.com/XiaoMi/ha_xiaomi_home) is being updated frequently, looking forward to the day it matures.
+A smart home control center that can connect smart home devices from different brands. Here are some examples:
+
+- Use Siri to turn off a Xiaomi light.
+- Midea dishwasher sends a notification via an Xiao AI speaker when washing is complete.
+- Any camera automatically unlocks the door after facial recognition (requires Frigate).
+
+**My evaluation is that it has high playability and strong customization, but it's very fiddly. Once set up, it's much better than Xiaomi Home.** Almost all network-connected devices can be integrated. The [official Xiaomi Home plugin](https://github.com/XiaoMi/ha_xiaomi_home) is frequently updated. ~~I look forward to the day it matures.~~ Just switch to devices that can connect to HA.
+
+### Frigate
+
+A powerful monitoring platform that supports hundreds of object detections, audio detections, and local facial recognition. It can be integrated with Home Assistant for real-time viewing and mobile notifications.
+
+Currently, my indoor cameras focus on detecting child crying sounds and send notifications to my phone, and my outdoor cameras immediately notify my phone when someone is detected. Actual tests show that notifications are delayed by less than 3 seconds from the event's occurrence, which is very fast.
+
+My i3-12100T's integrated graphics are more than enough for two 4K 20fps video streams, with average GPU usage below 10% and CPU usage even below 3%. I can't even see an increase in power consumption.
+
+Any camera that can stream is fine. I recommend onvif and rtsp protocols. Xiaomi cameras don't work; they're too closed. Perhaps they'll open up video streams when the Xiaomi NAS is released, but I'm not waiting. Home cameras are so cheap that I'll just replace them.
 
 ### ~~NextCloud~~
 
