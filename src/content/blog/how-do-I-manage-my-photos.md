@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-09-15T17:03:46.000+08:00
-modDatetime: 2025-03-29T11:19:44Z
+modDatetime: 2025-12-28T14:11:08.000+08:00
 title: How do I manage my photos?
 permalink: how-do-i-manage-my-photos
 featured: false
@@ -111,7 +111,7 @@ Additionally, I set up XiaoMi Cloud for my parents; actually, it could be replac
 
 ## Backup Strategy
 
-Firstly, the array on the NAS comes with redundancy. I use unRAID, similar to RAID 5, which allows any single hard drive to fail without data loss; simply replacing the failed drive will recover the array.
+Firstly, the array on the NAS comes with redundancy. I use ~~unRAID, similar to RAID 5,~~ already migrated to ZFS, which allows any single hard drive to fail without data loss; simply replacing the failed drive will recover the array.
 
 Secondly, cold backups are performed monthly to another separate hard disk.
 
